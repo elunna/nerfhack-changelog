@@ -464,6 +464,7 @@ This chart shows the number of successful uses of a skill required to reach each
 * Disintegration rays can vaporize boulders
 
 #### Refactor, unify, and nerf item destruction
+
 * Ported from xNetHack
 * This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
 
@@ -477,9 +478,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Grease can be washed off towels by wetting them
 * Greased towels now operate the same way that cursed towels do
 
-## MONSTERS
-
-### New monsters
+## NEW MONSTERS
 
 | Monster              | sym | origin      | changes                                                                                   |
 |----------------------|-----|-------------|-------------------------------------------------------------------------------------------| 
@@ -720,7 +719,76 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 
 * Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked. (Evil)
 
-#### Monster spellcasting
+
+#### Misc monster behavior changes
+
+* Monsters with a negative AC get damage reduction from melee attacks (Evil)
+* Monsters will switch to their melee attack intelligently (Spork)
+* When a monster spawns with a weapon, it wields it immediately (xnh)
+* Intelligent monsters pick up keys and lock picks (Un)
+* Magic-liking monsters will pick up magical tools (xnh)
+* Covetous monsters will equip wearable items that they target (xnh)
+* Monsters will use ranged combat in melee as a fallback option (Grunt)
+* Monster stunning has been implemented to more closely mirror the effects it has on players (xnh)
+* Prevent some super strong monsters from generating in the mines
+* Add more spears in monster starting inventory (Fourk)
+* Hallucination protects against skeleton bone rattling (xnh)
+* Headless and breathless monsters don't cough in poison gas clouds
+* Players can use gaze attacks in melee range when polymorphed into monsters with a gaze attack.
+  
+#### Flanking behavior
+
+* Ported from SpliceHack, with enhancements
+* Monsters with this property have the M2_FLANK tag.
+* Any two monsters can flank a player (or another monster) if they sandwich the target. However, monsters with this property ("outflankers") are more tactical and will actively seek opportunities to flank the player.
+* Monsters gain a large bonus to hit when flanking
+* Flanking now scales with monster level (it used to be a flat +4 AC penalty in SpliceHack):
+  * AC penalty = 4 + (mdifficulty - 4) / 2
+* Flanking has been applied to many appropriate monsters in NerfHack.
+
+* Using a pet, you can also take advantage of flanking. Simply place yourself and your pet in such a way as to "sandwich" the monster. You (or your pet) will get a flanking bonus on the victim when attacking.
+
+Flanking restrictions:
+* You cannot flank if hallucinating, afraid, confused, punished, fumbling, wounded, unaware, or stunned.
+* You must also be able to see the monster you want to flank.
+* Monsters cannot flank if eating, sleeping, fleeing, confused, trapped, being stoned, sick, diseased, hiding, or stunned.
+
+#### Berserking behavior
+
+* Ported from EvilHack, with modifications
+* Monsters with this property have the M3_BERSERK tag and can be quite dangerous if you take them for granted
+* When berserkers are below 50% of their health, they have a high chance to go into berserk mode
+* Monsters can also immediately go berserk if they are woken and angered
+* When a monster goes berserk it turns hostile and regains a roll of it's max HP, possibly going far above it's normal max HP
+* Nearby denizens are also woken up when a monster goes berserk (it screams a battle cry)
+* When berserking, monsters totally ignore Elbereth or Scare Monster. If they are usually skittish or trying to keep away, they will instead actively approach
+* When a monster is berserking it also gets -2AC
+* Berserking monsters also never flee when their HP gets low
+* A berserking monster deals double damage rolls when hitting you
+* Taming berserking monsters only un-berserks them, it doesn't pacify or tame
+* Monsters that can berserk: all dwarves, mordor orcs, uruk-hai, mumaks, zruty, fire giants, frost giants, storm giants, ettin, all ogres, owlbears, sasquatch, and balrog.
+
+#### Accurate behavior
+
+* Ported from EvilHack, with modifications
+* Monsters with this property have the M3_ACCURATE tag 
+* Some monsters are more accurate in melee and with projectiles
+* These monsters get a large to-hit bonus of +5 or more
+  * all piercers, all centaurs, all elves, all mercenaries, 
+  * Dwarf king,  orc-captain, gnome lords, kop kaptains, ogre kings,
+  * Uruk-hai, scorpions, angels, archons, titans, cobras, olog hai, Vlad, Nazgul, shopkeepers, nurses, sandestin, hunters, ninjas
+  * Scorpius, Master Assassin
+
+* Players are the elven starting race or polymorphed into elves also enjoy a to-hit bonus that scales with your level.
+
+#### Ported jumping behavior
+
+* Ported from EvilHack and SpliceHack
+* These monsters can jump at you from a few squares away, quickly bridging the gap between you
+* They can also cross short barriers like water and lava
+
+
+## MONSTER SPELLCASTING
 
 * Peaceful monsters won't cast make invisible on themselves.
 * Monster spellcasters will prioritize healing when wounded.
@@ -797,73 +865,6 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced. There is no maximum range to this spell.
 
 
-#### Misc monster behavior changes
-
-* Monsters with a negative AC get damage reduction from melee attacks (Evil)
-* Monsters will switch to their melee attack intelligently (Spork)
-* When a monster spawns with a weapon, it wields it immediately (xnh)
-* Intelligent monsters pick up keys and lock picks (Un)
-* Magic-liking monsters will pick up magical tools (xnh)
-* Covetous monsters will equip wearable items that they target (xnh)
-* Monsters will use ranged combat in melee as a fallback option (Grunt)
-* Monster stunning has been implemented to more closely mirror the effects it has on players (xnh)
-* Prevent some super strong monsters from generating in the mines
-* Add more spears in monster starting inventory (Fourk)
-* Hallucination protects against skeleton bone rattling (xnh)
-* Headless and breathless monsters don't cough in poison gas clouds
-* Players can use gaze attacks in melee range when polymorphed into monsters with a gaze attack.
-  
-#### Flanking behavior
-
-* Ported from SpliceHack, with enhancements
-* Monsters with this property have the M2_FLANK tag.
-* Any two monsters can flank a player (or another monster) if they sandwich the target. However, monsters with this property ("outflankers") are more tactical and will actively seek opportunities to flank the player.
-* Monsters gain a large bonus to hit when flanking
-* Flanking now scales with monster level (it used to be a flat +4 AC penalty in SpliceHack):
-  * AC penalty = 4 + (mdifficulty - 4) / 2
-* Flanking has been applied to many appropriate monsters in NerfHack.
-
-* Using a pet, you can also take advantage of flanking. Simply place yourself and your pet in such a way as to "sandwich" the monster. You (or your pet) will get a flanking bonus on the victim when attacking.
-
-Flanking restrictions:
-* You cannot flank if hallucinating, afraid, confused, punished, fumbling, wounded, unaware, or stunned.
-* You must also be able to see the monster you want to flank.
-* Monsters cannot flank if eating, sleeping, fleeing, confused, trapped, being stoned, sick, diseased, hiding, or stunned.
-
-#### Berserking behavior
-
-* Ported from EvilHack, with modifications
-* Monsters with this property have the M3_BERSERK tag and can be quite dangerous if you take them for granted
-* When berserkers are below 50% of their health, they have a high chance to go into berserk mode
-* Monsters can also immediately go berserk if they are woken and angered
-* When a monster goes berserk it turns hostile and regains a roll of it's max HP, possibly going far above it's normal max HP
-* Nearby denizens are also woken up when a monster goes berserk (it screams a battle cry)
-* When berserking, monsters totally ignore Elbereth or Scare Monster. If they are usually skittish or trying to keep away, they will instead actively approach
-* When a monster is berserking it also gets -2AC
-* Berserking monsters also never flee when their HP gets low
-* A berserking monster deals double damage rolls when hitting you
-* Taming berserking monsters only un-berserks them, it doesn't pacify or tame
-* Monsters that can berserk: all dwarves, mordor orcs, uruk-hai, mumaks, zruty, fire giants, frost giants, storm giants, ettin, all ogres, owlbears, sasquatch, and balrog.
-
-#### Accurate behavior
-
-* Ported from EvilHack, with modifications
-* Monsters with this property have the M3_ACCURATE tag 
-* Some monsters are more accurate in melee and with projectiles
-* These monsters get a large to-hit bonus of +5 or more
-  * all piercers, all centaurs, all elves, all mercenaries, 
-  * Dwarf king,  orc-captain, gnome lords, kop kaptains, ogre kings,
-  * Uruk-hai, scorpions, angels, archons, titans, cobras, olog hai, Vlad, Nazgul, shopkeepers, nurses, sandestin, hunters, ninjas
-  * Scorpius, Master Assassin
-
-* Players are the elven starting race or polymorphed into elves also enjoy a to-hit bonus that scales with your level.
-
-#### Ported jumping behavior
-
-* Ported from EvilHack and SpliceHack
-* These monsters can jump at you from a few squares away, quickly bridging the gap between you
-* They can also cross short barriers like water and lava
-
 ## ROLE CHANGES
 
 ### ARCHEOLOGIST
@@ -898,7 +899,6 @@ Cavepeople have also been gifted with more skills in rudimentary tools like rock
     riding:         Restricted  -> Basic
 
 * Cave dwellers also cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. 
-
 
 ### HEALER
 * Add L's Wounds patch: healers can see damage on monsters
@@ -967,6 +967,7 @@ Skill adjustments for knights
 
 ### VALKYRIE
 * More fire traps on valk quest
+* Lord Surtur can berserk now
 
 ### WIZARD
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
@@ -1182,8 +1183,6 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
 ## NEW ARTIFACTS
 
-TODO: Break the table into alignment, special dmg, wielded, carried
-
 | Name                | Align     | Type                  | From       | Notes                                                                                                                                                                       |
 |---------------------|-----------|-----------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Disrupter           | neutral   | mace                  | SLASHEM    | deals 1d30 damage and +d5 to-hit vs undead</br>grants warning vs undead                                                                                                     |
@@ -1208,7 +1207,6 @@ TODO: Break the table into alignment, special dmg, wielded, carried
 | The Lenses of Truth | unaligned | lenses                | HACKEM     | Confers see invisible and searching when worn<br/>Confers stun resistance when worn                                                                                         |
 | Serenity            | lawful    | silver spear          | HACKEM     | +d5 to-hit, +d10 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of monster spells<br/>Absorbs curses like Magicbane |
 | Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                      |
-
 
 ## ARTIFACT CHANGES
 
@@ -1259,7 +1257,7 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * Art rooms help exercise INT and WIS, depending on the room
 * To get any effects, you must not be blind when you enter the room
 
-### CASTLE CHANGES
+### Castle changes
 
 * The castle level is now marked as a graveyard
 * Castle barracks may open into courtyard instead of throne room, letting soldiers flood the courtyard more quickly (xnh)
@@ -1276,9 +1274,7 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * Instead of dart traps, the player will encounter magic traps (Evil)
 * Less ghosts are guaranteed in the valley
 
-### DUNGEON LEVELS/ROOMS
-
-#### Streamlined Gehennom
+### Shortened Gehennom
 
 * Gehennom has been dramatically shortened to 5-7 levels.
 * All the demon lairs have been removed.
@@ -1289,6 +1285,13 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * All hell fill levels are either hot or cold.
 
 
-#### Sokoban
+### Sokoban
 
-* Sokoban levels ar
+* Sokoban levels are cold and icy - legend has it a white dragon took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icey cyan, you will see random patches of ice form in the level. The upper levels of Sokoban are also "cold", meaning that if potions land on the floor, they have a chance of freezing and shattering.
+* Monsters are never generated peaceful in Sokoban (FIQ)
+* Zombies don't revive in Sokoban and they won't dig out of the ground.
+* Monsters won't break boulders in Sokobon.
+* Cursed gain level can be used in Sokoban to bypass a floor (xnh)
+
+* All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
+* The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon.
