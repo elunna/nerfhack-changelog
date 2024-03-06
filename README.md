@@ -1295,3 +1295,108 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon.
+
+### Traps
+
+A few new traps have been added:
+
+#### Spear traps
+* Ported from EvilHack
+* Spear traps only start appearing after level 5
+* Spear traps can be untrapped, potentially yielding a random spear type in the process.
+* Flying and levitation usually protect from being harmed by spear traps, however, there is still a 25% chance of being hit (by a abnormally long spear)
+* If you or a monster hit by the trap is thick skinned, the spear just breaks and the trap is deleted.
+* The trap also doesn't affect unsolid monsters.
+* When hit, it deals 7-14 damage and wounds your legs for 10-19 turns.
+
+#### Magic beam traps
+* Ported from EvilHack
+* Magic beam traps only start appearing after level 10
+* When you (or a monster) steps on this trap, it shoots a random ray type from a pre-set location that crosses through the beam trap. The beam type is set for each trap, so once you notice it shoots fire rays, it will always shoot fire rays.
+* The trap graciously never will shoot disintegration or death rays but all the other ray types are possible.
+
+
+#### Grease traps
+* New creation debuting in NerfHack
+* Grease traps function similarly to rust traps, but they spray a blast of grease at the player or monster that stepped on it.
+* When you step on a grease trap:
+  * If you don't have levitation or flying, you gain fumbling ("You step in a puddle of grease.")
+  * If the grease hits your head, you are blinded unless you are wearing a visored helmet. Your blindfold/lenses/etc may also become greased and fall off.
+  * If the grease hits your arm, your weapon(s) or shield can become greased and fall off. You also gain the Glib condition for 10 to 15 turns.
+  * If the grease hits your feet, your boots can become greased and fall off.
+  * Otherwise, the grease hits your torso and your outermost armor becomes greased. Random items you are carrying can also become greased and fall from your possession. If you are carrying a towel, there is a 50% chance it becomes greased as well. If you are riding a steed the saddle will get hit with grease, making you fall off.
+* When a monster gets hit with grease, it will randomly grease an item in their inventory.
+* The trap disarms with a random 1 in 15 chance.
+
+#### Door traps
+* Door traps actually explode in a ball of flame (Evil)
+* These traps will start appearing at level 8.
+
+#### Booby-trapped tins
+* From xNetHack
+* Randomly generated tins have a 1 in 30 chance of exploding in a blast of fire when opened.
+* Tins that you create from tinning kits will always be safe.
+
+
+## CREDITS
+NerfHack draws inspiration and ideas from many variants of NetHack:
+* AceHack
+* DynaHack
+* EvilHack
+* FIQHack
+* FourkHack
+* GnollHack
+* GruntHack
+* K-Mod
+* SLASH'EM
+* SlashTHEM
+* slashem-up
+* SLASHEM9
+* SpliceHack
+* SporkHack
+* UnNetHack
+* xNetHack
+
+Many thanks to all the folks who have helped out with the original Hack'EM and NerfHack, contributing ideas, making patches, playtesting, or anything!
+
+### Special thanks to:
+- My wife - for being endlessly patient with this time-consuming endeavor!
+- K2, for making the epic EvilHack, all his help during development, and pushing NerfHack (and previously HackEM) up to hardfought.
+- amateurhour and qt for their endless debugging advice.
+- cbus for many contributions
+- mobileuser and hothraxxa for extensively playtesting the original HackEM
+
+### Thanks:
+- amateurhour
+- antigulp
+- aosdict
+- arahael
+- Ardub23
+- bhaak
+- bouquet
+- cbus
+- Chris_ANG
+- disperse
+- hothraxxa
+- Janis
+- K2
+- krm26
+- Loggers_VIII
+- malor
+- mobileuser
+- Nat Hall
+- NetSysFire
+- nh2465
+- NoisyToot
+- notifico
+- oh6
+- paxxed
+- qt
+- riker
+- shadowrider38
+- stenno
+- terrapin
+- transcendreamer
+- Umbire
+- VaderFLAG
+- YesLaching
