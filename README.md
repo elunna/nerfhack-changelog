@@ -203,7 +203,6 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 
 ### FINITE ALTAR NERFS
 
-* Altars only start appearing after level 4
 * When donating to priests - the gold vanishes upon receipt
 * Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted. (K-Mod)
 * Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple. (Evil)
@@ -351,7 +350,7 @@ New intrinsics available when crowned:
 * Damage dealt/effects felt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
 * Gremlins steal half as much intrinsics (25 + d25)% instead of (50 + d50)%. This is because their intrinsic stealing attack can trigger anytime of day.
 * Cold traps and ice demons steal the same amount of cold resistance as gremlins.
-
+* Enlightenment always shows the partial percentage acquired for intrinsics. If you have an extrinsic source that will be displayed separately.
 
 ### PARTIAL REFLECTION
 
@@ -451,7 +450,7 @@ This chart shows the number of successful uses of a skill required to reach each
 ### ITEM EROSION AND DESTRUCTION
 
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
-* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, tools, and food are now eligible for erosion. These new erodeable items can be erodeproofed via confused enchant weapon scrolls.
+* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These new erodeable items can be erodeproofed via confused enchant weapon scrolls.
 * Silver items can corrode (xnh)
 * The iron ball and chain cannot be destroyed from rusting (Evil)
 * Poison gas clouds can rot organic armor
@@ -517,6 +516,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 | ogre mage            | O   | SLASH'EM    |                                                                                           |
 | shadow ogre          | O   | SLASH'EM    |                                                                                           |
 | ghoul mage           | Z   | SLASH'EM    |                                                                                           |
+| lava demon           | &   | Convict Patch    |                                                                                           |
 
 
 ### New demons lords:
@@ -543,7 +543,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * If playing as a priest, you'll automatically suppress many zombie revivals solely through your presence
 * Wielding Sunsword prevents zombies corpses from appearing (Evil)
 * Playing as a priest reduces the chance of zombie revival by 50% (Dyna)
-* 
+
 ### Demons
 * Many major demons have been given flight (xnh)
 * Ice and bone devils are now lawful (xnh)
@@ -948,18 +948,25 @@ Skill adjustments for knights
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
 * Rogues start with a stack of knives instead of daggers
-* Rogues can counterattack with knives and daggers.
-  * While wielding a knife or dagger, a rogue has a chance of counter-attacking a humanoid's weapon attack. There are many restrictions:
-    * You can't be polymorphed
-    * You can't be wearing any heavy metallic armor
-    * You cannot be weak (or worse from hunger), and you cannot be encumbered.
-    * You cannot be fumbling or unaware (sleeping or paralyzed).
-    * You must be able to see the monster.
-    * The chance of countering goes up with your skill in the wielded weapon. Your dexterity can either hurt or help your chances.
+  
+**Rogues can counterattack while wielding knives and daggers:**
+* While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent. There are many restrictions:
+  * The monster must be a humanoid
+  * Their attack must be a weapon, claw, or kick attack type.
+  * You can't be polymorphed
+  * You can't be wearing any heavy metallic armor
+  * You cannot be weak (or worse from hunger), and you cannot be encumbered.
+  * You cannot be fumbling or unaware (sleeping or paralyzed).
+  * You must be able to see the monster.
+  * The chance of countering goes up with your skill in the wielded weapon. Your dexterity can either hurt or help your chances.
 
 ### SAMURAI
 * Samurai start with +3 wakizashi (from DynaHack)
 * Samurai can reach expert in spears.
+* Ported more Japanese item names for samurai from SlashTHEM/dNetHack.
+* Samurai get to-hit and damage bonuses for twoweaponing a katana with a wakizashi.
+* The samurai quest was updated to have more water and monsters.
+
 
 ### TOURIST
 * Tourists get automatic type identification for shop items (Un)
@@ -1075,6 +1082,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * +4 to-hit bonus for attacking with a scimitar on a steed.
 * Wielding and unwielding curved swords takes 0 turns.
 * Morning stars and flails can stun monsters (or the player) on critical hits. Player must be skilled or better.
+* Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
 
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
@@ -1295,6 +1303,14 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon.
+
+### Forges
+
+* Forges were ported in from EvilHack
+* Forges let the player repair metallic armor, bless items, dispose of zombies or organic items, dispose of the iron ball and chain, and summon lava demons and fire elementals.
+* Forging recipes and the #forge extended command have not been ported.
+* Items can pass over forges.
+* New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
 
 ### Traps
 
