@@ -1,26 +1,6 @@
-# NerfHack
+# NerfHack Feature Set
 
-NerfHack is intended to be a more difficult variant than Vanilla NetHack. By pulling changes from many variants and fine-tuning various exploitable aspects of the game, we have uncovered many pain-points that increase the difficulty. The general idea has been to quell numerous strategies commonly employed by seasoned players with the goal of making the game more interesting, fostering more creative use of items and resources.
-
-## General guidelines:
-1) Introduce new threats
-2) Create resource scarcity for the player
-3) Nullify many tried-and-true exploits
-4) Introduce quality-of-life features
-5) Make it easy to variant-hop
-* The player should be able to easily transition from Vanilla NetHack to NerfHack. We hope players don't have to think too much about the changes. Most of the mechanics are designed to be understood intuitively based on game feedback.
-* Don't require the player to memorize or lookup large tables of information (ex: forging recipes, tinker mechanics, object materials, object properties, gem alchemy, potion fermentation, etc, etc)
-* Don't change anything major in the interface or functionality. 
-* Don't introduce any new #extended commands (other than wiz-mode tools)
-* Don't change any monster letters
-
-There are definitely some changes that the player should know about, however, we will leave it up to the individual to decide what those are. The thrill of discovery should not be spoiled.
-
-
-**Some coding principles:**
-* When possible, put all changes for a mechanic into a single commit (avoid part 1, part 2, etc)
-* No changelog will be kept in the repo. A changelog creates duplication of information and makes maintenance of the project more tedious. This README may act as a detailed summary in place of changelog updates that is updated with each minor version.
-* Stay current with the main branch of NetHack.
+This changelog exists to track the changes in NerfHack: https://github.com/elunna/NerfHack.
 
 ## Big changes from NetHack 3.6/3.7
 
@@ -31,22 +11,9 @@ There are definitely some changes that the player should know about, however, we
   * Negative luck has at least a 30% chance of rousing monsters.
 * Reverted the majority of **level flips** from 3.7. Flipped levels only appear in Sokoban and the big room special level.
 * **Items that are 'lost'** from the players inventory will no longer be un-identified. 
-* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
-* Enabled autocomplete for #twoweapon
-* Disabled **farlook help**
-* Disabled the 3.7 **tutorial**
-* Enable **full options** by default.
-* Changed the symbol for **sinks** back to #
-* **Fog clouds** don't leave traces of steam (so they show up as v)
-* **Hezrou and steam vortices** don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
 * **Stinking clouds** no longer block line of sight
 * **Disabled vampire shapeshifting** for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
-* Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
-* No special **themed rooms** generate until level 5
 * **Branchport** always brings you to the entry level of a branch
-* Shops cannot have themed rooms with unusual floor textures (xnh)
-* **Sting** actually cuts through webs when force-fighting
-* Dragons, nagas, and golems don't balk at approaching as much.
 * Partially revert 5c7c9d10a - Rejigger anti-magic traps.
 
 ## QUALITY OF LIFE FEATURES
@@ -113,7 +80,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Show available skill slots in #enhance menu (from DynaHack)
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
-* New config option to show damage and flanking bonuses (showdmg option)
+* New config option to show damage and flanking bonuses (showdamage option)
 * Show weights of objects in inventory (invweight option)
 * Display AC values for armor in the inventory (Splice)
 * Pets' items can be managed with #loot
@@ -128,6 +95,13 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Show messages for objects that are randomly cursed (Dyna).
 * Print an explicit message when summon nasties occurs as part of wizard harassment.
 * Special room and special level walls can have their own unique coloring. For example, cockatrice nests and bee hives are yellow, and Sokoban walls are blue. (Splice/xnh)
+* The first 4 levels can have a helpful engraving in the room with the upstair. This hint system was imported from UnNetHack and gives the player direct tips for survival and using the new mechanics.
+* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
+* Enabled autocomplete for #twoweapon
+* Disabled **farlook help**
+* Disabled the 3.7 **tutorial**
+* Enable **full options** by default.
+* Changed the symbol for **sinks** back to #
 
 ### WIZMODE FEATURES
 
@@ -609,10 +583,12 @@ Many of these changes were introduced to work in conjunction with the new grease
 * centaurs will keep their distance from the player naturally (xnh)
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
+* dragons, nagas, and golems don't balk at approaching as much.
 * all elementals resist sickness
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
 * ettins count as giants and are vulnerable to sling damage
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
+* fog clouds don't leave traces of steam (so they show up as v)
 * foocubi gain a level when draining one from the player (xnh)
 * giant spiders can ensnare monsters in webs (Evil)
 * gnome lords and kings always get gnomish suits.
@@ -623,6 +599,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * green slimes are faster, going from 6 to 13 speed)
 * green slimes have a passive sliming attack (Grunt)
 * gremlins can steal intrinsics no matter the time of day (FIQ)
+* hezrou and steam vortices don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
 * hobbits can get flint with their slings (xnh)
 * jellyfish get a passive paralyzing attack
 * Keystone Kops cannot be genocided (Un)
@@ -762,7 +739,6 @@ Flanking restrictions:
 * When a monster goes berserk it turns hostile and regains a roll of it's max HP, possibly going far above it's normal max HP
 * Nearby denizens are also woken up when a monster goes berserk (it screams a battle cry)
 * When berserking, monsters totally ignore Elbereth or Scare Monster. If they are usually skittish or trying to keep away, they will instead actively approach
-* When a monster is berserking it also gets -2AC
 * Berserking monsters also never flee when their HP gets low
 * A berserking monster deals double damage rolls when hitting you
 * Taming berserking monsters only un-berserks them, it doesn't pacify or tame
@@ -871,6 +847,11 @@ Flanking restrictions:
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
 * Archeologists can reach basic skill in spears.
+* Archeologists get a -1 penalty when fighting snakes.
+* Snakes get a +2 to-hit bonus on archeologists
+* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
+* Archeologists can reach basic in axe.
+* Archeologists start out knowing dwarvish mattocks.
 
 ### CAVEMAN/CAVEWOMAN CHANGES
 * They cannot receive spells from their deity (Evil)
@@ -926,6 +907,8 @@ Skill adjustments for knights
 * Dramatically increased the monk's body armor penalty (Evil)
 * Player feedback for monks wearing/removing body armor
 * Stop giving Monks "You feel guilty message" eventually (xnh)
+* Removed crossbow skill.
+* Monks can reach expert in quarterstaff.
 
 ### PRIEST
 * Priests start with a +2 small shield (SLASHEM)
@@ -942,8 +925,9 @@ Skill adjustments for knights
 * Rangers are not stunned from using portals (they are used to quick travel)
 
 ### ROGUE
+* Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
+
 * Rogues start with +1 short sword (from DynaHack)
-* Rogue's can inflict backstab damage for the first thrown weapon
 * Rogues get bonus backstab damage when using stilettos in melee
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
@@ -954,7 +938,7 @@ Skill adjustments for knights
   * The monster must be a humanoid
   * Their attack must be a weapon, claw, or kick attack type.
   * You can't be polymorphed
-  * You can't be wearing any heavy metallic armor
+  * You can't be wearing any heavy metallic armor or wielding a bulky shield.
   * You cannot be weak (or worse from hunger), and you cannot be encumbered.
   * You cannot be fumbling or unaware (sleeping or paralyzed).
   * You must be able to see the monster.
@@ -965,12 +949,12 @@ Skill adjustments for knights
 * Samurai can reach expert in spears.
 * Ported more Japanese item names for samurai from SlashTHEM/dNetHack.
 * Samurai get to-hit and damage bonuses for twoweaponing a katana with a wakizashi.
-* The samurai quest was updated to have more water and monsters.
-
+* The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
 
 ### TOURIST
 * Tourists get automatic type identification for shop items (Un)
 * Tourists start with more darts to compensate for more training being needed to advance weapon skills (Un)
+* Tourists start with all of their optional equipment (FIQ)
 
 ### VALKYRIE
 * More fire traps on valk quest
@@ -978,7 +962,9 @@ Skill adjustments for knights
 
 ### WIZARD
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
-  * knife, axe, short sword, club, mace, polearms, spear, trident, and shuriken skills.
+  * knife, axe, short sword, club, mace, polearms, spear, trident, and shuriken skills
+* Wizards start with a cloak of protection instead of magic resistance.
+* Wizards always start with the spellbook of magic missile.
 
 ## PLAYER RACE CHANGES
 
@@ -1043,7 +1029,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Raised price of wand of nothing to 500 (EvilHack)
 * Port FIQHack's ring initial enchantment rules
 * Port the Oily Corpses Patch (xnh)
-* Rocks can be broken ((a)pplied) to produce flint stones (xnh)
+* Rocks can be broken (a)pplied to produce flint stones (xnh)
 * Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
 * Buff the effects of the scroll of light (xnh)
 * Reverse the name of the HACKEM MUCHE scroll
@@ -1053,7 +1039,6 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Applying rusty stethoscope is much less effective.
 * Rusty tin openers can break.
 * Amulets of magical breathing are immune to water damage
-* Food items can get burned.
 * Reduce crystal ball paralysis if player has free action (Dyna)
 * Make kicking boots supersede thick_skin/clumsy (Splice)
 * Mud boots provide protection from wrapping attacks
@@ -1230,6 +1215,7 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * Vorpal Blade provides warning vs jabberwocks (Evil)
 * Vorpal blade gets a 10% chance of beheading (SLASHEM)
 * The Heart of Ahriman now grants slotless flying and displacement instead of stealth (FIQ)
+* The Orb of Detection grants clairvoyance while carried.
 * Trollsbane grants regeneration while wielded (many variants)
 * The Eyes of the Overworld protect against more gaze attacks (Evil)
 * Prevent Cleaver from cleaving peaceful bystanders (xnh)
@@ -1241,7 +1227,8 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * The Longbow of Diana confers reduced damage when wielded
 * Increased Mjollnirs wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
-
+* Sting actually cuts through webs when force-fighting
+* 
 **Bane changes:**
 * All banes provide warning vs their bane monster type when wielded (Evil)
 * All banes glow red in response to their monster types (Evil)
@@ -1253,7 +1240,8 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 
 * The Rogue level has been disabled (many variants)
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
-
+* Shops cannot have themed rooms with unusual floor textures (xnh)
+* No special **themed rooms** generate until level 5
 ### Art rooms
 
 * Ported from SpliceHack
@@ -1278,7 +1266,7 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 
 ### Valley of the Dead
 
-* Player can't regenerate hit points while in the Valley of the Dead (Evil)
+* Players can't regenerate hit points while in the Valley of the Dead (Evil)
 * Instead of dart traps, the player will encounter magic traps (Evil)
 * Less ghosts are guaranteed in the valley
 
@@ -1330,7 +1318,6 @@ A few new traps have been added:
 * Magic beam traps only start appearing after level 10
 * When you (or a monster) steps on this trap, it shoots a random ray type from a pre-set location that crosses through the beam trap. The beam type is set for each trap, so once you notice it shoots fire rays, it will always shoot fire rays.
 * The trap graciously never will shoot disintegration or death rays but all the other ray types are possible.
-
 
 #### Grease traps
 * New creation debuting in NerfHack
