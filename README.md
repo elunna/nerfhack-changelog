@@ -34,7 +34,8 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Random secret corridors have been removed (xnh)
 * Pets never displace player from stairs when entering a level (from DynaHack).
 * Lessen confusing messages for confuse monster effects wearing off.
-  
+* Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
+
 ### Safer bags of holding:
 * Players cannot put known wands of cancellation or magical bags into identified bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dnh)
 * Players are prevented from tipping known explosive items into identified bags of holding
@@ -124,7 +125,6 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
-* Half-physical damage and half-spell damage have been adjusted to only provide quarter (1/4) damage reduction.
 * Don't allow stunned jumping; and confused jumping has a 20% chance to fail (Evil)
 
 ### Slow Luck timeouts (modified)
@@ -173,7 +173,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Replace undead on Astral Plane with random A (xnh).
 * Post wizard death harassment has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil)
-* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor.
+* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, demons cannot be summoned this way.
 
 ### FINITE ALTAR NERFS
 
@@ -556,7 +556,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 * baby white dragons are weaker.
 * 
 #### Adult dragon changes
-* All adult dragons are now level 16 with a slight increase in difficulty from 20 to 21 (SLASHEM)
 * They get a 3d8 bite and 2d4 claw attacks, and are frequency 2.
 * speed has been increased from 12 to 20, and have a small buff to their claw attacks (FIQ)
 * all dragons stalk/follow the player (FIQ)
@@ -626,6 +625,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * queen bees can displace monsters
 * quest leaders resist death magic (Evil)
 * rock trolls are stoning resistant (xnh)
+* all spheres (shocking spheres, flaming spheres, freezing spheres) cannot be genocided.
 * skeleton/shade slow attack is ineffective vs undead
 * soldiers get half as many C-and-K-rations and cannot load both types of rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -654,7 +654,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 * wumpus is now huge; strengthened bite attack from 3d6 to 6d9
 * xans can't fly (dnh)
 * yellow and black light explosions are directionless (xnh)
-* water elementals can now engulf and suffocate (Evil)
 
 ### Unique monster changes
 * Croesus can move other monsters out of his way (Evil)
@@ -662,7 +661,9 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Ixoth gets poison resistance (Evil)
 * Lord Surtur can berserk
 * The Master Assassin is poison resistant (xnh)
+* The Master Assassin is stronger, faster, sees invisible, resists sleep, and gets one additional attack.
 * Yeenoghu's magic missile attack has been buffed to 6d6 (Evil)
+* Vlad gets stoning resistance.
 
 #### Medusa
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
@@ -852,6 +853,11 @@ Flanking restrictions:
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
 * Archeologists can reach basic in axe.
 * Archeologists start out knowing dwarvish mattocks.
+*  Archeologists always get an extra id when reading scrolls of identify.
+
+### BARBARIAN
+* Barbarians can reach skilled in riding (Evil)
+* Barbarians get a blood rage bonus for low health. When under 50% of their max HP, they get a damage bonus that scales with their level. When under 25%, this bonus is doubled.
 
 ### CAVEMAN/CAVEWOMAN CHANGES
 * They cannot receive spells from their deity (Evil)
@@ -925,6 +931,7 @@ Skill adjustments for knights
 * Rangers are not stunned from using portals (they are used to quick travel)
 
 ### ROGUE
+* In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
 * Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
 
 * Rogues start with +1 short sword (from DynaHack)
@@ -942,7 +949,7 @@ Skill adjustments for knights
   * You cannot be weak (or worse from hunger), and you cannot be encumbered.
   * You cannot be fumbling or unaware (sleeping or paralyzed).
   * You must be able to see the monster.
-  * The chance of countering goes up with your skill in the wielded weapon. Your dexterity can either hurt or help your chances.
+  * The chance of countering goes up with your skill in the wielded weapon.
 
 ### SAMURAI
 * Samurai start with +3 wakizashi (from DynaHack)
@@ -971,12 +978,23 @@ Skill adjustments for knights
 * Removed infravision from dwarves, elves, gnomes, and orcs. No player-race gets infravision.
 * Elves can always squeeze between two trees (xnh)
 * Elves get see invisible at level 8
-* Gnomes are good at slipping free from grabbing attacks because they are small
+* Elves can always reach Basic in enchantment spells (xnh)
+* Dwarves can always reach Skilled in pick-axe (xnh)
+* Gnomes are good at slipping free from grabbing attacks
 * Gnomes start with a nightvision radius of 2 (dnh)
 * Gnomes start with an interesting tool
 * Gnomes get stealth at level 5 (SLASHEM)
+* Gnomes get a damage bonus for shooting crossbows
+* Gnomes can always reach Skilled in crossbow
+* Gnomes can always reach Basic in club (xnh)
 * Orcs start with sickness potion (from SporkHack)
 * Orcs get an alignment boost for cannibalism (dnh)
+* Orcs can always reach Skilled in saber (xnh)
+
+
+
+
+
 
 ### New race/role combos.
 
@@ -1068,6 +1086,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Wielding and unwielding curved swords takes 0 turns.
 * Morning stars and flails can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
+* Crossbows no longer grant multishot, instead their damage output is multiplied by your skill.
 
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
@@ -1105,7 +1124,6 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Give enchant vibrate warning for all weapons/armor (from DynaHack)
 * Blessed scroll of destroy armor asks which armor to destroy (xnh)
 * Confused cursed scroll of destroy armor prompts for armor to fix
-* Confused scrolls of gold detection no longer detect magic portals
 * Confused scroll of identify gives enlightenment (xnh)
   
 ### POTIONS
@@ -1187,10 +1205,10 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 | Origin              | unaligned | quarterstaff          | SpliceHack | deals +d6 damage, +d2 to-hit</br>grants teleport control while wielded<br/>grants spellcasting bonuses while wielded                                                        |
 | Hellfire            | chaotic   | crossbow              | SLASHEM    | bolts fired from Hellfire deal +d7 damage and explode in fire<br/>grants fire resistance while wielded                                                                      |
 | Plague              | chaotic   | orcish bow            | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                 |
-| Pridwen             | lawful    | large shield          | SpliceHack | grants physical damage reduction while wielded</br>grants steadfastness while wielded                                                                                       |
+| Pridwen             | lawful    | large shield          | SpliceHack | grants 1/2 physical damage while wielded</br>grants steadfastness while wielded                                                                                       |
 | Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damage                                                                                                                                                      |
 | Carnwennan          | lawful    | knife                 | SpliceHack | deals +d8 damage<br/>+d3 to-hit<br/>grants stealth and searching while wielded                                                                                              |
-| Load Brand          | unaligned | heavy sword           | HACKEM     | weights 500aum<br/>deals +d20 damage<br/>Confers steadfastness and MC1 protection<br/>Confers physical damage reduction<br/>Absorbs curses like Magicbane                   |
+| Load Brand          | unaligned | heavy sword           | HACKEM     | weights 500aum<br/>deals +d20 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                   |
 | Snakeskin           | Neutral   | robe                  | SlashTHEM  | Confers acid resistance<br/>Confers hallucination resistance                                                                                                                |
 | Blackshroud         | neutral   | cloak of invisibility | SlashTHEM  | Grants warning and drain resistance                                                                                                                                         |
 | Mirrorbright        | neutral   | shield of reflection  | SLASHEM    | Doesn't inhibit spellcasting<br/>Confers hallucination resistance                                                                                                           |
