@@ -1168,17 +1168,25 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
 ## New races
 ### Vampires
-This combines the features of many variant vampires into one cohesive vampiric race.
+Vampires have an interesting history in the NetHack world. They first surfaced in SLASH'EM, then in UnNetHack, then dNethack, and SpliceHack, and even Hack'EM. Each one was implemented a little differently, so we aimed to take the best of each and release a vampire that is fun but balanced. Our vampiric race starts you off strong, you won't have any cheesy poison or GWAWOD deaths, nor will you have to worry about sleeping gas traps or any of the floor traps that you can just fly over. What you *will* have to worry about is your new worst enemies: silver and hunger:
 
-* The core vampire race is originally from SLASH'EM.
-* Vampires feed automatically by the act of attacking and biting their victims (SpliceHack).
+You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys. 
+
+* When attacking particularly dangerous monsters like cockatrices or medusa, the bite attack will be prevented to avoid stupid deaths.
 * Even though all vampires have drain level resistance, they are susceptable to the drain life bite attacks from other vampires.
 * Vampires feed at a much higher rate when their victims are impaired by confusion, incapacitated, or trapped (Hack'EM).
-
 * Some vampires get an opera cloak (much rarer than SLASH'EM).
 * Vampires get a charisma bonus for wearing opera cloaks (UnNetHack).
-* Potions of blood and vampire blood (SLASH'EM).
+* Potions of blood and vampire blood (SLASH'EM) give vampires a drinkable food source.
 * Vampires can no longer shapeshift via #monster.
+* Vampires now start the game with infravision.
+* Silver weapons generate more often when playing as a vampire.
+* Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the invocation, they may apply the silver bell on the invocation square, but otherwise silver items are unusable for vampires.
+
+* Vampires are Inherently Evil (from EvilHack)
+    * This is adapted from the Infidel role in evil. In general, vampires suffer very little
+      alignment penalties for general cruelty. They can attack and kill peaceful monsters
+      with no worries, and for other actions they have lessened alignment penalties.
 
 Vampires get these resistances and abilities:
     - Level 1:     Regeneration
@@ -1190,16 +1198,6 @@ Vampires get these resistances and abilities:
     - Level 5:     Hunger
     - Level 9:     Sleep resistance
 
-
-* Ported the Inherently Evil mechanic from EvilHack.
-* Vampires get infravision.
-* Vampires don't get sleep resistance.
-* Silver weapons generate more often when playing as a vampire.
-* Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the
-  invocation, they may apply the silver bell on the invocation square, but otherwise silver
-  items are unusable for vampires.
-* Set vampire's minimum attribute values to 3 like all other races (from UnNetHack) 
-* From Un: Prevent vampires from biting dangerous monsters. 
 
 ## ITEM CHANGES
 
