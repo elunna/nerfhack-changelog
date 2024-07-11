@@ -14,7 +14,9 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * **Stinking clouds** no longer block line of sight
 * **Disabled vampire shapeshifting** for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * **Branchport** always brings you to the entry level of a branch
-* Partially revert 5c7c9d10a - Rejigger anti-magic traps.
+* Partially revert 5c7c9d10a - Rejigger anti-magic traps. I thought the severity of the
+  original change was actually fine, anti-magic traps were historically a joke in NetHack
+  3.4.3 so this makes them somewhat threatening.
 
 ## QUALITY OF LIFE FEATURES
 
@@ -37,8 +39,16 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
 
 ### Safer bags of holding:
-* Players cannot put known wands of cancellation or magical bags into identified bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dnh)
-* Players are prevented from tipping known explosive items into identified bags of holding
+In the NetHack community, the blowing up of Bags of Holding seems to be an honored tradition
+that is upheld and broadcast on the servers when it occurs. However, I find it a severe
+punishment that kills games for both the player and the devs. Most of the time when a player
+has this happen, they simply quit. Since I would rather keep players going, I believe the
+right approach is to punish players who make these kinds of mistakes willingly and earlier
+in the game. Once a player has identified the dangerous items for a bag of holding, it is
+virtually implausible that one would purposefully attempt to blow up their bag of holding.
+The following safeguards were added to protect players from exploding bags:
+* Players cannot put **known** wands of cancellation or magical bags into **identified** bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dnh)
+* Players are prevented from tipping **known** explosive items into **identified** bags of holding
 * Empty wands of cancellation may still be placed inside bags of holding (no risk of blowing up)
 
 ### STREAMLINED IDENTIFICATION FEATURES
@@ -60,7 +70,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID ring of regeneration if it heals you (Un)
 * Auto-ID wand of cancellation after destroying a bag of holding (Un)
 * Auto-ID wands when engraving (xnh)
-* Use the process of elimination for auto-identifying wands when available (Un)
+* Automatically use a process of elimination for auto-identifying wands when available (Un)
 * Auto-ID loadstones when attempting to drop or stash them (Un)
 * Auto-id flint yielded from applying rocks to eachother
 * Auto-ID tin whistles, tooled horns, magic flutes, and magic harps upon use (Un)
@@ -83,7 +93,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * New config option to show damage and flanking bonuses (showdamage option)
 * Show weights of objects in inventory (invweight option)
-* Display AC values for armor in the inventory (Splice)
+* Display AC values for armor in the hero's inventory (Splice)
 * Pets' items can be managed with #loot
 * Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
 * All position prompts may be aborted
@@ -96,7 +106,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Show messages for objects that are randomly cursed (Dyna).
 * Print an explicit message when summon nasties occurs as part of wizard harassment.
 * Special room and special level walls can have their own unique coloring. For example, cockatrice nests and bee hives are yellow, and Sokoban walls are blue. (Splice/xnh)
-* The first 4 levels can have a helpful engraving in the room with the upstair. This hint system was imported from UnNetHack and gives the player direct tips for survival and using the new mechanics.
+* The first 2 levels can have a helpful engraving in the room with the upstair. This hint system was imported from UnNetHack and gives the player direct tips for survival and using the new mechanics.
 * Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
 * Enabled autocomplete for #twoweapon
 * Disabled **farlook help**
@@ -121,7 +131,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Amnesia can make you forget intrinsic telepathy.
 * Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
 * Telepathy cannot be permanently gained intrinsically
-* Teleportitis cannot be permanently gained intrinsically
+* Teleportitis cannot be permanently gained intrinsically. Teleport control *can*, however, still be
+  gained intrinsically.
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
@@ -169,11 +180,11 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * After the invocation, the maximum difficulty limit for generating monsters is removed (xnh)
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
-* "Purple/Astral Rain" nerf: Taming is more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 4 chance of succeeding.
+* "Purple/Astral Rain" nerf: Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 4 chance of succeeding.
 * Replace undead on Astral Plane with random A (xnh).
 * Post wizard death harassment has been increased by 20-25%
-* While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil)
-* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, demons cannot be summoned this way.
+* While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
+* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, demons will be blocked for further summoning this way.
 
 ### FINITE ALTAR NERFS
 
@@ -249,6 +260,7 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Amulets of unchanging can't be polymorphed (Un)
 
 ### CROWNING
+* Crowning requires 13 Luck (from dnh). 
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
@@ -256,9 +268,9 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Crowning gifts are only granted when crowned, never for #offer.
 
 New intrinsics available when crowned:
-* Acid resistance
+* Acid resistance (this is the only way to receive this resistance intrinsically)
 * Disintegration resistance
-* Petrification resistance
+* Petrification resistance (this is the only way to receive this resistance intrinsically)
 
 ### AC PENALTIES
 
@@ -305,6 +317,7 @@ New intrinsics available when crowned:
 
 * The AC of dragon scales has been reduced from 3AC to 1AC 
 * The AC of dragon scale mail has been reduced from 9AC to 4AC
+* Dragon scale mail weighs 80.
 * **Dragon scale mail cannot be wished for**
 * Any wishes for scale mails will simply be converted to the equivalent dragon scales instead. For example, if you wish for "yellow dragon scale mail", you will receive "yellow dragon scales".
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
@@ -408,6 +421,11 @@ This chart shows the number of successful uses of a skill required to reach each
 
 ### SPELLCASTING CHANGES
 
+Most of these changes are to strengthen natural spellcasters abilities and to dull roles
+that don't specialize (like fighters). Non-specialists can still attempt to utilize spells
+but they will have to work harder to maintain their spells. Cavemen will have a very
+difficult time with spellcasting.
+
 * The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM). When reading or re-reading a spellbook, you will bring the retention back up to 10000
 * Primary spellcasters (healers, priests, monks, wizards) get a memory boost of 500 turns when they cast spells (SLASH'EM)
 * Casting your special spell also grants a retention bonus of 500 turns no matter what role you are
@@ -428,12 +446,12 @@ This chart shows the number of successful uses of a skill required to reach each
 * Silver items can corrode (xnh)
 * The iron ball and chain cannot be destroyed from rusting (Evil)
 * Poison gas clouds can rot organic armor
-* Monsters can wear down and destroy **ANY** armor with the destroy armor spell
+* Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
 * Item erosion can be repaired by dipping into a potion of restore ability (xnh)
 * Scrolls also can burn up when hitting hot ground in Gehennom. 3.7 introduced potions being shattered when dropping on hot ground, but we have taken it a step further.
 * Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
 * Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor. Passive acid attacks corrodes armor more often. Thrown potions of acid can corrode items when they hit a monster or the player.
-* Water damage may disintegrate scrolls (Dyna).
+* Water damage may disintegrate scrolls (Dyna)
 * Disintegration rays can vaporize boulders
 
 #### Refactor, unify, and nerf item destruction
@@ -447,7 +465,8 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Greased items can't be disarmed with a bullwhip
 * Greased items are harder to steal
 * Glib hands makes applying any item except towels drop them
-* Towels can be used to remove grease from specific objects
+* Towels can be used to remove grease from specific objects (with the risk that they in turn
+  become greased)
 * Grease can be washed off towels by wetting them
 * Greased towels now operate the same way that cursed towels do
 
@@ -470,7 +489,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 | diamond piercer      | p   | SpliceHack  |                                                                                           |
 | god piercer          | p   | SpliceHack  |                                                                                           |
 | landshark            | q   | SpliceHack  | recolored to bright blue                                                                  |
-| jumping spider       | s   | ESplice     |                                                                                           |
+| jumping spider       | s   | Splice      |                                                                                           |
 | will-o'-the-wisp     | y   | SpliceHack  |                                                                                           |
 | zoo bat              | B   | SpliceHack  |                                                                                           |
 | athol                | B   | SLASH'EM    | increased size, weight, and nutrition<br/>strong, berserk, flank, and have infravision    |
@@ -479,7 +498,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 | gray fungus          | F   | Evil/THEM   |                                                                                           |
 | adherer              | M   | SpliceHack  |                                                                                           |
 | ha-naga              | N   | SpliceHack  |                                                                                           |
-| alchemist            | Q   | SpliceHack  | can alchemize acid                                                                        |
+| alchemist            | Q   | SpliceHack  | can alchemize acid potions                                                                        |
 | troll mummy          | M   | SLASH'EM    |                                                                                           |
 | vampire mage         | V   | SLASH'EM    |                                                                                           |
 | merfolk              | ;   | Splice/THEM |                                                                                           |
@@ -514,7 +533,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 ### Reviving Zombies
 * Zombie corpses may auto-revive similar to trolls (Evil/xnh)
 * Cancelled or beheaded zombies and trolls don't revive (Evil)
-* If playing as a priest, you'll automatically suppress many zombie revivals solely through your presence
 * Wielding Sunsword prevents zombies corpses from appearing (Evil)
 * Playing as a priest reduces the chance of zombie revival by 50% (Dyna)
 
@@ -541,9 +559,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * They can generate randomly in the dungeon with a frequency of 1, but not in Gehennom
 * Baby dragons get a special 1d6 bite attack instead of a 2d6 physical bite (K-Mod).
   * For most dragons, it matches their adult breath attack (red = fire bite, blue = shock bite, etc)
-* Baby black dragons get a drain life attack.
-* Baby gray dragons get a disenchanting bite.
-* They get an additional 1d6 claw attack
+* All baby dragons get an additional 1d6 claw attack
 
 **Specific tweaks:**
 
@@ -554,7 +570,9 @@ Many of these changes were introduced to work in conjunction with the new grease
 * baby yellow dragons also get a passive acid attack.
 * baby gray dragons also flank.
 * baby white dragons are weaker.
-* 
+* Baby gray dragons get a disenchanting bite.
+* Baby black dragons get a drain life attack.
+
 #### Adult dragon changes
 * They get a 3d8 bite and 2d4 claw attacks, and are frequency 2.
 * speed has been increased from 12 to 20, and have a small buff to their claw attacks (FIQ)
@@ -573,7 +591,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 ### Misc monster changes
 
-* all quest guardian colors were changed to cyan
+* all quest GUARDIAN colors were changed to cyan
 * all A monsters are immune to death magic (xnh)
 * baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12
 * all bats can see invisible
@@ -737,7 +755,8 @@ Flanking restrictions:
 * Monsters with this property have the M3_BERSERK tag and can be quite dangerous if you take them for granted
 * When berserkers are below 50% of their health, they have a high chance to go into berserk mode
 * Monsters can also immediately go berserk if they are woken and angered
-* When a monster goes berserk it turns hostile and regains a roll of it's max HP, possibly going far above it's normal max HP
+* When a monster goes berserk it turns hostile and regains a roll of it's max HP, possibly
+  recovering all of its HP.
 * Nearby denizens are also woken up when a monster goes berserk (it screams a battle cry)
 * When berserking, monsters totally ignore Elbereth or Scare Monster. If they are usually skittish or trying to keep away, they will instead actively approach
 * Berserking monsters also never flee when their HP gets low
@@ -767,7 +786,8 @@ Flanking restrictions:
 
 ## MONSTER SPELLCASTING
 
-* Peaceful monsters won't cast make invisible on themselves.
+* Peaceful monsters won't cast make invisible on themselves. They also won't drink potions
+  of invisibility or zap themselves with wands of make invisible.
 * Monster spellcasters will prioritize healing when wounded.
 
 **protection (clerical spell):**
@@ -834,6 +854,7 @@ Flanking restrictions:
 * In xnh this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But I thought it would be pretty cool if extracted out and used as a new clerical spell. Not too many monsters use clerical spells, but they tend to be potent. The spell itself is pretty straightforward: it inflicts withering on the player. Since withering cannot be cured, this could end up quite dangerous if multiple blights are cast.
 
     In xnh, the duration of the withering was 100-140 turns. For the big demons this might fly, but for lesser spellcasters I reduced it to 20-60 turns. In xnh I believe this could only be cast in melee range, but now it can also be cast up to 8 squares away - further increasing its deadliness.
+*  Being polyd into a non-living form protects against the blight spell.
 
 **evil eye (mage spell):**
 * Ported from dNetHack
@@ -848,16 +869,20 @@ Flanking restrictions:
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
 * Archeologists can reach basic skill in spears.
-* Archeologists get a -1 penalty when fighting snakes.
-* Snakes get a +2 to-hit bonus on archeologists
-* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
 * Archeologists can reach basic in axe.
 * Archeologists start out knowing dwarvish mattocks.
-*  Archeologists always get an extra id when reading scrolls of identify.
+* Archeologists always get an extra id when reading scrolls of identify.
 
+**Archeologists vs snakes!**
+* Archeologists get a -1 to-hit penalty when fighting snakes.
+* Snakes get a +2 to-hit bonus on archeologists
+* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
 ### BARBARIAN
 * Barbarians can reach skilled in riding (Evil)
-* Barbarians get a blood rage bonus for low health. When under 50% of their max HP, they get a damage bonus that scales with their level. When under 25%, this bonus is doubled.
+* Barbarians get a blood rage bonus for low health.
+    * When under 50% of their max HP, they get a damage bonus that scales with their level.
+    * When under 25%, this bonus is doubled.
+    * This feature was adapted from the SpliceHack skill system.
 
 ### CAVEMAN/CAVEWOMAN CHANGES
 * They cannot receive spells from their deity (Evil)
@@ -934,7 +959,6 @@ Skill adjustments for knights
 * In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
 * Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
 
-* Rogues start with +1 short sword (from DynaHack)
 * Rogues get bonus backstab damage when using stilettos in melee
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
@@ -973,9 +997,126 @@ Skill adjustments for knights
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards always start with the spellbook of magic missile.
 
+## NEW ROLES
+
+### CARTOMANCER
+* The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using scrolls and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
+
+
+**Starting inventory:** o
+    * Fedora
+    * Graphic tee
+    * 40 +0 razor cards
+    * 2 random cards
+    * 4 random summon cards
+    * 2 random zap cards
+    * 1 random spellbook
+
+**Skill-set:**
+    * Dagger: basic
+    * Knife: skilled
+    * Short sword: basic
+    * Saber: basic
+    * Quarterstaff: skilled
+    * Sling: basic
+    * Dart: basic
+    * Shuriken: expert
+    * Unicorn horn: basic
+    * Attack spells: basic
+    * Healing spells: basic
+    * Divination spells: expert
+    * Enchantment spells: skilled
+    * Escape spells: skilled
+    * Matter spells: skilled
+    * Riding: skilled
+    * Bare-handed combat: basic
+
+**Quest artifact: Holographic Void Lily**
+    * Chaotic credit card
+    * Intelligent
+    * Grants magic regeneration while carried
+    * Grants half spell damage and reflection while carried
+    * Can be invoked to summon a horde of tame spell beings.
+
+* While playing as a cartomancer, much of the standard NetHack terminology is revised:
+    * scrolls are renamed to "cards". Whenever you or a monster reads a scroll, they instead
+      "play" that card.
+    * scrolls under $100 are labeled as "common"
+    * scrolls for $100 are labeled as "uncommon"
+    * scrolls for $200 are labeled as "rare"
+    * scrolls for $300 are labeled as "legendary"
+    * spellbooks are renamed to "rulebooks"
+    * credit cards are known as "banned cards"
+    * boomerangs are "bent cards"
+    * expensive cameras are "holographic cards"
+    * hawaiian shirts are "graphic tees"
+    * lock picks are "worthless cards"
+
+    * oilskin sacks are 
+
+**Play mechanics:**
+* Cartomancers receive severe alignment penalties for forging cards. 
+* If you forge cards after completing the quest, a horde of kops is kalled
+* Cartomancer alignment penalty for polymorphing cards.
+* Cards (ie: scrolls) only weigh 1 for cartomancers.
+* The camera is played as a holographic card for cartomancers, doesn't break when thrown.
+* When applying a deck of cards, cartomancers will always be able to use them as if they
+  were blessed. This enables you to tell your current luck easily by applying the deck.
+
+**Spell beings:**
+* Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere
+  spells were cast, they would summon a temporary sphere which counted as a spell being.
+  These beings are tame and act like pets, but they have a limited life span. (In SLASH'EM
+  there was no life span unless you left them on a level to become untame). Here, when the
+  cartomancer plays a summon card - it will summon a spell being with a predetermined life
+  span that will fight aggressively for you. If you get credit for killing a spell being,
+  they only ever grant 1XP. Spell beings also never leave corpses and spawn with no
+  inventory.
+
+**Summon cards:**
+* Cartomancers will start out with a few summon cards, and they will also have the
+  opportunity to build a collection of them as they slay monsters. Low level monsters rarely
+  drop their own summon cards, but any death drop has a small chance to leave a higher level
+  monster. As your level grows, so does the strength of the rare drops.
+* The price of summon cards scales with their monster difficulty.
+* In addition to reading summon cards, cartomancers can also throw them to activate them.
+  This lets you keep monsters at a distance by throwing the summon directly next to the
+  threat.
+* Monsters can read summon cards as well.
+
+**Razor cards:**
+* In SpliceHack, razor cards were simply shuriken relabeled.
+* In NerfHack, razor cards have been properly implemented as their own weapon type using the shuriken skill.
+* Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
+* Cartomancers recognize the enchantment and BUC status of all razor cards.
+* Razor cards will appear as part of the cartomancers regular death drops and will sometimes
+  take the place of a summon card or zap card. These follow the same rules as any stacked weapon type, so you may receive a stack of 6-11 that could be blessed/cursed/uncursed, and possibly poisoned.
+
+**Zappable cards:**
+* These can also drop when cartomancers kill monsters. They act as one-use wands. These have a 0% generation chance so that other roles will not see them randomly, but they could see them in bones.
+
+
+* playing card deck and deck of fate
+
+
+* Burlinate cartomancer quest leader.
+
+
+**Changes to the cartomancer quest:**
+* Created a unique duelist monster to take the place of students in the cartomancer quest.
+* The cartomancer quest levels have received some updates and detailing.
+
+Cartomancer gets adjusted different item generation odds.
+    To make up for less corpse drops, they get more food.
+    They also get much fewer wands because they get zap cards.
+
+Cartomancers get speed at level 10. This is sort of my lazy way of implementing the card combo technique from the original SpliceHack. This lets the cartomancer get a larger benefit though and the player doesn't have to do anything special, they can just cast more cards naturally.
+The cartomancer also starts with a fedora.
+
 ## PLAYER RACE CHANGES
 
-* Removed infravision from dwarves, elves, gnomes, and orcs. No player-race gets infravision.
+* Removed infravision from dwarves, elves, gnomes, and orcs. 
+* Added infravision to vampires - they are the only race that starts with infravision.
 * Elves can always squeeze between two trees (xnh)
 * Elves get see invisible at level 8
 * Elves can always reach Basic in enchantment spells (xnh)
@@ -990,11 +1131,6 @@ Skill adjustments for knights
 * Orcs start with sickness potion (from SporkHack)
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
-
-
-
-
-
 
 ### New race/role combos.
 
@@ -1030,6 +1166,41 @@ This mechanic also applies to monsters, but they will also simply avoid using it
 
 Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
+## New races
+### Vampires
+This combines the features of many variant vampires into one cohesive vampiric race.
+
+* The core vampire race is originally from SLASH'EM.
+* Vampires feed automatically by the act of attacking and biting their victims (SpliceHack).
+* Even though all vampires have drain level resistance, they are susceptable to the drain life bite attacks from other vampires.
+* Vampires feed at a much higher rate when their victims are impaired by confusion, incapacitated, or trapped (Hack'EM).
+
+* Some vampires get an opera cloak (much rarer than SLASH'EM).
+* Vampires get a charisma bonus for wearing opera cloaks (UnNetHack).
+* Potions of blood and vampire blood (SLASH'EM).
+* Vampires can no longer shapeshift via #monster.
+
+Vampires get these resistances and abilities:
+    - Level 1:     Regeneration
+    - Level 1:     Breathless
+    - Level 1:     Flying
+    - Level 1:     Poison resistance
+    - Level 1:     Drain resistance
+    - Level 1:     Immune to death magic
+    - Level 5:     Hunger
+    - Level 9:     Sleep resistance
+
+
+* Ported the Inherently Evil mechanic from EvilHack.
+* Vampires get infravision.
+* Vampires don't get sleep resistance.
+* Silver weapons generate more often when playing as a vampire.
+* Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the
+  invocation, they may apply the silver bell on the invocation square, but otherwise silver
+  items are unusable for vampires.
+* Set vampire's minimum attribute values to 3 like all other races (from UnNetHack) 
+* From Un: Prevent vampires from biting dangerous monsters. 
+
 ## ITEM CHANGES
 
 * Reduced weight of land mines to 40 aum (xnh)
@@ -1040,7 +1211,8 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Reduced weight of most armors by 50 aum (K-Mod)
 * Reduced weight of elven gear by about 1/3'rd (Evil)
 * Increased weight of dwarvish and elven mithril coats to 200 aum
-* Increase weight of dragon scales and scale mail to 80 aum
+* Increased weight of dragon scales and scale mail to 80 aum
+* Increased weight of shuriken to 4 aum each.
 * Increase the prices of many magical tools
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
@@ -1078,15 +1250,15 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * All short swords get +1 to-hit (from DynaHack)
 * Reduced probability of long swords generating (K-Mod)
 * Wielded polearms grant +2AC
-* Spears at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed.
-* Spetums can skewer up to 3 monsters when used in melee while riding a steed
-* Ranseurs can disarm monsters or the player when pounded or used in melee while riding a steed.
-* Bardiches have a 1 in 100 chance of beheading monsters (or the player)
+* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed.
+* **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
+* **Ranseurs** can disarm monsters or the player when pounded or used in melee while riding a steed.
+* **Bardiches** have a 1 in 100 chance of beheading monsters (or the player)
 * +4 to-hit bonus for attacking with a scimitar on a steed.
-* Wielding and unwielding curved swords takes 0 turns.
-* Morning stars and flails can stun monsters (or the player) on critical hits. Player must be skilled or better.
+* Wielding and unwielding **curved swords** takes 0 turns.
+* **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
-* Crossbows no longer grant multishot, instead their damage output is multiplied by your skill.
+* **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dnh)
 
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
@@ -1098,14 +1270,14 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * They can still be creating from polypiling
 
 ### Wands of wishing
-* Always generate pre-charged, meaning they never be charged, otherwise they will explode (many variants incorporate this)
+* **Always generate pre-charged**, meaning they can never be re-charged, otherwise they will explode (many variants incorporate this)
 * Wands of wishing only generate with d2 charges
 * The maximum possible wishes from any WoW is 3 wishes
 
 ### Unicorn horns
 
 * Success depends on their enchantment level (SLASHEM)
-* Now one-handed, dealing d6 vs sm/d7 vs large
+* Now one-handed, dealing d6 vs small/d7 vs large
 * Having skill in unicorn horn has a positive impact on your success when applying, having no skill has a negative impact.
 * Basic skill grants a 10% bonus to success, skilled 20%s, and expert 40%. This allows roles that can attain proficiency to not have to enchant it so high.
 
@@ -1121,7 +1293,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Scrolls of genocide only clear a single monster species on the level (uncursed) or globally (blessed) (Un)
 * Endgame genocide nerf. Monsters cannot be fully genocided after entering the planes. Any genocides executed in the end game will be uncursed and only have a 1 in 4 chance of destroying each monster of that species. This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
 * Enchant armor: Ability to choose worn piece of armor to enchant/repair (Evil)
-* Give enchant vibrate warning for all weapons/armor (from DynaHack)
+* Give enchanting vibrate warning for all weapons/armor (from DynaHack)
 * Blessed scroll of destroy armor asks which armor to destroy (xnh)
 * Confused cursed scroll of destroy armor prompts for armor to fix
 * Confused scroll of identify gives enlightenment (xnh)
@@ -1140,7 +1312,6 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 * Raise odds of a cursed wand exploding to 1 in 30 (Un)
 * Cursed wand backfire patch (Evil)
   * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
-
 * Blessed and uncursed wands wrest much more often
   * blessed wands wrest 1/7 of the time
   * uncursed wrest 1/23 of the time
@@ -1161,12 +1332,12 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 ## NEW ITEMS
 
 **stomping boots:**
-* Instakills any tiny monster you attack or run into. (Splice)
+* Instakills any tiny monster you attack or run into (Splice)
 * Small monsters can also get stomped with a 1 in 40 chance.
 * Flying monsters, monsters in water, amorphous, and incorporeal monsters are immune to stomping.
 
 **flying boots:** Levitation boots have been removed and replaced with flying boots which simply grant flight. Medusa's Island gets flying boots instead of levitation boots.
-** gauntlets of force:** Increase strength bonus, makes forcing locks and opening doors take 1 turn. Chance of stunning. Can break iron bars, boulders.
+**gauntlets of force:** Increase strength bonus, makes forcing locks and opening doors take 1 turn. Chance of stunning. Can break iron bars, boulders.
 **anti-magic shield:** Leather shield that provides magic resistance.
 **gnomish boots:** Provides 0AC + bonus 2AC for gnomes (THEM)
 **gnomish helm:** Provides 0AC + bonus 2AC for gnomes (THEM)
@@ -1177,6 +1348,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
 **wand of poison gas:** shoots poison rays (Splice)
 
+**wand of wonder:** shoots a random ray by picking a random wand on each activation (Splice)
 **rapier:** (SLASHEM)
 * A sword using saber skill that deals d6 vs small, d8 vs large
 * Made of unerodable metal, weighs only 15
@@ -1191,6 +1363,56 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 **heavy sword:**
 * Base item for Load Brand 
 * Basically the same stats as a two-handed sword but it is made of mineral and weighs 500aum
+
+**silver short sword** (SLASHEM).
+
+**potion of blood:**
+* Decent food for vampires
+
+**potion of vampire blood:**
+* Fantastic meal for vampires
+* If drunk as a non-vampire, this polymorphs you into a vampire.
+
+**playing card deck:**
+* When applied, gives you a poker hand which correlates to your luck.
+* If the deck is blessed (or you are a cartomancer), you get a clear indication of your luck
+  by using the kicker.
+* If uncursed, you get a rough indication of your luck by the hand strength.
+* If cursed, the meanings are reversed.
+
+**deck of fate:**
+Grants random effects when you draw a card from it. When you apply it, you are prompted for
+how many cards to draw. You can draw a max of 5 cards.
+
+Card effects:
+* The Tower - Magical and fiery explosions on self.
+* The Wheel of Fortune - Draw two more cards.
+* The Devil - Summons a demon.
+* The Fool - Abuses int and wis.
+* Death - You are subjected to the touch of death. If you are invulnerable, hallucinating,
+  or a form that resists death, you are spared. If you have magic resistance, you still are
+  subject to 8d6 drain life damage. If you have not used saving grace yet in your current
+  game and you have positive luck, your life can also be saved that way.
+* Judgment - You are punished.
+* The Emperor - Curses two items.
+* The Hermit - Get intrinsic teleportitis and invisibility for a brief period.
+* The Hanged Man - Summons a rope golem.
+* Justice - If you have negative alignment, you are paralyzed for 20-49 turns, otherwise you are
+  unpunished.
+* Temperance - Destroy two worn pieces of armor
+* The Lovers - Summons a random foocubus.
+* The Magician - If the Wizard of Yendor has been killed, he is resurrected - otherwise this
+  increases your maximum power and refills it.
+* Strength - Increases your strength.
+* The High Priestess - Clears previous alignment abuse and you gain alignment.
+* The Hierophant - Creates an altar, if the floor under you isn't already a dungeon feature.
+* The Empress - Creates a throne, if the floor under you isn't already a dungeon feature.
+* The Chariot - You get teleport control for 1 turn and a level teleport.
+* The Sun - Gain (additional) intrinsic protection and divine protection.
+* The Moon - Gain 7 luck.
+* The Star - Identifies your inventory.
+* The World - Prompts you to make a wish.
+
 
 ## NEW ARTIFACTS
 
@@ -1221,7 +1443,8 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
 ## ARTIFACT CHANGES
 
-Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cannot be two-weaponed.
+- Artifact weapons can now be dual-wielded (SLASH'EM). 
+- Lawful and chaotic weapons cannot be two-weaponed (Evil).0w
 
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
 * Magicbane is a quarterstaff (FIQ)
@@ -1238,11 +1461,11 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * The Eyes of the Overworld protect against more gaze attacks (Evil)
 * Prevent Cleaver from cleaving peaceful bystanders (xnh)
 * Giantslayer is now a spear (Evil)
-* Giantslayer conveys 18/** strength while wielded (DynaHack)
+* Giantslayer conveys 18/\* strength while wielded (DynaHack)
 * Ogresmasher can also hurtle light-weight monsters (Evil)
 * Werebane provides protection from shapechangers when wielded
 * The Sceptre of Might gets a flat +3 damage buff
-* The Longbow of Diana confers reduced damage when wielded
+* The Longbow of Diana confers half physical damage when wielded
 * Increased Mjollnirs wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
 * Sting actually cuts through webs when force-fighting
@@ -1260,16 +1483,6 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
 * No special **themed rooms** generate until level 5
-### Art rooms
-
-* Ported from SpliceHack
-* These rooms have a one-time event that occurs upon entering a room
-* Most of the time it's a fun piece of art depicting something with the denizens of the dungeon. But sometimes it's a special effect.
-  * You might see an image of your god, invoking enlightenment
-  * You might find a partial map of the level
-  * You might encounter a scary image, stunning you for a few turns
-* Art rooms help exercise INT and WIS, depending on the room
-* To get any effects, you must not be blind when you enter the room
 
 ### Castle changes
 
@@ -1298,17 +1511,19 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * Some of the maze levels in gehennom have been trimmed out, most of the level generation is cave-like.
 * All hell fill levels are either hot or cold.
 
-
 ### Sokoban
 
 * Sokoban levels are cold and icy - legend has it a white dragon took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icey cyan, you will see random patches of ice form in the level. The upper levels of Sokoban are also "cold", meaning that if potions land on the floor, they have a chance of freezing and shattering.
+* Note: A recent change from NetHack 3.7 also makes ice slide the player in a random
+  direction. This feature was implemented after cold Sokobon, but it amplifies the effect.
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
 * Monsters won't break boulders in Sokobon.
 * Cursed gain level can be used in Sokoban to bypass a floor (xnh)
 
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
-* The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon.
+* The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon and actually all Soko zoos have the white dragon guarding the treasure.
+* The zoos in Soko have been expanded slightly.
 
 ### Forges
 
@@ -1319,6 +1534,9 @@ Artifact weapons can now be dual-wielded (Evil). Lawful and chaotic weapons cann
 * New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
 
 ### Traps
+
+* At higher levels, boulders can drop from falling rock traps.
+* Polytraps disappear with 1 in 7 chance when a monsters steps on one.
 
 A few new traps have been added:
 
@@ -1349,6 +1567,8 @@ A few new traps have been added:
 * When a monster gets hit with grease, it will randomly grease an item in their inventory.
 * The trap disarms with a random 1 in 15 chance.
 
+* Slipping in grease traps can cause you or monsters to become paralyzed for a few turns and inflicts a small amount of damage.
+
 #### Door traps
 * Door traps actually explode in a ball of flame (Evil)
 * These traps will start appearing at level 8.
@@ -1358,6 +1578,31 @@ A few new traps have been added:
 * Randomly generated tins have a 1 in 30 chance of exploding in a blast of fire when opened.
 * Tins that you create from tinning kits will always be safe.
 
+## Special Rooms
+
+### Art rooms
+
+* Ported from SpliceHack
+* These rooms have a one-time event that occurs upon entering a room
+* Most of the time it's a fun piece of art depicting something with the denizens of the dungeon. But sometimes it's a special effect.
+  * You might see an image of your god, invoking enlightenment
+  * You might find a partial map of the level
+  * You might encounter a scary image, stunning you for a few turns
+* Art rooms help exercise INT and WIS, depending on the room
+* To get any effects, you must not be blind when you enter the room
+
+### Room colors patch
+* Most special rooms get a distinctive color or combination of colors.
+
+### New room: dragon lair (from SLASH'EM). 
+* Dragon scales can sometimes appear in dragon lairs.
+
+### New room: giant courtroom (from SLASH'EM). 
+* Giant courts sometimes have tinning kits.
+* Monsters in giant courts are always hostile.
+
+### New room: Real zoo (from SLASH'EM).
+* Monsters in real zoos are always hostile.
 
 ## CREDITS
 NerfHack draws inspiration and ideas from many variants of NetHack:
