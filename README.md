@@ -1057,8 +1057,6 @@ Skill adjustments for knights
     * hawaiian shirts are "graphic tees"
     * lock picks are "worthless cards"
 
-    * oilskin sacks are 
-
 **Play mechanics:**
 * Cartomancers receive severe alignment penalties for forging cards. 
 * If you forge cards after completing the quest, a horde of kops is kalled
@@ -1344,11 +1342,17 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Flying monsters, monsters in water, amorphous, and incorporeal monsters are immune to stomping.
 
 **flying boots:** Levitation boots have been removed and replaced with flying boots which simply grant flight. Medusa's Island gets flying boots instead of levitation boots.
+
 **gauntlets of force:** Increase strength bonus, makes forcing locks and opening doors take 1 turn. Chance of stunning. Can break iron bars, boulders.
+
 **anti-magic shield:** Leather shield that provides magic resistance.
+
 **gnomish boots:** Provides 0AC + bonus 2AC for gnomes (THEM)
+
 **gnomish helm:** Provides 0AC + bonus 2AC for gnomes (THEM)
+
 **gnomish suit:** Provides 1AC + bonus 2AC for gnomes (THEM)
+
 **orcish boots:** Provides 1AC + bonus 2AC for orcs (Evil)
 
 **wand of corrosion:** shoots acid rays (Splice)
@@ -1356,6 +1360,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 **wand of poison gas:** shoots poison rays (Splice)
 
 **wand of wonder:** shoots a random ray by picking a random wand on each activation (Splice)
+
 **rapier:** (SLASHEM)
 * A sword using saber skill that deals d6 vs small, d8 vs large
 * Made of unerodable metal, weighs only 15
