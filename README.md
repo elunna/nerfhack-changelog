@@ -62,6 +62,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
 * Auto-ID potions of sickness and fruit juice when dipping unihorn in sickness
+* Auto-ID potions of restore ability when quaffed
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xnh)
 * Auto-ID scroll of scare monster if it crumbles from picking up (Un)
@@ -85,6 +86,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 
 ### INTERFACE CHANGES 
 
+* Detailed object and monster is available in the in-game lookup (Pokedex), ported from xNetHack with updates from HackEM.
 * Peaceful monsters are underlined (TTY and curses) (xnh)
 * Magic cancellation (MC) value is shown on the bottom line (Evil)
 * Skill caps and percentage towards next level is available in #enhance
@@ -180,7 +182,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * After the invocation, the maximum difficulty limit for generating monsters is removed (xnh)
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
-* "Purple/Astral Rain" nerf: Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 4 chance of succeeding.
+* "Purple/Astral Rain" nerf: Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 5 chance of succeeding.
 * Replace undead on Astral Plane with random A (xnh).
 * Post wizard death harassment has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
@@ -480,7 +482,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 | glowing eye          | e   | SLASH'EM    |                                                                                           |
 | blinking eye         | e   | SLASH'EM    |                                                                                           |
 | kamadan              | f   | SLASH'EM    | recolored to light green<br/>can jump and have infravision<br/>have poisonous snake bites |
-| weretiger            | f/@ | SLASH'EM    | can jump as d                                                                             |
+| weretiger            | f/@ | SLASH'EM    | can jump, red                                                                             |
 | deep one             | h   | SLASH'EM    |                                                                                           |
 | deeper one           | h   | SLASH'EM    |                                                                                           |
 | deepest one          | h   | SLASH'EM    |                                                                                           |
@@ -510,6 +512,9 @@ Many of these changes were introduced to work in conjunction with the new grease
 | shadow ogre          | O   | SLASH'EM    |                                                                                           |
 | ghoul mage           | Z   | SLASH'EM    |                                                                                           |
 | lava demon           | &   | Convict Patch    |                                                                                           |
+| assassin bug         | a   | SLASH'EM  |                                                                                           |
+| shadow               | a   | SLASH'EM  |                                                                                           |
+| giant anacondas      | S   | EvilHack  |                                                                                           |
 
 
 ### New demons lords:
@@ -621,6 +626,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * jellyfish get a passive paralyzing attack
 * Keystone Kops cannot be genocided (Un)
 * Keystone Kops are tougher: they flank and have increased levels, speed, and attack damage; removed their wander flag (K-Mod)
+* leprechauns do not stash gold in the ground after stealing it (reverted from 3.7)
 * lizards appear with slightly less frequency
 * ki-rin get shock, sleep, cold, and poison resistance (xnh)
 * lords and princes never get negative weapons or armor (xnh)
@@ -763,6 +769,7 @@ Flanking restrictions:
 * A berserking monster deals double damage rolls when hitting you
 * Taming berserking monsters only un-berserks them, it doesn't pacify or tame
 * Monsters that can berserk: all dwarves, mordor orcs, uruk-hai, mumaks, zruty, fire giants, frost giants, storm giants, ettin, all ogres, owlbears, sasquatch, and balrog.
+* Berserkers get angry when stuck in traps.
 
 #### Accurate behavior
 
@@ -966,8 +973,7 @@ Skill adjustments for knights
   
 **Rogues can counterattack while wielding knives and daggers:**
 * While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent. There are many restrictions:
-  * The monster must be a humanoid
-  * Their attack must be a weapon, claw, or kick attack type.
+  * Their attack must be a weapon, bite, claw, or kick attack type.
   * You can't be polymorphed
   * You can't be wearing any heavy metallic armor or wielding a bulky shield.
   * You cannot be weak (or worse from hunger), and you cannot be encumbered.
@@ -978,7 +984,6 @@ Skill adjustments for knights
 ### SAMURAI
 * Samurai start with +3 wakizashi (from DynaHack)
 * Samurai can reach expert in spears.
-* Ported more Japanese item names for samurai from SlashTHEM/dNetHack.
 * Samurai get to-hit and damage bonuses for twoweaponing a katana with a wakizashi.
 * The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
 
@@ -1198,6 +1203,7 @@ Vampires get these resistances and abilities:
     - Level 5:     Hunger
     - Level 9:     Sleep resistance
 
+With the vampire race available you will be able to play as a archeologist, barbarian, priest, cartomancer, rogue, and wizard.
 
 ## ITEM CHANGES
 
@@ -1215,6 +1221,7 @@ Vampires get these resistances and abilities:
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
 * Raised price of wand of nothing to 500 (EvilHack)
+* Levels of erosion on an object can affect its price (from EvilHack).
 * Port FIQHack's ring initial enchantment rules
 * Port the Oily Corpses Patch (xnh)
 * Rocks can be broken (a)pplied to produce flint stones (xnh)
@@ -1242,13 +1249,14 @@ Vampires get these resistances and abilities:
 * mummy wrappings always generate rotted
 * orcish equipment is usually generates rusty and/or corroded
 * dwarven items frequently spawn as fixed. 
+* The ring of levitation is a valid starting ring.
 
 ### Weapon changes
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
 * All short swords get +1 to-hit (from DynaHack)
 * Reduced probability of long swords generating (K-Mod)
 * Wielded polearms grant +2AC
-* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed.
+* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
 * **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee while riding a steed.
 * **Bardiches** have a 1 in 100 chance of beheading monsters (or the player)
@@ -1304,6 +1312,7 @@ Vampires get these resistances and abilities:
 * More potion breathing effects (xnh)
 * Thrown potions of hallucination confuse monsters (Evil)
 * Potion of paralysis lasts 3-24 turns on monsters (Evil)
+* Withering can be cured by quaffing holy water.
 
 ### WANDS
 
@@ -1436,7 +1445,7 @@ Card effects:
 | Whisperfeet         | neutral   | speed boots           | SLASHEM    | Confers stealth and luck                                                                                                                                                    |
 | Mayhem              | chaotic   | stomping boots        | HACKEM     | Confers conflict and warning vs undead                                                                                                                                      |
 | The Lenses of Truth | unaligned | lenses                | HACKEM     | Confers see invisible and searching when worn<br/>Confers stun resistance when worn                                                                                         |
-| Serenity            | lawful    | silver spear          | HACKEM     | +d5 to-hit, +d10 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of monster spells<br/>Absorbs curses like Magicbane |
+| Serenity            | lawful    | silver spear          | HACKEM     | +d5 to-hit, +d10 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
 | Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                      |
 
 ## ARTIFACT CHANGES
@@ -1467,7 +1476,8 @@ Card effects:
 * Increased Mjollnirs wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
 * Sting actually cuts through webs when force-fighting
-* 
+* Withering can be cured by the Staff of Aesculapius (xnh/Evil)
+
 **Bane changes:**
 * All banes provide warning vs their bane monster type when wielded (Evil)
 * All banes glow red in response to their monster types (Evil)
@@ -1512,7 +1522,7 @@ Card effects:
 ### Sokoban
 
 * Sokoban levels are cold and icy - legend has it a white dragon took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icey cyan, you will see random patches of ice form in the level. The upper levels of Sokoban are also "cold", meaning that if potions land on the floor, they have a chance of freezing and shattering.
-* Note: A recent change from NetHack 3.7 also makes ice slide the player in a random
+* Note: A recent change from NetHack 3.7 also makes ice slide the player in a random, however, players will not slide while in Sokobon (this would make solving the puzzles more difficult than it already is).
   direction. This feature was implemented after cold Sokobon, but it amplifies the effect.
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
@@ -1522,6 +1532,31 @@ Card effects:
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon and actually all Soko zoos have the white dragon guarding the treasure.
 * The zoos in Soko have been expanded slightly.
+
+### Fort Ludios
+* Ported two Fort Ludios variants from EvilHack/UnNetHack.
+* Some mermaids were added to patrol the moats.
+
+### Minetown/Mines End
+* Ported zoo town and lavendar town from SpliceHack.
+* Ported Creek Town and Mini-Castle town from SlashTHEM.
+* Imported the Gnomish Sewer from xNetHack.
+* Imported 3 mines end variants from SlashTHEM.
+
+### Oracle
+* Ported Oracle variations 2 and 3 from SpliceHack.
+
+### Temple to Moloch level
+* Ported from SLASH'EM
+* Gargoyles replace the statue gargoyles in the original map.
+* 2 ghoul mages were added.
+
+### Lost Tomb level
+* Ported from SLASH'EM
+
+### Big Room
+* Ported bigroom variants from UnNetHack and SpliceHack.
+* Imported two bigroom variants from xnh.
 
 ### Forges
 
@@ -1566,6 +1601,7 @@ A few new traps have been added:
 * The trap disarms with a random 1 in 15 chance.
 
 * Slipping in grease traps can cause you or monsters to become paralyzed for a few turns and inflicts a small amount of damage.
+* Mud boots and water walking boots protect from slipping on grease traps.
 
 #### Door traps
 * Door traps actually explode in a ball of flame (Evil)
