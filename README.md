@@ -266,7 +266,7 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
-* In NerfHack, the game will roll three times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently.
+* In NerfHack, the game will roll three times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently. If a player fails to gain any new intrinsics, they instead are granted a wish.
 * Crowning gifts are only granted when crowned, never for #offer.
 
 New intrinsics available when crowned:
