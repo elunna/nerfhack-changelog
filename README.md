@@ -133,8 +133,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Amnesia can make you forget intrinsic telepathy.
 * Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
 * Telepathy cannot be permanently gained intrinsically
-* Teleportitis cannot be permanently gained intrinsically. Teleport control *can*, however, still be
-  gained intrinsically.
+* Teleportitis cannot be permanently gained intrinsically.
+* Teleport Control cannot be permanently gained intrinsically.
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
@@ -438,7 +438,7 @@ difficult time with spellcasting.
 * When casting a SKILLED attack spell, you can choose to cast basic fireball or cone of cold (xnh/dnh)
 * You get a 100 turn reminder for spells that are close to fading away
 * Spellcasting no longer exercises wisdom
-* **Hungerless spellcasting nerf:** Total hungerless casting is not possible anymore and the intelligence requirements have been increased. 20+ INT gets you 1/4-hunger and 18+ gets you 1/2 hunger casting (FIQ)
+* **Hungerless spellcasting nerf:** Total hungerless casting is not possible anymore and the intelligence requirements have been increased.
 * Healing spell effectiveness is determined by skill (Evil)
 
 ### ITEM EROSION AND DESTRUCTION
@@ -669,15 +669,17 @@ Many of these changes were introduced to work in conjunction with the new grease
 * trappers and lurkers above are mindless and speed 6
 * troll meat provides temporary intrinsic regeneration (xnh)
 * unique monsters cannot be tamed
-* all vortices (v) resist shock damage.
+* violet fungi get a passive hallucination attack
+* all vortices (v) resist shock damage
 * vampire mages can see invisible
 * all werefoo in animal form get infravision
-* werewolves have a higher level and difficulty, stronger attacks 
-* weretigers have a higher level and difficulty, stronger attacks 
+* werewolves have a higher level and difficulty, stronger attacks
+* weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
 * wumpus is now huge; strengthened bite attack from 3d6 to 6d9
 * xans can't fly (dnh)
 * yellow and black light explosions are directionless (xnh)
+* yellow molds puff out clouds of stunning spores.
 
 ### Unique monster changes
 * Croesus can move other monsters out of his way (Evil)
@@ -884,6 +886,7 @@ Flanking restrictions:
 * Archeologists get a -1 to-hit penalty when fighting snakes.
 * Snakes get a +2 to-hit bonus on archeologists
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
+
 ### BARBARIAN
 * Barbarians can reach skilled in riding (Evil)
 * Barbarians get a blood rage bonus for low health.
@@ -955,6 +958,7 @@ Skill adjustments for knights
 * Instead of the standard crowning gift, priests always receive Mjollnir (Evil)
 * Priests reduce the chance of zombie revival by 50% (from DynaHack); when a zombie is killed for good, you get a special message
 * Priests can reach basic in riding skill.
+* Priests start with more garlic and wolfsbane (similar to the undead slayer in SLASH'EM)
 
 ### RANGER
 * Rangers get extended range for seeing object's dknown appearance (this lets them see potions and gems from much further away)
@@ -1185,6 +1189,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 * Vampires now start the game with infravision.
 * Silver weapons generate more often when playing as a vampire.
 * Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the invocation, they may apply the silver bell on the invocation square, but otherwise silver items are unusable for vampires.
+* Vampires cannot handle garlic.
 
 * Vampires are Inherently Evil (from EvilHack)
     * This is adapted from the Infidel role in evil. In general, vampires suffer very little
@@ -1311,6 +1316,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Thrown potions of hallucination confuse monsters (Evil)
 * Potion of paralysis lasts 3-24 turns on monsters (Evil)
 * Withering can be cured by quaffing holy water.
+* Blessed restore ability only restores a few levels (Evil).
 
 ### WANDS
 
@@ -1380,6 +1386,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 
 **potion of blood:**
 * Decent food for vampires
+* The nutrition granted has been raised from other variants, and grants 400 nutrition.
 
 **potion of vampire blood:**
 * Fantastic meal for vampires
@@ -1496,6 +1503,8 @@ Card effects:
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
 * No special **themed rooms** generate until level 5
+* Random rivers were added to many of the quest filler levels.
+
 
 ### Castle changes
 
