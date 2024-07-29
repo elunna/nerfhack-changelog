@@ -205,12 +205,12 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 
 * Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.
 * There are two stages to the cracking. In the first stage the altar becomes partially cracked, which is purely cosmetic and doesn't affect the altar's functionality. However, receiving another gift from a cracked altar will certainly destroy it, losing it forever.
-* Being crowned also counts as a gift. If you are crowned on a cracked altar, it will also destroy it in the process.
+* Being crowned also counts as a gift. If you are crowned on a cracked altar, it will also almost always destroy it in the process (however - there is a 1 in 13 chance that the altar will survive the process).
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. One in four altars will generate pre-damaged (doesn't apply for temples or pre-mapped altars).
 * Altars are always cracked after level 15.
 
-* Converting an altar will also frequently crack it. This occurs 1 in 3 times the altar is converted or whenever hostile minions are summoned.
+* Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after 2 artifact gifts had been bestowed.
 
@@ -246,10 +246,10 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Quest artifacts cannot be wished for (dnh)
 * Attempting to wish for quest artifacts doesn't use up a wish
 * Wishes no longer increase prayer timeout (Dyna)
-* Throne wishes have been removed. To compensate, full recursive identify of items can occur if the player has enough luck.
-* Artiwishes only care about previous artiwishes; same for gifts (xnh)
+* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. If the player doesn't get a wish, they lose 1 point of Luck. Once the player is granted a wish from a throne, the throne is guaranteed to disappear. (Evil with adjustments)
 * The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
 * Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
+* Artiwishes only care about previous **successful** artiwishes.
 
 **The chance of receiving the artifact from a wish is:**
 
@@ -1284,6 +1284,8 @@ With the vampire race available you will be able to play as a archeologist, barb
 * dwarven items frequently spawn as fixed. 
 * The ring of levitation is a valid starting ring.
 * Cursed food items will no longer tame or pacify monsters.
+
+
 ### Weapon changes
 
 #### Higher max weapon enchantment
@@ -1674,6 +1676,25 @@ Misc changes:
 * Items can pass over forges.
 * New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
 * Cold rays can cool forges.
+
+### Toilets
+
+Toilets have received many enhancements after adapting them from SLASHEM. Notably, toilets can now appear on their own, separate from sinks, whereas in SLASH'EM, they only came in pairs with sinks. Overall, their frequency has been dialed way back so they are quite rare.
+
+* Toilet prayer can now stop the vomiting process
+* Praying at toilets can cure sickness.
+* Sitting on toilets can alleviate satiated status.
+* If giants sit on toilets, they break.
+
+Toilet kicking:
+* Like sinks, toilets now have a couple different effects from kicking them, including a few YAFM.
+* Kicking now only breaks the toilet 1/7 chance (was 1/4 in SLASH'EM)
+* Kicking can generate giant cockroaches and pools from kicking (1 in 17 chance)
+* Kicking can generate brown puddings (only once per toilet)
+* Kicking can generate a random tool. Normally this tool will weigh under 15aum, but sometimes you'll get a large tool that bonks against the piping. If a large tool bonks 3x - you'll get that tool no matter now big it is and the toilet is destroyed in the process.
+
+Dipping an edged weapon into a toilet can poison it, but also probably rust any metallic items.
+
 
 ### Bloody tiles
 * Ported from SpliceHack
