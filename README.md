@@ -17,6 +17,8 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Partially revert 5c7c9d10a - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
   3.4.3 so this makes them somewhat threatening.
+* Items that grant steadfastness will do so even if the hero is flying or levitating.
+* Reverted 82f0b1e8e - Scared hostile monster which cannot move away will attack. Players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
 
 ## QUALITY OF LIFE FEATURES
 
@@ -37,6 +39,8 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Pets never displace player from stairs when entering a level (from DynaHack).
 * Lessen confusing messages for confuse monster effects wearing off.
 * Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
+* Passive fire damage burns away slime.
+* Allow #terrain while impaired (from xNetHack).
 
 ### Safer bags of holding:
 In the NetHack community, the blowing up of Bags of Holding seems to be an honored tradition
@@ -79,6 +83,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID dunce cap when it's first put on (Un)
 * Auto-ID jumping boots upon wearing (Un/Ace)
 * Auto-ID water walking boots when they waterwalk (xnh)
+* Auto-ID kicking boots when they are kicked
 * Auto-ID BUC of products from BUC identified tinning kit or horn of plenty (from UnNetHack++)
 * Auto-ID BUC of wands when they backfire
 * Blessed stethoscopes can identify eggs (from EvilHack/SporkHack)
@@ -94,6 +99,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * New config option to show damage and flanking bonuses (showdamage option)
+* New config option: noflipsoko. Enables player to choose whether they want their Soko levels to be flipped. If enabled, incurs Sokobon penalty for use.
 * Show weights of objects in inventory (invweight option)
 * Display AC values for armor in the hero's inventory (Splice)
 * Pets' items can be managed with #loot
@@ -115,7 +121,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Disabled the 3.7 **tutorial**
 * Enable **full options** by default.
 * Changed the symbol for **sinks** back to #
-
+* The hero's color reflects their race (SLASH'EM)
 ### WIZMODE FEATURES
 
 * The #wizcrown command has been added for testing crowning (Evil)
@@ -134,11 +140,12 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
 * Telepathy cannot be permanently gained intrinsically
 * Teleportitis cannot be permanently gained intrinsically.
-* Teleport Control cannot be permanently gained intrinsically.
+* Teleport control cannot be permanently gained intrinsically.
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
 * Don't allow stunned jumping; and confused jumping has a 20% chance to fail (Evil)
+* Intrinsic disintegration res doesn't protect items from disintegration.
 
 ### Slow Luck timeouts (modified)
 
@@ -178,8 +185,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 
 ### ENDGAME CHANGES
 
-* Occasional earthquakes can occur during the ascension run (Un/Evil)
-* After the invocation, the maximum difficulty limit for generating monsters is removed (xnh)
+* Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * "Purple/Astral Rain" nerf: Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 5 chance of succeeding.
@@ -243,6 +249,7 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Throne wishes have been removed. To compensate, full recursive identify of items can occur if the player has enough luck.
 * Artiwishes only care about previous artiwishes; same for gifts (xnh)
 * The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
+* Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
 
 **The chance of receiving the artifact from a wish is:**
 
@@ -273,6 +280,18 @@ New intrinsics available when crowned:
 * Acid resistance (this is the only way to receive this resistance intrinsically)
 * Disintegration resistance
 * Petrification resistance (this is the only way to receive this resistance intrinsically)
+
+
+### Leveling up bonuses
+Players get a to-hit bonus after reaching level 20 (from EvilHack with adjustments)
+    * Level 22: +1 to-hit
+    * Level 24: +1 to-hit, and so on.
+
+Leveling up grants damage bonuses (SlashTHEM)
+    * Level 10, +1 damage to attacks.
+    * level 20+: +1 damage bonus for every additional level gained.
+    * For example: At level 25, you would get a combined total of +7 damage (+1 for reaching XP 7 and +6 for levels 20-25).
+
 
 ### AC PENALTIES
 
@@ -314,6 +333,9 @@ New intrinsics available when crowned:
 * Worn armor has a 25% weight reduction (xnh/FIQ)
 * Dwarves and elves get a +1 bonus for each racially aligned piece of armor they wear (Evil)
 * Orcs and gnomes get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
+* Plate mail now grants 8AC
+* Crystal plate mail now grants 9AC
+* Bronze plate mail now grants 7AC
 
 #### Dragon scales and scale mail changes
 
@@ -491,19 +513,19 @@ Many of these changes were introduced to work in conjunction with the new grease
 | diamond piercer      | p   | SpliceHack  |                                                                                           |
 | god piercer          | p   | SpliceHack  |                                                                                           |
 | landshark            | q   | SpliceHack  | recolored to bright blue                                                                  |
-| jumping spider       | s   | Splice      |                                                                                           |
+| jumping spider       | s   | Splice      |                                                                                           | May appear in small groups
 | will-o'-the-wisp     | y   | SpliceHack  |                                                                                           |
 | zoo bat              | B   | SpliceHack  |                                                                                           |
 | athol                | B   | SLASH'EM    | increased size, weight, and nutrition<br/>strong, berserk, flank, and have infravision    |
 | byahkee              | B   | SLASH'EM    | recolored to yellow                                                                       |
-| nightgaunt           | B   | SLASH'EM    | recolored to purple<br/>tickle attack is unaffected by MC                                 |
+| nightgaunt           | B   | SLASH'EM    | recolored to purple<                                 |
 | gray fungus          | F   | Evil/THEM   |                                                                                           |
 | adherer              | M   | SpliceHack  |                                                                                           |
 | ha-naga              | N   | SpliceHack  |                                                                                           |
 | alchemist            | Q   | SpliceHack  | can alchemize acid potions                                                                        |
 | troll mummy          | M   | SLASH'EM    |                                                                                           |
 | vampire mage         | V   | SLASH'EM    |                                                                                           |
-| merfolk              | ;   | Splice/THEM |                                                                                           |
+| merfolk              | ;   | Splice/THEM | Changed to bright green                                                                                          |
 | thing from below     | ;   | SpliceHack  | can see invisible                                                                         |
 | grave troll          | T   | SpliceHack  | can spawn in graves/graveyards<br/>                                                       |
 | elven cleric         | @   | EvilHack    |                                                                                           |
@@ -513,8 +535,11 @@ Many of these changes were introduced to work in conjunction with the new grease
 | ghoul mage           | Z   | SLASH'EM    |                                                                                           |
 | lava demon           | &   | Convict Patch    |                                                                                           |
 | assassin bug         | a   | SLASH'EM  |                                                                                           |
-| shadow               | a   | SLASH'EM  |                                                                                           |
+| shadow               | X   | SLASH'EM  |                                                                                           |
 | giant anacondas      | S   | EvilHack  |                                                                                           |
+| giant centipede      | s   | EvilHack  |                                                                                           |
+| velociraptor         | :   | SpliceHack  |                                                                                           | Only appears for cavemen. Same strength as SLASHEM's kangaroos.
+| T-Rex                | :   | SpliceHack  |                                                                                           | Only appears for cavemen. Can berserk. Can roar.
 
 
 ### New demons lords:
@@ -535,11 +560,13 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Piercers actually pierce helmets; if the damage roll is (12 + (helmet enchantment * 6) or greater, any hard helmet blocking the attack is destroyed. If a helmet is destroyed in this fashion, it absorbs some of the damage.
 * Piercers and lurkers/trappers always generate hidden if possible. 
 
-### Reviving Zombies
+### Reviving and Poisonus Zombies
 * Zombie corpses may auto-revive similar to trolls (Evil/xnh)
 * Cancelled or beheaded zombies and trolls don't revive (Evil)
 * Wielding Sunsword prevents zombies corpses from appearing (Evil)
 * Playing as a priest reduces the chance of zombie revival by 50% (Dyna)
+* All zombies get an additional poisonous bite attack that can drain constitution.
+* Sometimes when a zombie is low on health, it will try to bite the players legs.
 
 ### Demons
 * Many major demons have been given flight (xnh)
@@ -598,7 +625,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 * all quest GUARDIAN colors were changed to cyan
 * all A monsters are immune to death magic (xnh)
-* baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12
+* baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12; increased difficulty
 * all bats can see invisible
 * captains are considered princes (xnh)
 * captains and watch captains generate with keys (Evil)
@@ -632,7 +659,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * lords and princes never get negative weapons or armor (xnh)
 * lieutenants are considered lords (xnh)
 * master liches and arch-liches can see invisible (FIQ)
-* mastodon is now huge; strengthened butt attacks from 4d8 to 4d16
+* mastodon is now huge; strengthened butt attacks from 4d8 to 4d16; increased difficulty
 * mastodon gets a hug attack and can berserk (Evil)
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
@@ -665,7 +692,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * titans are level 17 (K-Mod)
 * tigers are orange (Evil)
 * tigers can also jump
-* titanothere is now huge; strengthened claw attack from 2d8 to 8d8
+* titanothere is now huge; strengthened claw attack from 2d8 to 8d8; increased difficulty
 * trappers and lurkers above are mindless and speed 6
 * troll meat provides temporary intrinsic regeneration (xnh)
 * unique monsters cannot be tamed
@@ -676,7 +703,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * werewolves have a higher level and difficulty, stronger attacks
 * weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
-* wumpus is now huge; strengthened bite attack from 3d6 to 6d9
+* wumpus is now huge; strengthened bite attack from 3d6 to 6d9; increased difficulty
 * xans can't fly (dnh)
 * yellow and black light explosions are directionless (xnh)
 * yellow molds puff out clouds of stunning spores.
@@ -883,13 +910,15 @@ Flanking restrictions:
 * Archeologists always get an extra id when reading scrolls of identify.
 
 **Archeologists vs snakes!**
-* Archeologists get a -1 to-hit penalty when fighting snakes.
-* Snakes get a +2 to-hit bonus on archeologists
-* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit.
+* Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
+* Snakes get a +1 to-hit bonus on archeologists
+* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks. 
+* Some giant anacondas have a chance of appearing in the arc quest now.
 
 ### BARBARIAN
 * Barbarians can reach skilled in riding (Evil)
 * Barbarians get a blood rage bonus for low health.
+    * Only occurs when barbarians reach level 4 and higher.
     * When under 50% of their max HP, they get a damage bonus that scales with their level.
     * When under 25%, this bonus is doubled.
     * This feature was adapted from the SpliceHack skill system.
@@ -899,12 +928,13 @@ Flanking restrictions:
 * They have an 80% chance of failing to read any spellbook
 * They can increase their max-HP at each level-up if they remain illiterate (from SporkHack/SlashTHEM)
 * Their special spell has been removed (Evil)
+* When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
 * The caveman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
 * Chromatic Dragon: Like other dragons also has buffs: level raised from 15->18, speed raised from 12 to 20, AC raised from -1 to -4, stronger claw attacks.
 
 Cavepeople have also been gifted with more skills in rudimentary tools like rocks and flint:
 * They start the game with more flint and no rocks (xnh)
-* They can lash flint to arrows, making them do slightly more damage (from SporkHack/SlashTHEM)
+* Cavemen can lash flint to arrows, making them do slightly more damage (from SporkHack/SlashTHEM). When arrows are flinted, their enchantment is also revealed.
 
 * The narrow passageways in their quest have been opened up for convenience (Evil)
 * Their quest narration and dialogue is more caveman-like (from xNetHack/Fourk)
@@ -916,11 +946,12 @@ Cavepeople have also been gifted with more skills in rudimentary tools like rock
     dagger:         Basic       -> Restricted
     polearms:       Skilled     -> Restricted
     morning star:   Basic       -> Restricted
+    unicorn horn:   Basic       -> Skilled
     attack spells:  Basic       -> Restricted
     matter spells:  Skilled     -> Restricted
     riding:         Restricted  -> Basic
 
-* Cave dwellers also cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. 
+* Cave dwellers also cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. The exception is unicorn horns, which the cave dwellers can reach skilled in.
 
 ### HEALER
 * Add L's Wounds patch: healers can see damage on monsters
@@ -1103,15 +1134,12 @@ Skill adjustments for knights
 * These can also drop when cartomancers kill monsters. They act as one-use wands. These have a 0% generation chance so that other roles will not see them randomly, but they could see them in bones.
 
 
-* playing card deck and deck of fate
-
-
-* Burlinate cartomancer quest leader.
 
 
 **Changes to the cartomancer quest:**
 * Created a unique duelist monster to take the place of students in the cartomancer quest.
 * The cartomancer quest levels have received some updates and detailing.
+* Buffed cartomancer quest leader.
 
 Cartomancer gets adjusted different item generation odds.
     To make up for less corpse drops, they get more food.
@@ -1189,6 +1217,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 * Vampires now start the game with infravision.
 * Silver weapons generate more often when playing as a vampire.
 * Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the invocation, they may apply the silver bell on the invocation square, but otherwise silver items are unusable for vampires.
+* Vampires won't receive any silver artifact gifts from their gods.
 * Vampires cannot handle garlic.
 
 * Vampires are Inherently Evil (from EvilHack)
@@ -1206,7 +1235,7 @@ Vampires get these resistances and abilities:
     - Level 5:     Hunger
     - Level 9:     Sleep resistance
 
-With the vampire race available you will be able to play as a archeologist, barbarian, priest, cartomancer, rogue, and wizard.
+With the vampire race available you will be able to play as a archeologist, barbarian, priest, cartomancer, rogue, or wizard. Only the chaotic alignment is available since they are inherently evil creatures.
 
 ## ITEM CHANGES
 
@@ -1227,12 +1256,13 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Levels of erosion on an object can affect its price (from EvilHack).
 * Port FIQHack's ring initial enchantment rules
 * Port the Oily Corpses Patch (xnh)
-* Rocks can be broken (a)pplied to produce flint stones (xnh)
+* Rocks can be broken (a)pplied to produce flint stones (xnh). When the player breaks rocks, they enter into an occupation which continues until the rocks are used up.
 * Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
 * Buff the effects of the scroll of light (xnh)
 * Reverse the name of the HACKEM MUCHE scroll
 * Using a cursed unlocking tool has a chance to break (Evil)
 * Using eroded unlocking tools also has a chance to break.
+* Credit cards may slip through a lock when cursed or hero is fumbling (from xNetHack).
 * Playing eroded musical instruments can break the instrument or fail to play.
 * Applying rusty stethoscope is much less effective.
 * Rusty tin openers can break.
@@ -1253,8 +1283,16 @@ With the vampire race available you will be able to play as a archeologist, barb
 * orcish equipment is usually generates rusty and/or corroded
 * dwarven items frequently spawn as fixed. 
 * The ring of levitation is a valid starting ring.
-
+* Cursed food items will no longer tame or pacify monsters.
 ### Weapon changes
+
+#### Higher max weapon enchantment
+* Weapons can be enchanted much higher, with a soft limit of +11.
+* This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
+* Random weapons have a small chance to generate with very high enchantment.
+* Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
+* Beware, over-enchanted weapons that vaporize now explode.
+
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
 * All short swords get +1 to-hit (from DynaHack)
 * Reduced probability of long swords generating (K-Mod)
@@ -1332,7 +1370,10 @@ With the vampire race available you will be able to play as a archeologist, barb
   * Being cancelled removes the protection spell effects
   * Small chance dragon scale mail will revert back to a set of scales if cancelled (Un/Evil)
 * Increase wand to-hit chance for high-dex characters  (from SpliceHack)
-
+* Wands of secret door detection can be broken to detect traps.
+* Wand explosions discharge their effects in an explosion (SLASH'EM).
+* Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
+* Monsters zapping cursed wands have double the chance of explosions.
 
 ## SHOP CHANGES
 **Lighting shops:**
@@ -1367,6 +1408,49 @@ With the vampire race available you will be able to play as a archeologist, barb
 
 **wand of wonder:** shoots a random ray by picking a random wand on each activation (Splice)
 
+**scroll of cloning:**
+    * From SpliceHack
+    * $300
+      Cloning these objects has nerfed results (obviously for abuse or balance considerations):
+    * magic marker -> athame
+    * magic lamp -> oil lamp
+    * wand of wishing -> wand of wonder
+    * bell of opening -> bell
+    * candelabrum of invocation -> wax candle
+    * amulet of yendor -> cheap plastic imitation amulet
+    * book of the dead -> blank spellbook
+    * scroll of cloning -> blank scroll (prevents infinite cloning loops)
+    * artifacts all copy the base item, but lose the name and the status of being an artifact.
+    
+    To copy the enchantment on an item, the scroll must be blessed.
+    If the scroll is cursed, the resulting item will be cursed.
+    
+    All other properties on the item should be copied exactly as is. This enables fun tricks like cloning that +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto.
+    
+    When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
+    
+    Couple updates:
+    * Unpaid items cloned in shops become property of the shopkeeper.
+    * More item properties are carried over: erosionproofing, container status, and some other misc things to make sure items are truly cloned.
+    * Intelligent monsters can use these scrolls to clone themselves!  I think this sort of balances out the scroll a bit, since a good number will be used up by monsters. When monsters read them, they always act as confused - so they can only clone themselves. It's a bit weird, but it's much easier than allowing them to clone items and needing to create a system for that mess...
+    * Unique monsters can also use these scrolls... The Wizard of Yendor still has to go through the Double Trouble routine, so no more than 2 Rodneys will ever oppose you. But it's possible for other uniques to clone themselves more than once if the opportunity arises.
+
+**scroll of knowledge:**
+    * From SpliceHack
+    * $50
+    * Read to learn about a random magic item.
+    * If blessed, there is a chance (based on luck) to learn about an additional item.
+    * Archeologists get to specify a specific item to learn about in addition to the regular effects.
+    * Unlike SpliceHack, this scroll can be written.
+    
+**scroll of water:**
+    * From UnNetHack/xNetHack
+    * $200
+    * When read, this generates many water pools around the player.
+    * If not blessed, there is a chance of creating water underneath the player.
+    * If cursed, a pool is certainly created under the player. If uncursed, the chance is luck based (higher equals less chance).
+    * When confused, this can dry up surrounding water tiles.
+
 **rapier:** (SLASHEM)
 * A sword using saber skill that deals d6 vs small, d8 vs large
 * Made of unerodable metal, weighs only 15
@@ -1383,6 +1467,9 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Basically the same stats as a two-handed sword but it is made of mineral and weighs 500aum
 
 **silver short sword** (SLASHEM).
+
+**sling bullet** (EvilHack)
+* 
 
 **potion of blood:**
 * Decent food for vampires
@@ -1441,15 +1528,15 @@ Card effects:
 | Keolewa             | neutral   | club                  | EvilHack   | deals 1d8 shock damage, +d5 to-hit</br>grants shock resistance while wielded                                                                                                |
 | The End             | neutral   | scythe                | SpliceHack | deals 1d20 cold damage, +d3 to-hit</br>grants drain resistance while wielded                                                                                                |
 | Serpent's Tongue    | chaotic   | dagger                | SLASHEM    | deals double damage to all monsters<br/>bonus damage vs monsters that don't resist poison                                                                                   |
-| Doomblade           | chaotic   | orcish short sword    | SLASHEM    | deals 1d20 damage<br/>25% chance of (1d4 * 5) bonus damage                                                                                                                  |
+| Doomblade           | chaotic   | short sword    | SLASHEM    | deals 1d20 damage<br/>25% chance of (1d4 * 5) bonus damage                                                                                                                  |
 | Poseidon's trident  | chaotic   | trident               | SpliceHack | deals +d7 damage, +d3 to-hit</br>grants magical breathing while wielded<br/>#invoke for water walking and an earthquake                                                     |
 | Origin              | unaligned | quarterstaff          | SpliceHack | deals +d6 damage, +d2 to-hit</br>grants teleport control while wielded<br/>grants spellcasting bonuses while wielded                                                        |
 | Hellfire            | chaotic   | crossbow              | SLASHEM    | bolts fired from Hellfire deal +d7 damage and explode in fire<br/>grants fire resistance while wielded                                                                      |
-| Plague              | chaotic   | orcish bow            | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                 |
+| Plague              | chaotic   | bow            | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                |
 | Pridwen             | lawful    | large shield          | SpliceHack | grants 1/2 physical damage while wielded</br>grants steadfastness while wielded                                                                                       |
 | Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damage                                                                                                                                                      |
 | Carnwennan          | lawful    | knife                 | SpliceHack | deals +d8 damage<br/>+d3 to-hit<br/>grants stealth and searching while wielded                                                                                              |
-| Load Brand          | unaligned | heavy sword           | HACKEM     | weights 500aum<br/>deals +d20 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                   |
+| Load Brand          | unaligned | heavy sword           | HACKEM     | weights 500aum<br/>deals +d40 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                   |
 | Snakeskin           | Neutral   | robe                  | SlashTHEM  | Confers acid resistance<br/>Confers hallucination resistance                                                                                                                |
 | Blackshroud         | neutral   | cloak of invisibility | SlashTHEM  | Grants warning and drain resistance                                                                                                                                         |
 | Mirrorbright        | neutral   | shield of reflection  | SLASHEM    | Doesn't inhibit spellcasting<br/>Confers hallucination resistance                                                                                                           |
@@ -1457,9 +1544,15 @@ Card effects:
 | Whisperfeet         | neutral   | speed boots           | SLASHEM    | Confers stealth and luck                                                                                                                                                    |
 | Mayhem              | chaotic   | stomping boots        | HACKEM     | Confers conflict and warning vs undead                                                                                                                                      |
 | The Lenses of Truth | unaligned | lenses                | HACKEM     | Confers see invisible and searching when worn<br/>Confers stun resistance when worn                                                                                         |
-| Serenity            | lawful    | silver spear          | HACKEM     | +d5 to-hit, +d10 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
+| Serenity            | lawful    | spear          | HACKEM     | +d5 to-hit, +d20 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
 | Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                      |
 
+| Amulet of Storms | chaotic | amulet of flying | xNetHack | Confers shock resistance, can #chat to tame stormy monsters.
+
+Misc changes:
+* Plague was changed from an orcish bow to a standard bow.
+* Quick blade is a silver short sword instead of an elvish short sword
+* 
 ## ARTIFACT CHANGES
 
 - Artifact weapons can now be dual-wielded (SLASH'EM). 
@@ -1483,7 +1576,7 @@ Card effects:
 * Giantslayer conveys 18/\* strength while wielded (DynaHack)
 * Ogresmasher can also hurtle light-weight monsters (Evil)
 * Werebane provides protection from shapechangers when wielded
-* The Sceptre of Might gets a flat +3 damage buff
+* The Sceptre of Might gets a flat +10 damage buff and grants steadfastness when wielded.
 * The Longbow of Diana confers half physical damage when wielded
 * Increased Mjollnirs wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
@@ -1528,10 +1621,11 @@ Card effects:
 * Gehennom has been dramatically shortened to 5-7 levels.
 * All the demon lairs have been removed.
 * The fake wizard levels have been removed.
-* The wizard's tower levels have been moved out of Gehennom to the main dungeon right below Medusa's Island.
+* The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xNetHack/EvilHack)
 * The portal to the wizard's tower has been moved to a random castle tower and changed to a stair up.
 * Some of the maze levels in gehennom have been trimmed out, most of the level generation is cave-like.
 * All hell fill levels are either hot or cold.
+* Disabled the ice/water levels in Gehennom.
 
 ### Sokoban
 
@@ -1579,6 +1673,13 @@ Card effects:
 * Forging recipes and the #forge extended command have not been ported.
 * Items can pass over forges.
 * New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
+* Cold rays can cool forges.
+
+### Bloody tiles
+* Ported from SpliceHack
+* When a monster is killed, it can spray blood around the surrounding tiles depending on it's size.
+* The blood is mostly cosmetic, however, players cannot engrave in the dust while blood covers that tile.
+* Blood can be wiped off with a towel, or will wear off after enough activity.
 
 ### Traps
 
@@ -1644,6 +1745,7 @@ A few new traps have been added:
 
 ### New room: dragon lair (from SLASH'EM). 
 * Dragon scales can sometimes appear in dragon lairs.
+* Dragon lairs now produce special sounds when they appear on levels.
 
 ### New room: giant courtroom (from SLASH'EM). 
 * Giant courts sometimes have tinning kits.
