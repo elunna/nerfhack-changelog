@@ -14,11 +14,11 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * **Stinking clouds** no longer block line of sight
 * **Disabled vampire shapeshifting** for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * **Branchport** always brings you to the entry level of a branch
-* Partially revert 5c7c9d10a - Rejigger anti-magic traps. I thought the severity of the
+* **Partially revert 5c7c9d10a** - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
   3.4.3 so this makes them somewhat threatening.
-* Items that grant steadfastness will do so even if the hero is flying or levitating.
-* Reverted 82f0b1e8e - Scared hostile monster which cannot move away will attack. Players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
+* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
+* **Reverted 82f0b1e8e** - Scared hostile monster which cannot move away will attack. Players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
 
 ## QUALITY OF LIFE FEATURES
 
@@ -43,10 +43,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Allow #terrain while impaired (from xNetHack).
 
 ### Safer bags of holding:
-In the NetHack community, the blowing up of Bags of Holding seems to be an honored tradition
-that is upheld and broadcast on the servers when it occurs. However, I find it a severe
-punishment that kills games for both the player and the devs. Most of the time when a player
-has this happen, they simply quit. Since I would rather keep players going, I believe the
+In the NetHack community, the blowing up of Bags of Holding seems to be an honored tradition that is upheld and broadcast on the servers when it occurs. However, I find it a severe punishment that kills games for both the player and the devs. Most of the time when a player has this happen, they simply quit. Since I would rather keep players going, I believe the
 right approach is to punish players who make these kinds of mistakes willingly and earlier
 in the game. Once a player has identified the dangerous items for a bag of holding, it is
 virtually implausible that one would purposefully attempt to blow up their bag of holding.
@@ -99,9 +96,6 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Show available skill slots in #enhance menu (from DynaHack)
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
-* New config option to show damage and flanking bonuses (showdamage option)
-* New config option: noflipsoko. Enables player to choose whether they want their Soko levels to be flipped. If enabled, incurs Sokobon penalty for use.
-* Show weights of objects in inventory (invweight option)
 * Display AC values for armor in the hero's inventory (Splice)
 * Pets' items can be managed with #loot
 * Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
@@ -123,6 +117,12 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Enable **full options** by default.
 * Changed the symbol for **sinks** back to #
 * The hero's color reflects their race (SLASH'EM)
+
+### New config options
+* **showdamage:** Displays damage and flanking bonuses/penalties
+* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokobon penalty for use.
+* **invweight:** Show weights of objects in inventory (invweight option)
+
 ### WIZMODE FEATURES
 
 * The #wizcrown command has been added for testing crowning (Evil)
@@ -132,20 +132,21 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Allow wishing (^W) for monsters in wizmode (Un)
 
 ## RESOURCE CONTROL AND INTRINSIC NERFS
-   
+
+* Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
+* Telepathy cannot be permanently gained intrinsically
+* Teleportitis cannot be permanently gained intrinsically.
+* Teleport control cannot be permanently gained intrinsically.
+
 * Conflict negates Elbereth and scare monster protection (Evil)
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (Evil)
 * The chance of gaining levels from wraiths has been throttled. The chance scales with your level. You have an (XP level) in 40 chance of gaining a level from eating a wraith corpse now.
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
 * Amnesia can make you forget intrinsic telepathy.
-* Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
-* Telepathy cannot be permanently gained intrinsically
-* Teleportitis cannot be permanently gained intrinsically.
-* Teleport control cannot be permanently gained intrinsically.
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
-* Don't allow stunned jumping; and confused jumping has a 20% chance to fail (Evil)
+* Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
 * Intrinsic disintegration res doesn't protect items from disintegration.
 
 ### Slow Luck timeouts (modified)
@@ -160,68 +161,68 @@ The modified Luck timeout is calculated by the following formula:
 
 base_distance is how far you are from your base luck. If your base luck is 0 and you have 3 Luck, the base_distance is 3. If you have -10 base luck and 10 Luck, the base_distance is 20. The following chart shows how many turns it takes to timeout from one luck level to the next and the total turns to reach the base distance of 0.
 
-| base distance  | Timeout | Time to base Luck |
-|----------------|---------|-------------------|
-| 0              | ∞       |      0            |
-| 1              | 9 025   |  9 025            |
-| 2              | 8 100   | 17 125            |
-| 3              | 7 225   | 24 350            |
-| 4              | 6 400   | 30 750            |
-| 5              | 5 625   | 36 375            |
-| 6              | 4 900   | 41 275            |
-| 7              | 4 225   | 45 500            |
-| 8              | 3 600   | 49 100            |
-| 9              | 3 025   | 52 125            |
-| 10             | 2 500   | 54 625            |
-| 11             | 2 025   | 56 650            |
-| 12             | 1 600   | 58 250            |
-| 13             | 1 225   | 59 475            |
-| 14             |   900   | 60 375            |
-| 15             |   625   | 61 000            |
-| 16             |   400   | 61 400            |
-| 17             |   225   | 61 625            |
-| 18             |   100   | 61 725            |
-| 19             |    25   | 61 750            |
-| 20             |     0   | 61 750            |
+| base distance | Timeout | Time to base Luck |
+| ------------- | ------- | ----------------- |
+| 0             | ∞       | 0                 |
+| 1             | 9 025   | 9 025             |
+| 2             | 8 100   | 17 125            |
+| 3             | 7 225   | 24 350            |
+| 4             | 6 400   | 30 750            |
+| 5             | 5 625   | 36 375            |
+| 6             | 4 900   | 41 275            |
+| 7             | 4 225   | 45 500            |
+| 8             | 3 600   | 49 100            |
+| 9             | 3 025   | 52 125            |
+| 10            | 2 500   | 54 625            |
+| 11            | 2 025   | 56 650            |
+| 12            | 1 600   | 58 250            |
+| 13            | 1 225   | 59 475            |
+| 14            | 900     | 60 375            |
+| 15            | 625     | 61 000            |
+| 16            | 400     | 61 400            |
+| 17            | 225     | 61 625            |
+| 18            | 100     | 61 725            |
+| 19            | 25      | 61 750            |
+| 20            | 0       | 61 750            |
 
 ### ENDGAME CHANGES
 
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
-* "Purple/Astral Rain" nerf: Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 5 chance of succeeding.
-* Replace undead on Astral Plane with random A (xnh).
-* Post wizard death harassment has been increased by 20-25%
+* **"Purple/Astral Rain" nerf:** Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 5 chance of succeeding.
+* Replaced undead on Astral Plane with random A (xnh).
+* Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
-* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, demons will be blocked for further summoning this way.
+* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
 
 ### FINITE ALTAR NERFS
 
 * When donating to priests - the gold vanishes upon receipt
-* Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted. (K-Mod)
-* Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple. (Evil)
+* Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted (K-Mod)
+* Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
 * Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 
 #### Altar cracking
 
-* Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.
-* There are two stages to the cracking. In the first stage the altar becomes partially cracked, which is purely cosmetic and doesn't affect the altar's functionality. However, receiving another gift from a cracked altar will certainly destroy it, losing it forever.
+- **Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.**
+* There are two stages to the cracking. In the first stage the altar becomes partially cracked, which is purely cosmetic and doesn't affect the altar's functionality. This cracked status can be seen on an altar by farlooking. However, receiving another gift from a cracked altar will certainly destroy it, losing it forever.
 * Being crowned also counts as a gift. If you are crowned on a cracked altar, it will also almost always destroy it in the process (however - there is a 1 in 13 chance that the altar will survive the process).
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
-* Altars also sometimes generate cracked. One in four altars will generate pre-damaged (doesn't apply for temples or pre-mapped altars).
+* Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked (doesn't apply for temples or pre-mapped altars).
 * Altars are always cracked after level 15.
 
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after 2 artifact gifts had been bestowed.
 
-A new conduct was added to the #conduct menu so that players can track how many altars have been destroyed in their current game.
+A new conduct was added to the #conduct menu so that players can track how many altars have been destroyed in their current game. Altar cracking is livelogged on game servers for the general publics entertainment.
 
-#### #offer gift odds
+#### #offer GIFT ODDS
 * The odds have been adjusted in favor of the player, especially after 2 gifts have been granted.
 
 | Gifts Granted | Old odds | New odds |
-|---------------|----------|----------|
+| ------------- | -------- | -------- |
 | 0             | 10.00%   | 12.50%   |
 | 1             | 8.33%    | 10.00%   |
 | 2             | 5.56%    | 8.33%    |
@@ -274,7 +275,7 @@ A new conduct was added to the #conduct menu so that players can track how many 
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
-* In NerfHack, the game will roll three times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently. If a player fails to gain any new intrinsics, they instead are granted a wish.
+* In NerfHack, the game will roll 3 times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently. If a player fails to gain any new intrinsics, they instead are granted a wish.
 * Crowning gifts are only granted when crowned, never for #offer.
 
 New intrinsics available when crowned:
@@ -303,7 +304,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Wearing any kind of heavy metallic body armor (not mithril) or other rigid material also negates beneficial AC bonuses
 
 | Dexterity | AC change |
-|-----------|-----------|
+| --------- | --------- |
 | <= 6      | +3        |
 | 7-9       | +1        |
 | 10-14     | +0        |
@@ -318,7 +319,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Being encumbered has a severe negative effect on your AC and inflicts +4AC for each level of encumbrance.
 
 | Encumbrance | AC change |
-|-------------|-----------|
+| ----------- | --------- |
 | Burdened    | +4        |
 | Stressed    | +8        |
 | Strained    | +12       |
@@ -394,7 +395,7 @@ The skill system for achieving proficiency in weapons and spells has been adapte
 This chart shows the number of successful uses of a skill required to reach each level.  These values are:
 
 | Skill level  | Successful uses | Old value |
-|--------------|-----------------|-----------|
+| ------------ | --------------- | --------- |
 | Unskilled    | 0               | 0         |
 | Basic        | 50              | 20        |
 | Skilled      | 200             | 80        |
@@ -412,7 +413,7 @@ This chart shows the number of successful uses of a skill required to reach each
 ### EXPERIENCE CURVE CHANGES
 
 | XP Level | XP Required |
-|----------|-------------|
+| -------- | ----------- |
 | 1        | 0           |
 | 2        | 20          |
 | 3        | 40          |
@@ -500,51 +501,51 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 ## NEW MONSTERS
 
-| Monster              | sym | origin      | changes                                                                                   |
-|----------------------|-----|-------------|-------------------------------------------------------------------------------------------| 
-| giant praying mantis | a   | SpliceHack  |                                                                                           |
-| locust               | a   | EvilHack    |                                                                                           |
-| bloodshot eye        | e   | SLASH'EM    |                                                                                           |
-| glowing eye          | e   | SLASH'EM    |                                                                                           |
-| blinking eye         | e   | SLASH'EM    |                                                                                           |
-| kamadan              | f   | SLASH'EM    | recolored to light green<br/>can jump and have infravision<br/>have poisonous snake bites |
-| weretiger            | f/@ | SLASH'EM    | can jump, red                                                                             |
-| deep one             | h   | SLASH'EM    |                                                                                           |
-| deeper one           | h   | SLASH'EM    |                                                                                           |
-| deepest one          | h   | SLASH'EM    |                                                                                           |
-| alhoon               | h   | EvilHack    | not covetous<br/>now speed 15<br/>can displace monsters                                   |
-| redcap               | i   | SpliceHack  |                                                                                           |
-| diamond piercer      | p   | SpliceHack  |                                                                                           |
-| god piercer          | p   | SpliceHack  |                                                                                           |
-| landshark            | q   | SpliceHack  | recolored to bright blue                                                                  |
-| jumping spider       | s   | Splice      |                                                                                           | May appear in small groups
-| will-o'-the-wisp     | y   | SpliceHack  |                                                                                           |
-| zoo bat              | B   | SpliceHack  |                                                                                           |
-| athol                | B   | SLASH'EM    | increased size, weight, and nutrition<br/>strong, berserk, flank, and have infravision    |
-| byahkee              | B   | SLASH'EM    | recolored to yellow                                                                       |
-| nightgaunt           | B   | SLASH'EM    | recolored to purple<                                 |
-| gray fungus          | F   | Evil/THEM   |                                                                                           |
-| adherer              | M   | SpliceHack  |                                                                                           |
-| ha-naga              | N   | SpliceHack  |                                                                                           |
-| alchemist            | Q   | SpliceHack  | can alchemize acid potions                                                                        |
-| troll mummy          | M   | SLASH'EM    |                                                                                           |
-| vampire mage         | V   | SLASH'EM    |                                                                                           |
-| merfolk              | ;   | Splice/THEM | Changed to bright green                                                                                          |
-| thing from below     | ;   | SpliceHack  | can see invisible                                                                         |
-| grave troll          | T   | SpliceHack  | can spawn in graves/graveyards<br/>                                                       |
-| elven cleric         | @   | EvilHack    |                                                                                           |
-| like-like            | P   | NerfHack    |                                                                                           |
-| ogre mage            | O   | SLASH'EM    |                                                                                           |
-| shadow ogre          | O   | SLASH'EM    |                                                                                           |
-| ghoul mage           | Z   | SLASH'EM    |                                                                                           |
-| lava demon           | &   | Convict Patch    |                                                                                           |
-| assassin bug         | a   | SLASH'EM  |                                                                                           |
-| shadow               | X   | SLASH'EM  |                                                                                           |
-| giant anacondas      | S   | EvilHack  |                                                                                           |
-| giant centipede      | s   | EvilHack  |                                                                                           |
-| velociraptor         | :   | SpliceHack  |                                                                                           | Only appears for cavemen. Same strength as SLASHEM's kangaroos.
-| T-Rex                | :   | SpliceHack  |                                                                                           | Only appears for cavemen. Can berserk. Can roar.
-
+| Monster              | sym | origin        | changes                                                                                 |
+| -------------------- | --- | ------------- | --------------------------------------------------------------------------------------- |
+| giant praying mantis | a   | SpliceHack    | Ignores Elbereth and all magical scaring                                                |
+| locust               | a   | EvilHack      |                                                                                         |
+| bloodshot eye        | e   | SLASH'EM      |                                                                                         |
+| glowing eye          | e   | SLASH'EM      |                                                                                         |
+| blinking eye         | e   | SLASH'EM      |                                                                                         |
+| kamadan              | f   | SLASH'EM      | recolored to light green<br/>can jump and has infravision<br/>has poisonous snake bites |
+| weretiger            | f/@ | SLASH'EM      | can jump, red                                                                           |
+| deep one             | h   | SLASH'EM      |                                                                                         |
+| deeper one           | h   | SLASH'EM      |                                                                                         |
+| deepest one          | h   | SLASH'EM      |                                                                                         |
+| alhoon               | h   | EvilHack      | not covetous, now speed 15<br/>can displace monsters                                    |
+| redcap               | i   | SpliceHack    |                                                                                         |
+| diamond piercer      | p   | SpliceHack    |                                                                                         |
+| god piercer          | p   | SpliceHack    |                                                                                         |
+| landshark            | q   | SpliceHack    | recolored to bright blue                                                                |
+| jumping spider       | s   | SpliceHack    | May appear in small groups                                                              |
+| will-o'-the-wisp     | y   | SpliceHack    |                                                                                         |
+| zoo bat              | B   | SpliceHack    | Eating makes you confused                                                               |
+| athol                | B   | SLASH'EM      | increased size, weight, and nutrition<br/>strong, berserks, flanks, and has infravision |
+| byahkee              | B   | SLASH'EM      | recolored to yellow                                                                     |
+| nightgaunt           | B   | SLASH'EM      | recolored to purple                                                                     |
+| gray fungus          | F   | Evil/THEM     |                                                                                         |
+| adherer              | M   | SpliceHack    |                                                                                         |
+| ha-naga              | N   | SpliceHack    |                                                                                         |
+| alchemist            | Q   | SpliceHack    | can alchemize acid potions                                                              |
+| troll mummy          | M   | SLASH'EM      |                                                                                         |
+| vampire mage         | V   | SLASH'EM      |                                                                                         |
+| merfolk              | ;   | Splice/THEM   | Changed to bright green                                                                 |
+| thing from below     | ;   | SpliceHack    | can see invisible                                                                       |
+| grave troll          | T   | SpliceHack    | can spawn in graves/graveyards<br/>                                                     |
+| elven cleric         | @   | EvilHack      | (was elven wizard in Evil)                                                              |
+| like-like            | P   | NerfHack      | Can eat your shields and cloaks when engulfing                                          |
+| ogre mage            | O   | SLASH'EM      |                                                                                         |
+| shadow ogre          | O   | SLASH'EM      | Spawns invisible, drain life attack                                                     |
+| ghoul mage           | Z   | SLASH'EM      |                                                                                         |
+| lava demon           | &   | Convict Patch | Can emerge from forges                                                                  |
+| assassin bug         | a   | SLASH'EM      | Stronger                                                                                |
+| shadow               | X   | SLASH'EM      |                                                                                         |
+| giant anacondas      | S   | EvilHack      |                                                                                         |
+| giant centipede      | s   | EvilHack      |                                                                                         |
+| velociraptor         | :   | SpliceHack    | Stronger                                                                                | Only appears for cavemen. Same strength as SLASHEM's kangaroos. |
+| T-Rex                | :   | SpliceHack    | Can berserk                                                                             | Only appears for cavemen. Can berserk. Can roar.                |
+| acid sphere          | S   | Splice/Evil   |                                                                                         |
 
 ### New demons lords:
 * Kostchtchie from SpliceHack.
@@ -553,7 +554,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Baphomet from SpliceHack.
 * Malchanthet from SpliceHack.
 * Mephistopholes from SpliceHack
-
 
 ## MONSTER CHANGES
 
@@ -751,10 +751,10 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can read scrolls of stinking cloud (Evil)
 * Hostile monsters wielding a digging tool can break boulders (Evil)
 * Monster knocking you (or other monsters) back is noisy.
+
 #### Steeds
 
 * Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked. (Evil)
-
 
 #### Misc monster behavior changes
 
@@ -823,7 +823,6 @@ Flanking restrictions:
 * Ported from EvilHack and SpliceHack
 * These monsters can jump at you from a few squares away, quickly bridging the gap between you
 * They can also cross short barriers like water and lava
-
 
 ## MONSTER SPELLCASTING
 
@@ -895,14 +894,13 @@ Flanking restrictions:
 * In xnh this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But I thought it would be pretty cool if extracted out and used as a new clerical spell. Not too many monsters use clerical spells, but they tend to be potent. The spell itself is pretty straightforward: it inflicts withering on the player. Since withering cannot be cured, this could end up quite dangerous if multiple blights are cast.
 
     In xnh, the duration of the withering was 100-140 turns. For the big demons this might fly, but for lesser spellcasters I reduced it to 20-60 turns. In xnh I believe this could only be cast in melee range, but now it can also be cast up to 8 squares away - further increasing its deadliness.
-*  Being polyd into a non-living form protects against the blight spell.
+* Being polyd into a non-living form protects against the blight spell.
 
 **evil eye (mage spell):**
 * Ported from dNetHack
 * When successfully cast on the hero, this lowers your Luck by 1 point.
 * Evil eye can only be cast by undead and demon spellcasters.
 * Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced. There is no maximum range to this spell.
-
 
 ## ROLE CHANGES
 
@@ -960,7 +958,7 @@ Cavepeople have also been gifted with more skills in rudimentary tools like rock
 
 ### HEALER
 * Add L's Wounds patch: healers can see damage on monsters
-* Healers get a bonus when applying unicorn horns
+* Healers get a large bonus when applying unicorn horns
 * Cyclops can berserk
 
 ### KNIGHT
@@ -1047,8 +1045,7 @@ Skill adjustments for knights
 ### CARTOMANCER
 * The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using scrolls and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
 
-
-**Starting inventory:** o
+**Starting inventory:**
     * Fedora
     * Graphic tee
     * 40 +0 razor cards
@@ -1138,9 +1135,6 @@ Skill adjustments for knights
 **Zappable cards:**
 * These can also drop when cartomancers kill monsters. They act as one-use wands. These have a 0% generation chance so that other roles will not see them randomly, but they could see them in bones.
 
-
-
-
 **Changes to the cartomancer quest:**
 * Created a unique duelist monster to take the place of students in the cartomancer quest.
 * The cartomancer quest levels have received some updates and detailing.
@@ -1184,7 +1178,6 @@ The cartomancer also starts with a fedora.
 * Elvish tourist
 * Gnomish tourist
 * Dwarven barbarian
-
 
 ### Racial item preferences
 
@@ -1290,7 +1283,6 @@ With the vampire race available you will be able to play as a archeologist, barb
 * The ring of levitation is a valid starting ring.
 * Cursed food items will no longer tame or pacify monsters.
 
-
 ### Weapon changes
 
 #### Higher max weapon enchantment
@@ -1307,7 +1299,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
 * **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee while riding a steed.
-* **Bardiches** have a 1 in 100 chance of beheading monsters (or the player)
+* **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
 * +4 to-hit bonus for attacking with a scimitar on a steed.
 * Wielding and unwielding **curved swords** takes 0 turns.
 * **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
@@ -1384,7 +1376,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 
 ## SHOP CHANGES
 **Lighting shops:**
-* Magic lamps are one notch rarer - down to 11.3% per game now overall. (Spork)
+* Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
 * Potions of oil have been eliminated from appearing.
 * Non-candle and non-lamp items have had their probabilities minimized.
 
@@ -1476,7 +1468,6 @@ With the vampire race available you will be able to play as a archeologist, barb
 **silver short sword** (SLASHEM).
 
 **sling bullet** (EvilHack)
-* 
 
 **potion of blood:**
 * Decent food for vampires
@@ -1529,48 +1520,46 @@ Card effects:
 
 ## NEW ARTIFACTS
 
-| Name                | Align     | Type                  | From       | Notes                                                                                                                                                                       |
-|---------------------|-----------|-----------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Disrupter           | neutral   | mace                  | SLASHEM    | deals 1d30 damage and +d5 to-hit vs undead</br>grants warning vs undead                                                                                                     |
-| Keolewa             | neutral   | club                  | EvilHack   | deals 1d8 shock damage, +d5 to-hit</br>grants shock resistance while wielded                                                                                                |
-| The End             | neutral   | scythe                | SpliceHack | deals 1d20 cold damage, +d3 to-hit</br>grants drain resistance while wielded                                                                                                |
-| Serpent's Tongue    | chaotic   | dagger                | SLASHEM    | deals double damage to all monsters<br/>bonus damage vs monsters that don't resist poison                                                                                   |
-| Doomblade           | chaotic   | short sword    | SLASHEM    | deals 1d20 damage<br/>25% chance of (1d4 * 5) bonus damage                                                                                                                  |
-| Poseidon's trident  | chaotic   | trident               | SpliceHack | deals +d7 damage, +d3 to-hit</br>grants magical breathing while wielded<br/>#invoke for water walking and an earthquake                                                     |
-| Origin              | unaligned | quarterstaff          | SpliceHack | deals +d6 damage, +d2 to-hit</br>grants teleport control while wielded<br/>grants spellcasting bonuses while wielded                                                        |
-| Hellfire            | chaotic   | crossbow              | SLASHEM    | bolts fired from Hellfire deal +d7 damage and explode in fire<br/>grants fire resistance while wielded                                                                      |
-| Plague              | chaotic   | bow            | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                |
-| Pridwen             | lawful    | large shield          | SpliceHack | grants 1/2 physical damage while wielded</br>grants steadfastness while wielded                                                                                       |
-| Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damage                                                                                                                                                      |
-| Carnwennan          | lawful    | knife                 | SpliceHack | deals +d8 damage<br/>+d3 to-hit<br/>grants stealth and searching while wielded                                                                                              |
-| Load Brand          | unaligned | heavy sword           | HACKEM     | weights 500aum<br/>deals +d40 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                   |
-| Snakeskin           | Neutral   | robe                  | SlashTHEM  | Confers acid resistance<br/>Confers hallucination resistance                                                                                                                |
-| Blackshroud         | neutral   | cloak of invisibility | SlashTHEM  | Grants warning and drain resistance                                                                                                                                         |
-| Mirrorbright        | neutral   | shield of reflection  | SLASHEM    | Doesn't inhibit spellcasting<br/>Confers hallucination resistance                                                                                                           |
-| Deluder             | neutral   | cloak of displacement | SLASHEM    | Confers stealth and MC1 protection                                                                                                                                          |
-| Whisperfeet         | neutral   | speed boots           | SLASHEM    | Confers stealth and luck                                                                                                                                                    |
-| Mayhem              | chaotic   | stomping boots        | HACKEM     | Confers conflict and warning vs undead                                                                                                                                      |
-| The Lenses of Truth | unaligned | lenses                | HACKEM     | Confers see invisible and searching when worn<br/>Confers stun resistance when worn                                                                                         |
-| Serenity            | lawful    | spear          | HACKEM     | +d5 to-hit, +d20 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
-| Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                      |
-
-| Amulet of Storms | chaotic | amulet of flying | xNetHack | Confers shock resistance, can #chat to tame stormy monsters.
+| Name                | Align     | Type                  | From       | Notes                                                                                                                                                                               |
+| ------------------- | --------- | --------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disrupter           | neutral   | mace                  | SLASHEM    | deals 1d30 damage and +d5 to-hit vs undead</br>grants warning vs undead                                                                                                             |
+| Keolewa             | neutral   | club                  | EvilHack   | deals 1d8 shock damage, +d5 to-hit</br>grants shock resistance while wielded                                                                                                        |
+| The End             | neutral   | scythe                | SpliceHack | deals 1d20 cold damage, +d3 to-hit</br>grants drain resistance while wielded                                                                                                        |
+| Serpent's Tongue    | chaotic   | dagger                | SLASHEM    | deals double damage to all monsters<br/>bonus damage vs monsters that don't resist poison                                                                                           |
+| Doomblade           | chaotic   | short sword           | SLASHEM    | deals 1d20 damage<br/>25% chance of (1d4 * 5) bonus damage                                                                                                                          |
+| Poseidon's trident  | chaotic   | trident               | SpliceHack | deals +d7 damage, +d3 to-hit</br>grants magical breathing while wielded<br/>#invoke for water walking and an earthquake                                                             |
+| Origin              | unaligned | quarterstaff          | SpliceHack | deals +d6 damage, +d2 to-hit</br>grants teleport control while wielded<br/>grants spellcasting bonuses while wielded                                                                |
+| Hellfire            | chaotic   | crossbow              | SLASHEM    | bolts fired from Hellfire deal +d7 damage and explode in fire<br/>grants fire resistance while wielded                                                                              |
+| Plague              | chaotic   | bow                   | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                         |
+| Pridwen             | lawful    | large shield          | SpliceHack | grants 1/2 physical damage while wielded</br>grants steadfastness while wielded                                                                                                     |
+| Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damage                                                                                                                                                              |
+| Carnwennan          | lawful    | knife                 | SpliceHack | deals +d8 damage<br/>+d3 to-hit<br/>grants stealth and searching while wielded                                                                                                      |
+| Load Brand          | unaligned | heavy sword           | NerfHack   | weights 500aum<br/>deals +d40 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                                 |
+| Snakeskin           | Neutral   | robe                  | SlashTHEM  | Confers acid resistance<br/>Confers hallucination resistance                                                                                                                        |
+| Blackshroud         | neutral   | cloak of invisibility | SlashTHEM  | Grants warning and drain resistance                                                                                                                                                 |
+| Mirrorbright        | neutral   | shield of reflection  | SLASHEM    | Doesn't inhibit spellcasting<br/>Confers hallucination resistance                                                                                                                   |
+| Deluder             | neutral   | cloak of displacement | SLASHEM    | Confers stealth and MC1 protection                                                                                                                                                  |
+| Whisperfeet         | neutral   | speed boots           | SLASHEM    | Confers stealth and luck                                                                                                                                                            |
+| Mayhem              | chaotic   | stomping boots        | NerfHack   | Confers conflict and warning vs undead                                                                                                                                              |
+| The Lenses of Truth | unaligned | lenses                | NerfHack   | Confers see invisible, searching, and stun resistance when worn                                                                                                                     |
+| Serenity            | lawful    | spear                 | NerfHack   | +d5 to-hit, +d20 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
+| Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                              |
+| Amulet of Storms    | chaotic   | amulet of flying      | xnh        | Confers shock resistance, can #chat to tame stormy monsters.                                                                                                                        |
 
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
 * Quick blade is a silver short sword instead of an elvish short sword
-* 
+
 ## ARTIFACT CHANGES
 
-- Artifact weapons can now be dual-wielded (SLASH'EM). 
-- Lawful and chaotic weapons cannot be two-weaponed (Evil).0w
-
+- Artifact weapons can now be dual-wielded (SLASHEM)
+- Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
 * Magicbane is a quarterstaff (FIQ)
 * Creating Excalibur will fix any negative enchantment on it (xnh)
 * Fire Brand instakills highly flammable monsters and green slimes (xnh)
-* Fire Brand: attacking with Fire Brand cures sliming
-* Frost Brand instakills water elementals.
+* Attacking with Fire Brand cures sliming
+* Frost Brand instakills water elementals
 * Vorpal blade grants see invisible while wielded
 * Vorpal Blade provides warning vs jabberwocks (Evil)
 * Vorpal blade gets a 10% chance of beheading (SLASHEM)
@@ -1585,7 +1574,7 @@ Misc changes:
 * Werebane provides protection from shapechangers when wielded
 * The Sceptre of Might gets a flat +10 damage buff and grants steadfastness when wielded.
 * The Longbow of Diana confers half physical damage when wielded
-* Increased Mjollnirs wakeup radius when it strikes monsters with lightning
+* Increased Mjollnir's wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
 * Sting actually cuts through webs when force-fighting
 * Withering can be cured by the Staff of Aesculapius (xnh/Evil)
@@ -1604,7 +1593,6 @@ Misc changes:
 * Shops cannot have themed rooms with unusual floor textures (xnh)
 * No special **themed rooms** generate until level 5
 * Random rivers were added to many of the quest filler levels.
-
 
 ### Castle changes
 
@@ -1699,7 +1687,6 @@ Toilet kicking:
 * Kicking can generate a random tool. Normally this tool will weigh under 15aum, but sometimes you'll get a large tool that bonks against the piping. If a large tool bonks 3x - you'll get that tool no matter now big it is and the toilet is destroyed in the process.
 
 Dipping an edged weapon into a toilet can poison it, but also probably rust any metallic items.
-
 
 ### Bloody tiles
 * Ported from SpliceHack
@@ -1807,6 +1794,7 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 - amateurhour and qt for their endless debugging advice.
 - cbus for many contributions
 - mobileuser and hothraxxa for extensively playtesting the original HackEM
+- malor for continuing maintenance of HackEM
 
 ### Thanks:
 - amateurhour
@@ -1819,6 +1807,7 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 - cbus
 - Chris_ANG
 - disperse
+- Frozty
 - hothraxxa
 - Janis
 - K2
