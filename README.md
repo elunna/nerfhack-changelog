@@ -71,6 +71,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID some potions when inhaling their vapors (xnh)
 * Auto-ID scroll of scare monster if it crumbles from picking up (Un)
 * Auto-ID scrolls of confuse monster when read
+* Auto-ID enchant armor when it erodeproofs or hardens dragon scales.
 * Auto-ID rings dropped into a sink (Un)
 * Auto-ID ring of regeneration if it heals you (Un)
 * Auto-ID wand of cancellation after destroying a bag of holding (Un)
@@ -493,6 +494,9 @@ Many of these changes were introduced to work in conjunction with the new grease
   become greased)
 * Grease can be washed off towels by wetting them
 * Greased towels now operate the same way that cursed towels do
+* Grease can be washed off your feet/boots by dipping '-' in water, same action as dipping the player's hands. 
+* Kicking monsters can sometimes get the grease to wear off your boots/feet.
+
 
 ## NEW MONSTERS
 
@@ -677,6 +681,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * quest leaders resist death magic (Evil)
 * rock trolls are stoning resistant (xnh)
 * all spheres (shocking spheres, flaming spheres, freezing spheres) cannot be genocided.
+* all spheres also explode on death (shocking/flaming/freezing/acid)
 * skeleton/shade slow attack is ineffective vs undead
 * soldiers get half as many C-and-K-rations and cannot load both types of rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -745,7 +750,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can zap wands of cancellation at the player (Evil)
 * Monsters can read scrolls of stinking cloud (Evil)
 * Hostile monsters wielding a digging tool can break boulders (Evil)
-
+* Monster knocking you (or other monsters) back is noisy.
 #### Steeds
 
 * Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked. (Evil)
