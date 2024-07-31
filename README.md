@@ -68,6 +68,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID some potions when inhaling their vapors (xnh)
 * Auto-ID scroll of scare monster if it crumbles from picking up (Un)
 * Auto-ID scrolls of confuse monster when read
+* Auto-ID scrolls of enchant armor when they erodeproof or make dragon scale mail
 * Auto-ID enchant armor when it erodeproofs or hardens dragon scales.
 * Auto-ID rings dropped into a sink (Un)
 * Auto-ID ring of regeneration if it heals you (Un)
@@ -131,23 +132,18 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Allow teleportation into unteleportable spots in wizard mode
 * Allow wishing (^W) for monsters in wizmode (Un)
 
-## RESOURCE CONTROL AND INTRINSIC NERFS
-
-* Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
-* Telepathy cannot be permanently gained intrinsically
-* Teleportitis cannot be permanently gained intrinsically.
-* Teleport control cannot be permanently gained intrinsically.
+## RESOURCE CONTROL AND MECHANIC NERFS
 
 * Conflict negates Elbereth and scare monster protection (Evil)
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (Evil)
 * The chance of gaining levels from wraiths has been throttled. The chance scales with your level. You have an (XP level) in 40 chance of gaining a level from eating a wraith corpse now.
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
-* Amnesia can make you forget intrinsic telepathy.
+
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
+* Falling down a hole or pit while fumbling (or very low dex) can make you fall on a wielded weapon. 
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
-* Intrinsic disintegration res doesn't protect items from disintegration.
 
 ### Slow Luck timeouts (modified)
 
@@ -195,6 +191,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
+* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but a large fraction of the hero's HP and energy will be damaged.
 
 ### FINITE ALTAR NERFS
 
@@ -202,6 +199,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted (K-Mod)
 * Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
 * Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
+* Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 
 #### Altar cracking
 
@@ -349,6 +347,34 @@ Leveling up grants damage bonuses (SlashTHEM)
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
 * Green dragon scale mail also grants regeneration.
 
+### INTRINSIC CHANGES
+* Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
+* Telepathy cannot be permanently gained intrinsically
+* Teleportitis cannot be permanently gained intrinsically.
+* Teleport control cannot be permanently gained intrinsically.
+* Amnesia can make you forget intrinsic telepathy.
+* Intrinsic disintegration res doesn't protect items from disintegration.
+
+#### Eating Accessories
+* Eating rings and amulets only confers an intrinsic for a temporary period.
+*  To compensate for the temporary nature of these intrinsics, the possibility of actually getting the property has been inversed.
+ * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It has been changed to 2 in 3. The chance for an amulet by eating it was 1 in 5. It has been changed to 4 in 5.
+ 
+** Summary of revised eating effects:**
+ - Eating a ring now grants 750-1500 turns of it's property intrinsically.
+ - Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
+ - Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
+ - Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
+
+#### Aggravate Monster changes
+* Cannibalism causes aggravation for 10-15k turns instead of permanently.
+* Eating domestic animals causes aggravation for 5000-7500 turns instead of permanently.
+* Intrinsic aggravate monster increases monster difficulty by 5 (stacks with extrinsic).
+* Aggravate monster spell cast at hero causes intrinsic aggravation for 50-300 turns.
+* Aggravate monster causes monsters not to flee and not be scared of musical instruments.
+* Ring of aggravate monster causes pets to attack anything without fear.
+* Ting of aggravate monster increases the monster generation difficulty by 15 (this was already implemented in NetHack 3.7, but it's worth including here as a recent change)
+
 ### PARTIAL INTRINSICS
 
 * Ported from EvilHack
@@ -374,7 +400,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * If you reflect disintegration ray, you still take 6d6 damage unless you possess disintegration resistance.
 * If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and half-spell damage, but is impossible to fully prevent.
 * Item destruction from elemental effects (like fire or cold) is prevented when rays are reflected.
-* Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d6 turns of paralysis without free action.
+* Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d6 turns of paralysis without free action. This is weighted on Luck - so the higher your Luck the better the chance to avoid the gaze.
 * **Medusa's gaze** cannot be reflected back from more than 3 squares away.
 * If reflected, Medusa will protect herself from her own gaze 98% of the time.
 
@@ -464,6 +490,7 @@ difficult time with spellcasting.
 * Spellcasting no longer exercises wisdom
 * **Hungerless spellcasting nerf:** Total hungerless casting is not possible anymore and the intelligence requirements have been increased.
 * Healing spell effectiveness is determined by skill (Evil)
+* Spellbook of identify was raised to level 5 (SLASHEM)
 
 ### ITEM EROSION AND DESTRUCTION
 
@@ -543,8 +570,8 @@ Many of these changes were introduced to work in conjunction with the new grease
 | shadow               | X   | SLASH'EM      |                                                                                         |
 | giant anacondas      | S   | EvilHack      |                                                                                         |
 | giant centipede      | s   | EvilHack      |                                                                                         |
-| velociraptor         | :   | SpliceHack    | Stronger                                                                                | Only appears for cavemen. Same strength as SLASHEM's kangaroos. |
-| T-Rex                | :   | SpliceHack    | Can berserk                                                                             | Only appears for cavemen. Can berserk. Can roar.                |
+| velociraptor         | z   | SpliceHack    | Stronger                                                                                | Only appears for cavemen. Same strength as SLASHEM's kangaroos. |
+| T-Rex                | z   | SpliceHack    | Can berserk                                                                             | Only appears for cavemen. Can berserk. Can roar.                |
 | acid sphere          | S   | Splice/Evil   |                                                                                         |
 
 ### New demons lords:
@@ -1056,9 +1083,7 @@ Skill adjustments for knights
 
 **Skill-set:**
     * Dagger: basic
-    * Knife: skilled
-    * Short sword: basic
-    * Saber: basic
+    * Knife: basic
     * Quarterstaff: skilled
     * Sling: basic
     * Dart: basic
@@ -1068,8 +1093,8 @@ Skill adjustments for knights
     * Healing spells: basic
     * Divination spells: expert
     * Enchantment spells: skilled
-    * Escape spells: skilled
-    * Matter spells: skilled
+    * Escape spells: basic
+    * Matter spells: basic
     * Riding: skilled
     * Bare-handed combat: basic
 
@@ -1305,7 +1330,8 @@ With the vampire race available you will be able to play as a archeologist, barb
 * **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
 * **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dnh)
-
+* No multishot when **fumbling**
+* 
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
 * Gem class projectiles do minimal damage vs thick-skinned monsters
@@ -1542,7 +1568,7 @@ Card effects:
 | Whisperfeet         | neutral   | speed boots           | SLASHEM    | Confers stealth and luck                                                                                                                                                            |
 | Mayhem              | chaotic   | stomping boots        | NerfHack   | Confers conflict and warning vs undead                                                                                                                                              |
 | The Lenses of Truth | unaligned | lenses                | NerfHack   | Confers see invisible, searching, and stun resistance when worn                                                                                                                     |
-| Serenity            | lawful    | spear                 | NerfHack   | +d5 to-hit, +d20 damage<br/>Confers fire resistance when wielded<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
+| Serenity            | lawful    | silver spear          | NerfHack   | +d5 to-hit, +d10 damage<br/>Blocks aggravate monster if present<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
 | Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                              |
 | Amulet of Storms    | chaotic   | amulet of flying      | xnh        | Confers shock resistance, can #chat to tame stormy monsters.                                                                                                                        |
 
