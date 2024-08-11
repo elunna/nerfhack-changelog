@@ -119,7 +119,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Changed the symbol for **sinks** back to #
 * The hero's color reflects their race (SLASH'EM)
 
-### New config options
+## New config options
 * **showdamage:** Displays damage and flanking bonuses/penalties
 * **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokobon penalty for use.
 * **invweight:** Show weights of objects in inventory (invweight option)
@@ -144,6 +144,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Falling down a hole or pit while fumbling (or very low dex) can make you fall on a wielded weapon.
 * Going downstairs while stunned always results in falling, confusion sometimes does.
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
+* Many item actions are now forbidden if you have both hands welded.
+* If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
 
 ### Slow Luck timeouts (modified)
 
@@ -186,7 +188,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
-* **"Purple/Astral Rain" nerf:** Taming is much more difficult on the Astral Plane; attempts to tame monsters only have a 1 in 5 chance of succeeding.
+* **Pets are limited by charisma** Your maximum number of pets is normally (CHA / 4), but (CHA / 8) on the Astral Plane. If you get more pets than that, they will be untamed starting with the weakest first (Evil)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
@@ -198,6 +200,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * When donating to priests - the gold vanishes upon receipt
 * Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted (K-Mod)
 * Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
+* Converting altars has higher chance of summoning minions (SLASH'EM)
 * Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 
@@ -209,6 +212,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked (doesn't apply for temples or pre-mapped altars).
 * Altars are always cracked after level 15.
+* If more than one altar generates on a standard dungeon level, the excess altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after 2 artifact gifts had been bestowed.
@@ -394,7 +398,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Eating domestic animals causes aggravation for 5000-7500 turns instead of permanently.
 * Intrinsic aggravate monster increases monster difficulty by 5 (stacks with extrinsic).
 * Aggravate monster spell cast at hero causes intrinsic aggravation for 50-300 turns.
-* Aggravate monster causes monsters not to flee and not be scared of musical instruments.
+* Aggravate monster causes monsters not to be scared of musical instruments.
 * Ring of aggravate monster causes pets to attack anything without fear.
 * Ting of aggravate monster increases the monster generation difficulty by 15 (this was already implemented in NetHack 3.7, but it's worth including here as a recent change)
 
@@ -548,7 +552,10 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Greased towels now operate the same way that cursed towels do
 * Grease can be washed off your feet/boots by dipping '-' in water, same action as dipping the player's hands. 
 * Kicking monsters can sometimes get the grease to wear off your boots/feet.
-
+* Greased gloves cause Glib.
+* Greased feet/gloves cause fumbling.
+* Cursed rings can slip off your fingers when Glib.
+* Greased rings slip off your fingers as if you had greasy fingers.
 
 ### FORGING & FORGING RECIPES
 
@@ -741,6 +748,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide
 * Mordor orcs can spawn with orcish boots
+* Mumakil get butts or kicks instead of bites.
 * mummies get a nasty withering attack (xnh/Evil)
 * nazgul can shriek, inflicting stun damage (xnh)
 * olog hai get poison resistance
@@ -761,6 +769,8 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * scorpions are tiny
 * shades get 20MR
 * shopkeeper base level has been raised to 13 (xnh)
+* Shopkeepers get a wand of sleep instead of striking (Evil)
+* Shopkeepers get extra defensive items (SLASHEM).
 * shopkeepers and priests are colored yellow (xnh)
 * titans can see invisible (FIQ)
 * titans resist death magic (SLASHEM)
@@ -1377,6 +1387,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Increased weight of dwarvish and elven mithril coats to 200 aum
 * Increased weight of dragon scales and scale mail to 80 aum
 * Increased weight of shuriken to 2 aum each.
+* Increased weight of all gray stones (except load and flint) to 25.
 * Increase the prices of many magical tools
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
@@ -1405,6 +1416,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * padded gloves provide an extra point of AC (dnh)
 * combat boots provide 1AC and +1 to-hit (dnh)
 * jungle boots provide protection from wounded legs (dnh)
+* kicking boots allow kicking even when your legs are wounded.
 * gauntlets of dexterity grant +1 to-hit while using bows (Evil)
 * saddles are now twice as common (FIQ)
 * mummy wrappings always generate rotted
@@ -1509,6 +1521,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
+* You must have at least one free hand to zap a wand.
 
 ## SHOP CHANGES
 **Lighting shops:**
@@ -1621,28 +1634,33 @@ With the vampire race available you will be able to play as a archeologist, barb
 * If cursed, the meanings are reversed.
 
 **deck of fate:**
+This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
+
+If cursed, the drawn card will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
+
+If blessed, the drawn card is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
+
+
 Grants random effects when you draw a card from it. When you apply it, you are prompted for
 how many cards to draw. You can draw a max of 5 cards.
 
 Card effects:
-* The Tower - Magical and fiery explosions on self.
-* The Wheel of Fortune - Draw two more cards.
-* The Devil - Summons a demon.
-* The Fool - Abuses int and wis.
+* The Tower - Lightning and acid explosions for 1d30 each on self.
+* The Wheel of Fortune - Draw two more cards. If playing as a cartomancer, you get an additional d3 cards.
+* The Devil - Summons a demon. If your luck is less than 1, a major demon is summoned. You will also stop drawing from the deck.
+* The Fool - Abuses INT and WIS.
 * Death - You are subjected to the touch of death. If you are invulnerable, hallucinating,
   or a form that resists death, you are spared. If you have magic resistance, you still are
   subject to 8d6 drain life damage. If you have not used saving grace yet in your current
-  game and you have positive luck, your life can also be saved that way.
+  game and you have positive luck, your life can also be saved that way. You will also stop drawing from the deck.
 * Judgment - You are punished.
 * The Emperor - Curses two items.
-* The Hermit - Get intrinsic teleportitis and invisibility for a brief period.
+* The Hermit - You randomly teleport, get invisibility for 500-999 turns, and aggravate monsters.
 * The Hanged Man - Summons a rope golem.
-* Justice - If you have negative alignment, you are paralyzed for 20-49 turns, otherwise you are
-  unpunished.
-* Temperance - Destroy two worn pieces of armor
-* The Lovers - Summons a random foocubus.
-* The Magician - If the Wizard of Yendor has been killed, he is resurrected - otherwise this
-  increases your maximum power and refills it.
+* Justice - If you have negative alignment, you are paralyzed for 20-49 turns. If you have good alignment and are punished, you are unpunished. Otherwise, you get some divine protection.
+* Temperance - Destroy two worn pieces of armor. This also sets the deck to act as a cursed item for the duration of the drawing.
+* The Lovers - Summons 2 peaceful foocubi.
+* The Magician - If the Wizard of Yendor has been killed, he is resurrected - otherwise this increases your maximum power and refills it.
 * Strength - Increases your strength.
 * The High Priestess - Clears previous alignment abuse and you gain alignment.
 * The Hierophant - Creates an altar, if the floor under you isn't already a dungeon feature.
@@ -1651,7 +1669,34 @@ Card effects:
 * The Sun - Gain (additional) intrinsic protection and divine protection.
 * The Moon - Gain 7 luck.
 * The Star - Identifies your inventory.
-* The World - Prompts you to make a wish.
+* The World - You get a wish.
+
+**healthstone**
+* Ported from SLASH'EM.
+* Mostly acts the same, adds to your effective level and constitution depending on it's BUC.
+* Stackable.
+* Monsters carrying noncursed healthstones can regenerate.
+
+**whetstone**
+* Ported from SLASH'EM with updates from HackEM.
+* Whetstones no longer can add positive enchantment to a weapon, they can only repair it to +0.
+* Cursed whetstones either rust or corrode items now.
+* Blessed whetstones can uncurse a cursed weapon, but lose their blessed state in the process.
+* Most of the other small quality-of-life improvements from HackEM remain.
+
+
+**foulstone**
+Effects of carrying a foulstone:
+* Causes aggravate monster (but without increasing the difficulty of spawned monsters)
+* Monsters cannot digest you and you cannot digest monsters carrying one.
+* Shopkeepers will not let you into their shops and won't buy it.
+* If blessed, has a 1 in 100 chance each turn of emitting a stench that scares monsters for a short while (similar to garlic breath)
+* If cursed, has a 1 in 100 chance each turn of emitting a poisonous cloud on your square.
+
+Other effects:
+* Monsters will never eat this rock and it's inedible if you are polyd into a monster that could eat it.
+* Pets will try not to step on one (treated as a cursed item).
+* If rubbed on another rock, emits a poisonous cloud.
 
 
 ## NEW ARTIFACTS
@@ -1819,6 +1864,7 @@ Toilets have received many enhancements after adapting them from SLASHEM. Notabl
 * Praying at toilets can cure sickness.
 * Sitting on toilets can alleviate satiated status.
 * If giants sit on toilets, they break.
+* Sitting on toilets fully heals your HP.
 
 Toilet kicking:
 * Like sinks, toilets now have a couple different effects from kicking them, including a few YAFM.
@@ -1862,6 +1908,8 @@ A few new traps have been added:
 * New creation debuting in NerfHack
 * Grease traps function similarly to rust traps, but they spray a blast of grease at the player or monster that stepped on it.
 * When you step on a grease trap, you either slip in a puddle of grease or get sprayed by a grease hose.
+* When stepped on, the trap disarms with a random 1 in 15 chance.
+* You can also #untrap grease traps, if successful you may yield a rubber hose or a can of grease.
 
 Puddle of grease:
   * If you don't have levitation or flying, you gain fumbling ("You step in a puddle of grease.")
@@ -1874,7 +1922,7 @@ Grease hose:
   * If the grease hits your feet, your boots can become greased and fall off.
   * Otherwise, the grease hits your torso and your outermost armor becomes greased. Random items you are carrying can also become greased and fall from your possession. If you are carrying a towel, there is a 50% chance it becomes greased as well. If you are riding a steed the saddle will get hit with grease, making you fall off.
 * When a monster gets hit with grease, it will randomly grease an item in their inventory.
-* The trap disarms with a random 1 in 15 chance.
+
 
 
 
