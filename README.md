@@ -463,6 +463,26 @@ This chart shows the number of successful uses of a skill required to reach each
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
 
+### SHIELD SKILL
+
+* Ported from EvilHack with some modifications
+* Shield skill can be trained up like any other weapon attack. It is not actively trained, but passively as you block attacks with your shield. Sometimes you will train even if not directly shielding. There's a 2 in 3 chance of training shield skill while wearing one and a regular miss event occurs. A further check is rolled against the enchantment of the shield, with a higher enchantment resulting in more chance of training.
+* Different roles can reach different levels of shield skill.
+* As a player levels up with shield, there is also a small chance of shield bashing when attacking a monster.
+
+#### Effects at different skill levels:
+* Unskilled:  No AC bonus
+* Basic:      Grants -1AC, 1 in 25 chance of shield bash
+* Skilled:    Grants -3AC, 1 in 17 chance of shield bash
+* Expert:     Grants -5AC, 1 in 13 chance of shield bash
+* Master:     Grants -8AC, 1 in 10 chance of shield bash
+
+* Knights and valkyries start at basic skill.
+* Small shields and antimagic shields deal 1-3 damage
+* Tower shields deal 2 - 13 damage
+* All other shields deal 2 - 7 damage
+* If you are expert or greater in shield skill, you deal an extra d4 damage.
+
 ### EXPERIENCE CURVE CHANGES
 
 | XP Level | XP Required |
@@ -505,8 +525,9 @@ that don't specialize (like fighters). Non-specialists can still attempt to util
 but they will have to work harder to maintain their spells. Cavemen will have a very
 difficult time with spellcasting.
 
-* The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM). When reading or re-reading a spellbook, you will bring the retention back up to 10000
-* Primary spellcasters (healers, priests, monks, wizards) get a memory boost of 500 turns when they cast spells (SLASH'EM)
+* The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM).
+* When reading or re-reading a spellbook, you will bring the retention back up to 10000
+* Primary spellcasters (healers, priests, monks, wizards, cartomancers) get a memory boost of 500 turns when they cast spells (SLASH'EM)
 * Casting your special spell also grants a retention bonus of 500 turns no matter what role you are
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
 * A welded cursed quarterstaff doesn't block spellcasting (xnh)
@@ -523,7 +544,7 @@ difficult time with spellcasting.
 ### ITEM EROSION AND DESTRUCTION
 
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
-* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These new erodeable items can be erodeproofed via confused enchant weapon scrolls.
+* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These items can be erodeproofed via confused enchant weapon scrolls.
 * Silver items can corrode (xnh)
 * The iron ball and chain cannot be destroyed from rusting (Evil)
 * Poison gas clouds can rot organic armor
@@ -833,6 +854,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can read scrolls of stinking cloud (Evil)
 * Hostile monsters wielding a digging tool can break boulders (Evil)
 * Monsters can quaff potions of restore ability to un-cancel themselves (Evil)
+* Vampire monsters can quaff vampire blood to heal (SLASHEM)
 
 #### Steeds
 
@@ -1338,7 +1360,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 * Even though all vampires have drain level resistance, they are susceptible to the drain life bite attacks from other vampires.
 * Vampires feed at a much higher rate when their victims are impaired by confusion, incapacitated, or trapped (Hack'EM).
 * While playing as a vampire, most food rations are replaced by blood potions.
-* Vampires prefer their blood to be cursed, not blessed!
+* Vampires prefer their blood to be cursed, not blessed! When blessed, the blood is treated as congealed and is unusable. Cursed blood grants more nutrition and cursed vampire blood increases a vampires maximum hit points. This is the opposite behavior from SLASH'EM.
 * Some vampires get an opera cloak (much rarer than SLASH'EM).
 * Vampires get a charisma bonus for wearing opera cloaks (UnNetHack).
 * Potions of blood and vampire blood (SLASH'EM) give vampires a drinkable food source.
@@ -1365,7 +1387,6 @@ Vampires get these resistances and abilities:
     - Level 1:     Poison resistance
     - Level 1:     Drain resistance
     - Level 1:     Immune to death magic
-    - Level 5:     Hunger
     - Level 9:     Sleep resistance
     - Vampires are also immune to lycanthropy, withering, and rabid statuses.
 
@@ -1441,6 +1462,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Reduced probability of long swords generating (K-Mod)
 * Wielded polearms grant +2AC
 * **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
+* **Tridents** as skilled can also skewer monsters.
 * **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee while riding a steed.
 * **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
@@ -1621,6 +1643,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 **potion of blood:**
 * Decent food for vampires
 * The nutrition granted has been raised from other variants, and grants 400 nutrition.
+* 1 in 4 potions of blood generate cursed.
 
 **potion of vampire blood:**
 * Fantastic meal for vampires
@@ -1656,7 +1679,7 @@ Card effects:
 * Judgment - You are punished.
 * The Emperor - Curses two items.
 * The Hermit - You randomly teleport, get invisibility for 500-999 turns, and aggravate monsters.
-* The Hanged Man - Summons a rope golem.
+* The Hanged Man - Summons a rope golem and you lose 1 Luck.
 * Justice - If you have negative alignment, you are paralyzed for 20-49 turns. If you have good alignment and are punished, you are unpunished. Otherwise, you get some divine protection.
 * Temperance - Destroy two worn pieces of armor. This also sets the deck to act as a cursed item for the duration of the drawing.
 * The Lovers - Summons 2 peaceful foocubi.
