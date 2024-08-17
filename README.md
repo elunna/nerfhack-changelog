@@ -102,6 +102,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna).
 * We are able to see when a monster is sleeping, fleeing, withering, or berserking from farlook information (Evil/Splice/xnh)
+* Farlook also shows amulets and rings monsters are wearing.
 * We can see if our pets are confused, stunned, or blinded.
 * We are able to see what weapon a monster is wielding from farlook (Evil)
 * We are able to see roughly how much armor a monster is wearing on farlook (Evil)
@@ -193,7 +194,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
-* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy.
+* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. To be fair, the player is warned before this happens and can cancel.
 
 ### FINITE ALTAR NERFS
 
@@ -310,12 +311,13 @@ New intrinsics available when crowned:
 
 Players get a to-hit bonus after reaching level 20 (from EvilHack with adjustments)
     * Level 22: +1 to-hit
-    * Level 24: +1 to-hit, and so on.
+    * Level 24: +d2 to-hit
+    * Level 26: +d3 to-hit, and so on.
 
 Leveling up grants damage bonuses (SlashTHEM)
     * Level 10, +1 damage to attacks.
-    * level 20+: +1 damage bonus for every additional level gained.
-    * For example: At level 25, you would get a combined total of +7 damage (+1 for reaching XP 7 and +6 for levels 20-25).
+    * level 20+: +d(x), where x is 1 damage for every additional level gained.
+    * For example: At level 25, you would get a combined total of +d6+1 damage (+1 for reaching XP 10 and +6 for levels 20-25).
 
 
 ### AC PENALTIES
@@ -371,7 +373,9 @@ Leveling up grants damage bonuses (SlashTHEM)
 * **Dragon scale mail cannot be wished for**
 * Any wishes for scale mails will simply be converted to the equivalent dragon scales instead. For example, if you wish for "yellow dragon scale mail", you will receive "yellow dragon scales".
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
+* Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 * Green dragon scale mail also grants regeneration.
+* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. These scales also provide -3AC and the scale-mail provides -9AC (to match the increased AC of the dragon)
 
 ### INTRINSIC CHANGES
 * Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
@@ -408,13 +412,12 @@ Leveling up grants damage bonuses (SlashTHEM)
 
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics instead of the full intrinsic at once.
-* Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 50% (capped at 100%).
-* Although the maximum percent is 50%, the percentage is calculated by taking half as guaranteed, and rolling the other half. So, instead of a dragon granting 50%, it grants 25% + (d25)%.
+* Percentage gained is based on the weight of the corpse; minimum being 1% and maximum at 25% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
 * Damage dealt/effects felt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
-* Gremlins steal half as much intrinsics (25 + d25)% instead of (50 + d50)%. This is because their intrinsic stealing attack can trigger anytime of day.
+* Gremlins steal half as much intrinsics (25 + d25)% instead of (50 + d50)%. Their intrinsic stealing attack can trigger anytime of day.
 * Cold traps and ice demons steal the same amount of cold resistance as gremlins.
 * Enlightenment always shows the partial percentage acquired for intrinsics. If you have an extrinsic source that will be displayed separately.
 
@@ -427,10 +430,9 @@ Leveling up grants damage bonuses (SlashTHEM)
 * If you reflect disintegration ray, you still take 6d6 damage unless you possess disintegration resistance.
 * If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and half-spell damage, but is impossible to fully prevent.
 * Item destruction from elemental effects (like fire or cold) is prevented when rays are reflected.
-* Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d6 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
+* Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
 * **Medusa's gaze** cannot be reflected back from more than 3 squares away.
 * If reflected, Medusa will protect herself from her own gaze 98% of the time.
-
 
 ### DAMAGE CHANGES
 
@@ -440,6 +442,8 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Invisibility protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
 * Darkness offers protection from gaze attacks (as long as the player is on a dark square and the gazer doesn't have infravision and the player is infravisible).
 * If a gazer is in melee range, it will bypass invisibility and darkness protection.
+* Hallucination always protects against floating eye gaze.
+* Hallucination negates all incoming gaze attacks, except Medusa's glare (from xNetHack).
 
 ### SKILL CHANGES
 
@@ -595,6 +599,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * This allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance.
 * This adds some serious value to potions of acid and most gems.
 * Gem alchemy recipes can be viewed in the object lookup entry for "potion of acid". Other potions and gems should display their respective recipes.
+* Gems auto-id after successful gem alchemy.
 
 ## NEW MONSTERS
 
@@ -637,12 +642,14 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 | ghoul mage           | Z   | SLASH'EM      |                                                                                         |
 | lava demon           | &   | Convict Patch | Can emerge from forges                                                                  |
 | assassin bug         | a   | SLASH'EM      | Stronger                                                                                |
-| shadow               | X   | SLASH'EM      |                                                                                         |
+| shadow               | X   | SLASH'EM      | Can stalk the player.                                                                                        |
 | giant anacondas      | S   | EvilHack      |                                                                                         |
 | giant centipede      | s   | EvilHack      |                                                                                         |
 | velociraptor         | z   | SpliceHack    | Stronger                                                                                | Only appears for cavemen. Same strength as SLASHEM's kangaroos. |
 | T-Rex                | z   | SpliceHack    | Can berserk                                                                             | Only appears for cavemen. Can berserk. Can roar.                |
 | acid sphere          | S   | Splice/Evil   |                                                                                         |
+| chickenrat          | r   | NerfHack   | Always spawns rabid, can jump.                                                                                        |
+| shimmering dragon (and baby)          | r   |    | Displaced, stun resistance. High AC. Baby has stun bite, adult has stun breath.                                                                                        |
 
 ### New demons lords:
 * Kostchtchie (Splice)
@@ -851,10 +858,24 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can throw potions of polymorph (Evil)
 * Monsters can throw potions of hallucination at you (xnh)
 * Monsters can zap wands of cancellation at the player (Evil)
-* Monsters can read scrolls of stinking cloud (Evil)
+* Monsters can zap wands of slow monster at the player (Evil)
+* Monsters can read scrolls of stinking cloud and target the player (Evil)
+* Monsters can read scrolls of fire and target the player (Deferred in vanilla)
 * Hostile monsters wielding a digging tool can break boulders (Evil)
 * Monsters can quaff potions of restore ability to un-cancel themselves (Evil)
 * Vampire monsters can quaff vampire blood to heal (SLASHEM)
+
+#### Monster accessory use
+
+* Adapted from EvilHack with modifications
+* Monsters can wear most rings and amulets.
+* Your pets can also wear the same items, but you need to #loot them and manually give them the gear you want them to equip.
+* The range of usable items has been expanded upon, notably:
+  * amulets and boots of flying
+  * stomping boots
+  * amulets versus poison
+  * amulets of ESP
+  * rings of polymorph (turns any monster into a shapeshifter!)
 
 #### Steeds
 
@@ -972,6 +993,7 @@ Curing rabid:
 * Peaceful monsters won't cast make invisible on themselves. They also won't drink potions
   of invisibility or zap themselves with wands of make invisible.
 * Monster spellcasters will prioritize healing when wounded.
+* Monster spellcasters can cast stone-to-flesh in response to getting stoned (Evil).
 
 **protection (clerical spell):**
 * Ported from EvilHack
@@ -1143,6 +1165,8 @@ Skill adjustments for knights
 * Priests can reach basic in riding skill.
 * Priests start with more garlic and wolfsbane (similar to the undead slayer in SLASH'EM)
 
+Vampire priests don't start with any food items. Instead they get unholy water, potions of blood, and a guaranteed spellbook of confusion.
+
 ### RANGER
 * Rangers get extended range for seeing object's dknown appearance (this lets them see potions and gems from much further away)
 * Rangers get auto-id for launchers when they reach XP level 7
@@ -1198,9 +1222,8 @@ Skill adjustments for knights
     * Fedora
     * Graphic tee
     * 40 +0 razor cards
-    * 2 random cards
-    * 4 random summon cards
-    * 2 random zap cards
+    * 3 random summon cards
+    * 4 random zap cards
     * 1 random spellbook
 
 **Skill-set:**
@@ -1269,6 +1292,7 @@ Skill adjustments for knights
   opportunity to build a collection of them as they slay monsters. Low level monsters rarely
   drop their own summon cards, but any death drop has a small chance to leave a higher level
   monster. As your level grows, so does the strength of the rare drops.
+* The exploding sphere monsters are a little more likely to drop - giving the cartomancer some explosive cards to work with.
 * The price of summon cards scales with their monster difficulty.
 * In addition to reading summon cards, cartomancers can also throw them to activate them.
   This lets you keep monsters at a distance by throwing the summon directly next to the
@@ -1357,19 +1381,21 @@ Vampires have an interesting history in the NetHack world. They first surfaced i
 You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys. 
 
 * When attacking particularly dangerous monsters like cockatrices, medusa, or green slime, the bite attack will be prevented to avoid stupid deaths.
-* Even though all vampires have drain level resistance, they are susceptible to the drain life bite attacks from other vampires.
+* Even though all vampires have drain level resistance, they are susceptible to the drain life bite attacks from other vampires. Although intrinsic drain resistance doesn't protect from this blood draining, an extrinsic source will (ie: Stormbringer).
 * Vampires feed at a much higher rate when their victims are impaired by confusion, incapacitated, or trapped (Hack'EM).
 * While playing as a vampire, most food rations are replaced by blood potions.
 * Vampires prefer their blood to be cursed, not blessed! When blessed, the blood is treated as congealed and is unusable. Cursed blood grants more nutrition and cursed vampire blood increases a vampires maximum hit points. This is the opposite behavior from SLASH'EM.
 * Some vampires get an opera cloak (much rarer than SLASH'EM).
 * Vampires get a charisma bonus for wearing opera cloaks (UnNetHack).
 * Potions of blood and vampire blood (SLASH'EM) give vampires a drinkable food source.
+* Shopkeepers charge vampires more for blood when they are hungry.
 * Vampires can no longer shapeshift via #monster.
 * Vampires now start the game with infravision.
 * Silver weapons generate more often when playing as a vampire.
 * Vampires cannot handle silver items or weapons. They also cannot wear silver rings or zap silver wands. When the player is ready to perform the invocation, they may apply the silver bell on the invocation square, but otherwise silver items are unusable for vampires.
 * Vampires won't receive any silver artifact gifts from their gods.
 * Vampires cannot handle garlic.
+* Vampires cannot #turn undead.
 * Vampires can use any racial items except gnomish items (mostly because they are too small)
 * Vampires can use tinning kits to bottle blood from corpses (from SlashTHEM). These tins are simply generic blood and do not convey any intrinsics.
 
@@ -1462,7 +1488,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Reduced probability of long swords generating (K-Mod)
 * Wielded polearms grant +2AC
 * **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
-* **Tridents** as skilled can also skewer monsters.
+* **Tridents** at skilled can also skewer monsters.
 * **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee while riding a steed.
 * **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
@@ -1524,6 +1550,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Potion of paralysis lasts 3-24 turns on monsters (Evil)
 * Withering can be cured by quaffing holy water.
 * Blessed restore ability only restores a few levels (Evil).
+* Potions of paralysis have less effect when diluted (from EvilHack).
 
 ### WANDS
 
@@ -1563,6 +1590,8 @@ With the vampire race available you will be able to play as a archeologist, barb
 **gauntlets of force:** Increase strength bonus, makes forcing locks and opening doors take 1 turn. Chance of stunning. Can break iron bars, boulders.
 
 **anti-magic shield:** Leather shield that provides magic resistance.
+
+**tower shield:** Heavy shield that provides 4AC (Splice)
 
 **gnomish boots:** Provides 0AC + bonus 2AC for gnomes (THEM)
 
@@ -1720,6 +1749,7 @@ Other effects:
 * Monsters will never eat this rock and it's inedible if you are polyd into a monster that could eat it.
 * Pets will try not to step on one (treated as a cursed item).
 * If rubbed on another rock, emits a poisonous cloud.
+* Foulstones always generate cursed.
 
 
 ## NEW ARTIFACTS
@@ -1736,7 +1766,7 @@ Other effects:
 | Hellfire            | chaotic   | crossbow              | SLASHEM    | bolts fired from Hellfire deal +d7 damage and explode in fire<br/>grants fire resistance while wielded                                                                              |
 | Plague              | chaotic   | bow                   | SLASHEM    | arrows fired from Plague are auto-poisoned and deal +d7 damage<br/>grants sickness resistance while wielded                                                                         |
 | Pridwen             | lawful    | large shield          | SpliceHack | grants 1/2 physical damage while wielded</br>grants steadfastness while wielded                                                                                                     |
-| Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damage                                                                                                                                                              |
+| Quick Blade         | lawful    | elven short sword     | SLASHEM    | +d9 to-hit, +d2 damagee<br/>Grants very fast speed when wielded.                                                                                                                                                              |
 | Carnwennan          | lawful    | knife                 | SpliceHack | deals +d8 damage<br/>+d3 to-hit<br/>grants stealth and searching while wielded                                                                                                      |
 | Load Brand          | unaligned | heavy sword           | NerfHack   | weights 500aum<br/>deals +d40 damage<br/>Confers steadfastness and MC1 protection<br/>Confers 1/2 physical damage<br/>Absorbs curses like Magicbane                                 |
 | Snakeskin           | Neutral   | robe                  | SlashTHEM  | Confers acid resistance<br/>Confers hallucination resistance                                                                                                                        |
@@ -1749,6 +1779,7 @@ Other effects:
 | Serenity            | lawful    | silver spear          | NerfHack   | +d5 to-hit, +d10 damage<br/>Blocks aggravate monster if present<br/>Prevents monsters from berserking<br/>Counters 80% of hostile monster spells<br/>Absorbs curses like Magicbane |
 | Mouser's Scalpel    | neutral   | rapier                | slashem-up | +d5 to-hit, +1 damage<br/>Capable of multiple bonus hits with no limit                                                                                                              |
 | Amulet of Storms    | chaotic   | amulet of flying      | xnh        | Confers shock resistance, can #chat to tame stormy monsters.                                                                                                                        |
+| David's Sling    | neutral   | sling                | slashthem | +d5 to-hit, +d6 damage<br/>Grants half physical damage<br/>Instakills giants                                                                                                              |
 
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
@@ -1757,6 +1788,7 @@ Misc changes:
 ## ARTIFACT CHANGES
 
 - Artifact weapons can now be dual-wielded (SLASHEM)
+- All artifact weapons get negative to-hit penalties instead of positive.
 - Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
 * Magicbane is a quarterstaff (FIQ)
@@ -1907,7 +1939,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 ### Traps
 
 * At higher levels, boulders can drop from falling rock traps.
-* Falling rock traps can result in stunning with sufficient damage.
+* Falling rock traps can result in stunning with sufficient damage (at least 6)
 * Polytraps disappear with 1 in 7 chance when a monsters steps on one.
 
 A few new traps have been added:
@@ -1925,7 +1957,7 @@ A few new traps have been added:
 * Ported from EvilHack
 * Magic beam traps only start appearing after level 10
 * When you (or a monster) steps on this trap, it shoots a random ray type from a pre-set location that crosses through the beam trap. The beam type is set for each trap, so once you notice it shoots fire rays, it will always shoot fire rays.
-* The trap graciously never will shoot disintegration or death rays but all the other ray types are possible.
+* Magic beam traps can very rarely shoot disintegration rays.
 
 #### Grease traps
 * New creation debuting in NerfHack
