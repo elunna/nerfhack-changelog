@@ -57,6 +57,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * All roles start out knowing potions of water, blank scrolls, and scrolls of identify
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (Evil)
+* Auto-ID enchantment on weapons we are expert in at XP level 10 and up.
 * Auto-ID potions of acid when water explosions result from dipping (xnh)
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
@@ -119,6 +120,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Enable **full options** by default.
 * Changed the symbol for **sinks** back to #
 * The hero's color reflects their race (SLASH'EM)
+* Suggest donation amount (relative to XP level) when #chatting to priests.
+* Escape from controlled polymorph prompt no longer causes random poly (from xNetHack).
 
 ## New config options
 * **showdamage:** Displays damage and flanking bonuses/penalties
@@ -147,6 +150,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
 * Many item actions are now forbidden if you have both hands welded.
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
+* Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
 
 ### Slow Luck timeouts (modified)
 
@@ -375,6 +379,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 * Green dragon scale mail also grants regeneration.
+* Silver dragon scale mail offers protection against most blinding attacks.
 * Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. These scales also provide -3AC and the scale-mail provides -9AC (to match the increased AC of the dragon)
 
 ### INTRINSIC CHANGES
@@ -383,7 +388,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Teleportitis cannot be permanently gained intrinsically.
 * Teleport control cannot be permanently gained intrinsically.
 * Amnesia can make you forget intrinsic telepathy.
-* Intrinsic disintegration res doesn't protect items from disintegration.
+* Intrinsic disintegration resistance doesn't protect items from disintegration.
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
@@ -557,7 +562,7 @@ difficult time with spellcasting.
 * Scrolls also can burn up when hitting hot ground in Gehennom. 3.7 introduced potions being shattered when dropping on hot ground, but we have taken it a step further.
 * Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
 * Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor. Passive acid attacks corrodes armor more often. Thrown potions of acid can corrode items when they hit a monster or the player.
-* Water damage may disintegrate scrolls (Dyna)
+* Water damage may disintegrate scrolls; may occur when dipping also (Dyna)
 * Disintegration rays can vaporize boulders
 
 #### Refactor, unify, and nerf item destruction
@@ -586,9 +591,11 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 * Ported from EvilHack with modifications.
   * No artifact forging
-  * No forging armor
+  * No armor recipes are available if you aren't a dwarf or orc.
   * Much narrower list of forgeable weapons, mostly bladed and blunt weapons.
-  * Only samurai can forge katanas and tsurugi. No other restrictions on other items.
+  * Only samurai can forge katanas and tsurugi.
+  * Only dwarves can forge dwarvish items
+  * Only orcs can forge orcish items
   * Forging recipes are displayed in the object lookup.
     
 Aside from the recipe changes - the biggest change is that we no longer have a #forge or #craft command. Simply get a hammer and (a)pply it when standing over the forge.
@@ -650,6 +657,20 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 | acid sphere          | S   | Splice/Evil   |                                                                                         |
 | chickenrat          | r   | NerfHack   | Always spawns rabid, can jump.                                                                                        |
 | shimmering dragon (and baby)          | r   |    | Displaced, stun resistance. High AC. Baby has stun bite, adult has stun breath.                                                                                        |
+
+
+Phoenix:
+* Very strong lawful monster that explodes on death.
+* When it dies it leaves behind a phoenix egg, which will hatch when exposed to fire or lava.
+* It will also hatch when attempts are made to eat it, bury it, or put it in a container.
+* When zapped with polymorph, a phoenix will self-explode in resistance to the change.
+* To prevent a phoenix from exploding or leaving an egg, you must cancel it.
+* To prevent a phoenix egg from hatching, you can also cancel it.
+* Lowered their MC protection from 40 to 20.
+
+Revenant:
+* From EvilHack
+* Very strong Z that can shoot fireballs
 
 ### New demons lords:
 * Kostchtchie (Splice)
@@ -726,7 +747,6 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * black dragons get a terrifying roar
 * yellow dragons get a passive acid splash attack
 * white dragons are weaker than other dragons
-* shimmering dragons get teleport control (still deferred)
 * gray dragons can flank.
 
 ### Misc monster changes
@@ -741,6 +761,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * changlings turn back to their base form when killed (SLASH'EM)
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
+* Deep ones and deeper ones also have thick skin.
 * dragons, nagas, and golems don't balk at approaching as much.
 * all elementals resist sickness
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
@@ -748,6 +769,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
 * fog clouds don't leave traces of steam (so they show up as v)
 * foocubi gain a level when draining one from the player (xnh)
+* gas spores leave a poison gas cloud when they explode
 * giant spiders can ensnare monsters in webs (Evil)
 * gnome lords and kings always get gnomish suits.
 * gnomish wizards always get a gnomish helm.
@@ -758,6 +780,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * green slimes are faster, going from 6 to 13 speed)
 * green slimes have a passive sliming attack (Grunt)
 * gremlins can steal intrinsics no matter the time of day (FIQ)
+* (peaceful) gremlins don't use fountains/pools/etc. to split themselves (Fourk)
 * hezrou and steam vortices don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
 * hobbits can get flint with their slings (xnh)
 * jellyfish get a passive paralyzing attack
@@ -796,6 +819,7 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 * sewer rats hide under objects (xnh)
 * scorpions are tiny
 * shades get 20MR
+* Shapechangers hold level-appropriate form longer, out-of-depth only briefly (Fourk).
 * shopkeeper base level has been raised to 13 (xnh)
 * Shopkeepers get a wand of sleep instead of striking (Evil)
 * Shopkeepers get extra defensive items (SLASHEM).
@@ -853,6 +877,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 #### Monster item use
 
 * Monsters can use figurines and magic flutes (Evil)
+* Monsters can use cameras to blind you (Splice)
 * Monsters can use scrolls of remove curse (Evil)
 * Monsters can throw (lit) potions of oil at you (xnh)
 * Monsters can throw potions of polymorph (Evil)
@@ -1292,7 +1317,7 @@ Vampire priests don't start with any food items. Instead they get unholy water, 
   opportunity to build a collection of them as they slay monsters. Low level monsters rarely
   drop their own summon cards, but any death drop has a small chance to leave a higher level
   monster. As your level grows, so does the strength of the rare drops.
-* The exploding sphere monsters are a little more likely to drop - giving the cartomancer some explosive cards to work with.
+* Exploding sphere monster cards are a little more likely to drop - giving the cartomancer some explosive cards to work with.
 * The price of summon cards scales with their monster difficulty.
 * In addition to reading summon cards, cartomancers can also throw them to activate them.
   This lets you keep monsters at a distance by throwing the summon directly next to the
@@ -1471,7 +1496,9 @@ With the vampire race available you will be able to play as a archeologist, barb
 * dwarven items frequently spawn as fixed. 
 * The ring of levitation is a valid starting ring.
 * Cursed food items will no longer tame or pacify monsters.
+* Blessed food items are rotten much less often.
 * Eucalyptus leaves can never be rotten unless cursed.
+* Zapping eggs with cancellation sterilizes them (from HackEM).
 
 ### Weapon changes
 
@@ -1547,10 +1574,10 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Implement behavior for cursed potion of gain ability (xnh)
 * More potion breathing effects (xnh)
 * Thrown potions of hallucination confuse monsters (Evil)
-* Potion of paralysis lasts 3-24 turns on monsters (Evil)
+* Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
 * Withering can be cured by quaffing holy water.
-* Blessed restore ability only restores a few levels (Evil).
-* Potions of paralysis have less effect when diluted (from EvilHack).
+* Blessed restore ability only restores a few levels (Evil)
+* potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
 
 ### WANDS
 
@@ -1606,6 +1633,9 @@ With the vampire race available you will be able to play as a archeologist, barb
 **wand of poison gas:** shoots poison rays (Splice)
 
 **wand of wonder:** shoots a random ray by picking a random wand on each activation (Splice)
+
+**wand of draining:**
+* Ported from SLASH'EM, but now ray-based.
 
 **scroll of cloning:**
     * From SpliceHack
@@ -1674,9 +1704,23 @@ With the vampire race available you will be able to play as a archeologist, barb
 * The nutrition granted has been raised from other variants, and grants 400 nutrition.
 * 1 in 4 potions of blood generate cursed.
 
+**potion of phasing:**
+
+**potion of reflection:**
+* 
+
 **potion of vampire blood:**
 * Fantastic meal for vampires
 * If drunk as a non-vampire, this polymorphs you into a vampire.
+
+**ring of withering:**
+* Causes withering when worn.
+* Usually generated cursed.
+
+**ring of sleeping:**
+* (from SLASH'EM)
+* Causes periodic sleepiness like the amulet of restful sleep.
+* Usually generates cursed.
 
 **playing card deck:**
 * When applied, gives you a poker hand which correlates to your luck.
@@ -1788,9 +1832,10 @@ Misc changes:
 ## ARTIFACT CHANGES
 
 - Artifact weapons can now be dual-wielded (SLASHEM)
-- All artifact weapons get negative to-hit penalties instead of positive.
+- All artifact weapons get negative to-hit penalties instead of positive. To make a reasonable impact, the penalty is double the standard to-hit bonus and always the maximum instead of a dice roll.
 - Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
+* The Tsurugi of Muramasa also confers very fast speed when wielded (Fourk).
 * Magicbane is a quarterstaff (FIQ)
 * Creating Excalibur will fix any negative enchantment on it (xnh)
 * Fire Brand instakills highly flammable monsters and green slimes (xnh)
@@ -1808,7 +1853,8 @@ Misc changes:
 * Giantslayer conveys 18/\* strength while wielded (Dyna)
 * Ogresmasher can also hurtle light-weight monsters (Evil)
 * Werebane provides protection from shapechangers when wielded
-* The Sceptre of Might gets a flat +10 damage buff and grants steadfastness when wielded.
+* The Sceptre of Might grants steadfastness when wielded.
+* The Sceptre of Might grants magic resistance when carried.
 * The Longbow of Diana confers half physical damage when wielded
 * Increased Mjollnir's wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
@@ -1940,7 +1986,8 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 
 * At higher levels, boulders can drop from falling rock traps.
 * Falling rock traps can result in stunning with sufficient damage (at least 6)
-* Polytraps disappear with 1 in 7 chance when a monsters steps on one.
+* Polytraps disappear with 1 in 7 chance when a monster steps on one.
+* You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
 
 A few new traps have been added:
 
