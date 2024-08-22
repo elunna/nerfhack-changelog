@@ -672,6 +672,10 @@ Revenant:
 * From EvilHack
 * Very strong Z that can shoot fireballs
 
+Basilisk:
+Stronger, tougher, non-flying version of the cockatrice.
+
+
 ### New demons lords:
 * Kostchtchie (Splice)
 * Lolth (Evil)
@@ -884,6 +888,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can throw potions of hallucination at you (xnh)
 * Monsters can zap wands of cancellation at the player (Evil)
 * Monsters can zap wands of slow monster at the player (Evil)
+* Monsters can zap wands of wonder at the player
 * Monsters can read scrolls of stinking cloud and target the player (Evil)
 * Monsters can read scrolls of fire and target the player (Deferred in vanilla)
 * Hostile monsters wielding a digging tool can break boulders (Evil)
@@ -1247,8 +1252,10 @@ Vampire priests don't start with any food items. Instead they get unholy water, 
     * Fedora
     * Graphic tee
     * 40 +0 razor cards
+    * 4 meat sticks
+    * 4 candy bars
     * 3 random summon cards
-    * 4 random zap cards
+    * 2 random zap cards
     * 1 random spellbook
 
 **Skill-set:**
@@ -1289,18 +1296,32 @@ Vampire priests don't start with any food items. Instead they get unholy water, 
     * hawaiian shirts are "graphic tees"
     * lock picks are "worthless cards"
 
-**Play mechanics:**
-* Cards (ie: scrolls) only weigh 1 for cartomancers.
-* The camera is played as a holographic card for cartomancers, doesn't break when thrown.
-* When applying a deck of cards, cartomancers will always be able to use them as if they
-  were blessed. This enables you to tell your current luck easily by applying the deck.
-
 **Card abuse penalties**:
 * Cartomancers receive severe alignment penalties for forging or defacing cards. 
   - writing cards: -20 alignment, -5 luck
   - cloning cards: -20 alignment, -5 luck
   - poly zap/dip of cards: -10 alignment, -2 luck
 
+**Play mechanics:**
+* Cards (ie: scrolls) only weigh 1 for cartomancers.
+* The camera is played as a holographic card for cartomancers, doesn't break when thrown.
+* When applying a deck of cards, cartomancers will always be able to use them as if they
+  were blessed. This enables you to tell your current luck easily by applying the deck.
+
+**Card drops:**
+* When playing as a cartomancer, there is a 50% chance that a monster will leave a card instead of a corpse when it dies.
+* Some monsters are restricted from dropping cards:
+  * Tame and peaceful monsters
+  * Spell beings, revived monsters, and cloned monsters.
+  * Unique monsters
+  * Revivers: zombies, trolls, and phoenixes
+* After a monster dies and is eligible for a drop, we roll a die to see what happens:
+  * 2 in 20 chance - drop some razor cards (could be any BUC or enchantment
+  * 3 in 20 chance - drop a zappable card.
+  * Otherwise, we get a summon card.
+    * 1 in 3 of summons will be a "rare" stronger monster than what we killed.
+    * The other times, it will either be nothing (if the monster was weak), the monster we killed, or a random sphere card.
+)
 
 **Spell beings:**
 * Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere
@@ -1308,9 +1329,9 @@ Vampire priests don't start with any food items. Instead they get unholy water, 
   These beings are tame and act like pets, but they have a limited life span. (In SLASH'EM
   there was no life span unless you left them on a level to become untame). Here, when the
   cartomancer plays a summon card - it will summon a spell being with a predetermined life
-  span that will fight aggressively for you. If you get credit for killing a spell being,
-  they only ever grant 1XP. Spell beings also never leave corpses and spawn with no
-  inventory.
+  span that will fight aggressively for you, ignoring any balking that a regular pet would
+  obey. If you get credit for killing a spell being, they only ever grant 1XP. Spell beings
+  also never leave corpses and spawn with no inventory.
 
 **Summon cards:**
 * Cartomancers will start out with a few summon cards, and they will also have the
@@ -1344,8 +1365,8 @@ Cartomancer gets adjusted different item generation odds.
     To make up for less corpse drops, they get more food.
     They also get much fewer wands because they get zap cards.
 
-Cartomancers get speed at level 10. This is sort of my lazy way of implementing the card combo technique from the original SpliceHack. This lets the cartomancer get a larger benefit though and the player doesn't have to do anything special, they can just cast more cards naturally.
-The cartomancer also starts with a fedora.
+Cartomancers get speed at level 10. This is sort of my lazy way of implementing the card combo technique from the original SpliceHack. However, this lets the cartomancer get a larger benefit and the player doesn't have to do anything special, they can just cast more cards naturally.
+
 
 ## PLAYER RACE CHANGES
 
@@ -1400,6 +1421,7 @@ This mechanic also applies to monsters, but they will also simply avoid using it
 Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 
 ## New races
+
 ### Vampires
 Vampires have an interesting history in the NetHack world. They first surfaced in SLASH'EM, then in UnNetHack, then dNethack, and SpliceHack, and even Hack'EM. Each one was implemented a little differently, so we aimed to take the best of each and release a vampire that is fun but balanced. Our vampiric race starts you off strong, you won't have any cheesy poison or GWAWOD deaths, nor will you have to worry about sleeping gas traps or any of the floor traps that you can just fly over. What you *will* have to worry about is your new worst enemies: silver and hunger:
 
@@ -1408,7 +1430,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 * When attacking particularly dangerous monsters like cockatrices, medusa, or green slime, the bite attack will be prevented to avoid stupid deaths.
 * Even though all vampires have drain level resistance, they are susceptible to the drain life bite attacks from other vampires. Although intrinsic drain resistance doesn't protect from this blood draining, an extrinsic source will (ie: Stormbringer).
 * Vampires feed at a much higher rate when their victims are impaired by confusion, incapacitated, or trapped (Hack'EM).
-* While playing as a vampire, most food rations are replaced by blood potions.
+* While playing as a vampire, most food rations and fruit juice potions are replaced by blood potions.
 * Vampires prefer their blood to be cursed, not blessed! When blessed, the blood is treated as congealed and is unusable. Cursed blood grants more nutrition and cursed vampire blood increases a vampires maximum hit points. This is the opposite behavior from SLASH'EM.
 * Some vampires get an opera cloak (much rarer than SLASH'EM).
 * Vampires get a charisma bonus for wearing opera cloaks (UnNetHack).
@@ -1496,6 +1518,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * dwarven items frequently spawn as fixed. 
 * The ring of levitation is a valid starting ring.
 * Cursed food items will no longer tame or pacify monsters.
+* Cursed gems count as attacks when thrown at unicorns.
 * Blessed food items are rotten much less often.
 * Eucalyptus leaves can never be rotten unless cursed.
 * Zapping eggs with cancellation sterilizes them (from HackEM).
@@ -1845,6 +1868,7 @@ Misc changes:
 * Vorpal Blade provides warning vs jabberwocks (Evil)
 * Vorpal blade gets a 10% chance of beheading (SLASHEM)
 * The Heart of Ahriman now grants slotless flying and displacement instead of stealth (FIQ)
+* The Heart of Ahriman can be invoked for a blessed remove curse effect (Fourk).
 * The Orb of Detection grants clairvoyance while carried.
 * Trollsbane grants regeneration while wielded (many variants)
 * The Eyes of the Overworld protect against more gaze attacks (Evil)
@@ -1861,6 +1885,7 @@ Misc changes:
 * Sting actually cuts through webs when force-fighting
 * Snickersnee grants stun resistance when wielded (Evil).
 * Withering can be cured by the Staff of Aesculapius (xnh/Evil)
+* Grimtooth can inflict disease on its victims (Evil).
 
 **Bane changes:**
 * All banes provide warning vs their bane monster type when wielded (Evil)
