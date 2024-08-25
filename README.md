@@ -630,7 +630,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | diamond piercer        | p   | SpliceHack    |
 | god piercer            | p   | SpliceHack    |
 | landshark              | q   | SpliceHack    |
-| jumping spider         | s   | SpliceHack    |
+| phase spider           | s   | SLASHEM    |
 | will-o'-the-wisp       | y   | SpliceHack    |
 | zoo bat                | B   | SpliceHack    |
 | athol                  | B   | SLASH'EM      |
@@ -680,7 +680,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * alhoons were covetous in EvilHack, now they move normally but speed was increased
 * alhoons can now displace monsters
 * landsharks were recolored to bright blue                                               
-* jumping spiders may appear in small groups
+* phase spiders may appear in small groups
 * zoo bats now cause confusion when eaten
 * byahkees were recolored to yellow
 * athols have increased size, weight, and nutrition
@@ -791,7 +791,8 @@ Phoenix:
 * centaurs will keep their distance from the player naturally (xnh)
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
-* Deep ones and deeper ones also have thick skin.
+* deep ones and deeper ones also have thick skin.
+* disenchanters can appear in the main dungeon
 * dragons, nagas, and golems don't balk at approaching as much.
 * all elementals resist sickness
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
@@ -807,8 +808,9 @@ Phoenix:
 * goblins can generate in small groups (Spork)
 * grave trolls no longer have thick skin (they used to in SpliceHack)
 * green slimes can hide on the ceiling (xnh)
-* green slimes are faster, going from 6 to 13 speed)
+* green slimes are faster (going from 6 to 13 speed), higher difficulty
 * green slimes have a passive sliming attack (Grunt)
+* green slimes can appear in the main dungeon
 * gremlins can steal intrinsics no matter the time of day (FIQ)
 * (peaceful) gremlins don't use fountains/pools/etc. to split themselves (Fourk)
 * hezrou and steam vortices don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
@@ -922,6 +924,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Hostile monsters wielding a digging tool can break boulders (Evil)
 * Monsters can quaff potions of restore ability to un-cancel themselves (Evil)
 * Vampire monsters can quaff vampire blood to heal (SLASHEM)
+* When playing as a cartomancer, monsters can use monster summon cards and zappable cards against you.
 
 #### Monster accessory use
 
@@ -958,6 +961,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monster knockback is noisy.
 * Conflict negates Elbereth and scare monster protection (Evil)
 * You can't dust engrave while being held by a monster.
+* Monsters that hatch in water drown unless amphibious or natural swimmers.
   
 #### Flanking behavior
 
@@ -1143,6 +1147,7 @@ Curing rabid:
 * Snakes get a +1 to-hit bonus on archeologists
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks. 
 * Some giant anacondas have a chance of appearing in the arc quest now.
+* Archeologists sometimes crack their whip at animals, scaring them. This occurs when hitting a natural 20, and inflicts an extra 1d3 damage.
 
 ### BARBARIAN
 * Barbarians can reach skilled in riding (Evil)
@@ -1280,13 +1285,13 @@ There are many restrictions:
 * The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using scrolls and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
 
 **Starting inventory:**
-    * Fedora
     * Graphic tee
+    * +1 dagger
     * 40 +0 razor cards
     * 4 meat sticks
     * 4 candy bars
+    * 4 random cards
     * 3 random summon cards
-    * 2 random zap cards
     * 1 random spellbook
 
 **Skill-set:**
@@ -1352,6 +1357,7 @@ There are many restrictions:
   * Otherwise, we get a summon card.
     * 1 in 3 of summons will be a "rare" stronger monster than what we killed.
     * The other times, it will either be nothing (if the monster was weak), the monster we killed, or a random sphere card.
+* Be aware - monsters can and will use zap and summon cards against the player, so try to collect them as soon as they drop!
 
 **Spell beings:**
 * Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere
@@ -1360,8 +1366,8 @@ There are many restrictions:
   there was no life span unless you left them on a level to become untame). Here, when the
   cartomancer plays a summon card - it will summon a spell being with a predetermined life
   span that will fight aggressively for you, ignoring any balking that a regular pet would
-  obey. If you get credit for killing a spell being, they only ever grant 1XP. Spell beings
-  also never leave corpses and spawn with no inventory.
+  obey and never stopping to eat. If you get credit for killing a spell being, they only
+  ever grant 1XP. Spell beings also never leave corpses and spawn with no inventory.
 
 **Summon cards:**
 * Cartomancers will start out with a few summon cards, and they will also have the
@@ -1561,13 +1567,15 @@ With the vampire race available you will be able to play as a archeologist, barb
 * This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
 * To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from 0 to +7.
 * Random weapons have a small chance to generate with very high enchantment.
+* The enchantment based to-hit bonus for projectiles capped at +7.
+* Thrown projectiles above +7 have a high chance of dulling on hit. Even though projectiles can be enchanted quite high to +11, +12, or +13, they will quickly diminish to +7.
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
 
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
 * All short swords get +1 to-hit (Dyna)
 * Reduced probability of long swords generating (K-Mod)
-* Wielded polearms grant +2AC
+* Wielded polearms grant an AC bonus depending on their weight (for every 30aum, they grant -1AC)
 * **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
 * **Tridents** at skilled can also skewer monsters.
 * **Spetums** can skewer up to 3 monsters when used in melee while riding a steed
@@ -1579,7 +1587,9 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
 * **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dnh)
 * No multishot when **fumbling**
-* 
+* **Boomerangs** will can pass through enemies on hit.
+* **Polearms** can be used to trigger traps (from NetHack Fourk).
+
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
 * Gem class projectiles do minimal damage vs thick-skinned monsters
