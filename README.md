@@ -151,6 +151,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Many item actions are now forbidden if you have both hands welded.
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
+* Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM) 
 
 ### Slow Luck timeouts (modified)
 
@@ -277,6 +278,12 @@ This rewards leveling up and slows down the power grab that some characters migh
 * The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
 * Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
 * Artiwishes only care about previous **successful** artiwishes.
+
+There are a few new sources of wishes:
+* Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
+* If you get crowned and you have all the resistances that are offered, you can get a wish.
+* If you zap a wand of wonder and get the wand of wishing effect (and pass a 1 in 100 roll), you can get a wish.
+
 
 **The chance of receiving the artifact from a wish is:**
 
@@ -918,6 +925,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can throw (lit) potions of oil at you (xnh)
 * Monsters can throw potions of polymorph (Evil)
 * Monsters can throw potions of hallucination at you (xnh)
+* Non-lawful monsters can dip weapons into potions of sickness.
 * Monsters can zap wands of cancellation at the player (Evil)
 * Monsters can zap wands of slow monster at the player (Evil)
 * Monsters can zap wands of wonder at the player
@@ -1141,13 +1149,14 @@ Curing rabid:
 * Archeologists start out knowing dwarvish mattocks.
 * Archeologists always get an extra id when reading scrolls of identify.
 * Archeologists start with an extra scroll and spellbook (SLASHEM).
+* Archeologists sometimes crack their whip at animals, scaring them. This occurs when hitting a natural 20, and inflicts an extra 1d3 damage.
 
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
 * Snakes get a +1 to-hit bonus on archeologists
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks. 
 * Some giant anacondas have a chance of appearing in the arc quest now.
-* Archeologists sometimes crack their whip at animals, scaring them. This occurs when hitting a natural 20, and inflicts an extra 1d3 damage.
+
 
 ### BARBARIAN
 * Barbarians can reach skilled in riding (Evil)
@@ -1380,6 +1389,7 @@ There are many restrictions:
   This lets you keep monsters at a distance by throwing the summon directly next to the
   threat.
 * Monsters can read summon cards as well.
+* Any summon "sphere" cards are special because they will instantly explode when thrown at a monster.
 
 **Razor cards:**
 * In SpliceHack, razor cards were simply shuriken relabeled.
