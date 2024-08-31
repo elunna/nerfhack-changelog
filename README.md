@@ -57,7 +57,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * All roles start out knowing potions of water, blank scrolls, and scrolls of identify
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (Evil)
-* Auto-ID enchantment on weapons we are expert in at XP level 10 and up.
+* Auto-ID enchantment on non-projectile weapons when we are expert in at XP level 10 and up.
 * Auto-ID potions of acid when water explosions result from dipping (xnh)
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
@@ -102,7 +102,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna).
-* We are able to see when a monster is sleeping, fleeing, withering, or berserking from farlook information (Evil/Splice/xnh)
+* We are able to see when a monster is sleeping, fleeing, withering, has reflection, or is berserking from farlook information (Evil/Splice/xnh)
 * Farlook also shows amulets and rings monsters are wearing.
 * We can see if our pets are confused, stunned, or blinded.
 * We are able to see what weapon a monster is wielding from farlook (Evil)
@@ -135,13 +135,14 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Wizard mode can override an artifact ignoring you (xnh)
 * Allow teleportation into unteleportable spots in wizard mode
 * Allow wishing (^W) for monsters in wizmode (Un)
+* Changed #debugfuzzer command to just #fuzz.
 
 ## RESOURCE CONTROL(NERFS) AND MECHANIC CHANGES
 
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (Evil)
 * The chance of gaining levels from wraiths has been reduced using the SLASH'EM version of edible wraith corpses.
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
-
+* Quest artifacts cannot be left in bones, they revert to ordinary objects.
 * Strength gain nerfs: giant corpses have less of a chance of conferring strength gain (from 50% to 25%) (SLASHEM)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
@@ -220,7 +221,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, the excess altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
-
+* Non-chaotic same race sacrifice always cracks altar, as does throwing vampire blood onto an altar to convert it.
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after 2 artifact gifts had been bestowed.
 
 A new conduct was added to the #conduct menu so that players can track how many altars have been destroyed in their current game. Altar cracking is livelogged on game servers for the entertainment value.
@@ -424,7 +425,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics instead of the full intrinsic at once.
-* Percentage gained is based on the weight of the corpse; minimum being 1% and maximum at 25% (capped at 100%).
+* Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
@@ -664,7 +665,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | giant centipede        | s   | EvilHack      |
 | velociraptor           | z   | SpliceHack    |
 | T-Rex                  | z   | SpliceHack    |
-| acid sphere            | S   | Splice/Evil   |
+| acid sphere            | e   | Splice/Evil   |
+| stinking sphere        | e   | Fourk         |
 | chickenrat             | r   | NerfHack      |
 | baby shimmering dragon | D   | Deferred      |
 | shimmering dragon      | D   | Deferred      |
@@ -698,6 +700,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * merfolk were recolored to bright green
 * things from below can see invisible
 * grave trolls can spawn in graves/graveyards
+* grave troll corpses cause sickness when eaten.
 * elven clerics were known as elven wizards in EvilHack
 * like likes can eat your shields and cloaks when engulfing
 * shadow ogres spawn invisible and have a drain life attack 
@@ -822,6 +825,7 @@ Phoenix:
 * (peaceful) gremlins don't use fountains/pools/etc. to split themselves (Fourk)
 * hezrou and steam vortices don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
 * hobbits can get flint with their slings (xnh)
+* iron golems get a passive disenchant attack (from SLASH'EM steel golems).
 * jellyfish get a passive paralyzing attack
 * Keystone Kops cannot be genocided (Un)
 * Keystone Kops are tougher: they flank and have increased levels, speed, and attack damage; removed their wander flag (K-Mod)
@@ -836,7 +840,7 @@ Phoenix:
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
 * minotaurs resist death magic (SLASHEM)
-* minotaurs have a thick hide
+* minotaurs have a thick hide and have flanking
 * mordor orcs can spawn with orcish boots
 * mumakil get butts or kicks instead of bites.
 * mummies get a nasty withering attack (xnh/Evil)
@@ -884,6 +888,7 @@ Phoenix:
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
 * wumpus is now huge; strengthened bite attack from 3d6 to 6d9; increased difficulty
 * xans can't fly (dnh)
+* xorns have flanking
 * yellow and black light explosions are directionless (xnh)
 * yellow molds puff out clouds of stunning spores (as a corollary, pets will attack them less often now)
 
@@ -922,6 +927,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can read scrolls of remove curse (Evil)
 * Monsters can read scrolls of stinking cloud and target the player (Evil)
 * Monsters can read scrolls of fire and target the player (Deferred in vanilla)
+* Monsters can read scrolls of flood (defensively)
 * Monsters can throw (lit) potions of oil at you (xnh)
 * Monsters can throw potions of polymorph (Evil)
 * Monsters can throw potions of hallucination at you (xnh)
@@ -933,6 +939,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can quaff potions of restore ability to un-cancel themselves (Evil)
 * Vampire monsters can quaff vampire blood to heal (SLASHEM)
 * When playing as a cartomancer, monsters can use monster summon cards and zappable cards against you.
+
 
 #### Monster accessory use
 
@@ -948,12 +955,9 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
   * amulets of ESP
   * rings of polymorph (turns any monster into a shapeshifter!)
 
-#### Steeds
-
-* Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (Evil)
-
 #### Misc monster behavior changes
 
+* Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (Evil)
 * Monsters with a negative AC get damage reduction from melee attacks (Evil)
 * Monsters will switch to their melee attack intelligently (Spork)
 * When a monster spawns with a weapon, it wields it immediately (xnh)
@@ -970,7 +974,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Conflict negates Elbereth and scare monster protection (Evil)
 * You can't dust engrave while being held by a monster.
 * Monsters that hatch in water drown unless amphibious or natural swimmers.
-  
+* Monsters can use breath/spit attacks in melee range (from FIQHack).
+
 #### Flanking behavior
 
 * Ported from SpliceHack, with enhancements
@@ -1165,6 +1170,7 @@ Curing rabid:
     * When under 50% of their max HP, they get a damage bonus that scales with their level.
     * When under 25%, this bonus is doubled.
     * This feature was adapted from the SpliceHack skill system.
+* The barbarian quest gets a lot more trees in the beginning (these can be chopped down now)
 
 ### CAVEMAN/CAVEWOMAN CHANGES
 * They cannot receive spells from their deity (Evil)
@@ -1623,7 +1629,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 
 * Successfully applying a unihorn also exercises your skill in it by 5 points. 
 * The healer gets a bonus when applying unicorn horns. Instead of the standard 30% success rate when the unihorn is +0, they have a 40% success rate.
-* Cancelled unicorn horns become degraded, unusable for curing.
+* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0.
 * Unicorn horn drops decrease as the number of unicorns killed increased.
 * Adapted unicorn horn enchantment to higher weapon max enchants.
 
@@ -1703,7 +1709,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 | wand of draining        | SLASHEM    | shoots drain life rays                   |
 | scroll of cloning       | SpliceHack | clones items or monsters                 |
 | scroll of knowledge     | SpliceHack | learn about a random magic item          |
-| scroll of water         | Un/xnh     | generates water pools                    |
+| scroll of flood         | Un/xnh     | generates water pools                    |
 | potion of blood         | SLASHEM    | nutrition for vampires                   |
 | potion of vampire blood | SLASHEM    | nutrition/healing for vampires           |
 | potion of phasing       | NerfHack   | conveys temporary phasing                |
