@@ -50,6 +50,9 @@ The following safeguards were added to protect players from exploding bags:
 * Players are prevented from tipping **known** explosive items into **identified** bags of holding
 * Empty wands of cancellation may still be placed inside bags of holding (no risk of blowing up)
 
+DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
+
+
 ### STREAMLINED IDENTIFICATION FEATURES
 
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -57,7 +60,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * All roles start out knowing potions of water, blank scrolls, and scrolls of identify
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (Evil)
-* Auto-ID enchantment on non-projectile weapons when we are expert in at XP level 10 and up.
+* Auto-ID enchantment on non-projectile weapons when we are expert in at XP10+ and wielding the weapon.
 * Auto-ID potions of acid when water explosions result from dipping (xnh)
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
@@ -122,6 +125,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * The hero's color reflects their race (SLASH'EM)
 * Suggest donation amount (relative to XP level) when #chatting to priests.
 * Escape from controlled polymorph prompt no longer causes random poly (from xNetHack).
+* Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default.
 
 ## New config options
 * **showdamage:** Displays damage and flanking bonuses/penalties
@@ -153,6 +157,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
 * Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM) 
+* Strength doesn't affect to-hit calculations.
+* Regeneration only causes additional hunger when injured.
 
 ### Slow Luck timeouts (modified)
 
@@ -201,6 +207,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
 * Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. To be fair, the player is warned before this happens and can cancel.
+* Amulet of Yendor need only be carried to hint of nearby portals (Spork).
 
 ### FINITE ALTAR NERFS
 
@@ -279,6 +286,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
 * Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
 * Artiwishes only care about previous **successful** artiwishes.
+* Wishing with bad luck causes amnesia.
 
 There are a few new sources of wishes:
 * Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
@@ -388,7 +396,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 * Green dragon scale mail also grants regeneration.
 * Silver dragon scale mail offers protection against most blinding attacks.
-* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. These scales also provide -3AC and the scale-mail provides -9AC (to match the increased AC of the dragon)
+* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
 
 ### INTRINSIC CHANGES
 * Invisibility and see invisible cannot be permanently gained intrinsically (xnh)
@@ -558,6 +566,11 @@ difficult time with spellcasting.
 * Spellbook of identify was raised to level 5 (SLASHEM)
 * Cure sickness is now directional (Evil).
 
+Spellbook of Charm Monster:
+* This spell is now directional and only works on the first monster hit.
+* At unskilled and basic, the spell can only pacify monsters.
+* You need to have skilled or expert skill in enchantment spells to tame monsters.
+* Now a level 3 spell
 ### ITEM EROSION AND DESTRUCTION
 
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
@@ -638,7 +651,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | diamond piercer        | p   | SpliceHack    |
 | god piercer            | p   | SpliceHack    |
 | landshark              | q   | SpliceHack    |
-| phase spider           | s   | SLASHEM    |
+| phase spider           | s   | SLASHEM       |
 | will-o'-the-wisp       | y   | SpliceHack    |
 | zoo bat                | B   | SpliceHack    |
 | athol                  | B   | SLASH'EM      |
@@ -710,6 +723,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * T-rex can berserk and emit a scary roar
 * chickenrat are basically reskinned rabid rats. They always spawn rabid and can jump
 * revenants can now shoot fireballs (inspired by DOOM 2)
+* Phase spiders can't move diagonally.
 
 Phoenix:
 * Very strong lawful monster that explodes on death
@@ -975,7 +989,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * You can't dust engrave while being held by a monster.
 * Monsters that hatch in water drown unless amphibious or natural swimmers.
 * Monsters can use breath/spit attacks in melee range (from FIQHack).
-
+* Humanoids are more careful about attacking you when you are a dangerous polyform.
+* Mind flayers won't purposely to eat the brains of petrifying monsters.
 #### Flanking behavior
 
 * Ported from SpliceHack, with enhancements
@@ -1291,7 +1306,7 @@ There are many restrictions:
   * knife, axe, short sword, club, mace, polearms, spear, trident, and shuriken skills
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards always start with the spellbook of magic missile.
-
+* Wizards are able to sense magic fountains.
 
 ## NEW ROLES
 
@@ -1576,6 +1591,13 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Zapping eggs with cancellation sterilizes them (from HackEM).
 * Levitation boots have been removed and replaced with flying boots.
 
+### CURSED ITEM EFFECTS
+Many more effects have been added to make cursed items more harmful or interesting.
+
+* Applying a cursed horn of plenty causes hunger.
+* Cursed armor weighs more when worn.
+* Cursed rings burn extra nutrition when worn.
+
 ### Weapon changes
 
 #### Higher max weapon enchantment
@@ -1646,7 +1668,9 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Blessed scroll of destroy armor asks which armor to destroy (xnh)
 * Confused cursed scroll of destroy armor prompts for armor to fix
 * Confused scroll of identify gives enlightenment (xnh)
-  
+* Reading cursed scrolls of remove curse will curse items.
+*  
+
 ### POTIONS
 
 * Dipping an eroded item in restore ability repairs the erosion (xnh)
@@ -1658,6 +1682,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Withering can be cured by quaffing holy water.
 * Blessed restore ability only restores a few levels (Evil)
 * potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
+* Mixing oil with water always results in diluted oil.
 
 ### WANDS
 
@@ -1698,7 +1723,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 | flying boots            | NerfHack   | Conveys flying                           |
 | orcish boots            | EvilHack   | 1AC + 2AC for orcs                       |
 | gauntlets of force      | NerfHack   | increase damage, #force effects          |
-| anti-magic shield       | NerfHack   | provides magic resistance                |
+| anti-magic shield       | NerfHack   | provides magic resistance, blocks spellcasting |
 | tower shield            | SpliceHack | Heavy, provides 4AC                      |
 | gnomish boots           | SlashTHEM  | -2AC for gnomes                          |
 | gnomish helm            | SlashTHEM  | -2AC for gnomes                          |
@@ -1721,6 +1746,8 @@ With the vampire race available you will be able to play as a archeologist, barb
 | healthstone             | SLASHEM    | affects regeneration                     |
 | whetstone               | SLASHEM    | sharpens edged weapons                   |
 | foulstone               | NerfHack   | aggravate monster & misc effects         |
+
+* Potions of reflection are immune to fire and cold damage.
 
 
 **playing card deck:**
@@ -1822,6 +1849,7 @@ Other effects:
 * Pets will try not to step on one (treated as a cursed item).
 * If rubbed on another rock, emits a poisonous cloud.
 * Foulstones always generate cursed.
+* Cursed foulstones cannot be dropped (like loadstones).
 
 
 ## NEW ARTIFACTS
