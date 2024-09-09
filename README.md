@@ -159,6 +159,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM) 
 * Strength doesn't affect to-hit calculations.
 * Regeneration only causes additional hunger when injured.
+* Free action protects from stoning paralysis.
 
 ### Slow Luck timeouts (modified)
 
@@ -204,10 +205,9 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * **Pets are limited by charisma** Your maximum number of pets is normally (CHA / 4), but (CHA / 8) on the Astral Plane. If you get more pets than that, they will be untamed starting with the weakest first (Evil)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
-* While the player is carrying the Amulet of Yendor, monsters flood from the upstairs (Un/Evil). After entering the planes, this extra monster generation will subside.
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
 * Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. To be fair, the player is warned before this happens and can cancel.
-* Amulet of Yendor need only be carried to hint of nearby portals (Spork).
+* Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 
 ### FINITE ALTAR NERFS
 
@@ -254,16 +254,16 @@ A new conduct was added to the #conduct menu so that players can track how many 
 However, altar gift frequency is also tempered by your experience level (EvilHack).
 
 As your level increases, the probability of receiving an artifact increases. Under level 4 is not possible:
-* level  4: 10% chance
-* level  9: 20% chance
-* level 12: 30% chance
-* level 14: 40% chance
-* level 17: 50% chance
-* level 19: 60% chance
-* level 21: 70% chance
-* level 23: 80% chance
-* level 24: 90% chance
-* level 26 or greater: 100% chance
+* level  4: 20% chance
+* level  6: 30% chance
+* level  8: 40% chance
+* level 11: 50% chance
+* level 13: 60% chance
+* level 15: 70% chance
+* level 17: 80% chance
+* level 18: 90% chance
+* level 20 or greater: 100% chance
+
 
 This rewards leveling up and slows down the power grab that some characters might go for with a guaranteed sacrifice gift (ie: Barbarians). It also slows down the rate at which altars are cracking and getting destroyed, giving more time to utilize them for other things like building Luck or getting crowned.
 
@@ -555,7 +555,6 @@ difficult time with spellcasting.
 * Primary spellcasters (healers, priests, monks, wizards, cartomancers) get a memory boost of 500 turns when they cast spells (SLASH'EM)
 * Casting your special spell also grants a retention bonus of 500 turns no matter what role you are
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
-* A welded cursed quarterstaff doesn't block spellcasting (xnh)
 * Hungerless casting ignores too hungry to cast penalty (xnh)
 * Spellbooks' weight is directly related to their level (xnh)
 * When casting a SKILLED attack spell, you can choose to cast basic fireball or cone of cold (xnh/dnh)
@@ -566,11 +565,38 @@ difficult time with spellcasting.
 * Spellbook of identify was raised to level 5 (SLASHEM)
 * Cure sickness is now directional (Evil).
 
-Spellbook of Charm Monster:
-* This spell is now directional and only works on the first monster hit.
+#### Spellbook of charm monster
+* This spell is now a directional level 3 spell and only works on the first monster hit.
 * At unskilled and basic, the spell can only pacify monsters.
 * You need to have skilled or expert skill in enchantment spells to tame monsters.
-* Now a level 3 spell
+
+#### Spellbook of light
+Spell of light effects scale with spellcasting ability.
+- At unskilled, the diameter of light is 2
+- At basic, it's 4
+- At skilled, it's 6, and at expert, it caps out at 7.
+
+For reference, the uncursed scroll of light always illuminates a radius of 11.
+
+#### Spellbook of dig
+* Lowered from a level 5 spell to level 3
+* The range of the digging beam has been roughly halved.
+
+#### Spellbook of magic mapping
+* The effectiveness of magic mapping depends on your spellcasting ability. The spell will never fully map a level, only the scroll can be depended upon for that.
+* Lowered from a level 5 spell to level 4
+* Unskilled acts like a confused magic mapping (1 in 7 squares successfully mapped)
+* Basic maps 1 in 5 squares
+* Skilled maps 1 in 3 squares
+* Expert maps 1
+
+#### Spellbook of knock
+* The spell of knock cannot be used to escape from an engulfer (this ability is retained for the wand of opening)
+* Range is reduced to 1
+
+#### Spellbook of wizard-lock
+* Range is reduced to 1
+
 ### ITEM EROSION AND DESTRUCTION
 
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
@@ -605,7 +631,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Kicking monsters can sometimes get the grease to wear off your boots/feet.
 * Greased gloves cause Glib.
 * Greased feet/gloves cause fumbling.
-* Cursed rings can slip off your fingers when Glib.
+
 * Greased rings slip off your fingers as if you had greasy fingers.
 
 ### FORGING & FORGING RECIPES
@@ -614,7 +640,7 @@ Many of these changes were introduced to work in conjunction with the new grease
   * No artifact forging
   * No armor recipes are available if you aren't a dwarf or orc.
   * Much narrower list of forgeable weapons, mostly bladed and blunt weapons.
-  * Only samurai can forge katanas and tsurugi.
+  * Only samurai can forge katanas, tsurugi, and shuriken.
   * Only dwarves can forge dwarvish items
   * Only orcs can forge orcish items
   * Forging recipes are displayed in the object lookup.
@@ -703,6 +729,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * alhoons can now displace monsters
 * landsharks were recolored to bright blue                                               
 * phase spiders may appear in small groups
+* Phase spiders can't move diagonally.
 * zoo bats now cause confusion when eaten
 * byahkees were recolored to yellow
 * athols have increased size, weight, and nutrition
@@ -723,7 +750,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * T-rex can berserk and emit a scary roar
 * chickenrat are basically reskinned rabid rats. They always spawn rabid and can jump
 * revenants can now shoot fireballs (inspired by DOOM 2)
-* Phase spiders can't move diagonally.
+
 
 Phoenix:
 * Very strong lawful monster that explodes on death
@@ -991,6 +1018,11 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can use breath/spit attacks in melee range (from FIQHack).
 * Humanoids are more careful about attacking you when you are a dangerous polyform.
 * Mind flayers won't purposely to eat the brains of petrifying monsters.
+* Cancelled monsters can't explode (in death or as an attack).
+* Displacing monsters (like the displacer beast) cannot displace you if helpless or trapped.
+* Cancelled displacers are incapable of displacement.
+
+
 #### Flanking behavior
 
 * Ported from SpliceHack, with enhancements
@@ -998,7 +1030,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Any two monsters can flank a player (or another monster) if they sandwich the target. However, monsters with this property ("outflankers") are more tactical and will actively seek opportunities to flank you.
 * Monsters gain a large to-hit bonus when flanking
 * Flanking now scales with monster level (it used to be a flat +4 AC penalty in SpliceHack):
-  * AC penalty = 4 + (mdifficulty - 4) / 2
+* Monsters that are natural outflankers get a much higher bonus than other monsters.
 * Flanking has been applied to many monsters in NerfHack.
 
 * Using a pet, you can also take advantage of flanking. Simply place yourself and your pet in such a way as to "sandwich" the monster. You (or your pet) will get a flanking bonus on the victim when attacking.
@@ -1007,6 +1039,14 @@ Flanking restrictions:
 * You cannot flank if hallucinating, afraid, confused, punished, fumbling, wounded, unaware, or stunned.
 * You must be able to see the monster you want to flank.
 * Monsters cannot flank if eating, sleeping, fleeing, confused, stunned, trapped, petrified, sick, diseased, or hiding.
+
+Certain roles also count as natural flankers and will get higher bonuses than other roles: 
+  - Knights
+  - Monks
+  - Rangers
+  - Rogues
+  - Samurai
+  - Valkyries
 
 #### Berserking behavior
 
@@ -1133,14 +1173,13 @@ Curing rabid:
 * In xnh there was also a chance to create solid walls to block the player in, this effect was removed so it only drops boulders.
 
 **hobble (clerical spell):**
-* Inflicts wounded legs on you
-* This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for 50-149 turns.
-* Ranged, can be cast at the hero up to 13 squares away.
+* This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for a brief period
+* Ranged, can be cast at the hero from up to 13 squares away.
 
 **call undead (mage spell):**
 * Ported from SLASHEM
 * Call Undead can only be cast by undead and demon spellcasters
-* Ranged, can be cast at the hero up to 13 squares away.
+* Ranged, can be cast at the hero from up to 13 squares away.
 
 **blight (clerical spell)**
 * Ported from xNetHack
@@ -1162,6 +1201,7 @@ Curing rabid:
 
 
 ### ARCHEOLOGIST
+* Archeologists get innate price identification
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
 * Archeologists can reach basic skill in spears.
@@ -1169,7 +1209,8 @@ Curing rabid:
 * Archeologists start out knowing dwarvish mattocks.
 * Archeologists always get an extra id when reading scrolls of identify.
 * Archeologists start with an extra scroll and spellbook (SLASHEM).
-* Archeologists sometimes crack their whip at animals, scaring them. This occurs when hitting a natural 20, and inflicts an extra 1d3 damage.
+* Archeologists sometimes crack their whip at animals, scaring them. This usually occurs when hitting a natural 20, but occurs more often the higher whip skill is advanced. This inflicts an extra 1d2 damage.
+
 
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
@@ -1191,6 +1232,7 @@ Curing rabid:
 * They cannot receive spells from their deity (Evil)
 * They have an 80% chance of failing to read any spellbook
 * They can increase their max-HP at each level-up if they remain illiterate (Spork/THEM)
+* An additional tier of HP gain has been added; after level 16 cavemen can gain 1d4 max HP for remaining illiterate.
 * Their special spell has been removed (Evil)
 * When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
 * The caveman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
@@ -1292,6 +1334,7 @@ There are many restrictions:
 * Samurai can reach expert in spears.
 * Samurai get to-hit and damage bonuses for twoweaponing a katana with a wakizashi.
 * The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
+* Being satiated abuses wisdom for Samurai.
 
 ### TOURIST
 * Tourists get automatic type identification for shop items (Un). This means that all items for sale are identified for you in shops. You can instantly identify anything by selling it.
@@ -1312,7 +1355,7 @@ There are many restrictions:
 
 
 ### CARTOMANCER
-* The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using scrolls and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
+* The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
 
 **Starting inventory:**
     * Graphic tee
@@ -1338,7 +1381,6 @@ There are many restrictions:
     * Enchantment spells: skilled
     * Escape spells: basic
     * Matter spells: basic
-    * Riding: skilled
     * Bare-handed combat: basic
 
 **Quest artifact: Holographic Void Lily**
@@ -1369,10 +1411,13 @@ There are many restrictions:
   - poly zap/dip of cards: -10 alignment, -2 luck
 
 **Play mechanics:**
+* Cartomancers start out at a slower speed of 10 (similar to the Yeoman of SLASH'EM).
+* Cartomancers get speed at level 10.
 * Cards (ie: scrolls) only weigh 1 for cartomancers.
 * The camera is played as a holographic card for cartomancers, doesn't break when thrown.
 * When applying a deck of cards, cartomancers will always be able to use them as if they
   were blessed. This enables you to tell your current luck easily by applying the deck.
+* Cartomancers don't get a starting pet and cannot tame monsters.
 
 **Card drops:**
 * When playing as a cartomancer, there is a 50% chance that a monster will leave a card instead of a corpse when it dies.
@@ -1411,17 +1456,39 @@ There are many restrictions:
   threat.
 * Monsters can read summon cards as well.
 * Any summon "sphere" cards are special because they will instantly explode when thrown at a monster.
+* Cursed summon cards create hostile monsters.
 
 **Razor cards:**
 * In SpliceHack, razor cards were simply shuriken relabeled.
 * In NerfHack, razor cards have been properly implemented as their own weapon type using the shuriken skill.
 * Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
-* Cartomancers recognize the enchantment and BUC status of all razor cards.
+* Cartomancers will be able to recognize the enchantment of razor cards at XP7
+* Cartomancers will be able to recognize the BUC status of razor cards at XP15.
 * Razor cards will appear as part of the cartomancers regular death drops and will sometimes
   take the place of a summon card or zap card. These follow the same rules as any stacked weapon type, so you may receive a stack of 6-11 that could be blessed/cursed/uncursed, and possibly poisoned.
 
 **Zappable cards:**
-* These can also drop when cartomancers kill monsters. They act as one-use wands. These have a 0% generation chance so that other roles will not see them randomly, but they could see them in bones.
+* These can also drop when cartomancers kill monsters. They act as one-use wands.
+* These have a 0% generation chance so other roles will not see them randomly
+* Cursed zap cards have a chance to backfire like wands, but can not explode.
+
+**Spellcasting overhaul:**
+* Cartomancers do not learn spells (from starting books, reading spellbooks, or god gifts)
+* Instead, they can instantaneously cast spells by reading rulebooks.
+* Rulebooks generate with 4-5 charges and each reading uses a charge.
+* When 0 charges remain after reading a rulebook, it is used up.
+* Cartomancers's start out knowing the identities of all rulebooks (since usually the title and purpose of a rulebook is quite clear on the cover).
+* Cartomancers also always cast spells at expert level.
+* Rulebooks can still be written with magic markers (no penalty for cartomancers unlike forging cards)
+
+**Card combos:**
+* The 'Z' spellcasting command is instead is used for card combos that the cartomancer gets access to as they level up.
+* Card combos do not become available until level 5. You gain the ability to cast more cards as you level up:
+  * level 5: 2 cards
+  * level 10: 3 cards
+  * level 15: 4 cards
+  * level 20+: 5 cards.
+* The first card costs 5 energy. Further cards cost 20 energy per card to play.
 
 **Changes to the cartomancer quest:**
 * Created a unique duelist monster to take the place of students in the cartomancer quest.
@@ -1432,7 +1499,7 @@ Cartomancer gets adjusted different item generation odds.
     To make up for less corpse drops, they get more food.
     They also get much fewer wands because they get zap cards.
 
-Cartomancers get speed at level 10. This is sort of my lazy way of implementing the card combo technique from the original SpliceHack. However, this lets the cartomancer get a larger benefit and the player doesn't have to do anything special, they can just cast more cards naturally.
+
 
 
 ## PLAYER RACE CHANGES
@@ -1457,6 +1524,7 @@ Cartomancers get speed at level 10. This is sort of my lazy way of implementing 
 ### New race/role combos.
 
 * Elven archeologist
+* Orcish archeologist
 * Elvish healer
 * Dwarven knight
 * Dwarven priest
@@ -1553,6 +1621,10 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
 * Raised price of wand of nothing to 500 (EvilHack)
+* Scrolls of enchant weapon cost 200
+* Scrolls of enchant armor cost 200
+* Scrolls of remove curse cost 300
+* Blank scrolls cost 50
 * Levels of erosion on an object can affect its price (Evil).
 * Port FIQHack's ring initial enchantment rules
 * Port the Oily Corpses Patch (xnh)
@@ -1560,9 +1632,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
 * Buff the effects of the scroll of light (xnh)
 * Reverse the name of the HACKEM MUCHE scroll
-* Using a cursed unlocking tool has a chance to break (Evil)
 * Using eroded unlocking tools also has a chance to break.
-* Credit cards may slip through a lock when cursed or hero is fumbling (xnh).
 * Playing eroded musical instruments can break the instrument or fail to play.
 * Applying rusty stethoscope is much less effective.
 * Rusty tin openers can break.
@@ -1584,12 +1654,12 @@ With the vampire race available you will be able to play as a archeologist, barb
 * orcish equipment is usually generates rusty and/or corroded
 * dwarven items frequently spawn as fixed. 
 * The ring of levitation is a valid starting ring.
-* Cursed food items will no longer tame or pacify monsters.
-* Cursed gems count as attacks when thrown at unicorns.
 * Blessed food items are rotten much less often.
 * Eucalyptus leaves can never be rotten unless cursed.
 * Zapping eggs with cancellation sterilizes them (from HackEM).
 * Levitation boots have been removed and replaced with flying boots.
+* Boulders deal 1+5d4 damage instead of 1d20.
+* Rings of sustain ability protect legs from wounding.
 
 ### CURSED ITEM EFFECTS
 Many more effects have been added to make cursed items more harmful or interesting.
@@ -1597,6 +1667,18 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Applying a cursed horn of plenty causes hunger.
 * Cursed armor weighs more when worn.
 * Cursed rings burn extra nutrition when worn.
+* A welded cursed quarterstaff doesn't block spellcasting (xnh)
+* Cursed rings can slip off your fingers when Glib.
+* Vampires like cursed blood more than uncursed or blessed blood (the opposite of SLASH'EM)
+* Using a cursed unlocking tool has a chance to break (Evil)
+* Credit cards may slip through a lock when cursed or hero is fumbling (xnh).
+* Cursed food items will no longer tame or pacify monsters.
+* Cursed gems count as attacks when thrown at unicorns.
+* Cursed scrolls of remove curse will curse items.
+* Implement behavior for cursed potion of gain ability (xnh)
+* Cursed wands have a higher chance of exploding and can backfire.
+* Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
+* Cursed launchers always have a chance of misfiring.
 
 ### Weapon changes
 
@@ -1609,6 +1691,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Thrown projectiles above +7 have a high chance of dulling on hit. Even though projectiles can be enchanted quite high to +11, +12, or +13, they will quickly diminish to +7.
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
+* Abuse wisdom if items are destroyed by over-enchanting.
 
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
 * All short swords get +1 to-hit (Dyna)
@@ -1668,14 +1751,15 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Blessed scroll of destroy armor asks which armor to destroy (xnh)
 * Confused cursed scroll of destroy armor prompts for armor to fix
 * Confused scroll of identify gives enlightenment (xnh)
-* Reading cursed scrolls of remove curse will curse items.
-*  
 
 ### POTIONS
 
 * Dipping an eroded item in restore ability repairs the erosion (xnh)
+* Dipping in potions of reflection erodeproofs an item.
+* Potions of restore ability can be alchemized.
+* Quaffing potions of restore ability also cures wounded legs.
 * Acid potions are immune to being destroyed by freezing (xnh)
-* Implement behavior for cursed potion of gain ability (xnh)
+
 * More potion breathing effects (xnh)
 * Thrown potions of hallucination confuse monsters (Evil)
 * Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
@@ -1683,6 +1767,8 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Blessed restore ability only restores a few levels (Evil)
 * potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
 * Mixing oil with water always results in diluted oil.
+* Potions can sometimes generate diluted.
+* Shopkeepers only offer 1/2 price for diluted potions.
 
 ### WANDS
 
@@ -1722,7 +1808,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 | stomping boots          | SpliceHack | Instakills tiny/small monsters           |
 | flying boots            | NerfHack   | Conveys flying                           |
 | orcish boots            | EvilHack   | 1AC + 2AC for orcs                       |
-| gauntlets of force      | NerfHack   | increase damage, #force effects          |
+| gauntlets of force      | NerfHack   | stuns monsters, better #force effects    |
 | anti-magic shield       | NerfHack   | provides magic resistance, blocks spellcasting |
 | tower shield            | SpliceHack | Heavy, provides 4AC                      |
 | gnomish boots           | SlashTHEM  | -2AC for gnomes                          |
@@ -1735,6 +1821,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 | scroll of cloning       | SpliceHack | clones items or monsters                 |
 | scroll of knowledge     | SpliceHack | learn about a random magic item          |
 | scroll of flood         | Un/xnh     | generates water pools                    |
+| spellbook of repair     | EvilHack   | repairs any item erosion                 |
 | potion of blood         | SLASHEM    | nutrition for vampires                   |
 | potion of vampire blood | SLASHEM    | nutrition/healing for vampires           |
 | potion of phasing       | NerfHack   | conveys temporary phasing                |
@@ -1986,7 +2073,7 @@ Misc changes:
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
 * Monsters won't break boulders in Sokobon.
-* Cursed gain level can be used in Sokoban to bypass a floor (xnh)
+
 
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon and actually all Soko zoos have the white dragon guarding the treasure.
@@ -2058,6 +2145,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 
 * At higher levels, boulders can drop from falling rock traps.
 * Falling rock traps can result in stunning with sufficient damage (at least 6)
+* Falling rock traps can drop multiple rocks (or boulders).
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
 * You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
 
