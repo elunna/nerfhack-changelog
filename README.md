@@ -1228,6 +1228,7 @@ Curing rabid:
     * Only occurs when barbarians reach level 4 and higher.
     * When under 50% of their max HP, they get a damage bonus that scales with their level.
     * When under 25%, this bonus is doubled.
+    * Each rage attack uses up d3 energy, so at least 3 energy is required to trigger a rage attack.
     * This feature was adapted from the SpliceHack skill system.
 * The barbarian quest gets a lot more trees in the beginning (these can be chopped down now)
 
@@ -1342,6 +1343,7 @@ There are many restrictions:
   * You cannot be fumbling or unaware (sleeping or paralyzed).
   * You must be able to see the monster.
   * The chance of countering goes up with your skill in the wielded weapon.
+  * Each counterattack uses up 5 energy (5 energy required to execute)
 
 ### SAMURAI
 * Samurai start with +3 wakizashi (Dyna)
