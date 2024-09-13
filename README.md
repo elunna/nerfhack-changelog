@@ -80,7 +80,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Automatically use a process of elimination for auto-identifying wands when available (Un)
 * Auto-ID loadstones when attempting to drop or stash them (Un)
 * Auto-id flint yielded from applying rocks to eachother
-* Auto-ID tin whistles, tooled horns, magic flutes, and magic harps upon use (Un)
+* Auto-ID most musical instruments upon use (Un)
 * Auto-ID magic lamps and oil lamps when rubbing (Un)
 * Auto-ID dunce cap when it's first put on (Un)
 * Auto-ID jumping boots upon wearing (Un/Ace)
@@ -126,6 +126,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Suggest donation amount (relative to XP level) when #chatting to priests.
 * Escape from controlled polymorph prompt no longer causes random poly (from xNetHack).
 * Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default.
+* NERFHACKOPTIONS instead of NETHACKOPTIONS.
 
 ## New config options
 * **showdamage:** Displays damage and flanking bonuses/penalties
@@ -157,6 +158,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
 * Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM) 
+* Auto-pickup is automatically disabled while hallucinating.
 * Strength doesn't affect to-hit calculations.
 * Regeneration only causes additional hunger when injured.
 * Free action protects from stoning paralysis.
@@ -272,7 +274,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 ### PET THEFT
 
 * Pet theft from shops has been totally nerfed.
-* Pets will never pick up objects in shops (Gnoll)
+* Pets will never pick up objects in shops nor eat unpaid food (Gnoll)
 * You also cannot #loot items to/from your pet that are unpaid.
 * Artifact costs have been reduced to 1/5th of their previous cost. Since they can't be stolen via pet theft, they have been adjusted to make them affordable.
 * Shopkeepers start with more gold, usually more than double the standard amounts (gnoll)
@@ -924,6 +926,7 @@ Phoenix:
 * all werefoo in animal form get infravision
 * wargs have a thick hide.
 * werefoo revert back to their base form when killed (SLASH'EM)
+* werefoo can summon rabid breathren
 * werewolves have a higher level and difficulty, stronger attacks
 * weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
@@ -1308,6 +1311,17 @@ Vampire priests don't start with any food items. Instead they get unholy water, 
 * Rangers get auto-id for ammo enchantment when they reach XP level 10 (xnh)
 * Rangers are not stunned from using portals (they are used to quick travel)
 
+Skill adjustments for knights:
+    knife          skilled       -> Restricted
+    pick-axe       basic         -> Restricted
+    short sword    skilled       -> Restricted
+    morning star   skilled       -> Restricted
+    hammer         skilled       -> Restricted
+    quarterstaff   skilled       -> Restricted
+    spear          skilled       -> Restricted
+    trident        skilled       -> Restricted
+    divination     expert        -> basic
+    
 ### ROGUE
 * In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
 * Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
@@ -1412,7 +1426,7 @@ There are many restrictions:
 
 **Play mechanics:**
 * Cartomancers start out at a slower speed of 10 (similar to the Yeoman of SLASH'EM).
-* Cartomancers get speed at level 10.
+* Cartomancers get intrinsic speed at level 10.
 * Cards (ie: scrolls) only weigh 1 for cartomancers.
 * The camera is played as a holographic card for cartomancers, doesn't break when thrown.
 * When applying a deck of cards, cartomancers will always be able to use them as if they
@@ -1710,7 +1724,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 * No multishot when **fumbling**
 * **Boomerangs** will can pass through enemies on hit.
 * **Polearms** can be used to trigger traps (from NetHack Fourk).
-
+* Polearms and lances can be pounded when blind (as long as you can sense the target)
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
 * Gem class projectiles do minimal damage vs thick-skinned monsters
@@ -1759,7 +1773,6 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Potions of restore ability can be alchemized.
 * Quaffing potions of restore ability also cures wounded legs.
 * Acid potions are immune to being destroyed by freezing (xnh)
-
 * More potion breathing effects (xnh)
 * Thrown potions of hallucination confuse monsters (Evil)
 * Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
@@ -1767,8 +1780,15 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Blessed restore ability only restores a few levels (Evil)
 * potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
 * Mixing oil with water always results in diluted oil.
+* Dipping water into any potion will simply dilute the other potion (SLASHEM)
+* Dipping into a cursed potion always causes an explosion (SLASHEM).
+* Dipping acid into toilets explodes and destroys the toilet.
+
+#### Diluted potion effects
+* Most potions have a much less potent effect when diluted (EvilHack)
 * Potions can sometimes generate diluted.
 * Shopkeepers only offer 1/2 price for diluted potions.
+* Diluted healing potions heal less and grant less max-HP (EvilHack).
 
 ### WANDS
 
@@ -1793,8 +1813,6 @@ Many more effects have been added to make cursed items more harmful or interesti
 ## SHOP CHANGES
 **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
-* Potions of oil have been eliminated from appearing.
-* Non-candle and non-lamp items have had their probabilities minimized.
 
 ## NEW ITEMS
 
@@ -2114,7 +2132,7 @@ Misc changes:
 * Weapons can be forged by applying a hammer while standing on a forge.
 * Items can pass over forges.
 * New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
-* Cold rays can cool forges.
+* Cold rays have a chance cool forges.
 
 ### Toilets
 
@@ -2125,6 +2143,7 @@ Toilets have received many enhancements after adapting them from SLASHEM. Notabl
 * Sitting on toilets can alleviate satiated status.
 * If giants sit on toilets, they break.
 * Sitting on toilets fully heals your HP.
+* Toilets can sometimes break when sat on.
 
 Toilet kicking:
 * Like sinks, toilets now have a couple different effects from kicking them, including a few YAFM.
