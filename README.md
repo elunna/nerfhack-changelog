@@ -10,7 +10,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
   * 2+ Luck: 0.3% chance
   * Negative luck has at least a 30% chance of rousing monsters.
 * Reverted the majority of **level flips** from 3.7. Flipped levels only appear in Sokoban and the big room special level.
-* **Items that are 'lost'** from the players inventory will no longer be un-identified. 
+* **Items that are 'lost'** from the players inventory will no longer be un-identified.
 * **Stinking clouds** no longer block line of sight
 * **Disabled vampire shapeshifting** for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * **Branchport** always brings you to the entry level of a branch
@@ -66,6 +66,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID potions of sickness when they coat a weapon in poison
 * Auto-ID potions of sickness and fruit juice when dipping unihorn in sickness
 * Auto-ID potions of restore ability when quaffed
+* Auto-ID potions of booze when quaffed.
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xnh)
 * Auto-ID scroll of scare monster if it crumbles from picking up (Un)
@@ -91,9 +92,10 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Blessed stethoscopes can identify eggs (Evil/Spork)
 * Make rustproof/erodeproof/fixed known by default (Dyna)
 
-### INTERFACE CHANGES 
+### INTERFACE CHANGES
 
 * Detailed object and monster is available in the in-game lookup (Pokedex), ported from xNetHack with updates from HackEM.
+* Object look also works for artifacts (HackEM)
 * Peaceful monsters are underlined (TTY and curses) (xnh)
 * Magic cancellation (MC) value is shown on the bottom line (Evil)
 * Skill caps and percentage towards next level is available in #enhance
@@ -155,9 +157,9 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Going downstairs while stunned always results in falling, confusion sometimes does.
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
 * Many item actions are now forbidden if you have both hands welded.
-* If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit. 
+* If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit.
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
-* Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM) 
+* Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM)
 * Auto-pickup is automatically disabled while hallucinating.
 * Strength doesn't affect to-hit calculations.
 * Regeneration only causes additional hunger when injured.
@@ -208,7 +210,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
-* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. To be fair, the player is warned before this happens and can cancel.
+* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy as well as draining the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 
 ### FINITE ALTAR NERFS
@@ -278,7 +280,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * You also cannot #loot items to/from your pet that are unpaid.
 * Artifact costs have been reduced to 1/5th of their previous cost. Since they can't be stolen via pet theft, they have been adjusted to make them affordable.
 * Shopkeepers start with more gold, usually more than double the standard amounts (gnoll)
-   
+
 ### WISHING
 
 * Quest artifacts cannot be wished for (dnh)
@@ -298,7 +300,7 @@ There are a few new sources of wishes:
 
 **The chance of receiving the artifact from a wish is:**
 
-    1 in [number of previous artifact wishes + 1]. 
+    1 in [number of previous artifact wishes + 1].
 
   * Artifact wish #1: 1 in 1 chance of success (100%)
   * Artifact wish #2: 1 in 2 chance of success (50%)
@@ -315,7 +317,7 @@ There are a few new sources of wishes:
 
 ### CROWNING
 
-* Crowning requires 13 Luck (from dnh). 
+* Crowning requires 13 Luck (from dnh).
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
@@ -389,7 +391,7 @@ Leveling up grants damage bonuses (SlashTHEM)
 
 #### Dragon scales and scale mail changes
 
-* The AC of dragon scales has been reduced from 3AC to 1AC 
+* The AC of dragon scales has been reduced from 3AC to 1AC
 * The AC of dragon scale mail has been reduced from 9AC to 4AC
 * Dragon scale mail weighs 80.
 * **Dragon scale mail cannot be wished for**
@@ -412,14 +414,14 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Eating rings and amulets only confers an intrinsic for a temporary period.
 *  To compensate for the temporary nature of these intrinsics, the possibility of actually getting the property has been inversed.
  * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It has been changed to 2 in 3. The chance for an amulet by eating it was 1 in 5. It has been changed to 4 in 5.
- 
+
 ** Summary of revised eating effects:**
  - Eating a ring now grants 750-1500 turns of it's property intrinsically.
  - Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
  - Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
  - Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
  - Eating an amulet of life saving can reset saving grace.
-  
+
 #### Aggravate Monster changes
 * Cannibalism causes aggravation for 10-15k turns instead of permanently.
 * Eating domestic animals causes aggravation for 5000-7500 turns instead of permanently.
@@ -599,6 +601,9 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 #### Spellbook of wizard-lock
 * Range is reduced to 1
 
+#### Spellbook of drain life
+* Now ray-based to match the wand of draining.
+
 ### ITEM EROSION AND DESTRUCTION
 
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
@@ -629,7 +634,7 @@ Many of these changes were introduced to work in conjunction with the new grease
   become greased)
 * Grease can be washed off towels by wetting them
 * Greased towels now operate the same way that cursed towels do
-* Grease can be washed off your feet/boots by dipping '-' in water, same action as dipping the player's hands. 
+* Grease can be washed off your feet/boots by dipping '-' in water, same action as dipping the player's hands.
 * Kicking monsters can sometimes get the grease to wear off your boots/feet.
 * Greased gloves cause Glib.
 * Greased feet/gloves cause fumbling.
@@ -646,7 +651,7 @@ Many of these changes were introduced to work in conjunction with the new grease
   * Only dwarves can forge dwarvish items
   * Only orcs can forge orcish items
   * Forging recipes are displayed in the object lookup.
-    
+
 Aside from the recipe changes - the biggest change is that we no longer have a #forge or #craft command. Simply get a hammer and (a)pply it when standing over the forge.
 
 ### GEM ALCHEMY
@@ -720,6 +725,15 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | Baphomet               | &   | SpliceHack    |
 | Malchanthet            | &   | SpliceHack    |
 | Mephistopholes         | &   | SpliceHack    |
+| Maggot                 | w   | SLASHEM/Splice |
+| giant fly              | w   | SpliceHack    |
+| pixie                  | n   | SLASH'EM      |
+| gug                    | Z   | SLASH'EM      |
+| shoggoth               | P   | SLASH'EM      |
+| volatile mushroom      | F   | SpliceHack    |
+| arc bug                | x   | SLASH'EM      |
+| spark bug              | x   | SLASH'EM      |
+| lightning bug          | x   | SLASH'EM      |
 
 ### New monster notes
 * giant praying mantis ignored just Elbereth in SpliceHack, but now it ignores all magical scaring
@@ -729,15 +743,15 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * weretigers are recolored to red and can jump
 * alhoons were covetous in EvilHack, now they move normally but speed was increased
 * alhoons can now displace monsters
-* landsharks were recolored to bright blue                                               
+* landsharks were recolored to bright blue
 * phase spiders may appear in small groups
 * Phase spiders can't move diagonally.
 * zoo bats now cause confusion when eaten
 * byahkees were recolored to yellow
 * athols have increased size, weight, and nutrition
-* athols are now strong, berserk, flank, and have infravision 
+* athols are now strong, berserk, flank, and have infravision
 * nightgaunts were recolored to purple
-* alchemists can alchemize acid potions 
+* alchemists can alchemize acid potions
 * troll mummies get a withering attack
 * merfolk were recolored to bright green
 * things from below can see invisible
@@ -745,7 +759,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * grave troll corpses cause sickness when eaten.
 * elven clerics were known as elven wizards in EvilHack
 * like likes can eat your shields and cloaks when engulfing
-* shadow ogres spawn invisible and have a drain life attack 
+* shadow ogres spawn invisible and have a drain life attack
 * assassin bugs are stronger than SLASHEM
 * shadows can now stalk the player
 * velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
@@ -771,7 +785,7 @@ Phoenix:
 * Much more AC is required to dodge dropping piercers (previously, -2AC would nullify their drop attacks, now -22AC is required)
 * Piercing damage scales with their level (monster level * 6) with a minimum of 4d6 being dealt.
 * Piercers actually pierce helmets; if the damage roll is (12 + (helmet enchantment * 6) or greater, any hard helmet blocking the attack is destroyed while absorbing the damage.
-* Piercers and lurkers/trappers always generate hidden if possible. 
+* Piercers and lurkers/trappers always generate hidden if possible.
 
 ### Reviving and Poisonous Zombies
 * Zombie corpses may auto-revive similar to trolls (Evil/xnh)
@@ -884,6 +898,9 @@ Phoenix:
 * mind flayer attacks can make hero forget skills (Evil)
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide and have flanking
+* All molds can generate in small groups.
+* All molds have a reduced chance of granting intrinsics.
+* All molds and fungi (F) can propagate passively when attacked
 * mordor orcs can spawn with orcish boots
 * mumakil get butts or kicks instead of bites.
 * mummies get a nasty withering attack (xnh/Evil)
@@ -891,10 +908,12 @@ Phoenix:
 * olog hai get poison resistance
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
+* paper golems leave special cards for cartomancers
 * priests of Moloch are always generated hostile (SLASHEM)
 * quasit buffs: faster, stronger attacks, see invisible, can appear in small groups (xnh)
 * queen bees can displace monsters
 * quest leaders resist death magic (Evil)
+* quest nemeses can break boulders after getting frustrated enough.
 * rock trolls are stoning resistant (xnh)
 * all spheres (shocking spheres, flaming spheres, freezing spheres) cannot be genocided.
 * all spheres also explode on death (shocking/flaming/freezing/acid)
@@ -911,6 +930,7 @@ Phoenix:
 * shopkeepers get a wand of sleep instead of striking (Evil)
 * shopkeepers get extra defensive items (SLASHEM).
 * shopkeepers and priests are colored yellow (xnh)
+* tame spiders will not spin webs.
 * titans can see invisible (FIQ)
 * titans resist death magic (SLASHEM)
 * titans are level 17 (K-Mod)
@@ -926,7 +946,7 @@ Phoenix:
 * all werefoo in animal form get infravision
 * wargs have a thick hide.
 * werefoo revert back to their base form when killed (SLASH'EM)
-* werefoo can summon rabid breathren
+* werefoo can occasionally summon rabid breathren
 * werewolves have a higher level and difficulty, stronger attacks
 * weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
@@ -981,6 +1001,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can zap wands of wonder at the player
 * Hostile monsters wielding a digging tool can break boulders (Evil)
 * Monsters can quaff potions of restore ability to un-cancel themselves (Evil)
+* Monster will quaff potions of reflection if you have a reflectable attack available.
 * Vampire monsters can quaff vampire blood to heal (SLASHEM)
 * When playing as a cartomancer, monsters can use monster summon cards and zappable cards against you.
 
@@ -1043,7 +1064,7 @@ Flanking restrictions:
 * You must be able to see the monster you want to flank.
 * Monsters cannot flank if eating, sleeping, fleeing, confused, stunned, trapped, petrified, sick, diseased, or hiding.
 
-Certain roles also count as natural flankers and will get higher bonuses than other roles: 
+Certain roles also count as natural flankers and will get higher bonuses than other roles:
   - Knights
   - Monks
   - Rangers
@@ -1071,8 +1092,9 @@ Certain roles also count as natural flankers and will get higher bonuses than ot
 
 This is a brand new mechanic, debuting in NerfHack!
 
-* The rabid rat has been removed and in its place any eligible monster can generate as a rabid version of itself. Any place in the code where rabid rats were previously, has been replaced with wererats.
+* The rabid rat has been removed and in its place any eligible monster can generate as a rabid version of itself. Any place in the code where rabid rats were previously, has been replaced with chickenrats.
 * There is a fairly small probability of a monster spawning rabid, but bats and coyotes always have a 1 in 10 chance of spawning infected.
+* Rabid is mostly limited to living mammals. Insects, birds, and lizards cannot contract it.
 
 Effects of the rabid status on monsters:
 * Rabid monsters get an additional bite that can cause the player to become rabid. This bite attack is also poisonous (damaging CON), similar to the rabid rat.
@@ -1108,10 +1130,10 @@ Curing rabid:
 #### Accurate behavior
 
 * Ported from EvilHack, with modifications
-* Monsters with this property have the M3_ACCURATE tag 
+* Monsters with this property have the M3_ACCURATE tag
 * Makes monsters more accurate in melee and with projectiles
 * These monsters get a large to-hit bonus of +5 or more
-  * all piercers, all centaurs, all elves, all mercenaries, 
+  * all piercers, all centaurs, all elves, all mercenaries,
   * dwarf kings, orc-captains, gnome lords, kop kaptains, ogre kings,
   * uruk-hai, scorpions, angels, archons, titans, cobras, olog hai, Vlad, Nazgul, shopkeepers, nurses, sandestin, hunters, ninjas
   * Scorpius, Master Assassin
@@ -1171,7 +1193,7 @@ Curing rabid:
 
 **entomb (mage spell):**
 * Ported from xNetHack
-* Used by a monster when they are low on health or fleeing. It is primarily for escape and when cast surrounds the player with boulders. 
+* Used by a monster when they are low on health or fleeing. It is primarily for escape and when cast surrounds the player with boulders.
 * Any mage-spellcaster can use it when desperate.
 * In xnh there was also a chance to create solid walls to block the player in, this effect was removed so it only drops boulders.
 
@@ -1218,7 +1240,7 @@ Curing rabid:
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
 * Snakes get a +1 to-hit bonus on archeologists
-* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks. 
+* All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks.
 * Some giant anacondas have a chance of appearing in the arc quest now.
 
 
@@ -1322,7 +1344,7 @@ Skill adjustments for knights:
     spear          skilled       -> Restricted
     trident        skilled       -> Restricted
     divination     expert        -> basic
-    
+
 ### ROGUE
 * In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
 * Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
@@ -1331,9 +1353,9 @@ Skill adjustments for knights:
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
 * Rogues start with a stack of knives instead of daggers
-  
+
 **Rogues can counterattack while wielding knives and daggers:**
-* While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent. 
+* While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent.
 
 There are many restrictions:
   * Their attack must be a weapon, bite, claw, or kick attack type.
@@ -1359,6 +1381,7 @@ There are many restrictions:
 
 ### VALKYRIE
 * More fire traps on valk quest
+* Valkyries get a winter wolf cub as a starting pet.
 
 ### WIZARD
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
@@ -1375,36 +1398,31 @@ There are many restrictions:
 
 **Starting inventory:**
     * Graphic tee
-    * +1 dagger
-    * 40 +0 razor cards
-    * 4 meat sticks
-    * 4 candy bars
+    * 40-60 +0 razor cards
+    * ~4 meat sticks
+    * ~4 candy bars
     * 4 random cards
     * 3 random summon cards
     * 1 random spellbook
+    * 33% chance of a potion of phasing
 
 **Skill-set:**
+    * Shuriken: master
     * Dagger: basic
     * Knife: basic
-    * Quarterstaff: skilled
+    * Quarterstaff: expert
     * Sling: basic
     * Dart: basic
-    * Shuriken: expert
-    * Unicorn horn: basic
-    * Attack spells: basic
-    * Healing spells: basic
-    * Divination spells: expert
-    * Enchantment spells: skilled
-    * Escape spells: basic
-    * Matter spells: basic
+    * Unicorn horn: skilled
     * Bare-handed combat: basic
+    * Riding:             expert
 
 **Quest artifact: Holographic Void Lily**
     * Chaotic credit card
     * Intelligent
     * Grants magic regeneration while carried
     * Grants half spell damage and reflection while carried
-    * Can be invoked to summon a horde of tame spell beings.
+    * Can be invoked for a temporary boost in card drops. While active, the Void Lily will shine brightly for 25-50 turns.
 
 * While playing as a cartomancer, much of the standard NetHack terminology is revised:
     * scrolls are renamed to "cards". Whenever you or a monster reads a scroll, they instead
@@ -1421,7 +1439,7 @@ There are many restrictions:
     * lock picks are "worthless cards"
 
 **Card abuse penalties**:
-* Cartomancers receive severe alignment penalties for forging or defacing cards. 
+* Cartomancers receive severe alignment penalties for forging or defacing cards.
   - writing cards: -20 alignment, -5 luck
   - cloning cards: -20 alignment, -5 luck
   - poly zap/dip of cards: -10 alignment, -2 luck
@@ -1429,11 +1447,17 @@ There are many restrictions:
 **Play mechanics:**
 * Cartomancers start out at a slower speed of 10 (similar to the Yeoman of SLASH'EM).
 * Cartomancers get intrinsic speed at level 10.
-* Cards (ie: scrolls) only weigh 1 for cartomancers.
+* Cards (scrolls) only weigh 1 for cartomancers.
+* Rulebooks (spellbooks) only weigh 5 for cartomancers.
 * The camera is played as a holographic card for cartomancers, doesn't break when thrown.
 * When applying a deck of cards, cartomancers will always be able to use them as if they
   were blessed. This enables you to tell your current luck easily by applying the deck.
-* Cartomancers don't get a starting pet and cannot tame monsters.
+* Cartomancers don't break illiterate conduct when playing/reading cards.
+
+**No easy perma-pets:**
+* Cartomancers don't get a starting pet and cannot tame monsters as usuual
+* Throwing food at domestic animals will merely pacify them.
+* It is still possible to get perma pets through a few methods: a rulebook of create familiar and figurines can still generate tame permanent pets.
 
 **Card drops:**
 * When playing as a cartomancer, there is a 50% chance that a monster will leave a card instead of a corpse when it dies.
@@ -1494,16 +1518,15 @@ There are many restrictions:
 * Rulebooks generate with 4-5 charges and each reading uses a charge.
 * When 0 charges remain after reading a rulebook, it is used up.
 * Cartomancers's start out knowing the identities of all rulebooks (since usually the title and purpose of a rulebook is quite clear on the cover).
-* Cartomancers also always cast spells at expert level.
-* Rulebooks can still be written with magic markers (no penalty for cartomancers unlike forging cards)
+* Cartomancers always cast spells at expert level.
+* Rulebooks can still be written with magic markers (no penalty for cartomancers unlike forging cards), however, they cannot be recharged with a scroll of charging.
 
 **Card combos:**
 * The 'Z' spellcasting command is instead is used for card combos that the cartomancer gets access to as they level up.
 * Card combos do not become available until level 5. You gain the ability to cast more cards as you level up:
-  * level 5: 2 cards
-  * level 10: 3 cards
-  * level 15: 4 cards
-  * level 20+: 5 cards.
+  * level 5: 3 cards
+  * level 10: 4 cards
+  * level 15+: 5 cards
 * The first card costs 5 energy. Further cards cost 20 energy per card to play.
 
 **Changes to the cartomancer quest:**
@@ -1520,7 +1543,7 @@ Cartomancer gets adjusted different item generation odds.
 
 ## PLAYER RACE CHANGES
 
-* Removed infravision from dwarves, elves, gnomes, and orcs. 
+* Removed infravision from dwarves, elves, gnomes, and orcs.
 * Added infravision to vampires - they are the only race that starts with infravision.
 * Elves can always squeeze between two trees (xnh)
 * Elves get see invisible at level 8
@@ -1536,6 +1559,7 @@ Cartomancer gets adjusted different item generation odds.
 * Orcs start with sickness potion (Spork)
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
+* Orcs and vampires cannot make use of Elbereth; it fades as soon as it's engraved.
 
 ### New race/role combos.
 
@@ -1559,7 +1583,7 @@ Cartomancer gets adjusted different item generation odds.
   * Dwarves hate orcish, gnomish, and elven objects
   * Gnomes hate dwarvish, orcish, and elven objects
   * Humans hate gnomish objects (too small) - but otherwise they can use all other racial equipment
-  
+
 The effects of wearing armor or wielding weapons you hate:
 * +2AC penalty for each piece
 * -5 to-hit penalty for each piece
@@ -1576,7 +1600,7 @@ Gnomish boots, helms, and suits were imported to help augment gnomes toughness.
 ### Vampires
 Vampires have an interesting history in the NetHack world. They first surfaced in SLASH'EM, then in UnNetHack, then dNethack, and SpliceHack, and even Hack'EM. Each one was implemented a little differently, so we aimed to take the best of each and release a vampire that is fun but balanced. Our vampiric race starts you off strong, you won't have any cheesy poison or GWAWOD deaths, nor will you have to worry about sleeping gas traps or any of the floor traps that you can just fly over. What you *will* have to worry about is your new worst enemies: silver and hunger:
 
-You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys. 
+You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
 
 * When attacking particularly dangerous monsters like cockatrices, medusa, or green slime, the bite attack will be prevented to avoid stupid deaths.
 * Even though all vampires have drain level resistance, they are susceptible to the drain life bite attacks from other vampires. Although intrinsic drain resistance doesn't protect from this blood draining, an extrinsic source will (ie: Stormbringer).
@@ -1665,10 +1689,11 @@ With the vampire race available you will be able to play as a archeologist, barb
 * jungle boots provide protection from wounded legs (dnh)
 * kicking boots allow kicking even when your legs are wounded.
 * gauntlets of dexterity grant +1 to-hit while using bows (Evil)
+* gauntlets of fumbling grant -9 to-hit penalty while using bows (Evil)
 * saddles are now twice as common (FIQ)
 * mummy wrappings always generate rotted
 * orcish equipment is usually generates rusty and/or corroded
-* dwarven items frequently spawn as fixed. 
+* dwarven items frequently spawn as fixed.
 * The ring of levitation is a valid starting ring.
 * Blessed food items are rotten much less often.
 * Eucalyptus leaves can never be rotten unless cursed.
@@ -1727,11 +1752,12 @@ Many more effects have been added to make cursed items more harmful or interesti
 * **Boomerangs** will can pass through enemies on hit.
 * **Polearms** can be used to trigger traps (from NetHack Fourk).
 * Polearms and lances can be pounded when blind (as long as you can sense the target)
+
 #### Slings
 * Projectiles receive a powerful strength bonus when using slings (xnh)
 * Gem class projectiles do minimal damage vs thick-skinned monsters
 * Launching gem class projectiles from slings has the potential to instakill H
-  
+
 ### Magic markers
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
 * They can still be creating from polypiling
@@ -1748,11 +1774,12 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Having skill in unicorn horn has a positive impact on your success when applying, having no skill has a negative impact.
 * Basic skill grants a 10% bonus to success, skilled 20%s, and expert 40%. This allows roles that can attain proficiency to not have to enchant it so high.
 
-* Successfully applying a unihorn also exercises your skill in it by 5 points. 
+* Successfully applying a unihorn also exercises your skill in it by 5 points.
 * The healer gets a bonus when applying unicorn horns. Instead of the standard 30% success rate when the unihorn is +0, they have a 40% success rate.
 * Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0.
 * Unicorn horn drops decrease as the number of unicorns killed increased.
 * Adapted unicorn horn enchantment to higher weapon max enchants.
+* Unicorn horns cannot be poisoned (via toilet dipping)
 
 ### War Hammer
 * war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
@@ -1816,6 +1843,10 @@ Many more effects have been added to make cursed items more harmful or interesti
 **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
 
+### New shop: Junk Shop
+* Ported from SpliceHack
+* This counts as a general store that is usually pre-populated with a bunch of junky items.
+
 ## NEW ITEMS
 
 | Item                    | Origin     | Notes                                    |
@@ -1829,6 +1860,8 @@ Many more effects have been added to make cursed items more harmful or interesti
 | flying boots            | NerfHack   | Conveys flying                           |
 | orcish boots            | EvilHack   | 1AC + 2AC for orcs                       |
 | gauntlets of force      | NerfHack   | stuns monsters, better #force effects    |
+| gauntlets of swimming   | SLASHEM    | grants swimming                          |
+| rogue's gloves          | SpliceHack | Confers searching, fingerless (!)        |
 | anti-magic shield       | NerfHack   | provides magic resistance, blocks spellcasting |
 | tower shield            | SpliceHack | Heavy, provides 4AC                      |
 | gnomish boots           | SlashTHEM  | -2AC for gnomes                          |
@@ -1855,7 +1888,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 | foulstone               | NerfHack   | aggravate monster & misc effects         |
 
 * Potions of reflection are immune to fire and cold damage.
-
+* (!) fingerless gloves do not protect against petrification!
 
 **playing card deck:**
 * When applied, gives you a poker hand which correlates to your luck.
@@ -1878,14 +1911,14 @@ Many more effects have been added to make cursed items more harmful or interesti
     * book of the dead -> blank spellbook
     * scroll of cloning -> blank scroll (prevents infinite cloning loops)
     * artifacts all copy the base item, but lose the name and the status of being an artifact.
-    
+
     To copy the enchantment on an item, the scroll must be blessed.
     If the scroll is cursed, the resulting item will be cursed.
-    
+
     All other properties on the item should be copied exactly as is. This enables fun tricks like cloning that +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto.
-    
+
     When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
-    
+
     Couple updates:
     * Unpaid items cloned in shops become property of the shopkeeper.
     * More item properties are carried over: erosionproofing, container status, and some other misc things to make sure items are truly cloned.
@@ -1996,7 +2029,7 @@ Misc changes:
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
 * However, don't let that scare you, this thing whomps, dealing +d40 damage along with it's equivalent base damage of a two-handed sword.
 * It also confers half physical damage, steadfastness, and MC1 protection.
-* As a bonus, it also absorbs curses like Magicbane     
+* As a bonus, it also absorbs curses like Magicbane
 
 ### The Lenses of Truth
 * Confers see invisible, searching, and stun resistance when worn.
@@ -2031,7 +2064,6 @@ Misc changes:
 * Ogresmasher can also hurtle light-weight monsters (Evil)
 * Werebane provides protection from shapechangers when wielded
 * The Sceptre of Might grants steadfastness when wielded
-* The Sceptre of Might grants magic resistance when carried
 * The Longbow of Diana confers half physical damage when wielded
 * Increased Mjollnir's wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
@@ -2052,7 +2084,7 @@ Misc changes:
 * The Rogue level has been disabled (many variants)
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
-* No special **themed rooms** generate until level 5
+* No special **themed rooms** generate until level 3
 * Random rivers were added to many of the quest filler levels.
 * Trees can generate in dungeon rooms (xnh)
 * Medusa's Island gets flying boots instead of levitation boots.
@@ -2093,8 +2125,6 @@ Misc changes:
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
 * Monsters won't break boulders in Sokobon.
-
-
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a weaker white dragon and actually all Soko zoos have the white dragon guarding the treasure.
 * The zoos in Soko have been expanded slightly.
@@ -2234,11 +2264,11 @@ Grease hose:
 ### Room colors patch
 * Most special rooms get a distinctive color or combination of colors.
 
-### New room: dragon lair (from SLASH'EM). 
+### New room: dragon lair (from SLASH'EM).
 * Dragon scales can sometimes appear in dragon lairs.
 * Dragon lairs now produce special sounds when they appear on levels.
 
-### New room: giant courtroom (from SLASH'EM). 
+### New room: giant courtroom (from SLASH'EM).
 * Giant courts sometimes have tinning kits.
 * Monsters in giant courts are always hostile.
 
