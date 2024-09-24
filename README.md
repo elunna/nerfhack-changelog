@@ -26,7 +26,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Players can enter the quest as soon as they reach level XL 10 (Un)
 * Crysknives are never auto-quivered
 * Chaotics do not get alignment penalties for casting healing at pets (xnh)
-* Chaotics do not get alignment penalties for angering peacefuls (xnh)
+* Chaotics do not get alignment penalties for angering peacefuls (xn
 * When you polymorph into a 'nolimbs' monster, you are able to slip out of a ball & chain (Evil)
 * Phasing allows escape from being engulfed (Evil)
 * Restrict pets from blowing you up via gas spore, so they won't attack one while you are adjacent (xnh)
@@ -76,6 +76,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID enchant armor when it erodeproofs or hardens dragon scales.
 * Auto-ID rings dropped into a sink (Un)
 * Auto-ID ring of regeneration if it heals you (Un)
+* Auto-ID +0 rings of protection (if MC is increased)
 * Auto-ID wand of cancellation after destroying a bag of holding (Un)
 * Auto-ID wands when engraving (xnh)
 * Automatically use a process of elimination for auto-identifying wands when available (Un)
@@ -95,7 +96,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 ### INTERFACE CHANGES
 
 * Detailed object and monster is available in the in-game lookup (Pokedex), ported from xNetHack with updates from HackEM.
-* Object look also works for artifacts (HackEM)
+* Object lookup also works for artifacts (HackEM)
 * Peaceful monsters are underlined (TTY and curses) (xnh)
 * Magic cancellation (MC) value is shown on the bottom line (Evil)
 * Skill caps and percentage towards next level is available in #enhance
@@ -107,7 +108,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna).
-* We are able to see when a monster is sleeping, fleeing, withering, has reflection, or is berserking from farlook information (Evil/Splice/xnh)
+* We are able to see when a monster is sleeping, fleeing, withering, or is berserking from farlook information (Evil/Splice/xnh)
 * Farlook also shows amulets and rings monsters are wearing.
 * We can see if our pets are confused, stunned, or blinded.
 * We are able to see what weapon a monster is wielding from farlook (Evil)
@@ -143,6 +144,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Allow teleportation into unteleportable spots in wizard mode
 * Allow wishing (^W) for monsters in wizmode (Un)
 * Changed #debugfuzzer command to just #fuzz.
+* Allow wishing for specific spell beings.
+* Show wizmode timeouts for sick, rabid, withering, and most other afflictions.
 
 ## RESOURCE CONTROL(NERFS) AND MECHANIC CHANGES
 
@@ -164,6 +167,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Strength doesn't affect to-hit calculations.
 * Regeneration only causes additional hunger when injured.
 * Free action protects from stoning paralysis.
+* Getting troubles fixed by prayer abuses constitution.
 
 ### Slow Luck timeouts (modified)
 
@@ -860,6 +864,7 @@ Phoenix:
 * couatls get a stunning gaze and can generate invisible
 * deep ones and deeper ones also have thick skin.
 * disenchanters can appear in the main dungeon
+* disenchanter attacks can also remove erodeproofing from items
 * dragons, nagas, and golems don't balk at approaching as much.
 * all elementals resist sickness
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
@@ -896,15 +901,17 @@ Phoenix:
 * mastodon gets a hug attack and can berserk (Evil)
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
+* mind flayer psychic blasts do more damage and can stun the player.
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide and have flanking
 * All molds can generate in small groups.
-* All molds have a reduced chance of granting intrinsics.
-* All molds and fungi (F) can propagate passively when attacked
+* molds and fungus can grow on corpses (SLASHEM/xnh)
 * mordor orcs can spawn with orcish boots
 * mumakil get butts or kicks instead of bites.
 * mummies get a nasty withering attack (xnh/Evil)
+* all mummies get an additional -1AC to compensate for their ragged wrappings
 * nazgul can shriek, inflicting stun damage (xnh)
+* nurses won't heal you if you are undead.
 * olog hai get poison resistance
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
@@ -915,8 +922,8 @@ Phoenix:
 * quest leaders resist death magic (Evil)
 * quest nemeses can break boulders after getting frustrated enough.
 * rock trolls are stoning resistant (xnh)
-* all spheres (shocking spheres, flaming spheres, freezing spheres) cannot be genocided.
-* all spheres also explode on death (shocking/flaming/freezing/acid)
+* all spheres (shocking spheres, flaming spheres, etc) cannot be genocided.
+* all spheres explode on death
 * skeleton/shade slow attack is ineffective vs undead
 * soldiers get half as many C-and-K-rations and cannot load both types of rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -1117,8 +1124,10 @@ Effect of being rabid on the player:
   * At 0 turns, you die.
 
 Curing rabid:
-* Generally the same guidelines for illness apply, you can apply a unicorn horn, drink healing potions (in the early stages), cast cure illness, pray (counts as a major trouble), or eat a eucalyptus leaf.
+* Generally the same guidelines for illness apply, you can apply drink healing potions (in the early stages), cast cure illness, pray (counts as a major trouble), or eat a eucalyptus leaf.
+* You cannot use a unicorn horn to heal rabid status!
 * Rabid monsters that poly can stop being rabid if the new form is immune - the same goes for the player.
+* Nurses can also cure rabid status
 
 #### Diseased monsters
 
@@ -1152,6 +1161,7 @@ Curing rabid:
   of invisibility or zap themselves with wands of make invisible.
 * Monster spellcasters will prioritize healing when wounded.
 * Monster spellcasters can cast stone-to-flesh in response to getting stoned (Evil).
+* Don't let monster cleric stunning reset stun counter to 1 when stunned.
 
 **protection (clerical spell):**
 * Ported from EvilHack
@@ -1398,19 +1408,18 @@ There are many restrictions:
 
 **Starting inventory:**
     * Graphic tee
-    * 40-60 +0 razor cards
+    * 60 blessed +0 razor cards
     * ~4 meat sticks
     * ~4 candy bars
-    * 4 random cards
-    * 3 random summon cards
+    * 7 random summon cards
     * 1 random spellbook
     * 33% chance of a potion of phasing
 
 **Skill-set:**
     * Shuriken: master
-    * Dagger: basic
-    * Knife: basic
-    * Quarterstaff: expert
+    * Dagger: skilled
+    * Knife: skilled
+    * Quarterstaff: skilled
     * Sling: basic
     * Dart: basic
     * Unicorn horn: skilled
@@ -1420,7 +1429,7 @@ There are many restrictions:
 **Quest artifact: Holographic Void Lily**
     * Chaotic credit card
     * Intelligent
-    * Grants magic regeneration while carried
+    * Grants energy regeneration while carried
     * Grants half spell damage and reflection while carried
     * Can be invoked for a temporary boost in card drops. While active, the Void Lily will shine brightly for 25-50 turns.
 
@@ -1459,6 +1468,15 @@ There are many restrictions:
 * Throwing food at domestic animals will merely pacify them.
 * It is still possible to get perma pets through a few methods: a rulebook of create familiar and figurines can still generate tame permanent pets.
 
+**Melee combat nerfs:**
+* Cartomancers are not great melee fighters - they prefer ranged weapons
+or fighting behind their summoned help. They have some severe penalties for melee combat.
+* They always have a -5 to-hit penalty for all melee combat.
+* If wearing armor, they receive an additional -20 to-hit penalty
+* If wearing a shield, they receive an additional -10 to-hit penalty
+* If attacking with a wielded weapon, they receive an additional -10 to-hit penalty 
+
+
 **Card drops:**
 * When playing as a cartomancer, there is a 50% chance that a monster will leave a card instead of a corpse when it dies.
 * Some monsters are restricted from dropping cards:
@@ -1485,22 +1503,25 @@ There are many restrictions:
   ever grant 1XP. Spell beings also never leave corpses and spawn with no inventory.
 
 **Summon cards:**
-* Cartomancers will start out with a few summon cards, and they will also have the
+* Cartomancers will start out with 7 summon cards, and they will also have the
   opportunity to build a collection of them as they slay monsters. Low level monsters rarely
   drop their own summon cards, but any death drop has a small chance to leave a higher level
   monster. As your level grows, so does the strength of the rare drops.
-* Exploding sphere monster cards are a little more likely to drop - giving the cartomancer some explosive cards to work with.
+* Exploding sphere monster cards are more likely to drop - giving the cartomancer some explosive cards to work with.
 * The price of summon cards scales with their monster difficulty.
 * In addition to reading summon cards, cartomancers can also throw them to activate them.
   This lets you keep monsters at a distance by throwing the summon directly next to the
   threat.
 * Monsters can read summon cards as well.
 * Any summon "sphere" cards are special because they will instantly explode when thrown at a monster.
-* Cursed summon cards create hostile monsters.
+* Cursed summon cards create hostile monsters (this also applies to summon sphere cards)
+* Playing summon cards costs 10 energy per card, otherwise the card has no effect and is not used up.
 
 **Razor cards:**
 * In SpliceHack, razor cards were simply shuriken relabeled.
 * In NerfHack, razor cards have been properly implemented as their own weapon type using the shuriken skill.
+* Cartomancers can multishot, but only shuriken skill projectiles (shuriken and razor cards)
+* Cartomancers also only get strength damage bonuses for thrown razor cards (other standard melee bonuses still apply as normal)
 * Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
 * Cartomancers will be able to recognize the enchantment of razor cards at XP7
 * Cartomancers will be able to recognize the BUC status of razor cards at XP15.
@@ -1511,6 +1532,8 @@ There are many restrictions:
 * These can also drop when cartomancers kill monsters. They act as one-use wands.
 * These have a 0% generation chance so other roles will not see them randomly
 * Cursed zap cards have a chance to backfire like wands, but can not explode.
+* Playing zap cards also costs 10 energy per card.
+* Since cartomancers receive so many zap cards, wands have been totally removed the random item drops in the main dungeon.
 
 **Spellcasting overhaul:**
 * Cartomancers do not learn spells (from starting books, reading spellbooks, or god gifts)
@@ -1527,12 +1550,21 @@ There are many restrictions:
   * level 5: 3 cards
   * level 10: 4 cards
   * level 15+: 5 cards
-* The first card costs 5 energy. Further cards cost 20 energy per card to play.
+* Starting the combo costs 5 energy. Further cards cost 10 energy per card to play as normal.
+
+**Cartomancers get special bonuses for wielding crystal balls:**
+While wielding a crystal ball, a cartomancer will enjoy:
+    * max charisma
+    * extrinsic telepathy
+    * see invisible
+    * astral vision
+
+The weight of crystal balls was also reduced to 100, making this a more appealing item to wield instead of a weapon.
 
 **Changes to the cartomancer quest:**
 * Created a unique duelist monster to take the place of students in the cartomancer quest.
 * The cartomancer quest levels have received some updates and detailing.
-* Buffed cartomancer quest leader.
+* Buffed the King of Games and Dal Zethire.
 
 Cartomancer gets adjusted different item generation odds.
     To make up for less corpse drops, they get more food.
@@ -1652,6 +1684,7 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Reduced weight of most armors by 50 aum (K-Mod)
 * Reduced weight of elven gear by about 1/3'rd (Evil)
 * Reduced weight of morning star to 50.
+* Reduced weight of crystal ball to 100.
 * Increased weight of war hammers to 120.
 * Increased weight of dwarvish and elven mithril coats to 200 aum
 * Increased weight of dragon scales and scale mail to 80 aum
@@ -1661,8 +1694,10 @@ With the vampire race available you will be able to play as a archeologist, barb
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
 * Raised price of wand of nothing to 500 (EvilHack)
+* Raised price of potion of restore ability to 250
 * Scrolls of enchant weapon cost 200
 * Scrolls of enchant armor cost 200
+* Reduced probability of enchant weapon scrolls, increased prob of scrolls of knowledge.
 * Scrolls of remove curse cost 300
 * Blank scrolls cost 50
 * Levels of erosion on an object can affect its price (Evil).
@@ -1769,17 +1804,25 @@ Many more effects have been added to make cursed items more harmful or interesti
 
 ### Unicorn horns
 
-* Success depends on their enchantment level (SLASHEM)
-* Now one-handed, dealing d6 vs small/d7 vs large
-* Having skill in unicorn horn has a positive impact on your success when applying, having no skill has a negative impact.
-* Basic skill grants a 10% bonus to success, skilled 20%s, and expert 40%. This allows roles that can attain proficiency to not have to enchant it so high.
+#### Unicorn horns now reduce the timeouts of most afflications instead of outright curing.
+* For troubles that time out (not illness or vomiting), the unihorn has been nerfed so that it only reduces the timeout.
+* The amount reduced depends on a few factors:
+  * the base fix is 1d3 + 1
+  * your skill in unicorn horn (multiplied by 2)
+  * the enchantment on your unicorn horn (multiplied by 3)
+  * if you are a healer, double the entire above sum
+  * Add all of the following for the time out reduction roll (or "troll").
+  * For each afflication, we roll d(troll) for the amount reduced.
+* Applying a unihorn whenever the trouble timeout is low can also exercise your skill.
 
-* Successfully applying a unihorn also exercises your skill in it by 5 points.
-* The healer gets a bonus when applying unicorn horns. Instead of the standard 30% success rate when the unihorn is +0, they have a 40% success rate.
-* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0.
+
+* Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
+* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0, otherwise it is drained of 1 enchantment level.
 * Unicorn horn drops decrease as the number of unicorns killed increased.
-* Adapted unicorn horn enchantment to higher weapon max enchants.
+* Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn! 
 * Unicorn horns cannot be poisoned (via toilet dipping)
+
+Note: The success rate change from SLASH'EM was experimented with, but ultimately discarded in favor of the timeout nerf.
 
 ### War Hammer
 * war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
@@ -1812,6 +1855,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Dipping water into any potion will simply dilute the other potion (SLASHEM)
 * Dipping into a cursed potion always causes an explosion (SLASHEM).
 * Dipping acid into toilets explodes and destroys the toilet.
+* Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
@@ -1838,6 +1882,7 @@ Many more effects have been added to make cursed items more harmful or interesti
 * Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand to zap a wand.
+* Plastic wands can neither be broken (via apply) nor exploded by shock damage.
 
 ## SHOP CHANGES
 **Lighting shops:**
@@ -2032,7 +2077,7 @@ Misc changes:
 * As a bonus, it also absorbs curses like Magicbane
 
 ### The Lenses of Truth
-* Confers see invisible, searching, and stun resistance when worn.
+* Confers see invisible and stun resistance when worn.
 
 ### Serenity
 * This silver spear blocks aggravate monster if present, prevents monsters from berserking, and counters 80% of hostile monster spells
@@ -2040,9 +2085,15 @@ Misc changes:
 
 ## ARTIFACT CHANGES
 
-- Artifact weapons can now be dual-wielded (SLASHEM)
-- All artifact weapons get negative to-hit penalties instead of positive. To make a reasonable impact, the penalty is double the standard to-hit bonus and always the maximum instead of a dice roll.
-- Lawful and chaotic weapons cannot be two-weaponed (Evil)
+### General artifact changes
+* Artifact weapons can now be dual-wielded (SLASHEM)
+* Most artifact weapons get negative to-hit penalties instead of positive.
+  - The standard to-hit penalty is a flat -10
+  - The crowning weapons (Mjollnir, Excalibur, Stormbringer) have a to-hit penalty of -5.
+  - Magicbane and Quick Blade have a +0 to-hit.
+* Lawful and chaotic weapons cannot be two-weaponed (Evil)
+
+### Specific artifact changes
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
 * The Tsurugi of Muramasa also confers very fast speed when wielded (Fourk)
 * Magicbane is a quarterstaff (FIQ)
@@ -2084,6 +2135,7 @@ Misc changes:
 * The Rogue level has been disabled (many variants)
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
+* Random croll shops cannot be big rooms.
 * No special **themed rooms** generate until level 3
 * Random rivers were added to many of the quest filler levels.
 * Trees can generate in dungeon rooms (xnh)
@@ -2199,7 +2251,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Falling rock traps can drop multiple rocks (or boulders).
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
 * You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
-
+* Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
 A few new traps have been added:
 
 #### Spear traps
@@ -2213,7 +2265,7 @@ A few new traps have been added:
 
 #### Magic beam traps
 * Ported from EvilHack
-* Magic beam traps only start appearing after level 10
+* Magic beam traps only start appearing after level 14
 * When you (or a monster) steps on this trap, it shoots a random ray type from a pre-set location that crosses through the beam trap. The beam type is set for each trap, so once you notice it shoots fire rays, it will always shoot fire rays.
 * Magic beam traps can very rarely shoot disintegration rays.
 
