@@ -73,20 +73,32 @@
   - [MONSTER SPELLCASTING](#monster-spellcasting)
   - [ROLE CHANGES](#role-changes)
     - [ARCHEOLOGIST](#archeologist)
+      - [Skill adjustments for archeologists:](#skill-adjustments-for-archeologists)
     - [BARBARIAN](#barbarian)
+      - [Skill adjustments for barbarians:](#skill-adjustments-for-barbarians)
     - [CAVEMAN/CAVEWOMAN CHANGES](#cavemancavewoman-changes)
+      - [Skill adjustments for cave dwellers:](#skill-adjustments-for-cave-dwellers)
     - [HEALER](#healer)
     - [KNIGHT](#knight)
+      - [Skill adjustments for knights:](#skill-adjustments-for-knights)
     - [MONK](#monk)
+      - [Skill adjustments for monks:](#skill-adjustments-for-monks)
     - [PRIEST](#priest)
-    - [RANGER](#ranger)
     - [ROGUE](#rogue)
+      - [Skill adjustments for rogues:](#skill-adjustments-for-rogues)
+    - [RANGER](#ranger)
+      - [Skill adjustments for rangers:](#skill-adjustments-for-rangers)
     - [SAMURAI](#samurai)
+      - [Skill adjustments for samurai:](#skill-adjustments-for-samurai)
     - [TOURIST](#tourist)
+      - [Skill adjustments for tourists:](#skill-adjustments-for-tourists)
     - [VALKYRIE](#valkyrie)
+      - [Skill adjustments for valkyries:](#skill-adjustments-for-valkyries)
     - [WIZARD](#wizard)
+      - [Skill adjustments for wizards:](#skill-adjustments-for-wizards)
   - [NEW ROLES](#new-roles)
     - [CARTOMANCER](#cartomancer)
+      - [Skill adjustments for cartomancers:](#skill-adjustments-for-cartomancers)
   - [PLAYER RACE CHANGES](#player-race-changes)
     - [New race/role combos.](#new-racerole-combos)
     - [Racial item preferences](#racial-item-preferences)
@@ -254,7 +266,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna).
-* We are able to see when a monster is sleeping, fleeing, withering, or is berserking from farlook information (Evil/Splice/xnh)
+* We are able to see when a monster is sleeping, fleeing, reflecting, withering, or is berserking from farlook information (Evil/Splice/xnh)
+* We can also see if pets are stunned, confused, or blinded on farlook.
 * Farlook also shows amulets and rings monsters are wearing.
 * We can see if our pets are confused, stunned, or blinded.
 * We are able to see what weapon a monster is wielding from farlook (Evil)
@@ -817,73 +830,74 @@ Aside from the recipe changes - the biggest change is that we no longer have a #
 
 The following summarizes the new monsters, advanced info can be found in the monster pokedex in NerfHack or on the NetHack Wiki.
 
-| Monster                | Sym | Origin        |
-| ---------------------- | --- | ------------- |
-| giant praying mantis   | a   | SpliceHack    |
-| locust                 | a   | EvilHack      |
-| third eye              | e   | SLASHEM/YANI  |
-| glowing eye            | e   | SLASH'EM      |
-| blinking eye           | e   | SLASH'EM      |
-| kamadan                | f   | SLASH'EM      |
-| weretiger              | f/@ | SLASH'EM      |
-| deep one               | h   | SLASH'EM      |
-| deeper one             | h   | SLASH'EM      |
-| deepest one            | h   | SLASH'EM      |
-| alhoon                 | h   | EvilHack      |
-| redcap                 | i   | SpliceHack    |
-| diamond piercer        | p   | SpliceHack    |
-| god piercer            | p   | SpliceHack    |
-| landshark              | q   | SpliceHack    |
-| phase spider           | s   | SLASHEM       |
-| will-o'-the-wisp       | y   | SpliceHack    |
-| zoo bat                | B   | SpliceHack    |
-| athol                  | B   | SLASH'EM      |
-| byahkee                | B   | SLASH'EM      |
-| nightgaunt             | B   | SLASH'EM      |
-| gray fungus            | F   | Evil/THEM     |
-| adherer                | M   | SpliceHack    |
-| ha-naga                | N   | SpliceHack    |
-| alchemist              | Q   | SpliceHack    |
-| troll mummy            | M   | SLASH'EM      |
-| vampire mage           | V   | SLASH'EM      |
-| merfolk                | ;   | Splice/THEM   |
-| thing from below       | ;   | SpliceHack    |
-| grave troll            | T   | SpliceHack    |
-| elven cleric           | @   | EvilHack      |
-| like-like              | P   | NerfHack      |
-| ogre mage              | O   | SLASH'EM      |
-| shadow ogre            | O   | SLASH'EM      |
-| ghoul mage             | Z   | SLASH'EM      |
-| lava demon             | &   | Convict Patch |
-| assassin bug           | a   | SLASH'EM      |
-| shadow                 | X   | SLASH'EM      |
-| giant anacondas        | S   | EvilHack      |
-| giant centipede        | s   | EvilHack      |
-| velociraptor           | z   | SpliceHack    |
-| T-Rex                  | z   | SpliceHack    |
-| acid sphere            | e   | Splice/Evil   |
-| stinking sphere        | e   | Fourk         |
-| chickenrat             | r   | NerfHack      |
-| baby shimmering dragon | D   | Deferred      |
-| shimmering dragon      | D   | Deferred      |
-| phoenix                | B   | SpliceHack    |
-| revenant               | Z   | EvilHack      |
-| basilisk               | c   | EvilHack      |
-| Kostchtchie            | &   | SpliceHack    |
-| Lolth                  | &   | EvilHack      |
-| Buer                   | &   | SpliceHack    |
-| Baphomet               | &   | SpliceHack    |
-| Malchanthet            | &   | SpliceHack    |
-| Mephistopholes         | &   | SpliceHack    |
+| Monster                | Sym | Origin         |
+| ---------------------- | --- | -------------- |
+| giant praying mantis   | a   | SpliceHack     |
+| locust                 | a   | EvilHack       |
+| third eye              | e   | SLASHEM/YANI   |
+| glowing eye            | e   | SLASH'EM       |
+| blinking eye           | e   | SLASH'EM       |
+| kamadan                | f   | SLASH'EM       |
+| weretiger              | f/@ | SLASH'EM       |
+| deep one               | h   | SLASH'EM       |
+| deeper one             | h   | SLASH'EM       |
+| deepest one            | h   | SLASH'EM       |
+| alhoon                 | h   | EvilHack       |
+| redcap                 | i   | SpliceHack     |
+| diamond piercer        | p   | SpliceHack     |
+| god piercer            | p   | SpliceHack     |
+| landshark              | q   | SpliceHack     |
+| phase spider           | s   | SLASHEM        |
+| will-o'-the-wisp       | y   | SpliceHack     |
+| zoo bat                | B   | SpliceHack     |
+| athol                  | B   | SLASH'EM       |
+| byahkee                | B   | SLASH'EM       |
+| nightgaunt             | B   | SLASH'EM       |
+| gray fungus            | F   | Evil/THEM      |
+| adherer                | M   | SpliceHack     |
+| ha-naga                | N   | SpliceHack     |
+| alchemist              | Q   | SpliceHack     |
+| troll mummy            | M   | SLASH'EM       |
+| vampire mage           | V   | SLASH'EM       |
+| merfolk                | ;   | Splice/THEM    |
+| thing from below       | ;   | SpliceHack     |
+| grave troll            | T   | SpliceHack     |
+| elven cleric           | @   | EvilHack       |
+| like-like              | P   | NerfHack       |
+| ogre mage              | O   | SLASH'EM       |
+| shadow ogre            | O   | SLASH'EM       |
+| ghoul mage             | Z   | SLASH'EM       |
+| lava demon             | &   | Convict Patch  |
+| assassin bug           | a   | SLASH'EM       |
+| shadow                 | X   | SLASH'EM       |
+| giant anacondas        | S   | EvilHack       |
+| giant centipede        | s   | EvilHack       |
+| velociraptor           | z   | SpliceHack     |
+| T-Rex                  | z   | SpliceHack     |
+| acid sphere            | e   | Splice/Evil    |
+| stinking sphere        | e   | Fourk          |
+| chickenrat             | r   | NerfHack       |
+| baby shimmering dragon | D   | Deferred       |
+| shimmering dragon      | D   | Deferred       |
+| phoenix                | B   | SpliceHack     |
+| revenant               | Z   | EvilHack       |
+| basilisk               | c   | EvilHack       |
+| Kostchtchie            | &   | SpliceHack     |
+| Lolth                  | &   | EvilHack       |
+| Buer                   | &   | SpliceHack     |
+| Baphomet               | &   | SpliceHack     |
+| Malchanthet            | &   | SpliceHack     |
+| Mephistopholes         | &   | SpliceHack     |
 | Maggot                 | w   | SLASHEM/Splice |
-| giant fly              | w   | SpliceHack    |
-| pixie                  | n   | SLASH'EM      |
-| gug                    | Z   | SLASH'EM      |
-| shoggoth               | P   | SLASH'EM      |
-| volatile mushroom      | F   | SpliceHack    |
-| arc bug                | x   | SLASH'EM      |
-| spark bug              | x   | SLASH'EM      |
-| lightning bug          | x   | SLASH'EM      |
+| giant fly              | w   | SpliceHack     |
+| pixie                  | n   | SLASH'EM       |
+| gug                    | Z   | SLASH'EM       |
+| shoggoth               | P   | SLASH'EM       |
+| volatile mushroom      | F   | SpliceHack     |
+| arc bug                | x   | SLASH'EM       |
+| spark bug              | x   | SLASH'EM       |
+| lightning bug          | x   | SLASH'EM       |
+| koala                  | z   | SLASH'EM       |
 
 ### New monster notes
 * giant praying mantis ignored just Elbereth in SpliceHack, but now it ignores all magical scaring
@@ -891,6 +905,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * kamadan can now jump and have infravision
 * kamadan get some poisonous snake bites
 * weretigers are recolored to red and can jump
+* adherer AC was buffed from it's original AC in SpliceHack
 * alhoons were covetous in EvilHack, now they move normally but speed was increased
 * alhoons can now displace monsters
 * landsharks were recolored to bright blue
@@ -916,7 +931,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * T-rex can berserk and emit a scary roar
 * chickenrat are basically reskinned rabid rats. They always spawn rabid and can jump
 * revenants can now shoot fireballs (inspired by DOOM 2)
-
+* Revenants have fire resistance.
+* Koalas cannot calm rabid or berserking monsters.
+* Merfolk no longer steal items, they get more attacks and spawn with tridents or spears.
 
 Phoenix:
 * Very strong lawful monster that explodes on death
@@ -999,8 +1016,10 @@ Phoenix:
 
 ### Misc monster changes
 
+* All ghost class monsters have displacement.
 * all quest guardian colors were changed to cyan
 * all A monsters are immune to death magic (xnh)
+* Air elementals get shock resistance.
 * baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12; increased difficulty
 * all bats can see invisible
 * captains are considered princes (xnh)
@@ -1018,7 +1037,6 @@ Phoenix:
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
 * fog clouds don't leave traces of steam (so they show up as v)
 * foocubi gain a level when draining one from the player (xnh)
-* gas spores leave a poison gas cloud when they explode
 * giant spiders can ensnare monsters in webs (Evil)
 * gnome lords and kings always get gnomish suits.
 * gnomish wizards always get a gnomish helm.
@@ -1058,6 +1076,7 @@ Phoenix:
 * all mummies get an additional -1AC to compensate for their ragged wrappings
 * nazgul can shriek, inflicting stun damage (xnh)
 * nurses won't heal you if you are undead.
+* Nurses can also cure rabid status.
 * olog hai get poison resistance
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
@@ -1069,7 +1088,7 @@ Phoenix:
 * quest nemeses can break boulders after getting frustrated enough.
 * rock trolls are stoning resistant (xnh)
 * all spheres (shocking spheres, flaming spheres, etc) cannot be genocided.
-* all spheres explode on death
+* all spheres explode on death (unless cancelled)
 * skeleton/shade slow attack is ineffective vs undead
 * soldiers get half as many C-and-K-rations and cannot load both types of rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -1385,13 +1404,10 @@ Curing rabid:
 * Archeologists get innate price identification
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
-* Archeologists can reach basic skill in spears.
-* Archeologists can reach basic in axe.
 * Archeologists start out knowing dwarvish mattocks.
 * Archeologists always get an extra id when reading scrolls of identify.
 * Archeologists start with an extra scroll and spellbook (SLASHEM).
 * Archeologists sometimes crack their whip at animals, scaring them. This usually occurs when hitting a natural 20, but occurs more often the higher whip skill is advanced. This inflicts an extra 1d2 damage.
-
 
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
@@ -1399,53 +1415,70 @@ Curing rabid:
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks.
 * Some giant anacondas have a chance of appearing in the arc quest now.
 
+#### Skill adjustments for archeologists:
+| skill  | NetHack    | ->  | NerfHack |
+| ------ | ---------- | --- | -------- |
+| axe    | restricted | ->  | basic    |
+| spear  | restricted | ->  | basic    |
+| shield | n/a        | ->  | skilled  |
 
 ### BARBARIAN
-* Barbarians can reach skilled in riding (Evil)
-* Barbarians get a blood rage bonus for low health.
-    * Only occurs when barbarians reach level 4 and higher.
-    * When under 50% of their max HP, they get a damage bonus that scales with their level.
-    * When under 25%, this bonus is doubled.
-    * Each rage attack uses up d3 energy, so at least 3 energy is required to trigger a rage attack.
-    * This feature was adapted from the SpliceHack skill system.
+* Barbarians get a **blood rage bonus** for low health.
+  * Only occurs when barbarians reach level 4 and higher.
+  * When under 50% of their max HP, they get a damage bonus that scales with their level.
+  * When under 25%, this bonus is doubled.
+  * Each rage attack uses up d3 energy, so at least 3 energy is required to trigger a rage attack.
+  * This feature was adapted from the SpliceHack skill system.
 * The barbarian quest gets a lot more trees in the beginning (these can be chopped down now)
 
-### CAVEMAN/CAVEWOMAN CHANGES
-* They cannot receive spells from their deity (Evil)
-* They have an 80% chance of failing to read any spellbook
-* They can increase their max-HP at each level-up if they remain illiterate (Spork/THEM)
-* An additional tier of HP gain has been added; after level 16 cavemen can gain 1d4 max HP for remaining illiterate.
-* Their special spell has been removed (Evil)
-* When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
-* The caveman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
-* Chromatic Dragon: Like other dragons also has buffs: level raised from 15->18, speed raised from 12 to 20, AC raised from -1 to -4, stronger claw attacks.
+#### Skill adjustments for barbarians:
+| skill  | NetHack | ->  | NerfHack |
+| ------ | ------- | --- | -------- |
+| riding | basic   | ->  | skilled  |
+| shield | n/a     | ->  | skilled  |
 
-Cavepeople have also been gifted with more skills in rudimentary tools like rocks and flint:
+### CAVEMAN/CAVEWOMAN CHANGES
+* When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
+* Cavemen have also been gifted with more skills in rudimentary tools like rocks and flint:
 * They start the game with more flint and no rocks (xnh)
 * Cavemen can lash flint to arrows, making them do slightly more damage (Spork/THEM). When arrows are flinted, their enchantment is also revealed.
-
-* The narrow passageways in their quest have been opened up for convenience (Evil)
-* Their quest narration and dialogue is more caveman-like (xnh/Fourk)
 * Cavepersons can get an alignment boost via cannibalism (Spork)
 * Cavepersons' gods sometimes don't respond to prayer. There is a 10% chance of being ignored (Spork/THEM)
 
-* Skill adjustments for cave dwellers (Evil)
-    knife:          Skilled     -> Restricted
-    dagger:         Basic       -> Restricted
-    polearms:       Skilled     -> Restricted
-    morning star:   Basic       -> Restricted
-    unicorn horn:   Basic       -> Skilled
-    attack spells:  Basic       -> Restricted
-    matter spells:  Skilled     -> Restricted
-    riding:         Restricted  -> Basic
+**Caveman quest updates:**
+* The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
+* The Chromatic Dragon, like other dragons, also has been buffed : level raised from 15->18, speed raised from 12 to 20, AC raised from -1 to -4, stronger claw attacks.
+* The narrow passageways in their quest have been opened up for convenience (Evil)
+* Their quest narration and dialogue is more caveman-like (xnh/Fourk)
 
-* Cave dwellers also cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. The exception is unicorn horns, which the cave dwellers can reach skilled in.
+**Illiterate bonuses:**
+* They can increase their max-HP at each level-up if they remain illiterate (Spork/THEM)
+* An additional tier of HP gain has been added; after level 16 cavewomen can gain 1d4 max HP for remaining illiterate.
+
+**Spellcasting nerfs**
+* They cannot receive spells from their deity (Evil)
+* They have an 80% chance of failing to read any spellbook
+* Their special spell has been removed (Evil)
+
+#### Skill adjustments for cave dwellers:
+| skill         | NetHack    | ->  | NerfHack   |
+| ------------- | ---------- | --- | ---------- |
+| dagger        | Basic      | ->  | Restricted |
+| knife         | Skilled    | ->  | Restricted |
+| morning star  | Basic      | ->  | Restricted |
+| polearms      | Skilled    | ->  | Restricted |
+| attack spells | Basic      | ->  | Restricted |
+| matter spells | Skilled    | ->  | Restricted |
+| riding        | Restricted | ->  | Basic      |
+| shield        | n/a        | ->  | Basic      |
+
+* Cave dwellers cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. The exception is unicorn horns, which the cave dwellers can reach skilled in.
 * Cavemen get Keolewa as their first sacrifice gift.
 
 ### HEALER
 * Add L's Wounds patch: healers can see damage on monsters
 * Healers start with 2 eucalyptus leaves.
-* Healers get a large bonus when applying unicorn horns
+* Healers get a bonus when applying unicorn horns
 * Healers can use an uncursed unicorn horn as if it is blessed.
 * Healers get sickness resistance instead of warning at level 15 (Evil).
 
@@ -1454,24 +1487,31 @@ Cavepeople have also been gifted with more skills in rudimentary tools like rock
 * Knights start with a +0 studded leather armor instead of a +1 ring mail (K-Mod)
 * The knights quest has been infested with a swarm of merfolk
 
-Skill adjustments for knights:
-    dagger          Basic       -> Restricted
-    knife           Basic       -> Restricted
-    axe             Skilled     -> Restricted
-    pick-axe        Basic       -> Restricted
-    club            Basic       -> Restricted
-    trident         Basic       -> Restricted
-    crossbow        Skilled     -> Restricted
-    broad sword     skilled     -> Expert
-    polearms        skilled     -> Expert
-    spear           skilled     -> Expert
+#### Skill adjustments for knights:
+| skill       | vanilla | ->  | NerfHack   |
+| ----------- | ------- | --- | ---------- |
+| dagger      | Basic   | ->  | Restricted |
+| knife       | Basic   | ->  | Restricted |
+| axe         | Skilled | ->  | Restricted |
+| pick-axe    | Basic   | ->  | Restricted |
+| broad sword | skilled | ->  | Expert     |
+| club        | Basic   | ->  | Restricted |
+| polearms    | skilled | ->  | Expert     |
+| spear       | skilled | ->  | Expert     |
+| trident     | Basic   | ->  | Restricted |
+| crossbow    | Skilled | ->  | Restricted |
+| shield      | n/a     | ->  | Expert     |
 
 ### MONK
 * Dramatically increased the monk's body armor penalty (Evil)
-* Player feedback for monks wearing/removing body armor
+* Give explicit feedback for monks wearing/removing body armor
 * Stop giving Monks "You feel guilty message" eventually (xnh)
-* Removed crossbow skill.
-* Monks can reach expert in quarterstaff.
+
+#### Skill adjustments for monks:
+| skill        | NetHack | ->  | NerfHack   |
+| ------------ | ------- | --- | ---------- |
+| crossbow     | basic   | ->  | restricted |
+| quarterstaff | basic   | ->  | expert     |
 
 ### PRIEST
 * Priests start with a +2 small shield (SLASHEM)
@@ -1479,164 +1519,257 @@ Skill adjustments for knights:
 * Priests don't receive edged/pointy artifact weapons via altar sacrifice (Evil)
 * Instead of the standard crowning gift, priests always receive Mjollnir (Evil)
 * Priests reduce the chance of zombie revival by 50% (Dyna); when a zombie is killed for good, you get a special message
-* Priests can reach basic in riding skill.
 * Priests start with more garlic and wolfsbane (similar to the undead slayer in SLASH'EM)
+* Vampire priests don't start with any food items. Instead they get unholy water, potions of blood, and a guaranteed spellbook of confusion.
 
-Vampire priests don't start with any food items. Instead they get unholy water, potions of blood, and a guaranteed spellbook of confusion.
+| skill    | NetHack    | ->  | NerfHack   |
+| -------- | ---------- | --- | ---------- |
+| flail    | expert     | ->  | skilled    |
+| trident  | skilled    | ->  | basic      |
+| lance    | basic      | ->  | restricted |
+| shuriken | basic      | ->  | restricted |
+| riding   | restricted | ->  | basic      |
+| shield   | n/a        | ->  | basic      |
+
+### ROGUE
+* In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
+
+**Return of Backstab Damage:**
+* Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
+* Rogues get bonus backstab damage when using stilettos in melee
+* Rogues also get a multishot bonus for knives.
+* Rogues start with a +2 stiletto instead of a short sword
+* Rogues start with a stack of knives instead of daggers
+
+**Rogueish counterattacks:**
+* While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent when hit.
+* There are many restrictions:
+  * The incoming attack must be a weapon, bite, claw, or kick attack.
+  * You cannot be polymorphed
+  * You cannot be wearing any heavy metallic armor or wielding a bulky shield.
+  * You cannot be weak (or worse from hunger) and you cannot be encumbered.
+  * You cannot be fumbling or unaware.
+  * You must be able to see the monster.
+* The chance of countering goes up with your skill in the wielded weapon.
+* Each counterattack uses up 5 energy (5 energy required to execute)
+
+#### Skill adjustments for rogues:
+| skill            | vanilla | ->  | NerfHack   |
+| ---------------- | ------- | --- | ---------- |
+| broad sword      | skilled | ->  | Restricted |
+| long sword       | skilled | ->  | Restricted |
+| two-handed sword | basic   | ->  | Restricted |
+| club             | skilled | ->  | basic      |
+| mace             | skilled | ->  | Restricted |
+| morning star     | basic   | ->  | Restricted |
+| polearms         | basic   | ->  | Restricted |
+| spear            | basic   | ->  | Restricted |
+| crossbow         | expert  | ->  | basic      |
+| divination       | skilled | ->  | basic      |
+| matter spells    | skilled | ->  | Restricted |
 
 ### RANGER
 * Rangers get extended range for seeing object's dknown appearance (this lets them see potions and gems from much further away)
 * Rangers get auto-id for launchers when they reach XP level 7
 * Rangers get auto-id for ammo enchantment when they reach XP level 10 (xnh)
 * Rangers are not stunned from using portals (they are used to quick travel)
+* Rangers can chop down the trees in the quest entry level.
 
-Skill adjustments for knights:
-    knife          skilled       -> Restricted
-    pick-axe       basic         -> Restricted
-    short sword    skilled       -> Restricted
-    morning star   skilled       -> Restricted
-    hammer         skilled       -> Restricted
-    quarterstaff   skilled       -> Restricted
-    spear          skilled       -> Restricted
-    trident        skilled       -> Restricted
-    divination     expert        -> basic
-
-### ROGUE
-* In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
-* Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
-
-* Rogues get bonus backstab damage when using stilettos in melee
-* Rogues also get a multishot bonus for knives.
-* Rogues start with a +2 stiletto instead of a short sword
-* Rogues start with a stack of knives instead of daggers
-
-**Rogues can counterattack while wielding knives and daggers:**
-* While wielding a knife or dagger, a rogue has a chance of counter-attacking an opponent.
-
-There are many restrictions:
-  * Their attack must be a weapon, bite, claw, or kick attack type.
-  * You can't be polymorphed
-  * You can't be wearing any heavy metallic armor or wielding a bulky shield.
-  * You cannot be weak (or worse from hunger), and you cannot be encumbered.
-  * You cannot be fumbling or unaware (sleeping or paralyzed).
-  * You must be able to see the monster.
-  * The chance of countering goes up with your skill in the wielded weapon.
-  * Each counterattack uses up 5 energy (5 energy required to execute)
+#### Skill adjustments for rangers:
+| skill        | vanilla | ->  | NerfHack   |
+| ------------ | ------- | --- | ---------- |
+| dagger       | expert  | ->  | skilled    |
+| knife        | skilled | ->  | Restricted |
+| axe          | skilled | ->  | basic      |
+| pick-axe     | basic   | ->  | Restricted |
+| short sword  | skilled | ->  | Restricted |
+| morning star | skilled | ->  | Restricted |
+| hammer       | skilled | ->  | Restricted |
+| quarterstaff | skilled | ->  | Restricted |
+| polearms     | skilled | ->  | restricted |
+| spear        | skilled | ->  | Restricted |
+| trident      | skilled | ->  | Restricted |
+| sling        | expert  | ->  | restricted |
+| dart         | expert  | ->  | skilled    |
+| shuriken     | skilled | ->  | restricted |
+| boomerang    | expert  | ->  | restricted |
+| divination   | expert  | ->  | basic      |
+| shield       | n/a     | ->  | skilled    |
 
 ### SAMURAI
 * Samurai start with +3 wakizashi (Dyna)
-* Samurai can reach expert in spears.
 * Samurai get to-hit and damage bonuses for twoweaponing a katana with a wakizashi.
 * The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
 * Being satiated abuses wisdom for Samurai.
+
+#### Skill adjustments for samurai:
+| skill | vanilla | ->  | NerfHack |
+| ----- | ------- | --- | -------- |
+| spear | skilled | ->  | expert   |
 
 ### TOURIST
 * Tourists get automatic type identification for shop items (Un). This means that all items for sale are identified for you in shops. You can instantly identify anything by selling it.
 * Tourists start with more darts to compensate for more training being needed to advance weapon skills (Un)
 * Tourists start with all of their optional equipment (FIQ)
 
+#### Skill adjustments for tourists:
+| skill              | NetHack | ->  | NerfHack |
+| ------------------ | ------- | --- | -------- |
+| dagger             | expert  | ->  | basic    |
+| knife              | skilled | ->  | basic    |
+| short sword        | expert  | ->  | basic    |
+| saber              | skilled | ->  | basic    |
+| unicorn horn       | skilled | ->  | basic    |
+| escape spells      | skilled | ->  | basic    |
+| two-weapon combat  | skilled | ->  | basic    |
+| base-handed combat | skilled | ->  | basic    |
+| shield             | n/a     | ->  | basic    |
+
 ### VALKYRIE
 * More fire traps on valk quest
-* Valkyries get a winter wolf cub as a starting pet.
+
+#### Skill adjustments for valkyries:
+| skill  | NetHack | ->  | NerfHack |
+| ------ | ------- | --- | -------- |
+| shield | n/a     | ->  | master   |
 
 ### WIZARD
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
-  * knife, axe, short sword, club, mace, polearms, spear, trident, and shuriken skills
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards always start with the spellbook of magic missile.
 * Wizards are able to sense magic fountains.
 
+#### Skill adjustments for wizards:
+| skill       | vanilla | ->  | NerfHack   |
+| ----------- | ------- | --- | ---------- |
+| knife       | skilled | ->  | restricted |
+| axe         | skilled | ->  | restricted |
+| short sword | basic   | ->  | restricted |
+| club        | skilled | ->  | restricted |
+| mace        | basic   | ->  | restricted |
+| polearms    | skilled | ->  | restricted |
+| spear       | basic   | ->  | restricted |
+| trident     | basic   | ->  | restricted |
+| shuriken    | basic   | ->  | restricted |
+
 ## NEW ROLES
 
-
 ### CARTOMANCER
-* The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games.
+* The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games. The cartomancer has undergone some dramatic transformations from its original implementation in Splice, becoming a more focused and surprising role to play.
 
 **Starting inventory:**
-    * Graphic tee
+    * graphic tee
     * 60 blessed +0 razor cards
     * ~4 meat sticks
     * ~4 candy bars
-    * 7 random summon cards
+    * 7 blessed summon raven cards
     * 1 random spellbook
     * 33% chance of a potion of phasing
 
-**Skill-set:**
-    * Shuriken: master
-    * Dagger: skilled
-    * Knife: skilled
-    * Quarterstaff: skilled
-    * Sling: basic
-    * Dart: basic
-    * Unicorn horn: skilled
-    * Bare-handed combat: basic
-    * Riding:             expert
+**Intrinsics:**
+| XL  | Intrinsic                             |
+| --- | ------------------------------------- |
+| 1   | Slow (speed 10)                       |
+| 1   | Searching                             |
+| 7   | Warning                               |
+| 7   | Can ascertain razor card enchantments |
+| 15  | Fast                                  |
+| 15  | Can ascertain razor card BUC          |
+
+* Cartomancers also start with 1 point of bonus Luck.
+
+#### Skill adjustments for cartomancers:
+| skill              | SpliceHack | ->  | NerfHack   |
+| ------------------ | ---------- | --- | ---------- |
+| dagger             | expert     | ->  | restricted |
+| knife              | skilled    | ->  | restricted |
+| axe                | basic      | ->  | restricted |
+| short sword        | basic      | ->  | restricted |
+| club               | basic      | ->  | restricted |
+| mace               | basic      | ->  | restricted |
+| quarterstaff       | basic      | ->  | restricted |
+| polearms           | basic      | ->  | restricted |
+| spear              | basic      | ->  | restricted |
+| trident            | basic      | ->  | restricted |
+| sling              | skilled    | ->  | restricted |
+| dart               | expert     | ->  | skilled    |
+| shuriken           | expert     | ->  | master     |
+| attack spell       | basic      | ->  | restricted |
+| healing spell      | basic      | ->  | restricted |
+| divination spell   | expert     | ->  | restricted |
+| enchantment spell  | skilled    | ->  | restricted |
+| cleric spell       | skilled    | ->  | restricted |
+| escape spell       | skilled    | ->  | restricted |
+| matter spell       | skilled    | ->  | restricted |
+| riding             | expert     | ->  | expert     |
+| bare handed combat | skilled    | ->  | basic      |
+| wild magic         | expert     | ->  | n/a        |
 
 **Quest artifact: Holographic Void Lily**
-    * Chaotic credit card
-    * Intelligent
-    * Grants energy regeneration while carried
-    * Grants half spell damage and reflection while carried
-    * Can be invoked for a temporary boost in card drops. While active, the Void Lily will shine brightly for 25-50 turns.
+* Chaotic credit card
+* Grants energy regeneration while carried
+* Grants half spell damage and reflection while carried
+* Can be invoked for a temporary boost in card drops. While active, the Void Lily will shine brightly for 25-50 turns. This effect replaces the original #invoke ability in SpliceHack, where it summoned a large group of random monsters.
 
-* While playing as a cartomancer, much of the standard NetHack terminology is revised:
-    * scrolls are renamed to "cards". Whenever you or a monster reads a scroll, they instead
-      "play" that card.
-    * scrolls under $100 are labeled as "common"
-    * scrolls for $100 are labeled as "uncommon"
-    * scrolls for $200 are labeled as "rare"
-    * scrolls for $300 are labeled as "legendary"
-    * spellbooks are renamed to "rulebooks"
-    * credit cards are known as "banned cards"
-    * boomerangs are "bent cards"
-    * expensive cameras are "holographic cards"
-    * hawaiian shirts are "graphic tees"
-    * lock picks are "worthless cards"
+**Cartomancer terminology:**
+While playing as a cartomancer, much of the standard NetHack terminology is revised:
+* scrolls are renamed to "cards"
+* spellbooks are renamed to "rulebooks"
+* credit cards are known as "banned cards"
+* boomerangs are "bent cards"
+* expensive cameras are "holographic cards"
+* hawaiian shirts are "graphic tees"
+* lock picks are "worthless cards"
+* Whenever you or a monster reads a scroll, they instead "play" that card.
+* scrolls under $100 are labeled as "common"
+* scrolls for $100 are labeled as "uncommon"
+* scrolls for $200 are labeled as "rare"
+* scrolls for $300 are labeled as "legendary"
 
 **Card abuse penalties**:
 * Cartomancers receive severe alignment penalties for forging or defacing cards.
   - writing cards: -20 alignment, -5 luck
   - cloning cards: -20 alignment, -5 luck
-  - poly zap/dip of cards: -10 alignment, -2 luck
+  - polymorphing cards: -10 alignment, -2 luck
 
 **Play mechanics:**
-* Cartomancers start out at a slower speed of 10 (similar to the Yeoman of SLASH'EM).
-* Cartomancers get intrinsic speed at level 10.
 * Cards (scrolls) only weigh 1 for cartomancers.
 * Rulebooks (spellbooks) only weigh 5 for cartomancers.
 * The camera is played as a holographic card for cartomancers, doesn't break when thrown.
 * When applying a deck of cards, cartomancers will always be able to use them as if they
-  were blessed. This enables you to tell your current luck easily by applying the deck.
-* Cartomancers don't break illiterate conduct when playing/reading cards.
+  were blessed.
+  - For playing card decks, this enables you to easily evaluate your current luck.
+  - For decks of fate, you will have a bonus toward a better result.
+* Cartomancers don't break illiterate conduct when playing cards.
 
 **No easy perma-pets:**
-* Cartomancers don't get a starting pet and cannot tame monsters as usuual
+* Cartomancers don't get a starting pet and cannot tame monsters as usual.
 * Throwing food at domestic animals will merely pacify them.
 * It is still possible to get perma pets through a few methods: a rulebook of create familiar and figurines can still generate tame permanent pets.
 
 **Melee combat nerfs:**
-* Cartomancers are not great melee fighters - they prefer ranged weapons
-or fighting behind their summoned help. They have some severe penalties for melee combat.
-* They always have a -5 to-hit penalty for all melee combat.
+* Cartomancers are not great melee fighters - they prefer ranged weapons or fighting behind their summoned help. They have some severe penalties for melee combat.
+* There is a flat -5 to-hit penalty for all melee combat.
 * If wearing armor, they receive an additional -20 to-hit penalty
 * If wearing a shield, they receive an additional -10 to-hit penalty
-* If attacking with a wielded weapon, they receive an additional -10 to-hit penalty 
-
+* If attacking with a wielded weapon, they receive an additional -10 to-hit penalty.
 
 **Card drops:**
-* When playing as a cartomancer, there is a 50% chance that a monster will leave a card instead of a corpse when it dies.
+* When playing as a cartomancer, there is a chance that a monster will leave a card instead of a corpse when it dies.
+* At the start of the game, the chance is 50%, but as you gain levels and advance deeper into the dungeon, the chance gradually diminishes.
+* After a monster dies and is eligible for a drop, there are 3 possibilities:
+  * razor cards are dropped (any BUC or enchantment)
+  * a zap card is dropped
+  * a summon card is dropped
+* The summon drops are the most complicated. Depending on how the RNG goes, you could see the same card as the monster killed, a higher difficulty monster, a random monster, or a sphere. If a monster is quite low level (under 3), most of the time it doesn't leave anything at all.
+
 * Some monsters are restricted from dropping cards:
-  * Tame and peaceful monsters
-  * Spell beings, revived monsters, and cloned monsters.
-  * Unique monsters
-  * Revivers: zombies, trolls, and phoenixes
-* After a monster dies and is eligible for a drop, we roll a die to see what happens:
-  * 2 in 20 chance - drop some razor cards (could be any BUC or enchantment
-  * 3 in 20 chance - drop a zappable card.
-  * Otherwise, we get a summon card.
-    * 1 in 3 of summons will be a "rare" stronger monster than what we killed.
-    * The other times, it will either be nothing (if the monster was weak), the monster we killed, or a random sphere card.
-* Be aware - monsters can and will use zap and summon cards against the player, so try to collect them as soon as they drop!
+  * spell beings
+  * revived monsters (zombies and trolls that have been killed once and come back)
+  * canceled monsters
+  * phoenixes (they always leave an egg)
+  * cloned monsters (gremlins, blue jellies, etc.)
+  * unique monsters
 
 **Spell beings:**
 * Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere
@@ -1646,33 +1779,33 @@ or fighting behind their summoned help. They have some severe penalties for mele
   cartomancer plays a summon card - it will summon a spell being with a predetermined life
   span that will fight aggressively for you, ignoring any balking that a regular pet would
   obey and never stopping to eat. If you get credit for killing a spell being, they only
-  ever grant 1XP. Spell beings also never leave corpses and spawn with no inventory.
+  grant 1XP. Spell beings also never leave corpses and spawn with no inventory.
 
 **Summon cards:**
-* Cartomancers will start out with 7 summon cards, and they will also have the
+* Cartomancers will start out with 7 summon raven cards, and they will also have the
   opportunity to build a collection of them as they slay monsters. Low level monsters rarely
   drop their own summon cards, but any death drop has a small chance to leave a higher level
   monster. As your level grows, so does the strength of the rare drops.
-* Exploding sphere monster cards are more likely to drop - giving the cartomancer some explosive cards to work with.
+* Exploding sphere monster cards are more likely to drop - giving the cartomancer some ranged explosive cards to work with.
 * The price of summon cards scales with their monster difficulty.
 * In addition to reading summon cards, cartomancers can also throw them to activate them.
   This lets you keep monsters at a distance by throwing the summon directly next to the
   threat.
-* Monsters can read summon cards as well.
-* Any summon "sphere" cards are special because they will instantly explode when thrown at a monster.
+* Monsters can read summon cards as well, try to collect them before they are used against you.
+* Any summon "sphere" cards are special because they will instantly explode when thrown at a monster. If cursed the card will not explode, and instead summons a hostile sphere.
 * Cursed summon cards create hostile monsters (this also applies to summon sphere cards)
 * Playing summon cards costs 10 energy per card, otherwise the card has no effect and is not used up.
 
 **Razor cards:**
-* In SpliceHack, razor cards were simply shuriken relabeled.
+* Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
+* In SpliceHack, razor cards were simply shuriken relabeled with a different name.
 * In NerfHack, razor cards have been properly implemented as their own weapon type using the shuriken skill.
 * Cartomancers can multishot, but only shuriken skill projectiles (shuriken and razor cards)
+* Cartomancers get multishot bonuses up to expert skill, but not for master (they still get damage and to-hit bonuses for master skill though)
 * Cartomancers also only get strength damage bonuses for thrown razor cards (other standard melee bonuses still apply as normal)
-* Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
-* Cartomancers will be able to recognize the enchantment of razor cards at XP7
-* Cartomancers will be able to recognize the BUC status of razor cards at XP15.
 * Razor cards will appear as part of the cartomancers regular death drops and will sometimes
   take the place of a summon card or zap card. These follow the same rules as any stacked weapon type, so you may receive a stack of 6-11 that could be blessed/cursed/uncursed, and possibly poisoned.
+* Cartomancers only get a strength damage bonus applied when throwing razor cards - no other projectiles qualify for this bonus.
 
 **Zappable cards:**
 * These can also drop when cartomancers kill monsters. They act as one-use wands.
@@ -1680,12 +1813,13 @@ or fighting behind their summoned help. They have some severe penalties for mele
 * Cursed zap cards have a chance to backfire like wands, but can not explode.
 * Playing zap cards also costs 10 energy per card.
 * Since cartomancers receive so many zap cards, wands have been totally removed the random item drops in the main dungeon.
+* Be aware - monsters can and will use zap and summon cards against the player, so try to collect them as soon as they drop!
 
 **Spellcasting overhaul:**
 * Cartomancers do not learn spells (from starting books, reading spellbooks, or god gifts)
 * Instead, they can instantaneously cast spells by reading rulebooks.
 * Rulebooks generate with 4-5 charges and each reading uses a charge.
-* When 0 charges remain after reading a rulebook, it is used up.
+* When 0 charges remain after reading a rulebook, it is used up and disappears.
 * Cartomancers's start out knowing the identities of all rulebooks (since usually the title and purpose of a rulebook is quite clear on the cover).
 * Cartomancers always cast spells at expert level.
 * Rulebooks can still be written with magic markers (no penalty for cartomancers unlike forging cards), however, they cannot be recharged with a scroll of charging.
@@ -1701,7 +1835,7 @@ or fighting behind their summoned help. They have some severe penalties for mele
 **Cartomancers get special bonuses for wielding crystal balls:**
 While wielding a crystal ball, a cartomancer will enjoy:
     * max charisma
-    * extrinsic telepathy
+    * telepathy
     * see invisible
     * astral vision
 
@@ -1715,9 +1849,7 @@ The weight of crystal balls was also reduced to 100, making this a more appealin
 Cartomancer gets adjusted different item generation odds.
     To make up for less corpse drops, they get more food.
     They also get much fewer wands because they get zap cards.
-
-
-
+    
 
 ## PLAYER RACE CHANGES
 
@@ -2040,43 +2172,44 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 
 ## NEW ITEMS
 
-| Item                    | Origin     | Notes                                    |
-| ----------------------- | ---------- | ---------------------------------------- |
-| rapier                  | SLASHEM    | light metal saber                        |
-| scythe                  | SpliceHack | strong polearm that can be used in melee |
-| heavy sword             | NerfHack   | base item for Load Brand                 |
-| silver short sword      | SLASHEM    |                                          |
-| sling bullet            | EvilHack   |                                          |
-| stomping boots          | SpliceHack | Instakills tiny/small monsters           |
-| flying boots            | NerfHack   | Conveys flying                           |
-| orcish boots            | EvilHack   | 1AC + 2AC for orcs                       |
-| gauntlets of force      | NerfHack   | stuns monsters, better #force effects    |
-| gauntlets of swimming   | SLASHEM    | grants swimming                          |
-| rogue's gloves          | SpliceHack | Confers searching, fingerless (!)        |
+| Item                    | Origin     | Notes                                          |
+| ----------------------- | ---------- | ---------------------------------------------- |
+| rapier                  | SLASHEM    | light metal saber                              |
+| scythe                  | SpliceHack | strong polearm that can be used in melee       |
+| heavy sword             | NerfHack   | base item for Load Brand                       |
+| silver short sword      | SLASHEM    |                                                |
+| sling bullet            | EvilHack   |                                                |
+| stomping boots          | SpliceHack | Instakills tiny/small monsters                 |
+| flying boots            | NerfHack   | Conveys flying                                 |
+| orcish boots            | EvilHack   | 1AC + 2AC for orcs                             |
+| gauntlets of force      | NerfHack   | stuns monsters, better #force effects          |
+| gauntlets of swimming   | SLASHEM    | grants swimming                                |
+| rogue's gloves          | SpliceHack | Confers searching, fingerless (!)              |
 | anti-magic shield       | NerfHack   | provides magic resistance, blocks spellcasting |
-| tower shield            | SpliceHack | Heavy, provides 4AC                      |
-| gnomish boots           | SlashTHEM  | -2AC for gnomes                          |
-| gnomish helm            | SlashTHEM  | -2AC for gnomes                          |
-| gnomish suit            | SlashTHEM  | -3AC for gnomes                          |
-| wand of corrosion       | SpliceHack | shoots acid rays                         |
-| wand of poison gas      | SpliceHack | shoots poison gas                        |
-| wand of wonder          | SpliceHack | random wand effect                       |
-| wand of draining        | SLASHEM    | shoots drain life rays                   |
-| scroll of cloning       | SpliceHack | clones items or monsters                 |
-| scroll of knowledge     | SpliceHack | learn about a random magic item          |
-| scroll of flood         | Un/xnh     | generates water pools                    |
-| spellbook of repair     | EvilHack   | repairs any item erosion                 |
-| potion of blood         | SLASHEM    | nutrition for vampires                   |
-| potion of vampire blood | SLASHEM    | nutrition/healing for vampires           |
-| potion of phasing       | NerfHack   | conveys temporary phasing                |
-| potion of reflection    | SpliceHack | conveys temporary reflection             |
-| ring of withering       | NerfHack   | causes withering                         |
-| ring of sleeping        | SLASHEM    | causes restful sleep                     |
-| playing card deck       | SpliceHack | can reveal your current luck             |
-| deck of fate            | SpliceHack | high risk, high reward!                  |
-| healthstone             | SLASHEM    | affects regeneration                     |
-| whetstone               | SLASHEM    | sharpens edged weapons                   |
-| foulstone               | NerfHack   | aggravate monster & misc effects         |
+| tower shield            | SpliceHack | Heavy, provides 4AC                            |
+| gnomish boots           | SlashTHEM  | -2AC for gnomes                                |
+| gnomish helm            | SlashTHEM  | -2AC for gnomes                                |
+| gnomish suit            | SlashTHEM  | -3AC for gnomes                                |
+| wand of corrosion       | SpliceHack | shoots acid rays                               |
+| wand of poison gas      | SpliceHack | shoots poison gas                              |
+| wand of wonder          | SpliceHack | random wand effect                             |
+| wand of draining        | SLASHEM    | shoots drain life rays                         |
+| scroll of cloning       | SpliceHack | clones items or monsters                       |
+| scroll of knowledge     | SpliceHack | learn about a random magic item                |
+| scroll of flood         | Un/xnh     | generates water pools                          |
+| spellbook of repair     | EvilHack   | repairs any item erosion                       |
+| spellbook of fire bolt  | HackEM     | shoots a beam of fire                          |
+| potion of blood         | SLASHEM    | nutrition for vampires                         |
+| potion of vampire blood | SLASHEM    | nutrition/healing for vampires                 |
+| potion of phasing       | NerfHack   | conveys temporary phasing                      |
+| potion of reflection    | SpliceHack | conveys temporary reflection                   |
+| ring of withering       | NerfHack   | causes withering                               |
+| ring of sleeping        | SLASHEM    | causes restful sleep                           |
+| playing card deck       | SpliceHack | can reveal your current luck                   |
+| deck of fate            | SpliceHack | high risk, high reward!                        |
+| healthstone             | SLASHEM    | affects regeneration                           |
+| whetstone               | SLASHEM    | sharpens edged weapons                         |
+| foulstone               | NerfHack   | aggravate monster & misc effects               |
 
 * Potions of reflection are immune to fire and cold damage.
 * (!) fingerless gloves do not protect against petrification!
@@ -2087,6 +2220,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
   by using the kicker.
 * If uncursed, you get a rough indication of your luck by the hand strength.
 * If cursed, the meanings are reversed.
+* Can be #tipped and emptied for a stack of random razor cards
 
 
 **scroll of cloning:**
@@ -2123,9 +2257,10 @@ If cursed, the drawn card will be lowered by one notch. This means The World is 
 
 If blessed, the drawn card is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
 
-
 Grants random effects when you draw a card from it. When you apply it, you are prompted for
 how many cards to draw. You can draw a max of 5 cards.
+
+* Can be #tipped and emptied for a stack of random razor cards
 
 Card effects:
 * The Tower - Lightning and acid explosions for 1d30 each on self.
@@ -2285,6 +2420,8 @@ Misc changes:
 * No special **themed rooms** generate until level 3
 * Random rivers were added to many of the quest filler levels.
 * Trees can generate in dungeon rooms (xnh)
+* Trees can be destroyed by fire, cold, and disintegration rays.
+* If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction.
 * Medusa's Island gets flying boots instead of levitation boots.
 
 ### Castle changes
@@ -2362,6 +2499,7 @@ Misc changes:
 * Weapons can be forged by applying a hammer while standing on a forge.
 * Items can pass over forges.
 * New forging feature: There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
+* Forges always light up the square they occupy.
 * Cold rays have a chance cool forges.
 
 ### Toilets
@@ -2456,6 +2594,7 @@ Grease hose:
   * You might see an image of your god, invoking enlightenment
   * You might find a partial map of the level
   * You might encounter a scary image, stunning you for a few turns
+  * You might discover a new item 
 * Art rooms help exercise INT and WIS, depending on the room
 * To get any effects, you must not be blind when you enter the room
 
