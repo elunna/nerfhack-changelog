@@ -120,6 +120,7 @@
     - [WANDS](#wands)
   - [SHOP CHANGES](#shop-changes)
     - [New shop: Junk Shop](#new-shop-junk-shop)
+    - [New shop: Collectible Card Game Company](#new-shop-collectible-card-game-company)
   - [NEW ITEMS](#new-items)
   - [NEW ARTIFACTS](#new-artifacts)
     - [Load Brand](#load-brand)
@@ -1701,7 +1702,7 @@ Curing rabid:
 | cleric spell       | skilled    | ->  | restricted |
 | escape spell       | skilled    | ->  | restricted |
 | matter spell       | skilled    | ->  | restricted |
-| riding             | expert     | ->  | expert     |
+| riding             | expert     | ->  | restricted     |
 | bare handed combat | skilled    | ->  | basic      |
 | wild magic         | expert     | ->  | n/a        |
 
@@ -1742,11 +1743,16 @@ While playing as a cartomancer, much of the standard NetHack terminology is revi
   - For decks of fate, you will have a bonus toward a better result.
 * Cartomancers don't break illiterate conduct when playing cards.
 
-**No easy perma-pets:**
+**No perma-pets:**
 * Cartomancers don't get a starting pet and cannot tame monsters as usual.
 * Throwing food at domestic animals will merely pacify them.
+* Figurines that generate are instead converted to summon cards.
+* The rulebook of create familiar instead creates summon cards.
+* All methods of creating 
 * It is still possible to get perma pets through a few methods: a rulebook of create familiar and figurines can still generate tame permanent pets.
-
+* Cartomancers get an archon card instead of a guardian angel on Astral.
+* Cartomancers get summon cards for cloning themselves.
+* 
 **Melee combat nerfs:**
 * Cartomancers are not great melee fighters - they prefer ranged weapons or fighting behind their summoned help. They have some severe penalties for melee combat.
 * There is a flat -5 to-hit penalty for all melee combat.
@@ -1762,14 +1768,15 @@ While playing as a cartomancer, much of the standard NetHack terminology is revi
   * a zap card is dropped
   * a summon card is dropped
 * The summon drops are the most complicated. Depending on how the RNG goes, you could see the same card as the monster killed, a higher difficulty monster, a random monster, or a sphere. If a monster is quite low level (under 3), most of the time it doesn't leave anything at all.
+* Nasty monsters always drop their own summon cards (never razor cards, zap cards, or other summon cards)
 
 * Some monsters are restricted from dropping cards:
   * spell beings
   * revived monsters (zombies and trolls that have been killed once and come back)
-  * canceled monsters
+  * cancelled monsters
   * phoenixes (they always leave an egg)
   * cloned monsters (gremlins, blue jellies, etc.)
-  * unique monsters
+  * Keystone Kops (they can be farmed)
 
 **Spell beings:**
 * Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere
@@ -1780,8 +1787,10 @@ While playing as a cartomancer, much of the standard NetHack terminology is revi
   span that will fight aggressively for you, ignoring any balking that a regular pet would
   obey and never stopping to eat. If you get credit for killing a spell being, they only
   grant 1XP. Spell beings also never leave corpses and spawn with no inventory.
+* Spell beings have a "sparkling" description on farlook (so you can tell them from permanent monsters).
 
 **Summon cards:**
+* Cards of create monster are twice as common for cartomancers as for other roles - and when they do spawn, they are usually keyed as a specific summon monster card.
 * Cartomancers will start out with 7 summon raven cards, and they will also have the
   opportunity to build a collection of them as they slay monsters. Low level monsters rarely
   drop their own summon cards, but any death drop has a small chance to leave a higher level
@@ -1792,9 +1801,11 @@ While playing as a cartomancer, much of the standard NetHack terminology is revi
   This lets you keep monsters at a distance by throwing the summon directly next to the
   threat.
 * Monsters can read summon cards as well, try to collect them before they are used against you.
-* Any summon "sphere" cards are special because they will instantly explode when thrown at a monster. If cursed the card will not explode, and instead summons a hostile sphere.
+* Any summon "sphere" cards are special because they will instantly explode when thrown at a monster. If cursed the card will not explode, and instead summons a hostile sphere. This includes gas spores and volatile mushrooms.
 * Cursed summon cards create hostile monsters (this also applies to summon sphere cards)
 * Playing summon cards costs 10 energy per card, otherwise the card has no effect and is not used up.
+* Unique monsters can drop cards for cartomancers (a couple of exceptions are the Wizard of Yendor and the Riders because they revive)
+* Cartomancers can receive summon cards when offering corpses (these don't count as artifact gifts, but they do increase the prayer timeout)
 
 **Razor cards:**
 * Deals d6 vs small and d6 vs large, +2 to-hit, weighs 1.
@@ -1823,6 +1834,7 @@ While playing as a cartomancer, much of the standard NetHack terminology is revi
 * Cartomancers's start out knowing the identities of all rulebooks (since usually the title and purpose of a rulebook is quite clear on the cover).
 * Cartomancers always cast spells at expert level.
 * Rulebooks can still be written with magic markers (no penalty for cartomancers unlike forging cards), however, they cannot be recharged with a scroll of charging.
+* Cartomancers can read rulebooks when blind.
 
 **Card combos:**
 * The 'Z' spellcasting command is instead is used for card combos that the cartomancer gets access to as they level up.
@@ -2170,6 +2182,11 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Ported from SpliceHack
 * This counts as a general store that is usually pre-populated with a bunch of junky items.
 
+### New shop: Collectible Card Game Company
+* Brand new debuting in NerfHack!
+* This shop only spawns for cartomancers and features a large variety of summon cards, with the occasional deck box or backpack.
+* This will take the place of most food and weapon shops to give the cartomancer more ammo to work with.
+
 ## NEW ITEMS
 
 | Item                    | Origin     | Notes                                          |
@@ -2465,6 +2482,9 @@ Misc changes:
 * The zoos in Soko have been expanded slightly.
 * In addition to the amulet and bag, the Sokoban prize can also be a cloak of magic resistance or a magic marker.
 * Stop Sokoban guilt after acquiring the prize.
+* The iron bars in some of the Soko levels can be phased through, but it now incurs a Luck penalty.
+* You will now receive a message when incurring a Sokobon Luck penalty.
+
 
 ### Fort Ludios
 * Ported two Fort Ludios variants (Evil/Un)
