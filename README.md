@@ -5,6 +5,37 @@
     - [INTERFACE CHANGES](#interface-changes)
   - [New config options](#new-config-options)
     - [WIZMODE FEATURES](#wizmode-features)
+  - [ITEM CHANGES](#item-changes)
+    - [ITEM EROSION AND DESTRUCTION](#item-erosion-and-destruction)
+    - [Weapon changes](#weapon-changes)
+      - [Higher max weapon enchantment](#higher-max-weapon-enchantment)
+      - [Misc weapon changes](#misc-weapon-changes)
+      - [War Hammers](#war-hammers)
+      - [Slings](#slings)
+    - [Armor changes](#armor-changes)
+      - [Dragon scales and scale mail changes](#dragon-scales-and-scale-mail-changes)
+    - [Comestibles](#comestibles)
+    - [Potions](#potions)
+      - [Diluted potion effects](#diluted-potion-effects)
+      - [GEM ALCHEMY](#gem-alchemy)
+    - [Scrolls](#scrolls)
+    - [Wands](#wands)
+      - [Wands of wishing](#wands-of-wishing)
+    - [Rings/Amulets](#ringsamulets)
+      - [Eating Jewelery \& Accessories](#eating-jewelery--accessories)
+    - [Tools](#tools)
+      - [Safer bags of holding:](#safer-bags-of-holding)
+      - [Magic markers](#magic-markers)
+      - [Unicorn horns](#unicorn-horns)
+    - [Gems/Stones/Rocks](#gemsstonesrocks)
+  - [NEW ITEMS](#new-items)
+  - [ARTIFACT CHANGES](#artifact-changes)
+    - [General artifact changes](#general-artifact-changes)
+    - [Specific artifact changes](#specific-artifact-changes)
+  - [NEW ARTIFACTS](#new-artifacts)
+    - [Load Brand](#load-brand)
+    - [The Lenses of Truth](#the-lenses-of-truth)
+    - [Serenity](#serenity)
   - [NEW MONSTERS](#new-monsters)
     - [New monster notes](#new-monster-notes)
   - [MONSTER CHANGES](#monster-changes)
@@ -77,37 +108,6 @@
   - [New races](#new-races)
     - [Vampires](#vampires)
       - [Vampires resistances and abilities](#vampires-resistances-and-abilities)
-  - [ITEM CHANGES](#item-changes)
-    - [ITEM EROSION AND DESTRUCTION](#item-erosion-and-destruction)
-    - [Weapon changes](#weapon-changes)
-      - [Higher max weapon enchantment](#higher-max-weapon-enchantment)
-      - [Misc weapon changes](#misc-weapon-changes)
-      - [War Hammers](#war-hammers)
-      - [Slings](#slings)
-    - [Armor changes](#armor-changes)
-      - [Dragon scales and scale mail changes](#dragon-scales-and-scale-mail-changes)
-    - [Comestibles](#comestibles)
-    - [Potions](#potions)
-      - [Diluted potion effects](#diluted-potion-effects)
-      - [GEM ALCHEMY](#gem-alchemy)
-    - [Scrolls](#scrolls)
-    - [Wands](#wands)
-      - [Wands of wishing](#wands-of-wishing)
-    - [Rings/Amulets](#ringsamulets)
-      - [Eating Jewelery \& Accessories](#eating-jewelery--accessories)
-    - [Tools](#tools)
-      - [Safer bags of holding:](#safer-bags-of-holding)
-      - [Magic markers](#magic-markers)
-      - [Unicorn horns](#unicorn-horns)
-    - [Gems/Stones/Rocks](#gemsstonesrocks)
-  - [NEW ITEMS](#new-items)
-  - [ARTIFACT CHANGES](#artifact-changes)
-    - [General artifact changes](#general-artifact-changes)
-    - [Specific artifact changes](#specific-artifact-changes)
-  - [NEW ARTIFACTS](#new-artifacts)
-    - [Load Brand](#load-brand)
-    - [The Lenses of Truth](#the-lenses-of-truth)
-    - [Serenity](#serenity)
   - [SPELLCASTING CHANGES](#spellcasting-changes)
     - [Spellbook of charm monster](#spellbook-of-charm-monster)
     - [Spellbook of light](#spellbook-of-light)
@@ -287,6 +287,536 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Changed #debugfuzzer command to just #fuzz.
 * Allow wishing for specific spell beings.
 * Show wizmode timeouts for sick, rabid, withering, and most other afflictions.
+
+
+## ITEM CHANGES
+
+
+* **Items that are 'lost'** from the players inventory will no longer be un-identified.
+* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
+* Levels of erosion on an object can affect its price (Evil).
+* orcish equipment is usually generates rusty and/or corroded
+* dwarven items frequently spawn as fixed.
+
+### ITEM EROSION AND DESTRUCTION
+* Objects can be completely destroyed via rusting/rotting/corroding (Evil)
+* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
+* Silver items can corrode (xnh)
+* The iron ball and chain cannot be destroyed from rusting (Evil)
+* Poison gas clouds can rot organic armor
+* Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
+* Item erosion can be repaired by dipping into a potion of restore ability (xnh)
+* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.
+* Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor.
+* Passive acid attacks corrodes armor more often.
+* Thrown potions of acid can corrode items when they hit a monster or the player.
+* Water damage may disintegrate scrolls; may occur when dipping (Dyna)
+* Disintegration rays can vaporize boulders
+* Improved item destruction (xnh). This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
+
+### Weapon changes
+#### Higher max weapon enchantment
+* Weapons can be enchanted much higher, with a soft limit of +11.
+* This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
+* To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from 0 to +7.
+* Random weapons have a small chance to generate with very high enchantment.
+* The enchantment based to-hit bonus for projectiles capped at +7.
+* Thrown projectiles above +7 have a high chance of dulling on hit. Even though projectiles can be enchanted quite high to +11, +12, or +13, they will quickly diminish to +7.
+* Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
+* Beware, over-enchanted weapons that vaporize now explode.
+* Abuse wisdom if items are destroyed by over-enchanting.
+
+#### Misc weapon changes
+* Swapping weapons take 0 turns (dnh)
+* A welded cursed quarterstaff doesn't block spellcasting (xnh)
+* Cursed launchers always have a chance of misfiring.
+* Crysknives are never auto-quivered
+* Any slashing or piercing weapons can now be poisoned (SLASHEM)
+* All short swords get +1 to-hit (Dyna)
+* Reduced probability of long swords generating (K-Mod)
+* Increased weight of war hammers to 120.
+* Reduced weight of morning star to 50.
+* Reduced weight of bullwhips to 7 aum
+* Increased weight of shuriken to 2 aum each.
+* Wielded polearms grant an AC bonus depending on their weight (for every 30aum, they grant -1AC)
+* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
+* **Tridents** at skilled can also skewer monsters.
+* **Spetums** can skewer up to 3 monsters when used in melee whilst riding a steed
+* **Ranseurs** can disarm monsters or the player when pounded or used in melee whilst riding a steed.
+* **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
+* +4 to-hit bonus for attacking with a scimitar on a steed.
+* Wielding and unwielding **curved swords** takes 0 turns.
+* **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
+* Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
+* **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dnh)
+* No multishot when **fumbling**
+* **Boomerangs** will can pass through enemies on hit.
+* **Polearms** can be used to trigger traps (from NetHack Fourk).
+* Polearms and lances can be pounded when blind (as long as you can sense the target)
+
+#### War Hammers
+* war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
+* They now deal 2d6 vs small monsters and 2d8 vs large
+
+#### Slings
+* Projectiles receive a powerful strength bonus when using slings (xnh)
+* Gem class projectiles do minimal damage vs thick-skinned monsters
+* Launching gem class projectiles from slings has the potential to instakill H
+
+### Armor changes
+* reduced weight of most armors by 50 aum (K-Mod)
+* reduced weight of elven gear by about 1/3'rd (Evil)
+* made kicking boots supersede thick_skin/clumsy (Splice)
+* mud boots provide protection from wrapping attacks
+* hiking boots let you avoid pit traps
+* hiking boots provide extra carrying capacity (dnh)
+* fencing gloves provide +2 to-hit when you are attacking with a free off-hand (dnh)
+* old gloves don't take erosion damage (dnh)
+* padded gloves provide an extra point of AC (dnh)
+* combat boots provide 1AC and +1 to-hit (dnh)
+* jungle boots provide protection from wounded legs (dnh)
+* kicking boots allow kicking even when your legs are wounded.
+* Levitation boots have been removed and replaced with flying boots.
+* gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
+* gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
+* increased weight of dwarvish and elven mithril coats to 200 aum
+* increased weight of dragon scales and scale mail to 80 aum
+* mummy wrappings always generate rotted
+* cursed armor weighs more when worn.
+* **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
+* only elves can safely enchant elven armor over +3. Other races will get a warning vibration if their elven armor is enchanted over +3.
+* worn armor has a 25% weight reduction (xnh/FIQ)
+* dwarves and elves get a +1 bonus for each racially aligned piece of armor they wear (Evil)
+* orcs and gnomes get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
+* plate mail now grants 8AC
+* crystal plate mail now grants 9AC
+* bronze plate mail now grants 7AC
+* leather armors don't grant any MC.
+
+#### Dragon scales and scale mail changes
+* The AC of dragon scales has been reduced from 3AC to 1AC
+* The AC of dragon scale mail has been reduced from 9AC to 4AC
+* Dragon scale mail weighs 80.
+* **Dragon scale mail cannot be wished for**
+* Any wishes for scale mails will simply be converted to the equivalent dragon scales instead. For example, if you wish for "yellow dragon scale mail", you will receive "yellow dragon scales".
+* When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
+* Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
+* Green dragon scale mail also grants regeneration.
+* Silver dragon scale mail offers protection against most blinding attacks.
+* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
+
+### Comestibles
+* Port the Oily Corpses Patch (xnh)
+* Blessed food items are rotten much less often.
+* Eucalyptus leaves can never be rotten unless cursed.
+* Zapping eggs with cancellation sterilizes them (from HackEM).
+* Cursed food items will no longer tame or pacify monsters.
+
+### Potions
+* Raised price of potion of restore ability to 250
+* Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
+* Implement behavior for cursed potion of gain ability (xnh)
+* Vampires like cursed blood more than uncursed or blessed blood (the opposite of SLASH'EM)
+* Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
+* Dipping an eroded item in restore ability repairs the erosion (xnh)
+* Dipping in potions of reflection erodeproofs an item.
+* Potions of restore ability can be alchemized.
+* Quaffing potions of restore ability also cures wounded legs.
+* Acid potions are immune to being destroyed by freezing (xnh)
+* More potion breathing effects (xnh)
+* Thrown potions of hallucination confuse monsters (Evil)
+* Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
+* Withering can be cured by quaffing holy water.
+* Blessed restore ability only restores a few levels (Evil)
+* potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
+* Mixing oil with water always results in diluted oil.
+* Dipping water into any potion will simply dilute the other potion (SLASHEM)
+* Dipping into a cursed potion always causes an explosion (SLASHEM).
+* Dipping acid into toilets explodes and destroys the toilet.
+* Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
+* HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
+
+#### Diluted potion effects
+* Most potions have a much less potent effect when diluted (EvilHack)
+* Potions can sometimes generate diluted.
+* Shopkeepers only offer 1/2 price for diluted potions.
+* Diluted healing potions heal less and grant less max-HP (EvilHack).
+
+#### GEM ALCHEMY
+* Ported from UnNetHack, originally from SLASH'EM.
+* This allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance.
+* This adds some serious value to potions of acid and gems.
+* Gem alchemy recipes can be viewed in the object lookup entry for "potion of acid".
+* Other potions and gems should display their respective recipes.
+* Gems auto-id after successful gem alchemy.
+
+### Scrolls
+* Scrolls of enchant weapon cost 200
+* Scrolls of enchant armor cost 200
+* Reduced probability of enchant weapon scrolls, increased prob of scrolls of knowledge.
+* Scrolls of remove curse cost 300
+* Blank scrolls cost 50
+* Buff the effects of the scroll of light (xnh)
+* Reverse the name of the HACKEM MUCHE scroll
+* Cursed scrolls of remove curse will curse items.
+* Scrolls of genocide only clear a single monster species on the level (uncursed) or globally (blessed) (Un)
+* Endgame genocide nerf. Monsters cannot be fully genocided after entering the planes. Any genocides executed in the end game will be uncursed and only have a 1 in 4 chance of destroying each monster of that species. This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
+* Enchant armor: Ability to choose worn piece of armor to enchant/repair (Evil)
+* Give enchanting vibrate warning for all weapons/armor (Dyna)
+* Blessed scroll of destroy armor asks which armor to destroy (xnh)
+* Confused cursed scroll of destroy armor prompts for armor to fix
+* Confused scroll of identify gives enlightenment (xnh)
+
+### Wands
+* Raised price of wand of nothing to 500 (EvilHack)
+* Cursed wands have a higher chance of exploding and can backfire.
+
+* Raise odds of a cursed wand exploding to 1 in 30 (Un)
+* Cursed wand backfire patch (Evil)
+  * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
+* Blessed and uncursed wands wrest much more often
+  * blessed wands wrest 1/7 of the time
+  * uncursed wrest 1/23 of the time
+  * cursed wands still wrest 1/121 of the time
+* Wand of cancellation extensions
+  * Monsters can zap the player with wands of cancellation
+  * Being cancelled removes the protection spell effects
+  * Small chance dragon scale mail will revert back to a set of scales if cancelled (Un/Evil)
+* Increase wand to-hit chance for high-dex characters  (Splice)
+* Wands of secret door detection can be broken to detect traps.
+* Wand explosions discharge their effects in an explosion (SLASH'EM).
+* Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
+* Monsters zapping cursed wands have double the chance of explosions.
+* You must have at least one free hand to zap a wand.
+* Plastic wands can neither be broken (via apply) nor exploded by shock damage.
+
+#### Wands of wishing
+* **Always generate pre-charged**, meaning they can never be re-charged, otherwise they will explode (many variants incorporate this)
+* Wands of wishing only generate with d2 charges
+* The maximum possible wishes from any WoW is 3 wishes
+
+### Rings/Amulets
+* Port FIQHack's ring initial enchantment rules
+* Cursed rings burn extra nutrition when worn.
+* Amulets of magical breathing are immune to water damage
+* The ring of levitation is now a valid starting ring.
+* Rings of sustain ability protect legs from wounding.
+* Cursed rings can slip off your fingers when Glib.
+* Amulets of unchanging can't be polymorphed (Un)
+
+#### Eating Jewelery & Accessories
+* Eating rings and amulets only confers an intrinsic for a temporary period.
+*  To compensate for the temporary nature of these intrinsics, the possibility of actually getting the property has been inversed.
+ * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It has been changed to 2 in 3. The chance for an amulet by eating it was 1 in 5. It has been changed to 4 in 5.
+
+** Summary of revised eating effects:**
+ - Eating a ring now grants 750-1500 turns of it's property intrinsically.
+ - Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
+ - Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
+ - Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
+ - Eating an amulet of life saving can reset saving grace.
+
+### Tools
+* Reduced weight of land mines to 40 aum (xnh)
+* Reduced weight of beartraps to 50 aum (xnh)
+* Reduced weight of pick-axe to 75 aum (SLASHEM)
+* Reduced weight of crystal ball to 100.
+* Increase the prices of many magical tools
+* Raised price of magic marker to 500
+* Raised price of magic lamp to 500 (xnh)
+* Using eroded unlocking tools also has a chance to break.
+* Playing eroded musical instruments can break the instrument or fail to play.
+* Applying rusty stethoscope is much less effective.
+* Rusty tin openers can break.
+* Applying a cursed horn of plenty causes hunger.
+* Using a cursed unlocking tool has a chance to break (Evil)
+* Credit cards may slip through a lock when cursed or hero is fumbling (xnh).
+* Reduce crystal ball paralysis if player has free action (Dyna)
+* saddles are now twice as common (FIQ)
+
+#### Safer bags of holding:
+The following safeguards were added to protect players from exploding bags:
+* Players cannot put **known** wands of cancellation or magical bags into **identified** bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dnh)
+* Players are prevented from tipping **known** explosive items into **identified** bags of holding
+* Empty wands of cancellation may still be placed inside bags of holding (no risk of blowing up)
+
+DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
+
+#### Magic markers
+* Appear randomly much less often (1/5'th of the frequency in Vanilla)
+* They can still be creating from polypiling
+* There is a 1 in 4 chance of a magic marker being the Sokoban prize.
+
+#### Unicorn horns
+* Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
+* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0, otherwise it is drained of 1 enchantment level.
+* Unicorn horn drops decrease as the number of unicorns killed increased.
+* Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn!
+* Unicorn horns cannot be poisoned (via toilet dipping)
+
+**Unicorn horns now reduce the timeouts of most afflications instead of outright curing.**
+* For troubles that time out (not illness or vomiting), the unihorn has been nerfed so that it only reduces the timeout.
+* The amount reduced depends on a few factors:
+  * the base fix is 1d3 + 1
+  * your skill in unicorn horn (multiplied by 2)
+  * the enchantment on your unicorn horn (multiplied by 3)
+  * if you are a healer, double the entire above sum
+  * Add all of the following for the time out reduction roll (or "troll").
+  * For each afflication, we roll d(troll) for the amount reduced.
+* Applying a unihorn whenever the trouble timeout is low can also exercise your skill.
+
+Note: The success rate change from SLASH'EM was experimented with, but ultimately discarded in favor of the timeout nerf.
+
+### Gems/Stones/Rocks
+* Reduced weight of flint stones to 2 aum (xnh/Spork)
+* Reduced base cost of flint stones to 1.
+* Reduced weight of rocks to 4 aum
+* Increased weight of all gray stones (except load and flint) to 25.
+* Rocks can be broken (a)pplied to produce flint stones (xnh). When the player breaks rocks, they enter into an occupation which continues until the rocks are used up.
+* Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
+* Boulders deal 1+5d4 damage instead of 1d20.
+* Cursed gems count as attacks when thrown at unicorns.
+
+
+## NEW ITEMS
+
+
+| Item                    | Class     | Origin     | Notes                                          |
+| ----------------------- | --------- | ---------- | ---------------------------------------------- |
+| rapier                  | weapon    | SLASHEM    | light metal saber                              |
+| scythe                  | weapon    | SpliceHack | strong polearm that can be used in melee       |
+| heavy sword             | weapon    | NerfHack   | base item for Load Brand                       |
+| silver short sword      | weapon    | SLASHEM    |                                                |
+| sling bullet            | weapon    | EvilHack   |                                                |
+| stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters                 |
+| flying boots            | armor     | NerfHack   | Conveys flying                                 |
+| orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                             |
+| gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects          |
+| gauntlets of swimming   | armor     | SLASHEM    | grants swimming                                |
+| rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)              |
+| anti-magic shield       | armor     | NerfHack   | provides magic resistance, blocks spellcasting |
+| tower shield            | armor     | SpliceHack | Heavy, provides 4AC                            |
+| gnomish boots           | armor     | SlashTHEM  | -2AC for gnomes                                |
+| gnomish helm            | armor     | SlashTHEM  | -2AC for gnomes                                |
+| gnomish suit            | armor     | SlashTHEM  | -3AC for gnomes                                |
+| wand of corrosion       | wand      | SpliceHack | shoots acid rays                               |
+| wand of poison gas      | wand      | SpliceHack | shoots poison gas                              |
+| wand of wonder          | wand      | SpliceHack | random wand effect                             |
+| wand of draining        | wand      | SLASHEM    | shoots drain life rays                         |
+| scroll of cloning       | scroll    | SpliceHack | clones items or monsters                       |
+| scroll of knowledge     | scroll    | SpliceHack | learn about a random magic item                |
+| scroll of flood         | scroll    | Un/xnh     | generates water pools                          |
+| spellbook of repair     | spellbook | EvilHack   | repairs any item erosion                       |
+| spellbook of fire bolt  | spellbook | HackEM     | shoots a beam of fire                          |
+| potion of blood         | potion    | SLASHEM    | nutrition for vampires                         |
+| potion of vampire blood | potion    | SLASHEM    | nutrition/healing for vampires                 |
+| potion of phasing       | potion    | NerfHack   | conveys temporary phasing                      |
+| potion of reflection    | potion    | SpliceHack | conveys temporary reflection                   |
+| ring of withering       | ring      | NerfHack   | causes withering                               |
+| ring of sleeping        | ring      | SLASHEM    | causes restful sleep                           |
+| playing card deck       | tool      | SpliceHack | can reveal your current luck                   |
+| deck of fate            | tool      | SpliceHack | high risk, high reward!                        |
+| healthstone             | gem       | SLASHEM    | affects regeneration                           |
+| whetstone               | gem       | SLASHEM    | sharpens edged weapons                         |
+| foulstone               | gem       | NerfHack   | aggravate monster & misc effects               |
+
+* Potions of reflection are immune to fire and cold damage.
+* (!) fingerless gloves do not protect against petrification!
+
+**playing card deck:**
+* When applied, gives you a poker hand which correlates to your luck.
+* If the deck is blessed (or you are a cartomancer), you get a clear indication of your luck
+  by using the kicker.
+* If uncursed, you get a rough indication of your luck by the hand strength.
+* If cursed, the meanings are reversed.
+* Can be #tipped and emptied for a stack of razor cards
+
+**scroll of cloning:**
+* Ported from SpliceHack with modifications
+* This is a $300 scroll that can clone an item in your inventory or clone yourself if read whilst confused.
+* Attempting to clone unique items or items that are too powerful will result in lesser quality results: magic markers, magic lamps, wands of wishing, scrolls of cloning, artifacts, and any invocation items.
+* To copy the enchantment on an item, the scroll must be blessed.
+* If the scroll is cursed, the resulting item will be cursed.
+* All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto. 
+* When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
+* If confused and the scroll is blessed, you can also clone yourself to create a powerful tame pet if you currently hold a strong polyform (ie: master mind flayer, purple worm, etc)
+
+**Here are the updated features from SpliceHack:**
+
+Unpaid items cloned in shops now become the property of the shopkeeper. Additionally, more item properties are carried over during cloning, including erosion-proofing, container status, and other miscellaneous attributes to ensure that items are genuinely cloned.
+
+Intelligent monsters can also use these scrolls to clone themselves, which helps balance the scroll's power, as many will be consumed by monsters. When monsters read the scrolls, they always read-as-confused, meaning they can only clone themselves. Whilst this approach might seem odd, it simplifies the system by avoiding the complexities of allowing monsters to clone items.
+
+Unique monsters can use these scrolls as well, but the Wizard of Yendor must still follow the Double Trouble routine, ensuring that no more than two Rodneys can oppose you at any time. However, other unique monsters have the potential to clone themselves more than once if the opportunity arises.
+
+**deck of fate:**
+This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
+
+If cursed, the drawn card will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
+
+If blessed, the drawn card is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
+
+Grants random effects when you draw a card from it. When you apply it, you are prompted for
+how many cards to draw. You can draw a max of 5 cards.
+
+* Can be #tipped and emptied for a stack of random razor cards
+
+This powerful tarot-based deck has been ported from SpliceHack, incorporating some significant changes. In the original version, players were prompted to choose how many cards to draw, but this has now been modified to require a mandatory draw of five cards, eliminating the prompt altogether. After using the deck, it is always destroyed, allowing for only one use. The deck contains 22 different cards, each with the potential for either beneficial or detrimental effects, with approximately half categorized as "good" and half as "bad." Additionally, a nudge factor comes into play depending on whether the deck is cursed or blessed.
+
+When the deck is cursed, the drawn card will be lowered by one notch, making it impossible to draw The World, as it is the highest numbered card at 22. Conversely, this increases the likelihood of drawing The Tower, which is card number 1. If the deck is blessed, the drawn card is raised by one notch, effectively doubling the chances of drawing The World whilst preventing The Tower from being drawn.
+
+Players can can also #tip the deck, emptying it for a stack of random razor cards.
+
+| Card                 | Effects                                                 |
+| -------------------- | ------------------------------------------------------- |
+| The Tower            | Lightning and acid explosions for 1d30 each on self.    |
+| The Wheel of Fortune | Draw two more cards. Cartomancers get extra cards.      |
+| The Devil            | Summons a demon. Stop drawing from the deck.            |
+| The Fool             | abuses INT and WIS.                                     |
+| Death                | touch of death; stop drawing from the deck.             |
+| Judgment             | You are punished.                                       |
+| The Emperor          | Curses two items.                                       |
+| The Hermit           | Teleport, invisibility, and aggravate monsters.         |
+| The Hanged Man       | Summons a rope golem and you lose 1 Luck.               |
+| Justice              | paralyzed for bad alignment, rewarded for good.         |
+| Temperance           | Destroy two worn pieces of armor. Curses the deck.      |
+| The Lovers           | Summons 2 peaceful foocubi.                             |
+| The Magician         | Ressurect Rodney, otherwise increase max energy.        |
+| Strength             | Increases your strength.                                |
+| The High Priestess   | Clears previous alignment abuse and you gain alignment. |
+| The Hierophant       | Creates an altar.                                       |
+| The Empress          | Creates a throne.                                       |
+| The Chariot          | Controlled level teleport.                              |
+| The Sun              | Gain (additional) intrinsic protection.                 |
+| The Moon             | Gain 7 luck.                                            |
+| The Star             | Identifies your inventory.                              |
+| The World            | Make a wish.                                            |
+
+**healthstone**
+* Ported from SLASH'EM.
+* Mostly acts the same, adds to your effective level and constitution depending on it's BUC.
+* Stackable.
+* Monsters carrying noncursed healthstones can regenerate.
+
+**whetstone**
+* Ported from SLASH'EM with updates from HackEM.
+* Whetstones no longer can add positive enchantment to a weapon, they can only repair it to +0.
+* Cursed whetstones either rust or corrode items now.
+* Blessed whetstones can uncurse a cursed weapon, but lose their blessed state in the process.
+* Most of the other small quality-of-life improvements from HackEM remain.
+
+**foulstone**
+Effects of carrying a foulstone:
+* Causes aggravate monster (but without increasing the difficulty of spawned monsters)
+* Monsters cannot digest you and you cannot digest monsters carrying one.
+* Shopkeepers will not let you into their shops and won't buy it.
+* If blessed, has a 1 in 100 chance each turn of emitting a stench that scares monsters for a short while (similar to garlic breath)
+* If cursed, has a 1 in 100 chance each turn of emitting a poisonous cloud on your square.
+
+Other effects:
+* Monsters will never eat this rock and it's inedible if you are polyd into a monster that could eat it.
+* Pets will try not to step on one (treated as a cursed item).
+* If rubbed on another rock, emits a poisonous cloud.
+* Foulstones always generate cursed.
+* Cursed foulstones cannot be dropped (like loadstones).
+
+## ARTIFACT CHANGES
+
+### General artifact changes
+* Artifact weapons can now be dual-wielded (SLASHEM)
+* Intrinsics are granted for both weapons accordingly.
+* Most artifact weapons get negative to-hit penalties instead of positive.
+  - The standard to-hit penalty is a flat -10
+  - The crowning weapons (Mjollnir, Excalibur, Stormbringer) have a to-hit penalty of -5.
+  - Magicbane and Quick Blade have a +0 to-hit.
+* Lawful and chaotic weapons cannot be two-weaponed (Evil)
+* Quest artifacts cannot be left in bones, they revert to ordinary objects.
+
+### Specific artifact changes
+* The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
+* The Tsurugi of Muramasa also confers very fast speed when wielded (Fourk)
+* Magicbane is a quarterstaff (FIQ)
+* Creating Excalibur will fix any negative enchantment on it (xnh)
+* Fire Brand instakills highly flammable monsters and green slimes (xnh)
+* Fire Brand cures sliming whenever you attack with it
+* Frost Brand instakills water elementals
+* Vorpal Blade gets a 10% chance of beheading (SLASHEM)
+* Vorpal Blade grants see invisible whilst wielded
+* Vorpal Blade provides warning vs jabberwocks (Evil)
+* The Heart of Ahriman grants slotless flying and displacement instead of stealth (FIQ)
+* The Heart of Ahriman can be invoked for a blessed remove curse effect (Fourk)
+* The Orb of Detection grants clairvoyance whilst carried.
+* Trollsbane grants regeneration whilst wielded (many variants)
+* The Eyes of the Overworld protect against more gaze attacks (Evil)
+* Prevent Cleaver from cleaving peaceful bystanders (xnh)
+* Giantslayer is now a spear (Evil)
+* Giantslayer conveys 18/\* strength whilst wielded (Dyna)
+* Ogresmasher can also hurtle light-weight monsters (Evil)
+* Werebane provides protection from shapechangers when wielded
+* The Sceptre of Might grants steadfastness when wielded
+* The Longbow of Diana confers half physical damage when wielded
+* Increased Mjollnir's wakeup radius when it strikes monsters with lightning
+* Mjollnir can be invoked for a lightning bolt (xnh)
+* Sting actually cuts through webs when exiting a web
+* Snickersnee grants stun resistance when wielded (Evil)
+* Withering can be cured by the Staff of Aesculapius (xnh/Evil)
+* Grimtooth can inflict disease on its victims (Evil)
+
+**Bane changes:**
+* All banes provide warning vs their bane monster type when wielded (Evil)
+* All banes glow red in response to their monster types (Evil)
+* All banes can instakill their associated monster types with a 1 in 5 chance (Un)
+* Sunsword and Disrupter don't get instakills
+* Banes can't instakill unique monsters
+
+
+## NEW ARTIFACTS
+
+
+| Name                  | Align     | Type                    | From       |
+| --------------------- | --------- | ----------------------- | ---------- |
+| Disrupter             | neutral   | mace                    | SLASHEM    |
+| Keolewa               | neutral   | club                    | EvilHack   |
+| The End               | neutral   | scythe                  | SpliceHack |
+| Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
+| Doomblade             | chaotic   | short sword             | SLASHEM    |
+| Poseidon's trident    | chaotic   | trident                 | SpliceHack |
+| Origin                | unaligned | quarterstaff            | SpliceHack |
+| Hellfire              | chaotic   | crossbow                | SLASHEM    |
+| Plague                | chaotic   | bow                     | SLASHEM    |
+| Pridwen               | lawful    | large shield            | SpliceHack |
+| Quick Blade           | lawful    | silver short sword      | SLASHEM    |
+| Carnwennan            | lawful    | knife                   | SpliceHack |
+| Load Brand            | unaligned | heavy sword             | NerfHack   |
+| Snakeskin             | Neutral   | robe                    | SlashTHEM  |
+| Blackshroud           | neutral   | cloak of invisibility   | SlashTHEM  |
+| Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
+| Deluder               | neutral   | cloak of displacement   | SLASHEM    |
+| Whisperfeet           | neutral   | speed boots             | SLASHEM    |
+| Mayhem                | chaotic   | stomping boots          | NerfHack   |
+| The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
+| Serenity              | lawful    | silver spear            | NerfHack   |
+| Mouser's Scalpel      | neutral   | rapier                  | slashem-up |
+| Amulet of Storms      | chaotic   | amulet of flying        | xnh        |
+| David's Sling         | neutral   | sling                   | slashthem  |
+| Holographic Void Lily | chaotic   | credit card/banned card | SpliceHack |
+
+Misc changes:
+* Plague was changed from an orcish bow to a standard bow.
+* Quick Blade is a silver short sword instead of an elvish short sword
+
+### Load Brand
+* This heavy sword was forged from load stones and weighs in at a hefty 500aum!
+* However, don't let that scare you, this thing whomps, dealing +d40 damage along with it's equivalent base damage of a two-handed sword.
+* It also confers half physical damage, steadfastness, and MC1 protection.
+* As a bonus, it also absorbs curses like Magicbane
+
+### The Lenses of Truth
+* Confers see invisible and stun resistance when worn.
+
+### Serenity
+* This silver spear blocks aggravate monster if present, prevents monsters from berserking, and counters 80% of hostile monster spells
+* It also absorbs curses like Magicbane
 
 
 ## NEW MONSTERS
@@ -1364,537 +1894,6 @@ Like the other vampires players will encounter in the dungeon, player vampires c
 Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without the conflict ability, and standing on Elbereth incurs a -5 alignment penalty.
 
 Silver weapons also generate more frequently when playing as a vampire. However, vampires cannot handle silver items or weapons, nor can they wear silver rings or zap silver wands. Whilst they can apply the silver bell on the invocation square when performing the invocation, silver items are otherwise unusable, and they will not receive silver artifact gifts from their gods. Vampires also cannot handle garlic, nor can they use the #turn undead command.
-
-
-## ITEM CHANGES
-
-
-* **Items that are 'lost'** from the players inventory will no longer be un-identified.
-* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
-* Levels of erosion on an object can affect its price (Evil).
-* orcish equipment is usually generates rusty and/or corroded
-* dwarven items frequently spawn as fixed.
-
-### ITEM EROSION AND DESTRUCTION
-* Objects can be completely destroyed via rusting/rotting/corroding (Evil)
-* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
-* Silver items can corrode (xnh)
-* The iron ball and chain cannot be destroyed from rusting (Evil)
-* Poison gas clouds can rot organic armor
-* Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
-* Item erosion can be repaired by dipping into a potion of restore ability (xnh)
-* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.
-* Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor.
-* Passive acid attacks corrodes armor more often.
-* Thrown potions of acid can corrode items when they hit a monster or the player.
-* Water damage may disintegrate scrolls; may occur when dipping (Dyna)
-* Disintegration rays can vaporize boulders
-* Improved item destruction (xnh). This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
-
-### Weapon changes
-#### Higher max weapon enchantment
-* Weapons can be enchanted much higher, with a soft limit of +11.
-* This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
-* To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from 0 to +7.
-* Random weapons have a small chance to generate with very high enchantment.
-* The enchantment based to-hit bonus for projectiles capped at +7.
-* Thrown projectiles above +7 have a high chance of dulling on hit. Even though projectiles can be enchanted quite high to +11, +12, or +13, they will quickly diminish to +7.
-* Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
-* Beware, over-enchanted weapons that vaporize now explode.
-* Abuse wisdom if items are destroyed by over-enchanting.
-
-#### Misc weapon changes
-* Swapping weapons take 0 turns (dnh)
-* A welded cursed quarterstaff doesn't block spellcasting (xnh)
-* Cursed launchers always have a chance of misfiring.
-* Crysknives are never auto-quivered
-* Any slashing or piercing weapons can now be poisoned (SLASHEM)
-* All short swords get +1 to-hit (Dyna)
-* Reduced probability of long swords generating (K-Mod)
-* Increased weight of war hammers to 120.
-* Reduced weight of morning star to 50.
-* Reduced weight of bullwhips to 7 aum
-* Increased weight of shuriken to 2 aum each.
-* Wielded polearms grant an AC bonus depending on their weight (for every 30aum, they grant -1AC)
-* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
-* **Tridents** at skilled can also skewer monsters.
-* **Spetums** can skewer up to 3 monsters when used in melee whilst riding a steed
-* **Ranseurs** can disarm monsters or the player when pounded or used in melee whilst riding a steed.
-* **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
-* +4 to-hit bonus for attacking with a scimitar on a steed.
-* Wielding and unwielding **curved swords** takes 0 turns.
-* **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
-* Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
-* **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dnh)
-* No multishot when **fumbling**
-* **Boomerangs** will can pass through enemies on hit.
-* **Polearms** can be used to trigger traps (from NetHack Fourk).
-* Polearms and lances can be pounded when blind (as long as you can sense the target)
-
-#### War Hammers
-* war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
-* They now deal 2d6 vs small monsters and 2d8 vs large
-
-#### Slings
-* Projectiles receive a powerful strength bonus when using slings (xnh)
-* Gem class projectiles do minimal damage vs thick-skinned monsters
-* Launching gem class projectiles from slings has the potential to instakill H
-
-### Armor changes
-* reduced weight of most armors by 50 aum (K-Mod)
-* reduced weight of elven gear by about 1/3'rd (Evil)
-* made kicking boots supersede thick_skin/clumsy (Splice)
-* mud boots provide protection from wrapping attacks
-* hiking boots let you avoid pit traps
-* hiking boots provide extra carrying capacity (dnh)
-* fencing gloves provide +2 to-hit when you are attacking with a free off-hand (dnh)
-* old gloves don't take erosion damage (dnh)
-* padded gloves provide an extra point of AC (dnh)
-* combat boots provide 1AC and +1 to-hit (dnh)
-* jungle boots provide protection from wounded legs (dnh)
-* kicking boots allow kicking even when your legs are wounded.
-* Levitation boots have been removed and replaced with flying boots.
-* gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
-* gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
-* increased weight of dwarvish and elven mithril coats to 200 aum
-* increased weight of dragon scales and scale mail to 80 aum
-* mummy wrappings always generate rotted
-* cursed armor weighs more when worn.
-* **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
-* only elves can safely enchant elven armor over +3. Other races will get a warning vibration if their elven armor is enchanted over +3.
-* worn armor has a 25% weight reduction (xnh/FIQ)
-* dwarves and elves get a +1 bonus for each racially aligned piece of armor they wear (Evil)
-* orcs and gnomes get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
-* plate mail now grants 8AC
-* crystal plate mail now grants 9AC
-* bronze plate mail now grants 7AC
-* leather armors don't grant any MC.
-
-#### Dragon scales and scale mail changes
-* The AC of dragon scales has been reduced from 3AC to 1AC
-* The AC of dragon scale mail has been reduced from 9AC to 4AC
-* Dragon scale mail weighs 80.
-* **Dragon scale mail cannot be wished for**
-* Any wishes for scale mails will simply be converted to the equivalent dragon scales instead. For example, if you wish for "yellow dragon scale mail", you will receive "yellow dragon scales".
-* When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
-* Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
-* Green dragon scale mail also grants regeneration.
-* Silver dragon scale mail offers protection against most blinding attacks.
-* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
-
-### Comestibles
-* Port the Oily Corpses Patch (xnh)
-* Blessed food items are rotten much less often.
-* Eucalyptus leaves can never be rotten unless cursed.
-* Zapping eggs with cancellation sterilizes them (from HackEM).
-* Cursed food items will no longer tame or pacify monsters.
-
-### Potions
-* Raised price of potion of restore ability to 250
-* Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
-* Implement behavior for cursed potion of gain ability (xnh)
-* Vampires like cursed blood more than uncursed or blessed blood (the opposite of SLASH'EM)
-* Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
-* Dipping an eroded item in restore ability repairs the erosion (xnh)
-* Dipping in potions of reflection erodeproofs an item.
-* Potions of restore ability can be alchemized.
-* Quaffing potions of restore ability also cures wounded legs.
-* Acid potions are immune to being destroyed by freezing (xnh)
-* More potion breathing effects (xnh)
-* Thrown potions of hallucination confuse monsters (Evil)
-* Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
-* Withering can be cured by quaffing holy water.
-* Blessed restore ability only restores a few levels (Evil)
-* potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
-* Mixing oil with water always results in diluted oil.
-* Dipping water into any potion will simply dilute the other potion (SLASHEM)
-* Dipping into a cursed potion always causes an explosion (SLASHEM).
-* Dipping acid into toilets explodes and destroys the toilet.
-* Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
-* HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
-
-#### Diluted potion effects
-* Most potions have a much less potent effect when diluted (EvilHack)
-* Potions can sometimes generate diluted.
-* Shopkeepers only offer 1/2 price for diluted potions.
-* Diluted healing potions heal less and grant less max-HP (EvilHack).
-
-#### GEM ALCHEMY
-* Ported from UnNetHack, originally from SLASH'EM.
-* This allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance.
-* This adds some serious value to potions of acid and gems.
-* Gem alchemy recipes can be viewed in the object lookup entry for "potion of acid".
-* Other potions and gems should display their respective recipes.
-* Gems auto-id after successful gem alchemy.
-
-### Scrolls
-* Scrolls of enchant weapon cost 200
-* Scrolls of enchant armor cost 200
-* Reduced probability of enchant weapon scrolls, increased prob of scrolls of knowledge.
-* Scrolls of remove curse cost 300
-* Blank scrolls cost 50
-* Buff the effects of the scroll of light (xnh)
-* Reverse the name of the HACKEM MUCHE scroll
-* Cursed scrolls of remove curse will curse items.
-* Scrolls of genocide only clear a single monster species on the level (uncursed) or globally (blessed) (Un)
-* Endgame genocide nerf. Monsters cannot be fully genocided after entering the planes. Any genocides executed in the end game will be uncursed and only have a 1 in 4 chance of destroying each monster of that species. This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
-* Enchant armor: Ability to choose worn piece of armor to enchant/repair (Evil)
-* Give enchanting vibrate warning for all weapons/armor (Dyna)
-* Blessed scroll of destroy armor asks which armor to destroy (xnh)
-* Confused cursed scroll of destroy armor prompts for armor to fix
-* Confused scroll of identify gives enlightenment (xnh)
-
-### Wands
-* Raised price of wand of nothing to 500 (EvilHack)
-* Cursed wands have a higher chance of exploding and can backfire.
-
-* Raise odds of a cursed wand exploding to 1 in 30 (Un)
-* Cursed wand backfire patch (Evil)
-  * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
-* Blessed and uncursed wands wrest much more often
-  * blessed wands wrest 1/7 of the time
-  * uncursed wrest 1/23 of the time
-  * cursed wands still wrest 1/121 of the time
-* Wand of cancellation extensions
-  * Monsters can zap the player with wands of cancellation
-  * Being cancelled removes the protection spell effects
-  * Small chance dragon scale mail will revert back to a set of scales if cancelled (Un/Evil)
-* Increase wand to-hit chance for high-dex characters  (Splice)
-* Wands of secret door detection can be broken to detect traps.
-* Wand explosions discharge their effects in an explosion (SLASH'EM).
-* Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
-* Monsters zapping cursed wands have double the chance of explosions.
-* You must have at least one free hand to zap a wand.
-* Plastic wands can neither be broken (via apply) nor exploded by shock damage.
-
-#### Wands of wishing
-* **Always generate pre-charged**, meaning they can never be re-charged, otherwise they will explode (many variants incorporate this)
-* Wands of wishing only generate with d2 charges
-* The maximum possible wishes from any WoW is 3 wishes
-
-### Rings/Amulets
-* Port FIQHack's ring initial enchantment rules
-* Cursed rings burn extra nutrition when worn.
-* Amulets of magical breathing are immune to water damage
-* The ring of levitation is now a valid starting ring.
-* Rings of sustain ability protect legs from wounding.
-* Cursed rings can slip off your fingers when Glib.
-* Amulets of unchanging can't be polymorphed (Un)
-
-#### Eating Jewelery & Accessories
-* Eating rings and amulets only confers an intrinsic for a temporary period.
-*  To compensate for the temporary nature of these intrinsics, the possibility of actually getting the property has been inversed.
- * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It has been changed to 2 in 3. The chance for an amulet by eating it was 1 in 5. It has been changed to 4 in 5.
-
-** Summary of revised eating effects:**
- - Eating a ring now grants 750-1500 turns of it's property intrinsically.
- - Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
- - Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
- - Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
- - Eating an amulet of life saving can reset saving grace.
-
-### Tools
-* Reduced weight of land mines to 40 aum (xnh)
-* Reduced weight of beartraps to 50 aum (xnh)
-* Reduced weight of pick-axe to 75 aum (SLASHEM)
-* Reduced weight of crystal ball to 100.
-* Increase the prices of many magical tools
-* Raised price of magic marker to 500
-* Raised price of magic lamp to 500 (xnh)
-* Using eroded unlocking tools also has a chance to break.
-* Playing eroded musical instruments can break the instrument or fail to play.
-* Applying rusty stethoscope is much less effective.
-* Rusty tin openers can break.
-* Applying a cursed horn of plenty causes hunger.
-* Using a cursed unlocking tool has a chance to break (Evil)
-* Credit cards may slip through a lock when cursed or hero is fumbling (xnh).
-* Reduce crystal ball paralysis if player has free action (Dyna)
-* saddles are now twice as common (FIQ)
-
-#### Safer bags of holding:
-The following safeguards were added to protect players from exploding bags:
-* Players cannot put **known** wands of cancellation or magical bags into **identified** bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dnh)
-* Players are prevented from tipping **known** explosive items into **identified** bags of holding
-* Empty wands of cancellation may still be placed inside bags of holding (no risk of blowing up)
-
-DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
-
-#### Magic markers
-* Appear randomly much less often (1/5'th of the frequency in Vanilla)
-* They can still be creating from polypiling
-* There is a 1 in 4 chance of a magic marker being the Sokoban prize.
-
-#### Unicorn horns
-* Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
-* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0, otherwise it is drained of 1 enchantment level.
-* Unicorn horn drops decrease as the number of unicorns killed increased.
-* Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn!
-* Unicorn horns cannot be poisoned (via toilet dipping)
-
-**Unicorn horns now reduce the timeouts of most afflications instead of outright curing.**
-* For troubles that time out (not illness or vomiting), the unihorn has been nerfed so that it only reduces the timeout.
-* The amount reduced depends on a few factors:
-  * the base fix is 1d3 + 1
-  * your skill in unicorn horn (multiplied by 2)
-  * the enchantment on your unicorn horn (multiplied by 3)
-  * if you are a healer, double the entire above sum
-  * Add all of the following for the time out reduction roll (or "troll").
-  * For each afflication, we roll d(troll) for the amount reduced.
-* Applying a unihorn whenever the trouble timeout is low can also exercise your skill.
-
-Note: The success rate change from SLASH'EM was experimented with, but ultimately discarded in favor of the timeout nerf.
-
-### Gems/Stones/Rocks
-* Reduced weight of flint stones to 2 aum (xnh/Spork)
-* Reduced base cost of flint stones to 1.
-* Reduced weight of rocks to 4 aum
-* Increased weight of all gray stones (except load and flint) to 25.
-* Rocks can be broken (a)pplied to produce flint stones (xnh). When the player breaks rocks, they enter into an occupation which continues until the rocks are used up.
-* Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
-* Boulders deal 1+5d4 damage instead of 1d20.
-* Cursed gems count as attacks when thrown at unicorns.
-
-
-## NEW ITEMS
-
-
-| Item                    | Class     | Origin     | Notes                                          |
-| ----------------------- | --------- | ---------- | ---------------------------------------------- |
-| rapier                  | weapon    | SLASHEM    | light metal saber                              |
-| scythe                  | weapon    | SpliceHack | strong polearm that can be used in melee       |
-| heavy sword             | weapon    | NerfHack   | base item for Load Brand                       |
-| silver short sword      | weapon    | SLASHEM    |                                                |
-| sling bullet            | weapon    | EvilHack   |                                                |
-| stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters                 |
-| flying boots            | armor     | NerfHack   | Conveys flying                                 |
-| orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                             |
-| gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects          |
-| gauntlets of swimming   | armor     | SLASHEM    | grants swimming                                |
-| rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)              |
-| anti-magic shield       | armor     | NerfHack   | provides magic resistance, blocks spellcasting |
-| tower shield            | armor     | SpliceHack | Heavy, provides 4AC                            |
-| gnomish boots           | armor     | SlashTHEM  | -2AC for gnomes                                |
-| gnomish helm            | armor     | SlashTHEM  | -2AC for gnomes                                |
-| gnomish suit            | armor     | SlashTHEM  | -3AC for gnomes                                |
-| wand of corrosion       | wand      | SpliceHack | shoots acid rays                               |
-| wand of poison gas      | wand      | SpliceHack | shoots poison gas                              |
-| wand of wonder          | wand      | SpliceHack | random wand effect                             |
-| wand of draining        | wand      | SLASHEM    | shoots drain life rays                         |
-| scroll of cloning       | scroll    | SpliceHack | clones items or monsters                       |
-| scroll of knowledge     | scroll    | SpliceHack | learn about a random magic item                |
-| scroll of flood         | scroll    | Un/xnh     | generates water pools                          |
-| spellbook of repair     | spellbook | EvilHack   | repairs any item erosion                       |
-| spellbook of fire bolt  | spellbook | HackEM     | shoots a beam of fire                          |
-| potion of blood         | potion    | SLASHEM    | nutrition for vampires                         |
-| potion of vampire blood | potion    | SLASHEM    | nutrition/healing for vampires                 |
-| potion of phasing       | potion    | NerfHack   | conveys temporary phasing                      |
-| potion of reflection    | potion    | SpliceHack | conveys temporary reflection                   |
-| ring of withering       | ring      | NerfHack   | causes withering                               |
-| ring of sleeping        | ring      | SLASHEM    | causes restful sleep                           |
-| playing card deck       | tool      | SpliceHack | can reveal your current luck                   |
-| deck of fate            | tool      | SpliceHack | high risk, high reward!                        |
-| healthstone             | gem       | SLASHEM    | affects regeneration                           |
-| whetstone               | gem       | SLASHEM    | sharpens edged weapons                         |
-| foulstone               | gem       | NerfHack   | aggravate monster & misc effects               |
-
-* Potions of reflection are immune to fire and cold damage.
-* (!) fingerless gloves do not protect against petrification!
-
-**playing card deck:**
-* When applied, gives you a poker hand which correlates to your luck.
-* If the deck is blessed (or you are a cartomancer), you get a clear indication of your luck
-  by using the kicker.
-* If uncursed, you get a rough indication of your luck by the hand strength.
-* If cursed, the meanings are reversed.
-* Can be #tipped and emptied for a stack of razor cards
-
-**scroll of cloning:**
-* Ported from SpliceHack with modifications
-* This is a $300 scroll that can clone an item in your inventory or clone yourself if read whilst confused.
-* Attempting to clone unique items or items that are too powerful will result in lesser quality results: magic markers, magic lamps, wands of wishing, scrolls of cloning, artifacts, and any invocation items.
-* To copy the enchantment on an item, the scroll must be blessed.
-* If the scroll is cursed, the resulting item will be cursed.
-* All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto. 
-* When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
-* If confused and the scroll is blessed, you can also clone yourself to create a powerful tame pet if you currently hold a strong polyform (ie: master mind flayer, purple worm, etc)
-
-**Here are the updated features from SpliceHack:**
-
-Unpaid items cloned in shops now become the property of the shopkeeper. Additionally, more item properties are carried over during cloning, including erosion-proofing, container status, and other miscellaneous attributes to ensure that items are genuinely cloned.
-
-Intelligent monsters can also use these scrolls to clone themselves, which helps balance the scroll's power, as many will be consumed by monsters. When monsters read the scrolls, they always read-as-confused, meaning they can only clone themselves. Whilst this approach might seem odd, it simplifies the system by avoiding the complexities of allowing monsters to clone items.
-
-Unique monsters can use these scrolls as well, but the Wizard of Yendor must still follow the Double Trouble routine, ensuring that no more than two Rodneys can oppose you at any time. However, other unique monsters have the potential to clone themselves more than once if the opportunity arises.
-
-**deck of fate:**
-This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
-
-If cursed, the drawn card will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
-
-If blessed, the drawn card is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
-
-Grants random effects when you draw a card from it. When you apply it, you are prompted for
-how many cards to draw. You can draw a max of 5 cards.
-
-* Can be #tipped and emptied for a stack of random razor cards
-
-This powerful tarot-based deck has been ported from SpliceHack, incorporating some significant changes. In the original version, players were prompted to choose how many cards to draw, but this has now been modified to require a mandatory draw of five cards, eliminating the prompt altogether. After using the deck, it is always destroyed, allowing for only one use. The deck contains 22 different cards, each with the potential for either beneficial or detrimental effects, with approximately half categorized as "good" and half as "bad." Additionally, a nudge factor comes into play depending on whether the deck is cursed or blessed.
-
-When the deck is cursed, the drawn card will be lowered by one notch, making it impossible to draw The World, as it is the highest numbered card at 22. Conversely, this increases the likelihood of drawing The Tower, which is card number 1. If the deck is blessed, the drawn card is raised by one notch, effectively doubling the chances of drawing The World whilst preventing The Tower from being drawn.
-
-Players can can also #tip the deck, emptying it for a stack of random razor cards.
-
-| Card                 | Effects                                                 |
-| -------------------- | ------------------------------------------------------- |
-| The Tower            | Lightning and acid explosions for 1d30 each on self.    |
-| The Wheel of Fortune | Draw two more cards. Cartomancers get extra cards.      |
-| The Devil            | Summons a demon. Stop drawing from the deck.            |
-| The Fool             | abuses INT and WIS.                                     |
-| Death                | touch of death; stop drawing from the deck.             |
-| Judgment             | You are punished.                                       |
-| The Emperor          | Curses two items.                                       |
-| The Hermit           | Teleport, invisibility, and aggravate monsters.         |
-| The Hanged Man       | Summons a rope golem and you lose 1 Luck.               |
-| Justice              | paralyzed for bad alignment, rewarded for good.         |
-| Temperance           | Destroy two worn pieces of armor. Curses the deck.      |
-| The Lovers           | Summons 2 peaceful foocubi.                             |
-| The Magician         | Ressurect Rodney, otherwise increase max energy.        |
-| Strength             | Increases your strength.                                |
-| The High Priestess   | Clears previous alignment abuse and you gain alignment. |
-| The Hierophant       | Creates an altar.                                       |
-| The Empress          | Creates a throne.                                       |
-| The Chariot          | Controlled level teleport.                              |
-| The Sun              | Gain (additional) intrinsic protection.                 |
-| The Moon             | Gain 7 luck.                                            |
-| The Star             | Identifies your inventory.                              |
-| The World            | Make a wish.                                            |
-
-**healthstone**
-* Ported from SLASH'EM.
-* Mostly acts the same, adds to your effective level and constitution depending on it's BUC.
-* Stackable.
-* Monsters carrying noncursed healthstones can regenerate.
-
-**whetstone**
-* Ported from SLASH'EM with updates from HackEM.
-* Whetstones no longer can add positive enchantment to a weapon, they can only repair it to +0.
-* Cursed whetstones either rust or corrode items now.
-* Blessed whetstones can uncurse a cursed weapon, but lose their blessed state in the process.
-* Most of the other small quality-of-life improvements from HackEM remain.
-
-**foulstone**
-Effects of carrying a foulstone:
-* Causes aggravate monster (but without increasing the difficulty of spawned monsters)
-* Monsters cannot digest you and you cannot digest monsters carrying one.
-* Shopkeepers will not let you into their shops and won't buy it.
-* If blessed, has a 1 in 100 chance each turn of emitting a stench that scares monsters for a short while (similar to garlic breath)
-* If cursed, has a 1 in 100 chance each turn of emitting a poisonous cloud on your square.
-
-Other effects:
-* Monsters will never eat this rock and it's inedible if you are polyd into a monster that could eat it.
-* Pets will try not to step on one (treated as a cursed item).
-* If rubbed on another rock, emits a poisonous cloud.
-* Foulstones always generate cursed.
-* Cursed foulstones cannot be dropped (like loadstones).
-
-## ARTIFACT CHANGES
-
-### General artifact changes
-* Artifact weapons can now be dual-wielded (SLASHEM)
-* Intrinsics are granted for both weapons accordingly.
-* Most artifact weapons get negative to-hit penalties instead of positive.
-  - The standard to-hit penalty is a flat -10
-  - The crowning weapons (Mjollnir, Excalibur, Stormbringer) have a to-hit penalty of -5.
-  - Magicbane and Quick Blade have a +0 to-hit.
-* Lawful and chaotic weapons cannot be two-weaponed (Evil)
-* Quest artifacts cannot be left in bones, they revert to ordinary objects.
-
-### Specific artifact changes
-* The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
-* The Tsurugi of Muramasa also confers very fast speed when wielded (Fourk)
-* Magicbane is a quarterstaff (FIQ)
-* Creating Excalibur will fix any negative enchantment on it (xnh)
-* Fire Brand instakills highly flammable monsters and green slimes (xnh)
-* Fire Brand cures sliming whenever you attack with it
-* Frost Brand instakills water elementals
-* Vorpal Blade gets a 10% chance of beheading (SLASHEM)
-* Vorpal Blade grants see invisible whilst wielded
-* Vorpal Blade provides warning vs jabberwocks (Evil)
-* The Heart of Ahriman grants slotless flying and displacement instead of stealth (FIQ)
-* The Heart of Ahriman can be invoked for a blessed remove curse effect (Fourk)
-* The Orb of Detection grants clairvoyance whilst carried.
-* Trollsbane grants regeneration whilst wielded (many variants)
-* The Eyes of the Overworld protect against more gaze attacks (Evil)
-* Prevent Cleaver from cleaving peaceful bystanders (xnh)
-* Giantslayer is now a spear (Evil)
-* Giantslayer conveys 18/\* strength whilst wielded (Dyna)
-* Ogresmasher can also hurtle light-weight monsters (Evil)
-* Werebane provides protection from shapechangers when wielded
-* The Sceptre of Might grants steadfastness when wielded
-* The Longbow of Diana confers half physical damage when wielded
-* Increased Mjollnir's wakeup radius when it strikes monsters with lightning
-* Mjollnir can be invoked for a lightning bolt (xnh)
-* Sting actually cuts through webs when exiting a web
-* Snickersnee grants stun resistance when wielded (Evil)
-* Withering can be cured by the Staff of Aesculapius (xnh/Evil)
-* Grimtooth can inflict disease on its victims (Evil)
-
-**Bane changes:**
-* All banes provide warning vs their bane monster type when wielded (Evil)
-* All banes glow red in response to their monster types (Evil)
-* All banes can instakill their associated monster types with a 1 in 5 chance (Un)
-* Sunsword and Disrupter don't get instakills
-* Banes can't instakill unique monsters
-
-
-## NEW ARTIFACTS
-
-
-| Name                  | Align     | Type                    | From       |
-| --------------------- | --------- | ----------------------- | ---------- |
-| Disrupter             | neutral   | mace                    | SLASHEM    |
-| Keolewa               | neutral   | club                    | EvilHack   |
-| The End               | neutral   | scythe                  | SpliceHack |
-| Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
-| Doomblade             | chaotic   | short sword             | SLASHEM    |
-| Poseidon's trident    | chaotic   | trident                 | SpliceHack |
-| Origin                | unaligned | quarterstaff            | SpliceHack |
-| Hellfire              | chaotic   | crossbow                | SLASHEM    |
-| Plague                | chaotic   | bow                     | SLASHEM    |
-| Pridwen               | lawful    | large shield            | SpliceHack |
-| Quick Blade           | lawful    | silver short sword      | SLASHEM    |
-| Carnwennan            | lawful    | knife                   | SpliceHack |
-| Load Brand            | unaligned | heavy sword             | NerfHack   |
-| Snakeskin             | Neutral   | robe                    | SlashTHEM  |
-| Blackshroud           | neutral   | cloak of invisibility   | SlashTHEM  |
-| Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
-| Deluder               | neutral   | cloak of displacement   | SLASHEM    |
-| Whisperfeet           | neutral   | speed boots             | SLASHEM    |
-| Mayhem                | chaotic   | stomping boots          | NerfHack   |
-| The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
-| Serenity              | lawful    | silver spear            | NerfHack   |
-| Mouser's Scalpel      | neutral   | rapier                  | slashem-up |
-| Amulet of Storms      | chaotic   | amulet of flying        | xnh        |
-| David's Sling         | neutral   | sling                   | slashthem  |
-| Holographic Void Lily | chaotic   | credit card/banned card | SpliceHack |
-
-Misc changes:
-* Plague was changed from an orcish bow to a standard bow.
-* Quick Blade is a silver short sword instead of an elvish short sword
-
-### Load Brand
-* This heavy sword was forged from load stones and weighs in at a hefty 500aum!
-* However, don't let that scare you, this thing whomps, dealing +d40 damage along with it's equivalent base damage of a two-handed sword.
-* It also confers half physical damage, steadfastness, and MC1 protection.
-* As a bonus, it also absorbs curses like Magicbane
-
-### The Lenses of Truth
-* Confers see invisible and stun resistance when worn.
-
-### Serenity
-* This silver spear blocks aggravate monster if present, prevents monsters from berserking, and counters 80% of hostile monster spells
-* It also absorbs curses like Magicbane
-
 
 ## SPELLCASTING CHANGES
 
