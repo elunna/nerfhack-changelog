@@ -99,6 +99,7 @@
       - [Card drops](#card-drops)
       - [Spell beings](#spell-beings)
       - [Summon cards](#summon-cards)
+      - [Explosive summon cards](#explosive-summon-cards)
       - [Razor cards](#razor-cards)
       - [Zappable cards](#zappable-cards)
       - [Spellcasting overhaul](#spellcasting-overhaul)
@@ -379,6 +380,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Levitation boots have been removed and replaced with flying boots.
 * gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
 * gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
+* oilskin cloaks let you slip effortlessly out of web traps.
 * increased weight of dwarvish and elven mithril coats to 200 aum
 * increased weight of dragon scales and scale mail to 80 aum
 * mummy wrappings always generate rotted
@@ -491,9 +493,9 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage.
 
 #### Wands of wishing
-* **Always generate pre-charged**, meaning they can never be re-charged, otherwise they will explode (many variants incorporate this)
-* Wands of wishing only generate with d2 charges
-* The maximum possible wishes from any WoW is 3 wishes
+* Wands of wishing do not generate randomly.
+* The only wand of wishing is found at the castle and is precharged with 2 charges so will always yield 3 wishes, no more and no less.
+
 
 ### Rings/Amulets
 * Port FIQHack's ring initial enchantment rules
@@ -588,7 +590,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | heavy sword             | weapon    | NerfHack   | base item for Load Brand                       |
 | silver short sword      | weapon    | SLASHEM    |                                                |
 | sling bullet            | weapon    | EvilHack   |                                                |
-| stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters                 |
+| stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy          |
 | flying boots            | armor     | NerfHack   | Conveys flying                                 |
 | orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                             |
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects          |
@@ -614,6 +616,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | potion of reflection    | potion    | SpliceHack | conveys temporary reflection                   |
 | ring of withering       | ring      | NerfHack   | causes withering                               |
 | ring of sleeping        | ring      | SLASHEM    | causes restful sleep                           |
+| ring of carrying        | ring      | xNetHack   | grants expanded carrying capacity              |
 | playing card deck       | tool      | SpliceHack | can reveal your current luck                   |
 | deck of fate            | tool      | SpliceHack | high risk, high reward!                        |
 | healthstone             | gem       | SLASHEM    | affects regeneration                           |
@@ -693,10 +696,12 @@ Players can can also #tip the deck, emptying it for a stack of random razor card
 | The World            | Make a wish.                                            |
 
 **healthstone**
-* Ported from SLASH'EM.
-* Mostly acts the same, adds to your effective level and constitution depending on it's BUC.
+* Ported from SLASH'EM with updates
+* A blessed healthstone now increases your regeneration rate by 10%.
+* An uncursed healthston increases regeneration by 5%.
+* A cursed healthstone decreases regeneration by 10%.
 * Stackable.
-* Monsters carrying noncursed healthstones can regenerate.
+* Monsters carrying noncursed healthstones also gain regeneration.
 
 **whetstone**
 * Ported from SLASH'EM with updates from HackEM.
@@ -910,7 +915,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * kamadan are recolored to light green
 * kamadan can now jump and have infravision
 * kamadan get some poisonous snake bites
-* koalas cannot calm rabid or berserking monsters.
+* koalas cannot calm berserking monsters.
+* rabid koalas are not capable of calming anything
 * landsharks were recolored to bright blue
 * like likes can eat your shields and cloaks when engulfing
 * merfolk were recolored to bright green
@@ -943,7 +949,6 @@ Phoenix:
 
 
 ### Misc monster changes
-* all ghost class monsters have displacement.
 * all quest guardian colors were changed to cyan
 * all A monsters are immune to death magic (xnh)
 * air elementals get shock resistance.
@@ -1012,6 +1017,7 @@ Phoenix:
 * nurses won't heal you if you are undead.
 * nurses can also cure rabid status.
 * olog hai get poison resistance
+* all orcs can stalk the player
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
 * paper golems leave special cards for cartomancers
@@ -1053,6 +1059,7 @@ Phoenix:
 * vampire mages can see invisible
 * all werefoo in animal form get infravision
 * wargs have a thick hide.
+* weak spellcasters get an extra, weak weapon attack.
 * werefoo revert back to their base form when killed (SLASH'EM)
 * werefoo can occasionally summon rabid breathren
 * werewolves have a higher level and difficulty, stronger attacks
@@ -1211,7 +1218,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 Flanking restrictions:
 * You cannot flank if hallucinating, afraid, confused, punished, fumbling, wounded, unaware, or stunned.
 * You must be able to see the monster you want to flank.
-* Monsters cannot flank if eating, sleeping, fleeing, confused, stunned, trapped, petrified, sick, diseased, or hiding.
+* Monsters cannot flank if eating, sleeping, fleeing, confused, stunned, trapped, petrified, sick, diseased, stationary, or hiding.
 
 Certain roles also count as natural flankers and will get higher bonuses than other roles:
   - Knights
@@ -1605,6 +1612,8 @@ Curing rabid:
 
 ### VALKYRIE
 * More fire traps on valk quest
+* Valkyries get a winter wolf cub as a starting pet.
+* They can also tame winter wolves and winter wolf cubs as domestic pets.
 
 **Skill adjustments for valkyries:**
 | skill  | NetHack | ->  | NerfHack |
@@ -1761,11 +1770,23 @@ Spell beings have a "sparkling" description in farlook, so you can distinguish t
 #### Summon cards
 For cartomancers, cards of create monster are twice as common as for other roles, and when these cards spawn, they are keyed to a specific summon monster card. Cartomancers begin the game with seven summon raven cards and have opportunities to expand their collection as they slay monsters. Whilst low-level monsters rarely drop their own summon cards, there is always a small chance that any death drop will leave a higher-level monster card. As the cartomancer's level increases, so does the strength of these rare drops.
 
-Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options. The price of summon cards scales according to the difficulty of the monster they summon. In addition to reading summon cards, cartomancers can also throw them to activate the effect, which allows them to summon monsters at a distance, directly next to a threat.
+The price of summon cards scales according to the difficulty of the monster they summon. In addition to reading summon cards, cartomancers can also throw them to activate the effect, which allows them to summon monsters at a distance, directly next to a threat.
 
-Monsters can also read summon cards, so it’s important for cartomancers to collect them before they are used against them. Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Similarly, cursed summon cards will always create hostile monsters.
+Monsters can also read summon cards, so it’s important for cartomancers to collect them before they are used against them. Cursed summon cards will always create hostile monsters.
 
 Activating summon cards costs 10 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
+
+#### Explosive summon cards
+Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
+
+These monster cards are eligible for this mechanic:
+* freezing spheres
+* flaming spheres
+* acid spheres
+* shocking spheres
+* stinking spheres
+* volatile mushrooms
+* gas spores
 
 #### Razor cards
 In **NerfHack**, razor cards have been properly implemented as their own weapon type, using the shuriken skill, unlike in **SpliceHack**, where they were simply renamed shuriken. Razor cards deal 1d6 damage to both small and large creatures, have a +2 to-hit bonus, and weigh 1. Cartomancers can multishot with shuriken-skill projectiles, such as shuriken and razor cards, and they gain multishot bonuses up to expert skill. However, they do not receive additional multishot bonuses at master skill level, though they still benefit from increased damage and to-hit bonuses.
@@ -2465,6 +2486,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 ### ENDGAME CHANGES
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
+* After the invocation (and while traversing through Gehennom), monsters will flood from the upstairs (Un/Evil)
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * Replaced undead on Astral Plane with random A (xnh).
