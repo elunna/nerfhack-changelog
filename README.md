@@ -137,6 +137,7 @@
       - [Toilet kicking:](#toilet-kicking)
     - [Bloody tiles](#bloody-tiles)
     - [Traps](#traps)
+      - [Falling rock traps](#falling-rock-traps)
       - [Spear traps](#spear-traps)
       - [Magic beam traps](#magic-beam-traps)
       - [Grease traps](#grease-traps)
@@ -239,45 +240,45 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Make rustproof/erodeproof/fixed known by default (Dyna)
 
 ### INTERFACE CHANGES
-* Detailed object and monster is available in the in-game lookup (Pokedex), ported from xNetHack with updates from HackEM.
+* Detailed object and monster Pokedex is available in the in-game lookup (xnh/Un/HackEM)
 * Object lookup also works for artifacts (HackEM)
-* Peaceful monsters are underlined (TTY and curses) (xnh)
+* Peaceful monsters are underlined [TTY and curses] (xnh)
 * Magic cancellation (MC) value is shown on the bottom line (Evil)
 * Skill caps and percentage towards next level is available in #enhance
 * Show available skill slots in #enhance menu (Dyna)
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * Display AC values for armor in the hero's inventory (Splice)
-* Prayer statistics (like when you last prayed, reconciled with your god, or received a gift) can be viewed in the attributes menu (via Ctrl-X)
+* Prayer statistics (last prayed, reconciled, or received a gift) can be viewed in the attributes screen (via Ctrl-X)
 * All position prompts may be aborted
-* Show warning level 0 for very weak monsters (Dyna).
-* We are able to see when a monster is sleeping, fleeing, reflecting, withering, or is berserking from farlook information (Evil/Splice/xnh)
-* Farlook also shows amulets and rings monsters are wearing.
+* Show warning level 0 for very weak monsters (Dyna)
+* We are able to see more monster conditions on farlook (Evil/Splice/xnh)
+* Farlook also shows amulets and rings monsters are wearing
 * We are able to see what weapon a monster is wielding from farlook (Evil)
 * We are able to see roughly how much armor a monster is wearing on farlook (Evil)
 * More descriptive combat messages have been added to enhance hits and misses (xnh)
 * The SLASH'EM style message is used for getting zapped by cancellation
-* Show messages for objects that are randomly cursed (Dyna).
-* Print an explicit message when summon nasties occurs as part of wizard harassment.
-* Special room and special level walls can have their own unique coloring. For example, cockatrice nests and bee hives are yellow, and Sokoban walls are blue. (Splice/xnh)
+* Show messages for objects that are randomly cursed (Dyna)
+* Print an explicit message when summon nasties occurs as part of wizard harassment
+* Special room and special level walls can have their own unique coloring (Splice/xnh)
 * Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
 * Enabled autocomplete for #twoweapon
 * Disabled **farlook help**
 * Disabled the 3.7 **tutorial**
-* Enable **full options** by default.
+* Enable **full options** by default
 * Changed the symbol for **sinks** back to #
 * The hero's color reflects their race (SLASH'EM)
-* Suggest donation amount (relative to XP level) when #chatting to priests.
-* Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default.
-* NERFHACKOPTIONS instead of NETHACKOPTIONS.
+* Suggest donation amount (relative to XP level) when #chatting to priests
+* Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default
+* NERFHACKOPTIONS instead of NETHACKOPTIONS
 
 
 ## New config options
 
 
-* **showdamage:** Displays damage and flanking bonuses/penalties
-* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokobon penalty for use.
-* **invweight:** Show weights of objects in inventory (invweight option)
+* **showdamage:** Displays damage dealt and flanking bonuses/penalties
+* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokobon penalty for each level used.
+* **invweight:** Show weights of objects in inventory
 
 ### WIZMODE FEATURES
 * The #wizcrown command has been added for testing crowning (Evil)
@@ -285,9 +286,9 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Wizard mode can override an artifact ignoring you (xnh)
 * Allow teleportation into unteleportable spots in wizard mode
 * Allow wishing (^W) for monsters in wizmode (Un)
-* Changed #debugfuzzer command to just #fuzz.
-* Allow wishing for specific spell beings.
-* Show wizmode timeouts for sick, rabid, withering, and most other afflictions.
+* Changed #debugfuzzer command to just #fuzz
+* Allow wishing for specific spell beings
+* Show wizmode timeouts for sick, rabid, withering, and most other afflictions
 
 
 ## ITEM CHANGES
@@ -732,7 +733,6 @@ Other effects:
 * Intrinsics are granted for both weapons accordingly.
 * Most artifact weapons get negative to-hit penalties instead of positive.
   - The standard to-hit penalty is a flat -10
-  - The crowning weapons (Mjollnir, Excalibur, Stormbringer) have a to-hit penalty of -5.
   - Magicbane and Quick Blade have a +0 to-hit.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
@@ -1614,6 +1614,8 @@ Curing rabid:
 * More fire traps on valk quest
 * Valkyries get a winter wolf cub as a starting pet.
 * They can also tame winter wolves and winter wolf cubs as domestic pets.
+* Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon while advancing shield skill)
+
 
 **Skill adjustments for valkyries:**
 | skill  | NetHack | ->  | NerfHack |
@@ -2127,20 +2129,22 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Blood can be wiped off with a towel, or will wear off after enough activity.
 
 ### Traps
-* At higher levels, boulders can drop from falling rock traps.
-* Falling rock traps can result in stunning with sufficient damage (at least 6)
-* Falling rock traps can drop multiple rocks (or boulders).
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
-* You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
 * Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
-A few new traps have been added:
 
 * **Partially reverted commit 5c7c9d10a from 3.7.0** - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
   3.4.3 so this makes them somewhat threatening.
 
+#### Falling rock traps
+* At higher levels, boulders can drop from falling rock traps.
+* Falling rock traps can result in stunning with sufficient damage (at least 6)
+* Falling rock traps can drop multiple rocks (or boulders).
+* You cannot fly over falling rock traps.
+* You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
+
 #### Spear traps
-* Ported from EvilHack
+* A new floor trap ported from EvilHack
 * Spear traps only start appearing after level 5
 * Spear traps can be untrapped, potentially yielding a random spear type in the process.
 * Flying and levitation usually protect from being harmed by spear traps, however, there is still a 25% chance of being hit (by a abnormally long spear)
@@ -2149,13 +2153,13 @@ A few new traps have been added:
 * When hit, it deals 7-14 damage and wounds your legs for 10-19 turns.
 
 #### Magic beam traps
-* Ported from EvilHack
+* A new trap ported from EvilHack
 * Magic beam traps only start appearing after level 14
 * When you (or a monster) steps on this trap, it shoots a random ray type from a pre-set location that crosses through the beam trap. The beam type is set for each trap, so once you notice it shoots fire rays, it will always shoot fire rays.
 * Magic beam traps can very rarely shoot disintegration rays.
 
 #### Grease traps
-* New creation debuting in NerfHack
+* A new creation debuting in NerfHack
 * Grease traps function similarly to rust traps, but they spray a blast of grease at the player or monster that stepped on it.
 * When you step on a grease trap, you either slip in a puddle of grease or get sprayed by a grease hose.
 * When stepped on, the trap disarms with a random 1 in 15 chance.
