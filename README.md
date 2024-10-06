@@ -336,6 +336,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
 * All short swords get +1 to-hit (Dyna)
 * Reduced probability of long swords generating (K-Mod)
+* Increased probability of boomerangs
 * Increased weight of war hammers to 120.
 * Reduced weight of morning star to 50.
 * Reduced weight of bullwhips to 7 aum
@@ -488,7 +489,6 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Increase wand to-hit chance for high-dex characters  (Splice)
 * Wands of secret door detection can be broken to detect traps.
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
-* Wands generate with 4 more charges than they normally get in Vanilla (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage.
@@ -781,7 +781,7 @@ Other effects:
 | Name                  | Align     | Type                    | From       |
 | --------------------- | --------- | ----------------------- | ---------- |
 | Disrupter             | neutral   | mace                    | SLASHEM    |
-| Keolewa               | neutral   | club                    | EvilHack   |
+| Skullcrusher          | lawful    | club                    | SLASHEM    |
 | The End               | neutral   | scythe                  | SpliceHack |
 | Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
 | Doomblade             | chaotic   | short sword             | SLASHEM    |
@@ -812,7 +812,8 @@ Misc changes:
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
-* However, don't let that scare you, this thing whomps, dealing +d40 damage along with it's equivalent base damage of a two-handed sword.
+* Deals 3d10 vs small monsters and 3d16 vs large monsters
+* Double damage
 * It also confers half physical damage, steadfastness, and MC1 protection.
 * As a bonus, it also absorbs curses like Magicbane
 
@@ -996,7 +997,7 @@ Phoenix:
 * lava demons are huge
 * leprechauns do not stash gold in the ground after stealing it (reverted from 3.7)
 * lizards appear with slightly less frequency
-* ki-rin get shock, sleep, cold, and poison resistance (xnh)
+* ki-rin get shock, sleep, cold, and poison resistance (xnh)l
 * lords and princes never get negative weapons or armor (xnh)
 * lieutenants are considered lords (xnh)
 * master liches and arch-liches can see invisible (FIQ)
@@ -1004,9 +1005,9 @@ Phoenix:
 * mastodon gets a hug attack and can berserk (Evil)
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
-* mind flayer psychic blasts do more damage and can stun the player.
+* mind flayer psychic blasts do more damage; if telepathic they can stun the target.
 * minotaurs resist death magic (SLASHEM)
-* minotaurs have a thick hide and have flanking
+* minotaurs have a thick hide, have flanking, and berserk
 * all molds can generate in small groups.
 * molds and fungus can grow on corpses (SLASHEM/xnh)
 * mordor orcs can spawn with orcish boots
@@ -1037,8 +1038,9 @@ Phoenix:
 * sewer rats hide under objects (xnh)
 * scorpions are tiny
 * shades get 20MR
-* shapechangers turn back to their base form when killed (SLASH'EM)
+* shapechangers turn back to their base form when killed with 50-75% of their health (SLASH'EM)
 * shapechangers hold level-appropriate form longer, out-of-depth only briefly (Fourk).
+* cancelled shapeshifters cannot change form.
 * shopkeeper base level has been raised to 13 (xnh)
 * shopkeepers get a wand of sleep instead of striking (Evil)
 * shopkeepers get extra defensive items (SLASHEM).
@@ -1457,7 +1459,7 @@ Curing rabid:
 | shield        | n/a        | ->  | Basic      |
 
 * Cave dwellers cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. The exception is unicorn horns, which the cave dwellers can reach skilled in.
-* Cavemen get Keolewa as their first sacrifice gift.
+* Cavemen get Skullcrusher as their first sacrifice gift.
 
 ### HEALER
 * Added L's Wounds patch: healers can see damage on monsters
@@ -1997,6 +1999,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Random secret corridors have been removed (xnh)
 * Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
+* Thrones can grant knowledge of magical items.
 
 ### SHOP CHANGES
 **Lighting shops:**
@@ -2052,6 +2055,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * All Soko zoos have the white dragon guarding the treasure.
 * The zoos in Soko have been expanded slightly.
 * In addition to the amulet and bag, the Sokoban prize can also be a cloak of magic resistance or a magic marker.
+* Sokoban prizes are always erodeproofed.
 * Stop Sokoban guilt after acquiring the prize.
 * The iron bars in some of the Soko levels can be phased through, but it now incurs a Luck penalty.
 * You will now receive a message when incurring a Sokobon Luck penalty.
@@ -2283,9 +2287,9 @@ This rewards leveling up and slows down the power grab that some characters migh
 * In NerfHack, the game will roll 3 times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently. If a player fails to gain any new intrinsics, they instead are granted a wish.
 * Crowning gifts are only granted when crowned, never for #offer.
 
-New intrinsics available when crowned:
-* Acid resistance (this is the only way to receive this resistance intrinsically)
+**New intrinsics available when crowned:**
 * Disintegration resistance
+* Acid resistance (exclusive to crowning)
 * Petrification resistance (exclusive to crowning)
 * Sickness resistance (exclusive to crowning)
 
@@ -2312,22 +2316,22 @@ New intrinsics available when crowned:
 ### PARTIAL INTRINSICS
 * Ported from EvilHack
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
-* When eating a corpse, player gains a percentage of certain intrinsics instead of the full intrinsic at once.
+* When eating a corpse, player gains a percentage of certain intrinsics.
 * Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
 * Damage/effects dealt felt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
-* Gremlins steal half as much intrinsics (25 + d25)% instead of (50 + d50)%. Their intrinsic stealing attack can trigger anytime of day.
-* Cold traps and ice demons steal the same amount of cold resistance as gremlins.
+* Gremlins steal (25 + d25)% of your intrinsics
+* Cold traps and ice demons also steal (25 + d25)% of your cold resistance.
 * Enlightenment always shows the partial percentage acquired for intrinsics. If you have an extrinsic source that will be displayed separately.
 
 ### PARTIAL REFLECTION
 * Ported from EvilHack
 * Reflection will deflect most, but not all, of the effects of ray attacks.
   * Example: You are hit by a cold ray, it reflects off your amulet of reflection, but you don't yet possess cold resistance.
-* If you don't have sleep resistance, but you reflect a sleep ray, you will fall asleep for a maximum of 1d6 turns.
-* If you reflect disintegration ray, you still take 6d6 damage unless you possess disintegration resistance.
+* If you don't have sleep resistance, but you reflect a sleep ray, you will fall asleep for 1d6 turns (which could be lessened by your current level of sleep resistance).
+* If you reflect disintegration ray, you still take 12d6 damage (subject to your current level of disintegration resistance).
 * If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and half-spell damage, but is impossible to fully prevent.
 * Item destruction from elemental effects (like fire or cold) is prevented when rays are reflected.
 * Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
@@ -2441,6 +2445,16 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 
 #### Pets are limited by charisma
 * Your maximum number of pets is normally (CHA / 4), but (CHA / 8) on the Astral Plane. If you get more pets than that, they will be untamed starting with the weakest first (Evil)
+
+* Ported from EvilHack with modifications
+* The number of pets you can have on a level is now capped at Charisma divided by 4.
+* For example, if your charisma is only 7, you can keep 1 pet, at 8 charisma you can keep 2 pets.
+* However, if you exceed this limit, your weakest pets (based on level) will be the first to become untamed, with ties resolved randomly.
+* Untamed pets that were previously mistreated, such as resurrected ones, may even turn hostile.
+* Your steed, while counting toward your pet limit, will never become untamed.
+* Summoned spell beings do not count toward the total pet limit.
+* On the Astral Plane, the requirement is doubled - so your maximum pets is determined as (CHA / 8).
+* Since the minimum CHA possible is 3, you may not be able to have a pet if your charisma is too low.
 
 **Misc pet changes:**
 * Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (Evil)
