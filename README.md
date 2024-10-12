@@ -7,6 +7,7 @@
     - [WIZMODE FEATURES](#wizmode-features)
   - [ITEM CHANGES](#item-changes)
     - [ITEM EROSION AND DESTRUCTION](#item-erosion-and-destruction)
+    - [Anti-magical items resist being enchanted (from SpliceHack)](#anti-magical-items-resist-being-enchanted-from-splicehack)
     - [Weapon changes](#weapon-changes)
       - [Higher max weapon enchantment](#higher-max-weapon-enchantment)
       - [Misc weapon changes](#misc-weapon-changes)
@@ -180,6 +181,7 @@
       - [Effects at different skill levels:](#effects-at-different-skill-levels)
     - [EXPERIENCE CURVE CHANGES](#experience-curve-changes)
     - [Leveling up bonuses](#leveling-up-bonuses)
+  - [Misc changes](#misc-changes)
   - [Quick Reference](#quick-reference)
   - [CREDITS](#credits)
     - [NetHack Ideas Archive credits](#nethack-ideas-archive-credits)
@@ -316,6 +318,12 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Disintegration rays can vaporize boulders
 * Improved item destruction (xnh). This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
 
+### Anti-magical items resist being enchanted (from SpliceHack)
+* If an item grants magic resistance, it will resist scrolls of enchant weapon and enchant armor.
+* The resistance is not absolute.
+* If the item's current enchantment is negative, it will accept the effect.
+* If the item is 0 or greater, the chance of success for an enchantment effect is 1 in (n + 2), where n is the current enchantment.
+
 ### Weapon changes
 #### Higher max weapon enchantment
 * Weapons can be enchanted much higher, with a soft limit of +11.
@@ -407,6 +415,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 * Green dragon scale mail also grants regeneration.
 * Silver dragon scale mail offers protection against most blinding attacks.
+* Silver dragon scales and scale mail are actually coated in silver (Splice)
 * Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
 
 ### Comestibles
@@ -523,7 +532,6 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Reduced weight of land mines to 40 aum (xnh)
 * Reduced weight of beartraps to 50 aum (xnh)
 * Reduced weight of pick-axe to 75 aum (SLASHEM)
-* Reduced weight of crystal ball to 100.
 * Increase the prices of many magical tools
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
@@ -780,6 +788,7 @@ Other effects:
 
 | Name                  | Align     | Type                    | From       |
 | --------------------- | --------- | ----------------------- | ---------- |
+| Thunderfists          | neutral   | gauntlets of force      | NerfHack   |
 | Disrupter             | neutral   | mace                    | SLASHEM    |
 | Skullcrusher          | lawful    | club                    | SLASHEM    |
 | The End               | neutral   | scythe                  | SpliceHack |
@@ -821,8 +830,11 @@ Misc changes:
 * Confers see invisible and stun resistance when worn.
 
 ### Serenity
-* This silver spear blocks aggravate monster if present, prevents monsters from berserking, and counters 80% of hostile monster spells
-* It also absorbs curses like Magicbane
+* This silver spear has some nice benefits when wielded:
+* counters 80% of hostile monster spells while wielded
+* blocks aggravate monster
+* prevents monsters from berserking
+* absorbs curses like Magicbane
 
 
 ## NEW MONSTERS
@@ -838,6 +850,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | alhoon                 | h   | EvilHack       |
 | athol                  | B   | SLASH'EM       |
 | arc bug                | x   | SLASH'EM       |
+| arch-vile              | L   | NerfHack       |
 | assassin bug           | a   | SLASH'EM       |
 | basilisk               | c   | EvilHack       |
 | blinking eye           | e   | SLASH'EM       |
@@ -859,7 +872,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | gray fungus            | F   | Evil/THEM      |
 | gug                    | Z   | SLASH'EM       |
 | ha-naga                | N   | SpliceHack     |
+| hedgehog               | r   | SpliceHack     |
 | kamadan                | f   | SLASH'EM       |
+| killer mimic           | m   | SpliceHack     |
 | koala                  | z   | SLASH'EM       |
 | landshark              | q   | SpliceHack     |
 | lava demon             | &   | Convict Patch  |
@@ -873,6 +888,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | phase spider           | s   | SLASHEM        |
 | pixie                  | n   | SLASH'EM       |
 | phoenix                | B   | SpliceHack     |
+| queen ant              | a   | EvilHack       |              
 | redcap                 | i   | SpliceHack     |
 | revenant               | Z   | EvilHack       |
 | shadow                 | X   | SLASH'EM       |
@@ -881,6 +897,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | shimmering dragon      | D   | Deferred       |
 | spark bug              | x   | SLASH'EM       |
 | shoggoth               | P   | SLASH'EM       |
+| spiked orc             | o   | NerfHack       |
 | stinking sphere        | e   | Fourk          |
 | t-rex                  | z   | SpliceHack     |
 | third eye              | e   | SLASHEM/YANI   |
@@ -904,11 +921,13 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * alchemists can alchemize acid potions
 * alhoons were covetous in EvilHack, now they move normally but faster
 * alhoons can now displace monsters
+* arch-viles are fast and lethal L class monsters that can cast fire pillar from a distance and revive monsters
 * assassin bugs are stronger than SLASHEM
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
 * byahkees were recolored to yellow
 * chickenrats are basically reskinned rabid rats. They always spawn rabid and can jump
+* Some deepest ones are guaranteed on the plane of water
 * elven clerics were known as elven wizards in EvilHack
 * giant praying mantis now ignores all magical scaring
 * grave trolls can spawn in graves/graveyards
@@ -929,12 +948,16 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * revenants have fire resistance.
 * shadows can now stalk the player
 * shadow ogres spawn invisible and have a drain life attack
+* spiked orcs cannot wear anything in the armor slot
 * things from below can see invisible
 * troll mummies get a withering attack
 * t-rex can berserk and emit a scary roar
 * velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
 * weretigers are recolored to red and can jump
 * zoo bats now cause confusion when eaten
+
+Passive spiking monsters:
+* This mechanic was ported over from SpliceHack and applies to hedgehogs and spiked orcs.
 
 Phoenix:
 * Very strong lawful monster that explodes on death
@@ -1003,20 +1026,24 @@ Phoenix:
 * master liches and arch-liches can see invisible (FIQ)
 * mastodon is now huge; strengthened butt attacks from 4d8 to 4d16; increased difficulty
 * mastodon gets a hug attack and can berserk (Evil)
+* giant mimics, large mimics, and killer mimics are higher level and difficulty
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
 * mind flayer psychic blasts do more damage; if telepathic they can stun the target.
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide, have flanking, and berserk
+* minotaurs carry wands of digging less often
 * all molds can generate in small groups.
 * molds and fungus can grow on corpses (SLASHEM/xnh)
 * mordor orcs can spawn with orcish boots
-* mumakil get butts or kicks instead of bites.
+* mumakil get butts or kicks instead of bites
 * mummies get a nasty withering attack (xnh/Evil)
 * all mummies get an additional -1AC to compensate for their ragged wrappings
 * nazgul can shriek, inflicting stun damage (xnh)
-* nurses won't heal you if you are undead.
-* nurses can also cure rabid status.
+* nurses won't heal you if you are undead
+* nurses can also cure rabid status
+* nurses cannot flank or assist flanking
+* nurses grant max-hp at a much higher rate, for quicker "nurse dancing"
 * olog hai get poison resistance
 * all orcs can stalk the player
 * orc captains now are lords and have speed 9 (xnh)
@@ -1387,7 +1414,7 @@ Curing rabid:
 
 
 ### ARCHEOLOGIST
-* Archeologists get innate price identification
+* Archeologists get innate price identification. When unknown, items will display their base price in your inventory. This price will not display for artifacts or items you have already #named or #called.
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
 * Archeologists start out knowing dwarvish mattocks.
@@ -1650,7 +1677,7 @@ Curing rabid:
 
 **Starting inventory:**
     * graphic tee
-    * 60 blessed +0 razor cards
+    * 60 blessed +2 razor cards
     * ~4 meat sticks
     * ~4 candy bars
     * 7 blessed summon raven cards
@@ -1824,8 +1851,6 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
     * see invisible
     * astral vision
 
-The weight of crystal balls was also reduced to 100, making this a more appealing item to wield instead of a weapon.
-
 **Changes to the cartomancer quest:**
 * Created a unique duelist monster to take the place of students in the cartomancer quest.
 * The cartomancer quest levels have received some updates and detailing.
@@ -1908,6 +1933,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 | 1   | Drain resistance      |
 | 1   | Immune to death magic |
 | 9   | Sleep resistance      |
+
 (Vampires are also immune to lycanthropy, withering, and rabid statuses.)
 
 To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes. Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
@@ -1918,7 +1944,7 @@ Like the other vampires players will encounter in the dungeon, player vampires c
 
 Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without the conflict ability, and standing on Elbereth incurs a -5 alignment penalty.
 
-Silver weapons also generate more frequently when playing as a vampire. However, vampires cannot handle silver items or weapons, nor can they wear silver rings or zap silver wands. Whilst they can apply the silver bell on the invocation square when performing the invocation, silver items are otherwise unusable, and they will not receive silver artifact gifts from their gods. Vampires also cannot handle garlic, nor can they use the #turn undead command.
+Silver weapons also generate more frequently when playing as a vampire. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Vampires also cannot use the #turn undead command.
 
 ## SPELLCASTING CHANGES
 
@@ -2000,6 +2026,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
 * Thrones can grant knowledge of magical items.
+* Guaranteed pit trap just outside of wizard's zoo.
 
 ### SHOP CHANGES
 **Lighting shops:**
@@ -2135,6 +2162,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 ### Traps
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
 * Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
+* Disabled paranoid confirm for walking into vapor/clouds.
 
 * **Partially reverted commit 5c7c9d10a from 3.7.0** - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
@@ -2389,7 +2417,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 There are a few new sources of wishes:
 * Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
 * If you get crowned and you have all the resistances that are offered, you can get a wish.
-* If you zap a wand of wonder and get the wand of wishing effect (and pass a 1 in 100 roll), you can get a wish.
+* If you zap a wand of wonder and get the wand of wishing effect (and pass a 1 in 100 roll), you can get a wish. The odds of getting a wish on any given zap are (1/28) * (1/100) for 1 in 2800 per zap.
 
 **The chance of receiving the artifact from a wish is:**
 
@@ -2511,7 +2539,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
 * Demonic bribes are much more expensive.
-* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy as well as draining the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled.
+* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
 
@@ -2637,6 +2665,10 @@ Leveling up grants damage bonuses (SlashTHEM)
     * level 20+: +d(x), where x is 1 damage for every additional level gained.
     * For example: At level 25, you would get a combined total of +d6+1 damage (+1 for reaching XP 10 and +6 for levels 20-25).
 
+## Misc changes
+* These don't really fit into any category, or are just silly.
+* 8d93bedd9 Halu reverse geno troll msg (from UnNetHack).
+* 899833966 Funny troll #chat messages (from SpliceHack, I think).
 
 ## Quick Reference
 
