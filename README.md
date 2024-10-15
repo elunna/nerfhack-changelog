@@ -37,6 +37,7 @@
     - [Load Brand](#load-brand)
     - [The Lenses of Truth](#the-lenses-of-truth)
     - [Serenity](#serenity)
+    - [Thunderfists](#thunderfists)
   - [NEW MONSTERS](#new-monsters)
     - [New monster notes](#new-monster-notes)
   - [MONSTER CHANGES](#monster-changes)
@@ -124,7 +125,8 @@
       - [New shop: Collectible Card Game Company](#new-shop-collectible-card-game-company)
     - [Castle changes](#castle-changes)
     - [Valley of the Dead](#valley-of-the-dead)
-    - [Shortened Gehennom](#shortened-gehennom)
+    - [The Lethe Branch](#the-lethe-branch)
+    - [Enhanced Gehennom](#enhanced-gehennom)
     - [Sokoban](#sokoban)
     - [Fort Ludios](#fort-ludios)
     - [Minetown/Mines End](#minetownmines-end)
@@ -150,6 +152,8 @@
     - [New room: dragon lair (from SLASH'EM).](#new-room-dragon-lair-from-slashem)
     - [New room: giant courtroom (from SLASH'EM).](#new-room-giant-courtroom-from-slashem)
     - [New room: Real zoo (from SLASH'EM).](#new-room-real-zoo-from-slashem)
+    - [New room: Fungus farm (from SLASH'EM).](#new-room-fungus-farm-from-slashem)
+    - [New room: Migo hive (from SLASH'EM).](#new-room-migo-hive-from-slashem)
   - [Altars, Prayer, and Priests](#altars-prayer-and-priests)
     - [Altar cracking](#altar-cracking)
     - [#offer GIFT ODDS](#offer-gift-odds)
@@ -836,6 +840,11 @@ Misc changes:
 * prevents monsters from berserking
 * absorbs curses like Magicbane
 
+### Thunderfists
+* A pair of gauntlets of force
+* Grants shock resistance when worn
+* Deals shock damage and occasionally releases a chain lightning blast
+* Grants MC1
 
 ## NEW MONSTERS
 
@@ -2008,22 +2017,23 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 ## DUNGEON CHANGES
 
 
-* Removed the **mysterious force** from the game (xnh).
+* Extended the main dungeon to accomodate the new Lethe branch
+* Removed the **mysterious force** from the game (xnh)
 * **Branchport** always brings you to the entry level of a branch
 * Reverted the majority of **level flips** from 3.7. Flipped levels only appear in Sokoban and the big room special level.
 * The Rogue level has been disabled (many variants)
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
-* Random croll shops cannot be big rooms.
+* Random croll shops cannot be big rooms
 * No special **themed rooms** generate until level 3
-* Random rivers were added to many of the quest filler levels.
+* Random rivers were added to many of the quest filler levels
 * Trees can generate in dungeon rooms (xnh)
-* Trees can be destroyed by fire, cold, and disintegration rays.
-* If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction.
-* Medusa's Island gets flying boots instead of levitation boots.
+* Trees can be destroyed by fire, cold, and disintegration rays
+* If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction
+* Medusa's Island gets flying boots instead of levitation boots
 * Random secret doors are secret less of the time (xnh)
 * Random secret corridors have been removed (xnh)
-* Removed the "temple of the gods" theme room. This themed room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
+* Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
 * Thrones can grant knowledge of magical items.
 * Guaranteed pit trap just outside of wizard's zoo.
@@ -2058,16 +2068,44 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Instead of dart traps, the player will encounter magic traps (Evil)
 * Less ghosts are guaranteed in the valley
 
-### Shortened Gehennom
+### The Lethe Branch
 
-* Gehennom has been dramatically shortened to 5-7 levels.
-* All the demon lairs have been removed.
+* The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
+* Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
+* Cerberus now guards the entrace to the Valley.
+* The Castle level now appears as the third level down from the start of the lethe (it also now counts as a lethe level)
+* The lethe levels start after Medusa's Island and lead all the way to the Valley of the Dead.
+* The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
+* All lethe levels are undiggable.
+
+Lethe effects:
+  * You cannot gain experience.
+  * You don't gain skill points for using skills
+  * You cannot read spellbooks to learn spells, you become disoriented during attempts.
+  * You cannot engrave Elbereth, you instead forget how and become confused.
+  * There are no extra death drops from monsters.
+  * Cartomancers don't get card drops in Lethe levels.
+  * One cannot write spellbooks or scrolls effectively in the lethe levels.
+  * Spellcasters don't get a memory boost for spells on lethe levels.
+  * Lethe levels make spellcasting a little more difficult.
+  * Lethe levels make you burn more nutrition than normal.
+
+### Enhanced Gehennom
+
 * The fake wizard levels have been removed.
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xNetHack/EvilHack)
 * The portal to the wizard's tower has been moved to a random castle tower and changed to a stair up.
-* Some of the maze levels in gehennom have been trimmed out, most of the level generation is cave-like.
-* All hell fill levels are either hot or cold.
-* Disabled the ice/water levels in Gehennom.
+* The Bridge of Khazad-Dum (from UnNetHack) is now the welcome room after the Valley of the Dead.
+* Demogorgon's lair is guaranteed to appear (SLASHEM)
+* Geryon's lair has a 50% chance of appearing (SLASHEM)
+* Yeenoghu's lair has a 50% chance of appearing (SLASHEM)
+* Mephistopholes' lair has a 50% chance of appearing (SpliceHack)
+* Dispater's lair has a 50% chance of appearing (SLASHEM)
+* Alternate level for Asmodeus' lair (SpliceHack)
+* Alternate level for Baalzebub's lair (from SpliceHack)
+* Most demon lairs are now phaseproof
+* Marked the Asmodeus levels as cold and added cold traps
+* The Gulf of Nkai levels now act as the last four levels of Gehennom - with the last one taking the place of the standard vibrating square level.
 
 ### Sokoban
 
@@ -2111,6 +2149,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 ### Big Room
 * Ported bigroom variants from UnNetHack and SpliceHack.
 * Imported two bigroom variants from xnh.
+* An additional big room was added to the latter half of the main dungeon (Splice)
 
 ### Forges
 * Forges were ported in from EvilHack
@@ -2247,6 +2286,11 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 ### New room: Real zoo (from SLASH'EM).
 * Monsters in real zoos are always hostile.
 
+### New room: Fungus farm (from SLASH'EM).
+* Features a collection of slimy and oozy monsters.
+
+### New room: Migo hive (from SLASH'EM).
+* Only appears in the Lethe branch
 
 ## Altars, Prayer, and Priests
 
@@ -2537,9 +2581,8 @@ Many of these changes were introduced to work in conjunction with the new grease
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
-* Demon lords and princes can be summoned (as part of the Wizard's harassment) when you possess the Amulet of Yendor. After entering the Astral Plane, this threat will cease.
 * Demonic bribes are much more expensive.
-* Level-teleporting in hell (or wiz/vlad's towers) causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled.
+* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
 
