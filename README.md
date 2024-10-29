@@ -51,6 +51,7 @@
     - [Unique monster changes](#unique-monster-changes)
       - [Medusa](#medusa)
       - [Wizard of Yendor](#wizard-of-yendor)
+      - [The riders](#the-riders)
   - [MONSTER BEHAVIOR](#monster-behavior)
     - [Monster item use](#monster-item-use)
     - [Monster accessory use](#monster-accessory-use)
@@ -130,6 +131,7 @@
     - [Valley of the Dead](#valley-of-the-dead)
     - [The Lethe Branch](#the-lethe-branch)
     - [Enhanced Gehennom](#enhanced-gehennom)
+    - [Gulf of N'kai](#gulf-of-nkai)
     - [Sokoban](#sokoban)
     - [Fort Ludios](#fort-ludios)
     - [Minetown/Mines End](#minetownmines-end)
@@ -437,6 +439,8 @@ Exceptions:
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 * Green dragon scale mail also grants regeneration.
+* White dragon scale mail confers water walking (EvilHack).
+* Red dragon scale mail confers increase damage; enchantment works in the same fashion as a ring of increase damage.
 * Silver dragon scale mail offers protection against most blinding attacks.
 * Silver dragon scales and scale mail are actually coated in silver (Splice)
 * Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
@@ -470,6 +474,7 @@ Exceptions:
 * Dipping into a cursed potion always causes an explosion (SLASHEM).
 * Dipping acid into toilets explodes and destroys the toilet.
 * Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
+* Dipping scrolls of amnesia clears non-water non-polymorph potions; only works on a 1-to-1 basic
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 
 #### Diluted potion effects
@@ -534,6 +539,9 @@ Exceptions:
 * Rings of sustain ability protect legs from wounding.
 * Cursed rings can slip off your fingers when Glib.
 * Amulets of unchanging can't be polymorphed (Un)
+* Activating Protection from shape changers wakes up shifters when they revert to their normal shape (this also applies to Werebane, since that also confers PfSC)
+* Rings of free action offer protection from grabbing attacks (from SLASH'EM).
+* Lower chances of rings exploding during charging (SporkHack). Rings with enchantment +3 or lower will no longer have a chance to explode when charged, and rings at -5 or lower will only explode from cursed charging
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
@@ -556,6 +564,7 @@ Exceptions:
 * Using eroded unlocking tools also has a chance to break.
 * Playing eroded musical instruments can break the instrument or fail to play.
 * Applying rusty stethoscope is much less effective.
+* Stethoscopes don't work on undead or nonliving monsters.
 * Rusty tin openers can break.
 * Applying a cursed horn of plenty causes hunger.
 * Using a cursed unlocking tool has a chance to break (Evil)
@@ -620,6 +629,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
 | flying boots            | armor     | NerfHack   | Conveys flying                               |
 | orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                           |
+| bronze gauntlets        | armor     | NerfHack   | copper, 2AC                                  |
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
 | rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
@@ -628,10 +638,13 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | gnomish boots           | armor     | SlashTHEM  | -2AC for gnomes                              |
 | gnomish helm            | armor     | SlashTHEM  | -2AC for gnomes                              |
 | gnomish suit            | armor     | SlashTHEM  | -3AC for gnomes                              |
+| fire helmet             | armor     | SlashTHEM  | fire resistance                              |
+| oilskin helm            | armor     | EvilHack   | protection from tentacle/wrap attacks        |
 | wand of corrosion       | wand      | SpliceHack | shoots acid rays                             |
 | wand of poison gas      | wand      | SpliceHack | shoots poison gas                            |
 | wand of wonder          | wand      | SpliceHack | random wand effect                           |
 | wand of draining        | wand      | SLASHEM    | shoots drain life rays                       |
+| wand of identify        | wand      | SlashTHEM  | identifies items, spawns with 4-8 charges    |
 | scroll of cloning       | scroll    | SpliceHack | clones items or monsters                     |
 | scroll of knowledge     | scroll    | SpliceHack | learn about a random magic item              |
 | scroll of flood         | scroll    | Un/xnh     | generates water pools                        |
@@ -880,7 +893,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | basilisk               | c   | EvilHack       |
 | blinking eye           | e   | SLASH'EM       |
 | byahkee                | B   | SLASH'EM       |
-| chickenrat             | r   | NerfHack       |
 | deep one               | h   | SLASH'EM       |
 | deeper one             | h   | SLASH'EM       |
 | deepest one            | h   | SLASH'EM       |
@@ -952,7 +964,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
 * byahkees were recolored to yellow
-* chickenrats are basically reskinned rabid rats. They always spawn rabid and can jump
+* rats are the same as Vanilla's rabid rats. They always spawn rabid.
 * Some deepest ones are guaranteed on the plane of water
 * elven clerics were known as elven wizards in EvilHack
 * giant praying mantis now ignores all magical scaring
@@ -1207,7 +1219,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * She goes from level 20 to 24
 * She gets -8AC (a big buff from 2AC)
 * Her weapon attack goes from 2d4 to 4d4
-* Instead of a single poisonous bite, she gets three poisonous snake bite attacks.
+* Instead of a single poisonous bite, she gets two poisonous snake bite attacks.
+* Medusa also gets a stoning bite (EvilHack).
 * Medusa gets infravision
 
 #### Wizard of Yendor
@@ -1215,6 +1228,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Rodney will never steal the quest artifact of the current role (Un)
 * Rodney gets a strong weapon and the ability to use it (Evil)
 
+#### The riders
+* Each rider gets an additional 100 HP (EvilHack)
 
 ## MONSTER BEHAVIOR
 
@@ -1314,7 +1329,6 @@ Certain roles also count as natural flankers and will get higher bonuses than ot
 ### Rabid monsters
 This is a brand new mechanic, debuting in NerfHack!
 
-* The rabid rat has been removed and in its place any eligible monster can generate as a rabid version of itself. Any place in the code where rabid rats were previously, has been replaced with chickenrats.
 * There is a fairly small probability of a monster spawning rabid, but bats and coyotes always have a 1 in 10 chance of spawning infected.
 * Rabid is mostly limited to living mammals. Insects, birds, and lizards cannot contract it.
 
@@ -1327,6 +1341,7 @@ Effects of the rabid status on monsters:
 * Rabid monsters cannot quaff potions.
 * Rabid monsters cannot be tamed.
 * If a tame pet becomes rabid, it immediately loses its tameness and becomes hostile.
+* If a monster that could berserk becomes rabid, it also goes berserk.
 * Rabid monsters grant a little extra XP when killed.
 
 Effect of being rabid on the player:
@@ -1692,7 +1707,7 @@ Curing rabid:
 
 ### WIZARD
 * Wizards start with a cloak of protection instead of magic resistance.
-* Wizards always start with the spellbook of magic missile.
+* Wizards never receive magic missile in their starting inventory.
 * Wizards are able to sense magic fountains.
 
 **Skill adjustments for wizards:**
@@ -1716,7 +1731,7 @@ Curing rabid:
 
 **Starting inventory:**
     * graphic tee
-    * 40 blessed +1 razor cards
+    * 40 blessed +2 razor cards
     * ~4 meat sticks
     * ~4 candy bars
     * 7 blessed summon raven cards
@@ -2181,12 +2196,12 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
 * Cerberus now guards the entrace to the Valley.
 * The Castle level now appears as the third level down from the start of the lethe (it also now counts as a lethe level)
-* The lethe levels start after Medusa's Island and lead all the way to the Valley of the Dead.
+* The lethe levels start shortly after Medusa's Island and lead all the way to the Valley of the Dead.
 * The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
 * All lethe levels are undiggable, hardfloor, and no teleport.
 * More traps were added to these levels, especially anti-magic fields
 * Many items that were guaranteed in the original lethe patch (or dnh) were minimized or eliminated.
-* There are up to four potential altars available in the Lethe branch. Each altar has a 50% chance of appearing. If it does appear, there is a further 3 in 4 chance it's pre-cracked.
+* There are up to four potential altars available in the Lethe branch. Each altar has a 50% chance of appearing. If it does appear, there is a further 50% chance it's pre-cracked.
 Lethe effects:
   * You cannot gain experience.
   * You don't gain skill points for using skills
@@ -2215,7 +2230,11 @@ Lethe effects:
 * Ported an alternate level for Baalzebub's lair (from SpliceHack)
 * Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
-* The last four levels of Gehennom have been replaced with the Gulf of N'kai maps.
+
+### Gulf of N'kai
+* The last four levels of Gehennom have been replaced with the maps.
+* Lava replaces the lethe water flowing through the levels.
+* These levels are NOT flagged with the "lethe" flag.
 * The final N'kai level takes the place of the standard vibrating square level.
 
 ### Sokoban
@@ -2315,7 +2334,8 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
 * Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
 * Disabled paranoid confirm for walking into vapor/clouds.
-* Anti-magic fields block spellcasting and wand zapping.
+* Anti-magic fields block spellcasting for the player and monsters
+* Anti-magic fields also block wand zapping
 
 * **Partially reverted commit 5c7c9d10a from 3.7.0** - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
@@ -2543,9 +2563,9 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Hallucination negates all incoming gaze attacks, except Medusa's glare (from xNetHack).
 
 ### Slow digestion nerf
-* Slow digestion only prevents hunger 1 in every 2 turns
-* The previous behavior made hunger only occur in 1 in 20 turns
 * Slow digestion now functions in a fashion opposite of the ring of hunger.
+* Slow digestion only prevents hunger for 1 in every 2 turns
+* The previous Vanilla behavior slowed hunger to only occur 1 in 20 turns
 
 ### Stealth changes
 * To bring back the feeling of the 3.4.3 **stealth** mechanic, the chance of sleeping monsters waking up and growling has been lowered dramatically and is based on luck.
@@ -2676,6 +2696,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Mind flayers won't purposely to eat the brains of petrifying monsters (ie: when you are polymorphed into a cockatrice)
 * When you polymorph into a 'nolimbs' monster, you are able to slip out of a ball & chain (Evil)
 * Escape from controlled polymorph prompt no longer causes random poly (from xNetHack).
+* Polymorphing into a horned monster destroys flimsy or cloth helms.
 
 ### Elbereth and Scare Monster
 * Conflict negates Elbereth and scare monster protection (Evil)
