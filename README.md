@@ -474,7 +474,7 @@ Exceptions:
 * Dipping into a cursed potion always causes an explosion (SLASHEM).
 * Dipping acid into toilets explodes and destroys the toilet.
 * Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
-* Dipping scrolls of amnesia clears non-water non-polymorph potions; only works on a 1-to-1 basic
+* Dipping scrolls of amnesia blanks non-water non-polymorph potions.
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 
 #### Diluted potion effects
@@ -1020,6 +1020,7 @@ Phoenix:
 * captains are considered princes (xnh)
 * captains and watch captains generate with keys (Evil)
 * centaurs will keep their distance from the player naturally (xnh)
+* cockatrices and chickatrices can fly
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
 * deep ones and deeper ones also have thick skin.
@@ -1341,7 +1342,6 @@ Effects of the rabid status on monsters:
 * Rabid monsters cannot quaff potions.
 * Rabid monsters cannot be tamed.
 * If a tame pet becomes rabid, it immediately loses its tameness and becomes hostile.
-* If a monster that could berserk becomes rabid, it also goes berserk.
 * Rabid monsters grant a little extra XP when killed.
 
 Effect of being rabid on the player:
@@ -1387,6 +1387,7 @@ Curing rabid:
 ## MONSTER SPELLCASTING
 
 
+* Monsters can target and cast spells at other monsters (EvilHack).
 * Peaceful monsters won't cast make invisible on themselves. They also won't drink potions
   of invisibility or zap themselves with wands of make invisible.
 * Monster spellcasters will prioritize healing when wounded.
@@ -1737,16 +1738,17 @@ Curing rabid:
     * 7 blessed summon raven cards
     * 1 random rulebook
     * 33% chance of a potion of phasing
+    * sack
 
 **Intrinsics:**
-| XL  | Intrinsic                             |
-| --- | ------------------------------------- |
-| 1   | Slow (speed 10)                       |
-| 1   | Searching                             |
-| 7   | Warning                               |
-| 7   | Can ascertain razor card enchantments |
-| 15  | Fast                                  |
-| 15  | Can ascertain razor card BUC          |
+| XL  | Intrinsic                                        |
+| --- | ------------------------------------------------ |
+| 1   | Slow (speed 10)                                  |
+| 1   | Searching                                        |
+| 7   | Warning                                          |
+| 7   | Can ascertain razor card enchantments            |
+| 15  | Fast                                             |
+| 15  | Can ascertain razor card and all scroll/card BUC |
 
 * Cartomancers also start with 1 point of bonus Luck.
 
@@ -1894,7 +1896,7 @@ The price of summon cards scales according to the difficulty of the monster they
 
 Monsters can also read summon cards, so it’s important for cartomancers to collect them before they are used against them. Cursed summon cards will always create hostile monsters.
 
-Activating summon cards costs 10 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
+Activating summon cards costs 5 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
 
 #### Explosive summon cards
 Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
@@ -1916,7 +1918,7 @@ Razor cards will occasionally appear as part of a cartomancer’s regular death 
 If a player comes across a deck of cards that they have no use for, they can #tip the deck to empty it, yielding a potentially large stack of razor cards.
 
 #### Zappable cards
-Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 10 energy per card.
+Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 5 energy per card.
 
 Since cartomancers receive so many zap cards, wands have been completely removed from the random item drops in the main dungeon. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
 
@@ -2336,6 +2338,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Disabled paranoid confirm for walking into vapor/clouds.
 * Anti-magic fields block spellcasting for the player and monsters
 * Anti-magic fields also block wand zapping
+* Arrow traps and dart traps cannot be avoided by flight.
 
 * **Partially reverted commit 5c7c9d10a from 3.7.0** - Rejigger anti-magic traps. I thought the severity of the
   original change was actually fine, anti-magic traps were historically a joke in NetHack
@@ -2918,7 +2921,7 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 | #1942 | 75ebf9a84 | aosdict              | Boulders deal 1+5d4.                                                       |
 | #2435 | f05429d20 | aosdict              | Being satiated abuses wisdom for Samurai.                                  |
 | #1058 | 9c09d7d57 | RGRN                 | Abuse WIS when over-enchanting items.                                      |
-| #2950 | a6abab270 | aosdict              | Shopkeepers offer 1/2 price for diluted potions.                           |                             |
+| #2950 | a6abab270 | aosdict              | Shopkeepers offer 1/2 price for diluted potions.                           |  |
 | #3866 | 92bca4df9 | spicycat             | Cartomancers cast spells by reading books                                  |
 | #3044 | bea6abeb1 | aosdict/bouquet      | Potions of restore ability can be alchemized.                              |
 | #1992 | 163af6658 | aosdict              | Potions of restore ability also cures wounded legs.                        |
