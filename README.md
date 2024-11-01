@@ -862,7 +862,8 @@ Misc changes:
 
 ### Serenity
 * This silver spear has some nice benefits when wielded:
-* counters 80% of hostile monster spells while wielded
+* +d10 damage
+* counters 80% of monster spells while wielded
 * blocks you from casting spells when wielded
 * blocks aggravate monster
 * prevents monsters from berserking
@@ -2330,7 +2331,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * When a monster is killed, it can spray blood around the surrounding tiles depending on it's size.
 * The blood is mostly cosmetic, however, players cannot engrave in the dust whilst blood covers that tile.
 * Blood can be wiped off with a towel, or will wear off after enough activity.
-* Bloody doors are more difficult to open.
+* Bloody doors are more difficult to open and close.
 
 ### Traps
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
