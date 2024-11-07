@@ -227,13 +227,14 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID potions of booze when quaffed.
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xnh)
-* Auto-ID scroll of scare monster if it crumbles from picking up (Un)
+* Auto-ID scrolls of scare monster when they crumble from picking up (Un)
 * Auto-ID scrolls of confuse monster when read
 * Auto-ID scrolls of enchant armor when they erodeproof or make dragon scale mail
 * Auto-ID scrolls of food detection if they have an obvious effect.
-* Auto-ID enchant armor when it erodeproofs or hardens dragon scales.
+* Auto-ID scrolls of enchant armor when they erodeproof or harden dragon scales.
+* Auto-ID scrolls of remove curse when read
 * Auto-ID rings dropped into a sink (Un)
-* Auto-ID ring of regeneration if it heals you (Un)
+* Auto-ID rings of regeneration when they heal you (Un)
 * Auto-ID +0 rings of protection (if MC is increased)
 * Auto-ID wand of cancellation after destroying a bag of holding (Un)
 * Auto-ID wands when engraving (xnh)
@@ -402,17 +403,17 @@ Exceptions:
 ### Armor changes
 * reduced weight of most armors by 50 aum (K-Mod)
 * reduced weight of elven gear by about 1/3'rd (Evil)
-* made kicking boots supersede thick_skin/clumsy (Splice)
+* kicking boots supersede thick_skin/clumsy (Splice)
 * mud boots provide protection from wrapping attacks
 * hiking boots let you avoid pit traps
 * hiking boots provide extra carrying capacity (dnh)
 * fencing gloves provide +2 to-hit when you are attacking with a free off-hand (dnh)
 * old gloves don't take erosion damage (dnh)
 * padded gloves provide an extra point of AC (dnh)
+* leather gloves provide 0AC (from NetHack Brass)
 * combat boots provide 1AC and +1 to-hit (dnh)
 * jungle boots provide protection from wounded legs (dnh)
 * kicking boots allow kicking even when your legs are wounded.
-* Levitation boots have been removed and replaced with flying boots.
 * gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
 * gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
 * oilskin cloaks let you slip effortlessly out of web traps.
@@ -539,6 +540,7 @@ Exceptions:
 * Rings of sustain ability protect legs from wounding.
 * Cursed rings can slip off your fingers when Glib.
 * Amulets of unchanging can't be polymorphed (Un)
+* Amulets of guarding are now chargable with variable AC protection (positive or negative)
 * Activating Protection from shape changers wakes up shifters when they revert to their normal shape (this also applies to Werebane, since that also confers PfSC)
 * Rings of free action offer protection from grabbing attacks (from SLASH'EM).
 * Lower chances of rings exploding during charging (SporkHack). Rings with enchantment +3 or lower will no longer have a chance to explode when charged, and rings at -5 or lower will only explode from cursed charging
@@ -601,7 +603,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
   * if you are a healer, double the entire above sum
   * Add all of the following for the time out reduction roll (or "troll").
   * For each afflication, we roll d(troll) for the amount reduced.
-* Applying a unihorn whenever the trouble timeout is low can also exercise your skill.
+* Applying a unihorn can also exercise your unihorn skill.
 
 Note: The success rate change from SLASH'EM was experimented with, but ultimately discarded in favor of the timeout nerf.
 
@@ -627,9 +629,8 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | silver short sword      | weapon    | SLASHEM    |                                              |
 | sling bullet            | weapon    | EvilHack   |                                              |
 | stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
-| flying boots            | armor     | NerfHack   | Conveys flying                               |
 | orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                           |
-| bronze gauntlets        | armor     | NerfHack   | copper, 2AC                                  |
+| bronze gauntlets        | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
 | rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
@@ -866,6 +867,7 @@ Misc changes:
 * counters 80% of monster spells while wielded
 * blocks you from casting spells when wielded
 * blocks aggravate monster
+* blocks barbarian blood rage from activating if wielded
 * prevents monsters from berserking
 * absorbs curses like Magicbane
 
@@ -899,6 +901,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | deepest one            | h   | SLASH'EM       |
 | diamond piercer        | p   | SpliceHack     |
 | elven cleric           | @   | EvilHack       |
+| familiar               | @   | NerfHack       |
 | fell beast             | D   | EvilHack       |
 | ghoul mage             | Z   | SLASH'EM       |
 | giant anacondas        | S   | EvilHack       |
@@ -1333,6 +1336,7 @@ This is a brand new mechanic, debuting in NerfHack!
 
 * There is a fairly small probability of a monster spawning rabid, but bats and coyotes always have a 1 in 10 chance of spawning infected.
 * Rabid is mostly limited to living mammals. Insects, birds, and lizards cannot contract it.
+* For special rooms (zoos, throne rooms, etc), rabid monsters are prevented from spawning.
 
 Effects of the rabid status on monsters:
 * Rabid monsters get an additional bite that can cause the player to become rabid. This bite attack is also poisonous (damaging CON), similar to the rabid rat.
@@ -1344,6 +1348,7 @@ Effects of the rabid status on monsters:
 * Rabid monsters cannot be tamed.
 * If a tame pet becomes rabid, it immediately loses its tameness and becomes hostile.
 * Rabid monsters grant a little extra XP when killed.
+* Rabid humanoids will growl when #chatted with.
 
 Effect of being rabid on the player:
 * You cannot regenerate
@@ -1833,10 +1838,6 @@ Scrolls are also labeled according to their rarity. In the original SpliceHack i
 | light           | 90     | common      |
 | identify        | 180    | common      |
 
-
-
-
-
 #### Card abuse penalties
 * Cartomancers receive severe alignment penalties for forging or defacing cards.
   - writing cards: -20 alignment, -5 luck
@@ -1873,9 +1874,10 @@ When playing as a cartomancer, there is a chance that a monster will leave a car
   * phoenixes (they always leave an egg)
   * cloned monsters (gremlins, blue jellies, etc.)
   * Keystone Kops (they can be farmed)
+* Cartomancers don't get card drops while polymorphed.
 
 #### Spell beings
-Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory.
+Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat or hide. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory.
 
 Spell beings have a "sparkling" description in farlook, so you can distinguish them from permanent monsters.
 
@@ -1897,7 +1899,7 @@ The price of summon cards scales according to the difficulty of the monster they
 
 Monsters can also read summon cards, so it’s important for cartomancers to collect them before they are used against them. Cursed summon cards will always create hostile monsters.
 
-Activating summon cards costs 5 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
+Activating summon cards costs 10101010101010101010 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
 
 #### Explosive summon cards
 Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
@@ -1919,9 +1921,9 @@ Razor cards will occasionally appear as part of a cartomancer’s regular death 
 If a player comes across a deck of cards that they have no use for, they can #tip the deck to empty it, yielding a potentially large stack of razor cards.
 
 #### Zappable cards
-Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 5 energy per card.
+Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 10 energy per card.
 
-Since cartomancers receive so many zap cards, wands have been completely removed from the random item drops in the main dungeon. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
+Cartomancers will never see wands generate. Anytime a wand would spawn it is instead replaced with its equivalent zap card. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
 
 #### Spellcasting overhaul
 Cartomancers do not learn spells in the traditional way, meaning they cannot acquire spells from starting books, reading spellbooks, or receiving gifts from gods. Instead, they cast spells instantaneously by reading rulebooks. These rulebooks generate with 4-5 charges, and each reading consumes one charge. Once all charges are used, the rulebook is consumed and disappears.
@@ -2119,7 +2121,6 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Trees can generate in dungeon rooms (xnh)
 * Trees can be destroyed by fire, cold, and disintegration rays
 * If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction
-* Medusa's Island gets flying boots instead of levitation boots
 * Random secret doors are secret less of the time (xnh)
 * Random secret corridors have been removed (xnh)
 * Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
@@ -2127,6 +2128,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Thrones can grant knowledge of magical items.
 * Guaranteed pit trap just outside of wizard's zoo.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
+* Gnomish mines fill levels sometimes have varied lighting.
 
 ### New themed rooms
 * Ported kitchen themed room from Splice/xnh
@@ -2284,6 +2286,13 @@ Lethe effects:
 * Imported two bigroom variants from xnh.
 * An additional big room was added to the latter half of the main dungeon (Splice)
 
+### Grass
+* Ported using code from xNetHack, SpliceHack, and HackEM.
+* Monsters can hide under grass and other dungeon furniture (from xNetHack).
+* You cannot dust engrave on grassy tiles.
+* Burned engravings also burn up grass.
+* Added grass to big rooms.
+
 ### Forges
 * Forges were ported in from EvilHack
 * Forges let the player repair metallic armor, bless items, dispose of zombies or organic items, dispose of the iron ball and chain, and summon lava demons and fire elementals.
@@ -2331,6 +2340,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * When a monster is killed, it can spray blood around the surrounding tiles depending on it's size.
 * The blood is mostly cosmetic, however, players cannot engrave in the dust whilst blood covers that tile.
 * Blood can be wiped off with a towel, or will wear off after enough activity.
+* Fire and acid rays also burn off blood from tiles.
 * Bloody doors are more difficult to open and close.
 
 ### Traps
@@ -2432,6 +2442,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 ### New room: Migo hive (from SLASH'EM).
 * Only appears in the Lethe branch
 
+
 ## Altars, Prayer, and Priests
 
 
@@ -2451,7 +2462,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Altars only generate in the main dungeon starting at level 10 (temples may still generate starting at level 9)
+* Altars only generate in the main dungeon starting at level 6 
 * Altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
@@ -2687,6 +2698,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Pets never displace player from stairs when entering a level (Dyna).
 * Pets' items can be managed with #loot
 * We can also see if pets are stunned, confused, or blinded on farlook.
+* Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
 
 ### POLYMORPHING OBJECTS
 * The number of items you have polymorphed can be viewed in #conduct
@@ -2706,6 +2718,8 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Conflict negates Elbereth and scare monster protection (Evil)
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
 * You can't dust engrave whilst being held by a monster.
+* You can't dust engrave on bloody or grassy tiles.
+* Don't waste turns for failed engrave attempts.
 
 **Reverted 82f0b1e8e**
 * The previous behavior implmemented in 3.7.0 was "Scared hostile monster which cannot move away will attack."
