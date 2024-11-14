@@ -139,6 +139,8 @@
     - [Temple to Moloch level](#temple-to-moloch-level)
     - [Lost Tomb level](#lost-tomb-level)
     - [Big Room](#big-room)
+    - [Grass](#grass)
+    - [Puddles](#puddles)
     - [Forges](#forges)
       - [FORGING \& FORGING RECIPES](#forging--forging-recipes)
     - [Toilets](#toilets)
@@ -223,6 +225,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
 * Auto-ID potions of sickness and fruit juice when dipping unihorn in sickness
+* Auto-ID potions of see inv and fruit juice by process of elimination when quaffed.
 * Auto-ID potions of restore ability when quaffed
 * Auto-ID potions of booze when quaffed.
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
@@ -630,6 +633,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | sling bullet            | weapon    | EvilHack   |                                              |
 | stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
 | orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                           |
+| dwarvish boots          | armor     | EvilHack   | 2AC + 1AC for dwarves (replaces iron boots)  |
 | bronze gauntlets        | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
@@ -893,9 +897,12 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | arc bug                | x   | SLASH'EM       |
 | arch-vile              | L   | NerfHack       |
 | assassin bug           | a   | SLASH'EM       |
+| asphynx                | S   | SLASH'EM       |
 | basilisk               | c   | EvilHack       |
 | blinking eye           | e   | SLASH'EM       |
+| bullet ant             | a   | SpliceHack     |
 | byahkee                | B   | SLASH'EM       |
+| cerastes               | S   | SpliceHack     |
 | deep one               | h   | SLASH'EM       |
 | deeper one             | h   | SLASH'EM       |
 | deepest one            | h   | SLASH'EM       |
@@ -926,12 +933,15 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | maggot                 | w   | SLASHEM/Splice |
 | merfolk                | ;   | Splice/THEM    |
 | nightgaunt             | B   | SLASH'EM       |
+| nickelpede             | s   | SLASH'EM       |
 | ogre mage              | O   | SLASH'EM       |
 | phase spider           | s   | SLASHEM        |
 | pixie                  | n   | SLASH'EM       |
 | phoenix                | B   | SpliceHack     |
 | queen ant              | a   | EvilHack       |
+| rabbit                 | r   | SLASH'EM       |
 | redcap                 | i   | SpliceHack     |
+| recluse spider         | s   | SLASH'EM       |
 | revenant               | Z   | EvilHack       |
 | shadow                 | X   | SLASH'EM       |
 | shadow ogre            | O   | SLASH'EM       |
@@ -960,7 +970,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 
 ### New monster notes
 * adherer AC was buffed from it's original AC in SpliceHack
-* alchemists can alchemize acid potions
 * alhoons were covetous in EvilHack, now they move normally but faster
 * alhoons can now displace monsters
 * arch-viles are fast and lethal L class monsters that can cast fire pillar from a distance and revive monsters
@@ -1291,6 +1300,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Displacing monsters (like the displacer beast) cannot displace you if helpless or trapped.
 * Cancelled displacers are incapable of displacement.
 * Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
+* Monsters can hide under other dungeon furniture (xnh)
 
 ### Flanking behavior
 * Ported from SpliceHack, with enhancements
@@ -1580,12 +1590,19 @@ Curing rabid:
 * Dramatically increased the monk's body armor penalty (Evil)
 * Give explicit feedback for monks wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
+* Monks get a fully charged magic marker as a crowning gift.
+* Add trees and two ponds to monk quest start.
 
 **Skill adjustments for monks:**
-| skill        | NetHack | ->  | NerfHack   |
-| ------------ | ------- | --- | ---------- |
-| crossbow     | basic   | ->  | restricted |
-| quarterstaff | basic   | ->  | expert     |
+| skill              | NetHack | ->  | NerfHack   |
+| ------------------ | ------- | --- | ---------- |
+| crossbow           | basic   | ->  | restricted |
+| quarterstaff       | basic   | ->  | expert     |
+| enchantment spells | basic   | ->  | skilled    |
+| attack spells      | basic   | ->  | restricted |
+| divination spells  | basic   | ->  | restricted |
+| escape spells      | skilled | ->  | restricted |
+| matter spells      | basic   | ->  | restricted |
 
 ### PRIEST
 * Priests start with a +2 small shield (SLASHEM)
@@ -1877,7 +1894,7 @@ When playing as a cartomancer, there is a chance that a monster will leave a car
 * Cartomancers don't get card drops while polymorphed.
 
 #### Spell beings
-Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat or hide. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory.
+Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat or hide. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory. Spell-beings also don't count toward vanquished or special logged monsters.
 
 Spell beings have a "sparkling" description in farlook, so you can distinguish them from permanent monsters.
 
@@ -2050,9 +2067,9 @@ that don't specialize (like fighters). Non-specialists can still attempt to util
 but they will have to work harder to maintain their spells. Cavemen will have a very
 difficult time with spellcasting.
 
-* The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM).
+* The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM). Roles still start with 20000 turns of memory.
 * When reading or re-reading a spellbook, you will bring the retention back up to 10000
-* Primary spellcasters (healers, priests, monks, wizards, cartomancers) get a memory boost of 500 turns when they cast spells (SLASH'EM)
+* Primary spellcasters (healers, priests, monks, wizards, archeologists) get a memory boost of 500 turns when they cast spells (SLASH'EM)
 * Casting your **special spell** also grants a retention bonus of 500 turns no matter what role you are
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
 * Hungerless casting ignores too hungry to cast penalty (xnh)
@@ -2126,6 +2143,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
 * Thrones can grant knowledge of magical items.
+* Throne #sits can summon much larger audiences. 
 * Guaranteed pit trap just outside of wizard's zoo.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
 * Gnomish mines fill levels sometimes have varied lighting.
@@ -2200,8 +2218,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
 * Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
 * Cerberus now guards the entrace to the Valley.
-* The Castle level now appears as the third level down from the start of the lethe (it also now counts as a lethe level)
-* The lethe levels start shortly after Medusa's Island and lead all the way to the Valley of the Dead.
+* The Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island(it does not count as a lethe level)
 * The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
 * All lethe levels are undiggable, hardfloor, and no teleport.
 * More traps were added to these levels, especially anti-magic fields
@@ -2288,10 +2305,20 @@ Lethe effects:
 
 ### Grass
 * Ported using code from xNetHack, SpliceHack, and HackEM.
-* Monsters can hide under grass and other dungeon furniture (from xNetHack).
+* Monsters can hide under grass (from xNetHack).
 * You cannot dust engrave on grassy tiles.
 * Burned engravings also burn up grass.
 * Added grass to big rooms.
+
+### Puddles
+* Ported from EvilHack and SlashTHEM.
+* Puddles act as a nerf for early water sources by limiting a useful resource for diluting and blanking items.
+* Many pools are replaced with puddles instead.
+* Fountains gush out puddles instead of pools
+* Disarming a rust trap results in a puddle instead of a fountain
+* Scrolls of flood mostly create puddles instead of pools (unless cursed)
+* Whetstones can be used in puddles and can dry up puddles.
+* Tiny monsters can drown in puddles (relevant if polymorphed into one)
 
 ### Forges
 * Forges were ported in from EvilHack
@@ -2543,6 +2570,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Lessen confusing messages for confuse monster effects wearing off.
 * Passive fire damage burns away slime.
 * Phasing allows escape from being engulfed (Evil)
+* Max carry capacity has been raised to 1250, with strength playing a larger factor in its calculation.
 
 ### PARTIAL INTRINSICS
 * Ported from EvilHack
