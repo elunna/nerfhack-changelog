@@ -50,6 +50,7 @@
       - [Adult dragon changes](#adult-dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
       - [Medusa](#medusa)
+      - [Cerberus](#cerberus)
       - [Wizard of Yendor](#wizard-of-yendor)
       - [The riders](#the-riders)
   - [MONSTER BEHAVIOR](#monster-behavior)
@@ -62,6 +63,7 @@
     - [Diseased monsters](#diseased-monsters)
     - [Accurate behavior](#accurate-behavior)
     - [Jumping behavior](#jumping-behavior)
+    - [Withering attacks](#withering-attacks)
   - [MONSTER SPELLCASTING](#monster-spellcasting)
     - [Clerical Spells](#clerical-spells)
       - [protection](#protection)
@@ -123,6 +125,7 @@
     - [Spellbook of wizard-lock](#spellbook-of-wizard-lock)
     - [Spellbook of drain life](#spellbook-of-drain-life)
   - [DUNGEON CHANGES](#dungeon-changes)
+    - [New levels](#new-levels)
     - [New themed rooms](#new-themed-rooms)
     - [SHOP CHANGES](#shop-changes)
       - [New shop: Junk Shop](#new-shop-junk-shop)
@@ -165,6 +168,7 @@
     - [Altar cracking](#altar-cracking)
     - [#offer GIFT ODDS](#offer-gift-odds)
     - [CROWNING](#crowning)
+  - [THE QUEST](#the-quest)
   - [INTRINSICS AND EXTRINSICS](#intrinsics-and-extrinsics)
     - [PARTIAL INTRINSICS](#partial-intrinsics)
     - [PARTIAL REFLECTION](#partial-reflection)
@@ -205,9 +209,6 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 
 ## QUALITY OF LIFE FEATURES
 
-
-* Removed the quest turn limit (Un)
-* Players can enter the quest as soon as they reach level XL 10 (Un)
 * Chaotics do not get alignment penalties for angering peacefuls (xnh)
 * Don't livelog events in explore mode
 * Running and traveling no longer pushes boulders (xnh)
@@ -313,8 +314,9 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * **Items that are 'lost'** from the players inventory will no longer be un-identified.
 * Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 * Levels of erosion on an object can affect its price (Evil).
-* orcish equipment is usually generates rusty and/or corroded
+* orcish equipment usually generates rusty and/or corroded
 * dwarven items frequently spawn as fixed.
+* Towels cannot be worn. Blindfolds now must be relied upon for blinding.
 
 ### Price Identification Nerf
 This change destroys price identification and aligns most potions, scrolls, wands, and rings to the same price (SLEX).
@@ -379,7 +381,7 @@ Exceptions:
 * Reduced weight of bullwhips to 7 aum
 * Increased weight of shuriken to 2 aum each.
 * Wielded polearms grant an AC bonus depending on their weight (for every 30aum, they grant -1AC)
-* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevents from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
+* **Spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevented from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible or spottable via ESP. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear.
 * **Tridents** at skilled can also skewer monsters.
 * **Spetums** can skewer up to 3 monsters when used in melee whilst riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee whilst riding a steed.
@@ -392,7 +394,8 @@ Exceptions:
 * No multishot when **fumbling**
 * **Boomerangs** will can pass through enemies on hit.
 * **Polearms** can be used to trigger traps (from NetHack Fourk).
-* Polearms and lances can be pounded when blind (as long as you can sense the target)
+* **Polearms and lances** can be pounded when blind (as long as you can sense the target)
+* **Daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 
 #### War Hammers
 * war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
@@ -550,8 +553,8 @@ Exceptions:
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
-*  To compensate for the temporary nature of these intrinsics, the possibility of actually getting the property has been inversed.
- * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It has been changed to 2 in 3. The chance for an amulet by eating it was 1 in 5. It has been changed to 4 in 5.
+*  To compensate for the temporary nature of these intrinsics, the possibility of getting the property is guaranteed.
+ * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It is now 100%. The chance for an amulet by eating it was 1 in 5. It has been changed to 100%.
 
 ** Summary of revised eating effects:**
  - Eating a ring now grants 750-1500 turns of it's property intrinsically.
@@ -639,6 +642,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
 | rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
 | anti-magic shield       | armor     | NerfHack   | provides MR, counters spells, blocks casting |
+| shield of integrity     | armor     | NerfHack   | provides disintegration and withering res    |
 | tower shield            | armor     | SpliceHack | Heavy, provides 4AC                          |
 | gnomish boots           | armor     | SlashTHEM  | -2AC for gnomes                              |
 | gnomish helm            | armor     | SlashTHEM  | -2AC for gnomes                              |
@@ -776,7 +780,7 @@ Other effects:
 * Artifact weapons can now be dual-wielded (SLASHEM)
 * Intrinsics are granted for both weapons accordingly.
 * Most artifact weapons get negative to-hit penalties instead of positive.
-  - The standard to-hit penalty is a flat -15
+  - The standard to-hit penalty is a flat -10
   - Magicbane and Quick Blade have a +0 to-hit.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
@@ -803,6 +807,7 @@ Other effects:
 * Ogresmasher can also hurtle light-weight monsters (Evil)
 * Werebane provides protection from shapechangers when wielded
 * The Sceptre of Might grants steadfastness when wielded
+* The Sceptre of Might gets a bonus on all monsters (this is to compensate for the difficulty in enchanting it due to its magic resistance)
 * The Longbow of Diana confers half physical damage when wielded
 * Increased Mjollnir's wakeup radius when it strikes monsters with lightning
 * Mjollnir can be invoked for a lightning bolt (xnh)
@@ -839,7 +844,7 @@ Other effects:
 | Carnwennan            | lawful    | knife                   | SpliceHack |
 | Load Brand            | unaligned | heavy sword             | NerfHack   |
 | Snakeskin             | Neutral   | robe                    | SlashTHEM  |
-| Blackshroud           | neutral   | cloak of invisibility   | SlashTHEM  |
+| Blackshroud           | chaotic   | cloak of invisibility   | SlashTHEM  |
 | Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
 | Deluder               | neutral   | cloak of displacement   | SLASHEM    |
 | Whisperfeet           | neutral   | speed boots             | SLASHEM    |
@@ -854,6 +859,7 @@ Other effects:
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
 * Quick Blade is a silver short sword instead of an elvish short sword
+* Blackshroud was a neutral cloak in SlashTHEM - it was changed to chaotic.
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
@@ -869,6 +875,7 @@ Misc changes:
 * This silver spear has some nice benefits when wielded:
 * +d10 damage
 * counters 80% of monster spells while wielded
+* whenever it successfully counters, it adds a2d6 penalty delay to the casters "mspec_used", making the caster require more time to recover
 * blocks you from casting spells when wielded
 * blocks aggravate monster
 * blocks barbarian blood rage from activating if wielded
@@ -903,6 +910,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | bullet ant             | a   | SpliceHack     |
 | byahkee                | B   | SLASH'EM       |
 | cerastes               | S   | SpliceHack     |
+| Cerberus               | d   | Vanilla/*      |
 | deep one               | h   | SLASH'EM       |
 | deeper one             | h   | SLASH'EM       |
 | deepest one            | h   | SLASH'EM       |
@@ -950,6 +958,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | spark bug              | x   | SLASH'EM       |
 | shoggoth               | P   | SLASH'EM       |
 | spiked orc             | o   | NerfHack       |
+| spined devil           | &   | SLASH'EM       |
 | stinking sphere        | e   | Fourk          |
 | t-rex                  | z   | SpliceHack     |
 | third eye              | e   | SLASHEM/YANI   |
@@ -967,6 +976,29 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | Lolth                  | &   | EvilHack       |
 | Malchanthet            | &   | SpliceHack     |
 | Mephistopholes         | &   | SpliceHack     |
+| jiggling blob          | b   | SLASH'EM       |
+| lava blob              | b   | SLASH'EM       |
+| static blob            | b   | SLASH'EM       |
+| burbling blob          | b   | SLASH'EM       |
+| clear jelly            | j   | SLASH'EM       |
+| yellow jelly           | j   | SLASH'EM       |
+| orange jelly           | j   | SLASH'EM       |
+| rancid jelly           | j   | SLASH'EM       |
+| tunnel worm            | w   | SLASH'EM       |
+| rot worm               | w   | SLASH'EM       |
+| acid worm              | w   | SLASH'EM       |
+| bloodworm              | w   | SLASH'EM       |
+| dretch                 | i   | SLASH'EM       |
+| rutterkin              | i   | SLASH'EM       |
+| blood imp              | i   | SLASH'EM       |
+| barghest               | d   | SpliceHack     |
+| pack rat               | r   | SLASH'EM       |
+| ghoul queen            | Z   | SLASH'EM       |
+| werespider             | s   | SLASH'EM       |
+| weresnake              | S   | SLASH'EM       |
+| monstrous spider       | s   | SpliceHack     |
+| orb weaver             | Q   | NerfHack       |
+
 
 ### New monster notes
 * adherer AC was buffed from it's original AC in SpliceHack
@@ -977,10 +1009,13 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
 * byahkees were recolored to yellow
+* Cerastes buffs: 2 poison bites, poison res, higher difficulty.
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
 * Some deepest ones are guaranteed on the plane of water
 * elven clerics were known as elven wizards in EvilHack
+* ghoul queens can generate randomly in the dungeon
 * giant praying mantis now ignores all magical scaring
+* giant praying mantis has a higher level
 * grave trolls can spawn in graves/graveyards
 * grave troll corpses cause sickness when eaten.
 * kamadan are recolored to light green
@@ -993,6 +1028,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with tridents or spears.
 * nightgaunts were recolored to purple
+* pack rats can generate randomly in the dungeon
 * phase spiders may appear in small groups
 * phase spiders can't move diagonally.
 * revenants can now shoot fireballs (inspired by DOOM 2)
@@ -1000,17 +1036,28 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * shadows can now stalk the player
 * shadow ogres spawn invisible and have a drain life attack
 * spiked orcs cannot wear anything in the armor slot
+* spined devils now have a passive spike attack
 * things from below can see invisible
 * troll mummies get a withering attack
 * t-rex can berserk and emit a scary roar
 * velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
 * weretigers are recolored to red and can jump
 * zoo bats now cause confusion when eaten
+* Rot worms are now tiny.
+* Bloodworms get a drain life bit instead of poison bite.
+* Tunnel worms are now huge.
+* Tunnel worms get a armor rending attack and a butt attack.
+* Dretches leave clouds of poison gas like hezrou.
+* werespiders can summon giant spiders, phase spiders, and monstrous spiders.
+* weresnakes can summon snakes, pit vipers, and asphynxes.
+* Weresnakes are now red
+* Monstrous spiders were buffed from level 8 to 12, difficulty 10 to 15.
+* Monstrous spiders now have berserk, infravision, infravisible, and MR 20.
 
-Passive spiking monsters:
+**Passive spiking monsters:**
 * This mechanic was ported over from SpliceHack and applies to hedgehogs and spiked orcs.
 
-Phoenix:
+**Phoenix:**
 * Very strong lawful monster that explodes on death
 * When it dies it leaves behind a phoenix egg, which will hatch when exposed to fire or lava
 * It will also hatch when attempts are made to eat it, bury it, or put it in a container
@@ -1019,6 +1066,12 @@ Phoenix:
 * To prevent a phoenix egg from hatching, you can also cancel it
 * Lowered their MC protection from 40 to 20
 
+**Orb Weaver:**
+* A brand new monster debuting in NerfHack
+* This pesky spellcaster will relentlessly summon spheres of all types
+* They will actively avoid the player and use the spheres as their offense.
+* Although they can cast clerical spells, they only can cast summon orbs, healing, and protection.
+* Currently uses the transmuter's tile from SpliceHack.
 
 ## MONSTER CHANGES
 
@@ -1028,7 +1081,6 @@ Phoenix:
 * all A monsters are immune to death magic (xnh)
 * air elementals get shock resistance.
 * baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12; increased difficulty
-* barbed devils get a passive barb attack
 * all bats can see invisible
 * captains are considered princes (xnh)
 * captains and watch captains generate with keys (Evil)
@@ -1077,7 +1129,8 @@ Phoenix:
 * lava demons are huge
 * leprechauns do not stash gold in the ground after stealing it (reverted from 3.7)
 * lizards appear with slightly less frequency
-* ki-rin get shock, sleep, cold, and poison resistance (xnh)l
+* ki-rin get shock, sleep, cold, and poison resistance (xnh)
+* long worms have thick skin
 * lords and princes never get negative weapons or armor (xnh)
 * lieutenants are considered lords (xnh)
 * master liches and arch-liches can see invisible (FIQ)
@@ -1113,6 +1166,7 @@ Phoenix:
 * paper golems leave special cards for cartomancers
 * pit fiends have speed 8 (K-Mod)
 * priests of Moloch are always generated hostile (SLASHEM)
+* purple worms have thick skin
 * quasit buffs: faster, stronger attacks, see invisible, can appear in small groups (xnh)
 * queen bees can displace monsters
 * quest leaders resist death magic (Evil)
@@ -1152,7 +1206,6 @@ Phoenix:
 * vampires (any V) are not afraid of cracked or Molochian altars.
 * all werefoo in animal form get infravision
 * wargs have a thick hide.
-* weak spellcasters get an extra, weak weapon attack.
 * werefoo revert back to their base form when killed (SLASH'EM)
 * werefoo can occasionally summon rabid breathren
 * werewolves have a higher level and difficulty, stronger attacks
@@ -1227,6 +1280,8 @@ Phoenix:
 * The Master Assassin is stronger, faster, sees invisible, resists sleep, and gets one additional attack.
 * Yeenoghu's magic missile attack has been buffed to 6d6 (Evil)
 * Vlad gets stoning resistance.
+* King Arthur gets a full suite of resistances.
+
 
 #### Medusa
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
@@ -1236,6 +1291,28 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Instead of a single poisonous bite, she gets two poisonous snake bite attacks.
 * Medusa also gets a stoning bite (EvilHack).
 * Medusa gets infravision
+
+#### Cerberus
+* Cerberus has been un-deferred and enabled with many tweaks. It acts as the end boss for the Lethe level.
+* Cerberus inherits many abilities from EvilHack:
+  - Level raised from 12 to 27
+  - Speed raised from 10 to 20
+  - AC raised from 2 to -7
+  - MR raised from 20 to 90
+  - Weight and nutrition raised
+  - Size raised from large to huge
+  - Added thick skin, berserk, poisonous corpse, see invisible, teleport control, accurate, displaces monsters.
+  - resists sleep, poison, stoning, draining, and death.
+  - Waits for the player to approach
+
+* And from xNetHack
+  - Bumped all bites to 5d6
+  - Added fire bite
+  - Replaced the breath attack with 2 6d6 claws
+
+* NerfHack:
+  - Added drain life bite
+
 
 #### Wizard of Yendor
 * Rodney is bright magenta (Evil)
@@ -1267,6 +1344,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monster will quaff potions of reflection if you have a reflectable attack available.
 * Vampire monsters can quaff vampire blood to heal (SLASHEM)
 * When playing as a cartomancer, monsters can use monster summon cards and zappable cards against you.
+* Some monsters will not throw a weapon that is usable for melee.
 
 ### Monster accessory use
 * Adapted from EvilHack with modifications
@@ -1399,6 +1477,15 @@ Curing rabid:
 * Lets monsters jump at you from a few squares away, quickly bridging the gap between you
 * They can also cross short barriers like water and lava and even jump over other monsters
 
+### Withering attacks
+* Ported from xNetHack and EvilHack
+* Withering is a nasty new attack that will give the player the "wither" status temporarily. While withering you will lost 1HP per turn.
+* If you are already withering and the new wither attack is strong enough, it will also drain some of your maximum HP, making this threat quite insidious.
+* Withering can be cured by quaffing holy water, praying, or invoking the Staff of Aesculapius.
+* Any item that grants extrinsic disintegration res also grants withering resistance (black dragon scales, shield of integrity)
+* When playing as a vampire, you will also enjoy withering resistance by virtue of being undead.
+* All mummies possess wither attacks.
+* Powerful clerics can also cast the Blight spell at range which can cause withering.
 
 ## MONSTER SPELLCASTING
 
@@ -1426,7 +1513,7 @@ Curing rabid:
 
 #### blight
 * Ported from xNetHack
-* In xnh this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But I thought it would be pretty cool if extracted out and used as a new clerical spell. Not too many monsters use clerical spells, but they tend to be potent. The spell itself is pretty straightforward: it inflicts withering on the player. Since withering cannot be cured, this could end up quite dangerous if multiple blights are cast.
+* In xnh this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But I thought it would be pretty cool if extracted out and used as a new clerical spell. Not too many monsters use clerical spells, but they tend to be potent. The spell itself is pretty straightforward: it inflicts withering on the player. Since withering can only be cured by a few methods, this could end up quite dangerous if multiple blights are cast.
 * In xnh, the duration of the withering was 100-140 turns. For the big demons this might fly, but for lesser spellcasters I reduced it to 20-60 turns. In xnh I believe this could only be cast in melee range, but now it can also be cast up to 8 squares away - further increasing its deadliness.
 * Being polyd into a non-living form protects against the blight spell.
 
@@ -1564,7 +1651,6 @@ Curing rabid:
 * Healers start with 2 eucalyptus leaves.
 * Healers get a bonus when applying unicorn horns
 * Healers can use an uncursed unicorn horn as if it is blessed.
-* Healers get sickness resistance instead of warning at level 15 (Evil).
 
 ### KNIGHT
 * Only lawful Knights can dip for Excalibur (Evil/Spork)
@@ -1590,8 +1676,10 @@ Curing rabid:
 * Dramatically increased the monk's body armor penalty (Evil)
 * Give explicit feedback for monks wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
-* Monks get a fully charged magic marker as a crowning gift.
+* Monks get a **fully charged magic marker** as a crowning gift.
 * Add trees and two ponds to monk quest start.
+* Monks starting spell compentency depends on the spellbook.
+* Martial arts users are immune to leg damage from bad kicks (xNetHack).
 
 **Skill adjustments for monks:**
 | skill              | NetHack | ->  | NerfHack   |
@@ -1666,6 +1754,7 @@ Curing rabid:
 * Rangers get auto-id for ammo enchantment when they reach XP level 10 (xnh)
 * Rangers are not stunned from using portals (they are used to quick travel)
 * Rangers can chop down the trees in the quest entry level.
+* The ranger quest levels get a bunch of bear traps.
 
 **Skill adjustments for rangers:**
 | skill        | NetHack | ->  | NerfHack   |
@@ -1720,7 +1809,7 @@ Curing rabid:
 ### VALKYRIE
 * More fire traps on valk quest
 * Valkyries get a winter wolf cub as a starting pet.
-* They can also tame winter wolves and winter wolf cubs as domestic pets.
+* They can also pacify and tame winter wolves/cubs via the #chat command.
 * Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon while advancing shield skill)
 
 
@@ -2034,7 +2123,7 @@ Vampires have a rich history in NetHack, first appearing in SLASH'EM and later i
 
 You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
 
-Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars.
+Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars which they can tame via #chat.
 
 #### Vampires resistances and abilities
 | XL  | Intrinsic             |
@@ -2085,6 +2174,7 @@ difficult time with spellcasting.
 * You cannot learn spells that you are restricted in.
 * Spellbooks can generate pre-read.
 * Casting the spell of clairvoyance at skilled lets it persist for a while.
+* Display a single accurate spellcasting retention percentage in the spellbook list.
 
 ### Spellbook of charm monster
 * This spell is now a directional level 3 spell and only works on the first monster hit.
@@ -2143,10 +2233,113 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
 * Thrones can grant knowledge of magical items.
-* Throne #sits can summon much larger audiences. 
+* Throne #sits can summon much larger audiences.
 * Guaranteed pit trap just outside of wizard's zoo.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
 * Gnomish mines fill levels sometimes have varied lighting.
+* Fake "Closed for inventory" shop engravings can appear in random places.
+
+### New levels
+
+Add original author?
+* All original Vanilla Sokoban levels have been removed and replaced.
+
+| Level                | Version                           | Source        |
+| -------------------- | --------------------------------- | ------------- |
+| Asmodeus' lair #2    | Lethe/lava                        | SpliceHack    |
+| Baalzebub's lair #2  | lethe marsh                       | SpliceHack    |
+| Baalzebub's lair #3  | variation on #1 with lava         | Un/Nerf       |
+| Bridge of Khazad-Dum | Directly after the VotD           | Un            |
+| Orcus Town #2        | Lethe river runs through          | Lethe patch   |
+| Castle #2            | Lake surrounds castle             | Un/Evil       |
+| Castle #3            | Lava river                        | Un/Evil       |
+| Demogorgon's lair #1 | Enclosed in hell-maze             | SLASHEM       |
+| Demogorgon's lair #2 | Two towers                        | Lethe patch   |
+| Demogorgon's lair #3 | Fortress with lethe river         | Grunt/Evil    |
+| Dispater's lair #1   | Enclosed in hell-maze             | SLASHEM       |
+| Dispater's lair #2   | the city of Dis                   | Lethe patch   |
+| Dispater's lair #3   | Fortress with lethe river         | Grunt         |
+| Geryon's lair #1     | Enclosed in hell-maze             | SLASHEM       |
+| Geryon's lair #2     | the isle of Erytheia              | Grunt         |
+| Gulf of N'Kai #1A    | Version 1                         | Lethe patch   |
+| Gulf of N'Kai #1B    | Version 2                         | Lethe patch   |
+| Gulf of N'Kai #2     | Portal to Rodney's tower          | Lethe patch   |
+| Gulf of N'Kai #3     |                                   | Lethe patch   |
+| Gulf of N'Kai #4     | Location of vibrating square      | Lethe patch   |
+| Mephistopholes' lair | Fortress with lethe river         | SpliceHack    |
+| Moloch's Sanctum #2  | Lava islands                      | Un/Evil       |
+| Moloch's Sanctum #3  | Cthulhu's sanctum                 | Lethe Patch   |
+| Lethe a #1           | river head - gargoyles & trices   | Lethe patch   |
+| Lethe a #2           | river head - Vampires and Byakhee | Lethe patch   |
+| Lethe b              | lethe entry level                 | Lethe patch   |
+| Lethe c #1           | Ogre Stockade                     | Lethe patch   |
+| Lethe c #2           | Undead Stockade                   | Lethe patch   |
+| Lethe d #1           | The Wizards Manse                 | Lethe patch   |
+| Lethe d #2           | The Lichs Manse                   | Lethe patch   |
+| Lethe e              | Troll Bridge                      | Lethe patch   |
+| Lethe f              | Sylvan Park                       | Lethe patch   |
+| Lethe g              | Honycombe Canyon                  | Lethe patch   |
+| Lethe z              | The gates of Gehennom.            | Lethe patch   |
+| The Lost Tomb        |                                   | SLASH'EM      |
+| Mine end #4          | The Gnomish Sewer                 | xNetHack      |
+| Mine end #5          | Orc Temple                        | EvilHack      |
+| Mine end #6          | Gnome King's Apiary               | SlashTHEM     |
+| Mine end #7          | Boulder Bonanza                   | SlashTHEM     |
+| Minetown #8          | Zoo Town                          | Spork/Evil    |
+| Minetown #9          | Lavender Town                     | SpliceHack    |
+| Minetown #10         | Mini-Castle Town                  | SlashTHEM     |
+| Minetown #11         | Creek Town                        | SlashTHEM     |
+| Moloch's Temple #1   |                                   | SLASHEM       |
+| Moloch's Temple #2   | New variation on #1               | NerfHack      |
+| Sokoban 1-1          | 1-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 1-2          | 1-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 1-3          | Dragon_of_Bactria                 | NetHack Fourk |
+| Sokoban 1-4          | 1-7 from Fourk                    | NetHack Fourk |
+| Sokoban 1-5          | 1-4 from Fourk                    | NetHack Fourk |
+| Sokoban 1-6          | 1-5 from Fourk                    | NetHack Fourk |
+| Sokoban 1-7          | 1-3 from Fourk                    | NetHack Fourk |
+| Sokoban 1-8          | 1-6 from Fourk                    | NetHack Fourk |
+| Sokoban 2-1          | 2-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-2          | 2-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-3          | 2-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-4          | 2-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-5          | 2-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-6          | 3-9 from Fourk                    | NetHack Fourk |
+| Sokoban 2-7          | 2-3 from UnNetHack                | UnNetHack     |
+| Sokoban 2-8          | 2-4 from UnNetHack                | UnNetHack     |
+| Sokoban 3-1          | 3-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-2          | 3-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-3          | 3-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-4          | 3-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-5          | 3-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-6          |                                   | GruntHack     |
+| Sokoban 3-7          |                                   | GruntHack     |
+| Sokoban 3-8          | 2-8 from Fourk                    |               |
+| Sokoban 4-1          | 4-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-2          | 4-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-3          | 4-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-4          | 3-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-5          | 3-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-6          | 3-15 from UnNetHack               | UnNetHack     |
+| Sokoban 4-7          |                                   | GruntHack     |
+| Sokoban 4-8          | 3-2 from NetHack Fourk            | NetHack Fourk |
+| Sokoban 5-1          | 4-3                               | SLASH'EM      |
+| Sokoban 5-2          | 4-4                               | SLASH'EM      |
+| Sokoban 5-3          | 4-5                               | SLASH'EM      |
+| Sokoban 5-4          | 3-4                               | UnNetHack     |
+| Sokoban 5-5          | 3-5                               | UnNetHack     |
+| Sokoban 5-6          | 4-3                               | NetHack Fourk |
+| Sokoban 5-7          | 4-7                               | NetHack Fourk |
+| Sokoban 5-8          | 4-10                              | NetHack Fourk |
+| Valley of the Dead #2 | Lethe river runs through          | Un/Lethe      |
+| Valley of the Dead #3 | Pleasant Valley                   | Lethe patch   |
+| Yeenoghu's lair #1    | Enclosed in hell-maze             | SLASHEM       |
+| Yeenoghu's lair #2    | Fortress in marsh                 | Lethe patch   |
+| Yeenoghu's lair #3    | Fortress with lethe river         | Grunt         |
+| Oracle #2             |                                   | xNetHack      |
+| Oracle #3             |                                   | xNetHack      |
+
+a99935d6d Add lava to asmode-2; fix drawbridge.
 
 ### New themed rooms
 * Ported kitchen themed room from Splice/xnh
@@ -2183,6 +2376,9 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
   * Room with small pillars
   * Dragon hall
 
+New themed rooms introduced in NerfHack:
+  * piercer room
+
 ### SHOP CHANGES
 **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
@@ -2206,6 +2402,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * The drawbridge passtune range has been expanded by one square (xnh)
 * The drawbridge also does not always close with the passtune, one out of five times it will malfunction when trying to close it (xnh)
 * Castle courtyards are unlit
+* The castle gets a guaranteed forge.
 
 ### Valley of the Dead
 
@@ -2218,7 +2415,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
 * Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
 * Cerberus now guards the entrace to the Valley.
-* The Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island(it does not count as a lethe level)
+* One major change from the original Lethe patch is that the Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island (it does not count as a lethe level). This is to give the player access to the valuable loot in the castle before taking on the challenges of the Lethe, it also is less disruptive to the layout.
 * The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
 * All lethe levels are undiggable, hardfloor, and no teleport.
 * More traps were added to these levels, especially anti-magic fields
@@ -2236,22 +2433,17 @@ Lethe effects:
   * Lethe levels make spellcasting a little more difficult.
   * Energy regeneration is slower on Lethe levels.
   * Lethe levels make you burn more nutrition than normal.
+  * Monsters don't generate peaceful in the Lethe branch.
 
 ### Enhanced Gehennom
 
 * The fake wizard levels have been removed.
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xNetHack/EvilHack)
 * The portal to the wizard's tower has been moved to a random castle tower and changed to a stair up.
-* Ported The Bridge of Khazad-Dum (from UnNetHack); it is now the welcome room after the Valley of the Dead.
-* Ported Demogorgon's lair from SLASHEM; it is guaranteed to appear.
-* Ported Geryon's lair from SLASHEM; it has a 50% chance of appearing
-* Ported Yeenoghu's lair from SLASHEM; it has a 50% chance of appearing
-* Ported Dispater's lair from SLASHEM; it has a 50% chance of appearing
-* Ported Mephistopholes' lair from SpliceHack; it has a 50% chance of appearing
-* Ported an alternate level for Asmodeus' lair (SpliceHack)
-* Ported an alternate level for Baalzebub's lair (from SpliceHack)
+
 * Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
+* Juiblex gets some puddles and a shoggoth
 
 ### Gulf of N'kai
 * The last four levels of Gehennom have been replaced with the maps.
@@ -2261,9 +2453,9 @@ Lethe effects:
 
 ### Sokoban
 
-* Sokoban levels are cold and icy - legend has it a white dragon named Wintercloak took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icey cyan, you will see random patches of ice form in the level. The upper levels of Sokoban are also "cold", meaning that if potions land on the floor, they have a chance of freezing and shattering.
-* Note: A recent change from NetHack 3.7 also makes ice slide the player in a random, however, players will not slide whilst in Sokobon (this would make solving the puzzles more difficult than it already is).
-  direction. This feature was implemented after cold Sokobon, but it amplifies the effect.
+* Sokoban levels are cold and icy - legend has it a white dragon named Wintercloak took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icey cyan, you will see random patches of ice form in the level. Because they are cold, if potions land on the floor, they have a chance of freezing and shattering.
+* Note: A recent change from NetHack 3.7 also makes ice occasionally slide the player in a random direction.
+* Sokoban now has two additional levels - an entry level with river obstacles (adapted from the town filler level from UnNetHack) and another puzzle level to solve.
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
 * Monsters won't break boulders in Sokobon.
@@ -2271,11 +2463,14 @@ Lethe effects:
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a white dragon
 * All Soko zoos have the white dragon guarding the treasure.
 * The zoos in Soko have been expanded slightly.
+* Flavored most Sokoban levels with more iron bars.
+* Decorated the levels with white dragon statues in honor of the new steward.
 * In addition to the amulet and bag, the Sokoban prize can also be a cloak of magic resistance or a magic marker.
 * Sokoban prizes are always erodeproofed.
 * Stop Sokoban guilt after acquiring the prize.
 * The iron bars in some of the Soko levels can be phased through, but it now incurs a Luck penalty.
 * You will now receive a message when incurring a Sokobon Luck penalty.
+* Sokoban maps above puzzle #2 get 2 mimics.
 
 ### Fort Ludios
 * Ported two Fort Ludios variants (Evil/Un)
@@ -2288,11 +2483,14 @@ Lethe effects:
 * Imported 3 mines end variants (THEM)
 
 ### Oracle
+* The Oracle level now appears from levels 8-11.
 * Ported Oracle variations 2 and 3 (Splice)
+* Allow dungeon features to generate in the Oracle level.
 
 ### Temple to Moloch level
 * Ported from SLASH'EM
 * Gargoyles replace the statue gargoyles in the original map.
+* Winged gargoyles replace 4 of the original gargoyles.
 * 2 ghoul mages were added.
 
 ### Lost Tomb level
@@ -2538,16 +2736,19 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
-* In NerfHack, the game will roll 3 times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently. If a player fails to gain any new intrinsics, they instead are granted a wish.
+* In NerfHack, the game will roll 3 times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently.
 * Crowning gifts are only granted when crowned, never for #offer.
 * Your god will not crown you until you have completed the quest.
 * Crowning makes it impossible to change alignment ever again.
 
-**New intrinsics available when crowned:**
-* Disintegration resistance
-* Acid resistance (exclusive to crowning)
-* Petrification resistance (exclusive to crowning)
-* Sickness resistance (exclusive to crowning)
+
+## THE QUEST
+
+* Removed the quest turn limit (Un)
+* Players can enter the quest as soon as they reach level XL 10 (Un)
+* Prevent the player from skipping most of the quest (from xNetHack).
+  * Mark all quest levels as hardfloor.
+  * Players cannot do horizontal or downward teleporting while the quest nemesis is alive.
 
 
 ## INTRINSICS AND EXTRINSICS
