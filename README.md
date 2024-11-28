@@ -2251,93 +2251,93 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 Add original author?
 * All original Vanilla Sokoban levels have been removed and replaced.
 
-| Level                | Version                           | Source        |
-| -------------------- | --------------------------------- | ------------- |
-| Asmodeus' lair #2    | Lethe/lava                        | SpliceHack    |
-| Baalzebub's lair #2  | lethe marsh                       | SpliceHack    |
-| Baalzebub's lair #3  | variation on #1 with lava         | Un/Nerf       |
-| Bridge of Khazad-Dum | Directly after the VotD           | Un            |
-| Orcus Town #2        | Lethe river runs through          | Lethe patch   |
-| Castle #2            | Lake surrounds castle             | Un/Evil       |
-| Castle #3            | Lava river                        | Un/Evil       |
-| Demogorgon's lair #1 | Enclosed in hell-maze             | SLASHEM       |
-| Demogorgon's lair #2 | Two towers                        | Lethe patch   |
-| Demogorgon's lair #3 | Fortress with lethe river         | Grunt/Evil    |
-| Dispater's lair #1   | Enclosed in hell-maze             | SLASHEM       |
-| Dispater's lair #2   | the city of Dis                   | Lethe patch   |
-| Dispater's lair #3   | Fortress with lethe river         | Grunt         |
-| Geryon's lair #1     | Enclosed in hell-maze             | SLASHEM       |
-| Geryon's lair #2     | the isle of Erytheia              | Grunt         |
-| Gulf of N'Kai #1A    | Version 1                         | Lethe patch   |
-| Gulf of N'Kai #1B    | Version 2                         | Lethe patch   |
-| Gulf of N'Kai #2     | Portal to Rodney's tower          | Lethe patch   |
-| Gulf of N'Kai #3     |                                   | Lethe patch   |
-| Gulf of N'Kai #4     | Location of vibrating square      | Lethe patch   |
-| Mephistopholes' lair | Fortress with lethe river         | SpliceHack    |
-| Moloch's Sanctum #2  | Lava islands                      | Un/Evil       |
-| Moloch's Sanctum #3  | Cthulhu's sanctum                 | Lethe Patch   |
-| Lethe a #1           | river head - gargoyles & trices   | Lethe patch   |
-| Lethe a #2           | river head - Vampires and Byakhee | Lethe patch   |
-| Lethe b              | lethe entry level                 | Lethe patch   |
-| Lethe c #1           | Ogre Stockade                     | Lethe patch   |
-| Lethe c #2           | Undead Stockade                   | Lethe patch   |
-| Lethe d #1           | The Wizards Manse                 | Lethe patch   |
-| Lethe d #2           | The Lichs Manse                   | Lethe patch   |
-| Lethe e              | Troll Bridge                      | Lethe patch   |
-| Lethe f              | Sylvan Park                       | Lethe patch   |
-| Lethe g              | Honycombe Canyon                  | Lethe patch   |
-| Lethe z              | The gates of Gehennom.            | Lethe patch   |
-| The Lost Tomb        |                                   | SLASH'EM      |
-| Mine end #4          | The Gnomish Sewer                 | xNetHack      |
-| Mine end #5          | Orc Temple                        | EvilHack      |
-| Mine end #6          | Gnome King's Apiary               | SlashTHEM     |
-| Mine end #7          | Boulder Bonanza                   | SlashTHEM     |
-| Minetown #8          | Zoo Town                          | Spork/Evil    |
-| Minetown #9          | Lavender Town                     | SpliceHack    |
-| Minetown #10         | Mini-Castle Town                  | SlashTHEM     |
-| Minetown #11         | Creek Town                        | SlashTHEM     |
-| Moloch's Temple #1   |                                   | SLASHEM       |
-| Moloch's Temple #2   | New variation on #1               | NerfHack      |
-| Sokoban 1-1          | 1-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 1-2          | 1-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 1-3          | Dragon_of_Bactria                 | NetHack Fourk |
-| Sokoban 1-4          | 1-7 from Fourk                    | NetHack Fourk |
-| Sokoban 1-5          | 1-4 from Fourk                    | NetHack Fourk |
-| Sokoban 1-6          | 1-5 from Fourk                    | NetHack Fourk |
-| Sokoban 1-7          | 1-3 from Fourk                    | NetHack Fourk |
-| Sokoban 1-8          | 1-6 from Fourk                    | NetHack Fourk |
-| Sokoban 2-1          | 2-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-2          | 2-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-3          | 2-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-4          | 2-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-5          | 2-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-6          | 3-9 from Fourk                    | NetHack Fourk |
-| Sokoban 2-7          | 2-3 from UnNetHack                | UnNetHack     |
-| Sokoban 2-8          | 2-4 from UnNetHack                | UnNetHack     |
-| Sokoban 3-1          | 3-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-2          | 3-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-3          | 3-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-4          | 3-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-5          | 3-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-6          |                                   | GruntHack     |
-| Sokoban 3-7          |                                   | GruntHack     |
-| Sokoban 3-8          | 2-8 from Fourk                    |               |
-| Sokoban 4-1          | 4-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-2          | 4-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-3          | 4-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-4          | 3-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-5          | 3-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-6          | 3-15 from UnNetHack               | UnNetHack     |
-| Sokoban 4-7          |                                   | GruntHack     |
-| Sokoban 4-8          | 3-2 from NetHack Fourk            | NetHack Fourk |
-| Sokoban 5-1          | 4-3                               | SLASH'EM      |
-| Sokoban 5-2          | 4-4                               | SLASH'EM      |
-| Sokoban 5-3          | 4-5                               | SLASH'EM      |
-| Sokoban 5-4          | 3-4                               | UnNetHack     |
-| Sokoban 5-5          | 3-5                               | UnNetHack     |
-| Sokoban 5-6          | 4-3                               | NetHack Fourk |
-| Sokoban 5-7          | 4-7                               | NetHack Fourk |
-| Sokoban 5-8          | 4-10                              | NetHack Fourk |
+| Level                 | Version                           | Source        |
+| --------------------- | --------------------------------- | ------------- |
+| Asmodeus' lair #2     | Lethe/lava                        | SpliceHack    |
+| Baalzebub's lair #2   | lethe marsh                       | SpliceHack    |
+| Baalzebub's lair #3   | variation on #1 with lava         | Un/Nerf       |
+| Bridge of Khazad-Dum  | Directly after the VotD           | Un            |
+| Orcus Town #2         | Lethe river runs through          | Lethe patch   |
+| Castle #2             | Lake surrounds castle             | Un/Evil       |
+| Castle #3             | Lava river                        | Un/Evil       |
+| Demogorgon's lair #1  | Enclosed in hell-maze             | SLASHEM       |
+| Demogorgon's lair #2  | Two towers                        | Lethe patch   |
+| Demogorgon's lair #3  | Fortress with lethe river         | Grunt/Evil    |
+| Dispater's lair #1    | Enclosed in hell-maze             | SLASHEM       |
+| Dispater's lair #2    | the city of Dis                   | Lethe patch   |
+| Dispater's lair #3    | Fortress with lethe river         | Grunt         |
+| Geryon's lair #1      | Enclosed in hell-maze             | SLASHEM       |
+| Geryon's lair #2      | the isle of Erytheia              | Grunt         |
+| Gulf of N'Kai #1A     | Version 1                         | Lethe patch   |
+| Gulf of N'Kai #1B     | Version 2                         | Lethe patch   |
+| Gulf of N'Kai #2      | Portal to Rodney's tower          | Lethe patch   |
+| Gulf of N'Kai #3      |                                   | Lethe patch   |
+| Gulf of N'Kai #4      | Location of vibrating square      | Lethe patch   |
+| Mephistopholes' lair  | Fortress with lethe river         | SpliceHack    |
+| Moloch's Sanctum #2   | Lava islands                      | Un/Evil       |
+| Moloch's Sanctum #3   | Cthulhu's sanctum                 | Lethe Patch   |
+| Lethe a #1            | river head - gargoyles & trices   | Lethe patch   |
+| Lethe a #2            | river head - Vampires and Byakhee | Lethe patch   |
+| Lethe b               | lethe entry level                 | Lethe patch   |
+| Lethe c #1            | Ogre Stockade                     | Lethe patch   |
+| Lethe c #2            | Undead Stockade                   | Lethe patch   |
+| Lethe d #1            | The Wizards Manse                 | Lethe patch   |
+| Lethe d #2            | The Lichs Manse                   | Lethe patch   |
+| Lethe e               | Troll Bridge                      | Lethe patch   |
+| Lethe f               | Sylvan Park                       | Lethe patch   |
+| Lethe g               | Honycombe Canyon                  | Lethe patch   |
+| Lethe z               | The gates of Gehennom.            | Lethe patch   |
+| The Lost Tomb         |                                   | SLASH'EM      |
+| Mine end #4           | The Gnomish Sewer                 | xNetHack      |
+| Mine end #5           | Orc Temple                        | EvilHack      |
+| Mine end #6           | Gnome King's Apiary               | SlashTHEM     |
+| Mine end #7           | Boulder Bonanza                   | SlashTHEM     |
+| Minetown #8           | Zoo Town                          | Spork/Evil    |
+| Minetown #9           | Lavender Town                     | SpliceHack    |
+| Minetown #10          | Mini-Castle Town                  | SlashTHEM     |
+| Minetown #11          | Creek Town                        | SlashTHEM     |
+| Moloch's Temple #1    |                                   | SLASHEM       |
+| Moloch's Temple #2    | New variation on #1               | NerfHack      |
+| Sokoban 1-1           | 1-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 1-2           | 1-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 1-3           | Dragon_of_Bactria                 | NetHack Fourk |
+| Sokoban 1-4           | 1-7 from Fourk                    | NetHack Fourk |
+| Sokoban 1-5           | 1-4 from Fourk                    | NetHack Fourk |
+| Sokoban 1-6           | 1-5 from Fourk                    | NetHack Fourk |
+| Sokoban 1-7           | 1-3 from Fourk                    | NetHack Fourk |
+| Sokoban 1-8           | 1-6 from Fourk                    | NetHack Fourk |
+| Sokoban 2-1           | 2-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-2           | 2-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-3           | 2-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-4           | 2-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-5           | 2-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 2-6           | 3-9 from Fourk                    | NetHack Fourk |
+| Sokoban 2-7           | 2-3 from UnNetHack                | UnNetHack     |
+| Sokoban 2-8           | 2-4 from UnNetHack                | UnNetHack     |
+| Sokoban 3-1           | 3-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-2           | 3-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-3           | 3-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-4           | 3-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-5           | 3-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 3-6           |                                   | GruntHack     |
+| Sokoban 3-7           |                                   | GruntHack     |
+| Sokoban 3-8           | 2-8 from Fourk                    |               |
+| Sokoban 4-1           | 4-3 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-2           | 4-4 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-3           | 4-5 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-4           | 3-6 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-5           | 3-7 from SLASHEM                  | SLASH'EM      |
+| Sokoban 4-6           | 3-15 from UnNetHack               | UnNetHack     |
+| Sokoban 4-7           |                                   | GruntHack     |
+| Sokoban 4-8           | 3-2 from NetHack Fourk            | NetHack Fourk |
+| Sokoban 5-1           | 4-3                               | SLASH'EM      |
+| Sokoban 5-2           | 4-4                               | SLASH'EM      |
+| Sokoban 5-3           | 4-5                               | SLASH'EM      |
+| Sokoban 5-4           | 3-4                               | UnNetHack     |
+| Sokoban 5-5           | 3-5                               | UnNetHack     |
+| Sokoban 5-6           | 4-3                               | NetHack Fourk |
+| Sokoban 5-7           | 4-7                               | NetHack Fourk |
+| Sokoban 5-8           | 4-10                              | NetHack Fourk |
 | Valley of the Dead #2 | Lethe river runs through          | Un/Lethe      |
 | Valley of the Dead #3 | Pleasant Valley                   | Lethe patch   |
 | Yeenoghu's lair #1    | Enclosed in hell-maze             | SLASHEM       |
@@ -3163,56 +3163,80 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 * xNetHack
 
 ### NetHack Ideas Archive credits
-| YANI  | commit    | author               | notes                                                                      |
-| ----- | --------- | -------------------- | -------------------------------------------------------------------------- |
-| #2090 | 8b6a11458 | aosdict              | knock and wizard lock spell nerfs                                          |
-| #2903 | 5a11551b7 | aosdict              | spell of knock nerf                                                        |
-| #3977 | 5b685c2f4 | aosdict/ais523       | Falling rock traps can dump multiple rocks                                 |
-| #3085 | 902bdf934 | riker                | Free action protects from stoning paralysis.                               |
-| #1942 | 75ebf9a84 | aosdict              | Boulders deal 1+5d4.                                                       |
-| #2435 | f05429d20 | aosdict              | Being satiated abuses wisdom for Samurai.                                  |
-| #1058 | 9c09d7d57 | RGRN                 | Abuse WIS when over-enchanting items.                                      |
-| #2950 | a6abab270 | aosdict              | Shopkeepers offer 1/2 price for diluted potions.                           |  |
-| #3866 | 92bca4df9 | spicycat             | Cartomancers cast spells by reading books                                  |
-| #3044 | bea6abeb1 | aosdict/bouquet      | Potions of restore ability can be alchemized.                              |
-| #1992 | 163af6658 | aosdict              | Potions of restore ability also cures wounded legs.                        |
-| #441  | 1036e6cf7 | aosdict/FIQ          | Strength doesn't affect to-hit calculations.                               |
-| #10   | e049887c8 | aosdict              | Wizards are able to sense magic fountains.                                 |
-| #1976 | ea543e77b | aosdict              | Mixing oil with water always results in diluted oil.                       |
-| #3991 | 267661174 | ais523/FIQ/Chris_ANG | Spell of charm monster nerfs/updates.                                      |
-| #3578 | fd709a04a | K2                   | Cursed armor weighs more when worn.                                        |
-| #3019 | 9250f9b84 | aosdict              | Cursed rings burn extra nutrition when worn.                               |
-| #3878 | 4d02dafd6 | krm26                | New item: ring of withering.                                               |
-| #63   | 9ed322944 | jonadab              | All artifact weapons get negative to-hit penalties                         |
-| #3588 | d3b3f5176 | Umbire               | Limit range of attacks to 1 square when in a pit.                          |
-| #3931 | d70406a9a | aosdict              | Greased rings slip off your fingers                                        |
-| #1727 | 22cbacacd | aosdict              | Mumakil get butts or kicks instead of bites.                               |
-| #3204 | 05bf49bad | aosdict              | You can kick with kicking boots even when your legs are wounded.           |
-| #2472 | b9b973120 | aosdict              | You must have at least one free hand to zap a wand.                        |
-| #2640 | 8be066328 | aosdict/Tone         | New monster: third eye.                                                    |
-| #3658 | 20b345d6f | NetSysFire           | Falling rock traps can stun you.                                           |
-| #149  | 402066eab | AmyBSOD              | Falling down stairs while stunned or confused.                             |
-| #743  | 13c4eb7c8 | jonadab              | Cancelled unicorn horns become degraded, unusable for curing.              |
-| #876  | d0ebfe767 | K2                   | Healers can use uncursed unihorns as blessed.                              |
-| #8    | 763e4ed25 | bezaban              | You can fall onto your own weapon whilst fumbling.                         |
-| #1022 | 05b991a0e | RGRN                 | Serenity blocks aggravate monster.                                         |
-| #1647 | ddf5fc1dc | aosdict              | Ring of aggravate monster causes pets to fearlessly attack anything.       |
-| #3368 | 150193c7a | spicycat             | Aggravate monster causes monsters not be scared of musical instruments.    |
-| #2082 | 04f87f673 |                      | Aggravate monster spell cast at hero causes temporary intrinsic aggro mon. |
-| #2551 | 09f52ef60 | aosdict              | Eating domestic animals causes aggro mon for 5000-7500 turns               |
-| #2829 | 5acc2b12c | aosdict              | No multishot when fumbling.                                                |
-| #2966 | 53c6df5fb | dingotron            | Archeologists can reach basic in axe.                                      |
-| #3110 | ca583e428 | mobileuser           | Archeologists start out knowing dwarvish mattocks.                         |
-| #3390 | cb6f97237 | aosdict              | Samurai get a bonus for twoweaponing katana with wakizashi.                |
-| #4259 | bc383ebde | aosdict/Shadow_Rider | Rogues can counterattack with knives and daggers.                          |
-| #2589 | 10279d5a7 | aosdict              | Rogues start with a stack of knives instead of daggers.                    |
-| #4259 | 2abbcfca6 | aosdict/Shadow_Rider | Morning stars and flails can stun monsters on critical hits.               |
-| #4259 | 2abbcfca6 | aosdict/Shadow_Rider | Spears at expert skill can skewer through enemies.                         |
-| #4364 | 842f6bd1d | aosdict              | New artifact: The Lenses of Truth.                                         |
-| #3826 | b0fc3027b | spicycat/aosdict     | Towels can be used to remove grease from specific objects.                 |
-| #4411 | f9e5ea0f3 | Loggers_VIII         | Greased items sometimes slip when disarmed with a bullwhip.                |
-| #3061 | 5d22ac85e | rikersan/aosdict     | Glib hands makes applying any item except towels drop them.                |
-| #4083 | 7ce16cf2f | aosdict              | Grease traps.                                                              |
+
+| YANI  | commit    | author               | notes                                                                   |
+| ----- | --------- | -------------------- | ----------------------------------------------------------------------- |
+| #8    | 763e4ed25 | bezaban              | You can fall onto your own weapon whilst fumbling.                      |
+| #10   | e049887c8 | aosdict              | Wizards are able to sense magic fountains.                              |
+| #63   | 9ed322944 | jonadab              | All artifact weapons get negative to-hit penalties                      |
+| #125  | e03ac9fb5 | Andrio               | Spiked orcs, which are more deadly than regular orcs.                   |
+| #149  | 402066eab | AmyBSOD              | Falling down stairs while stunned or confused.                          |
+| #254  | 6d15685cf | NeroOneTrueKing      | Unicorn horns only reduce the timeouts of statuses.                     |
+| #441  | 1036e6cf7 | aosdict/FIQ          | Strength doesn't affect to-hit calculations.                            |
+| #743  | 13c4eb7c8 | jonadab              | Cancelled unicorn horns become degraded, unusable for curing.           |
+| #876  | d0ebfe767 | K2                   | Healers can use uncursed unihorns as blessed.                           |
+| #1022 | 05b991a0e | RGRN                 | Serenity blocks aggravate monster.                                      |
+| #1058 | 9c09d7d57 | RGRN                 | Abuse WIS when over-enchanting items.                                   |
+| #1278 | 571f8a98c | Chris_ANG            | King Arthur gets a full suite of resistances                            |
+| #1647 | ddf5fc1dc | aosdict              | Ring of aggravate monster causes pets to fearlessly attack anything.    |
+| #1727 | 22cbacacd | aosdict              | Mumakil get butts or kicks instead of bites.                            |
+| #1824 | a9ce809b7 | aosdict              | Gas spores and volatile mushrooms start with exactly 1 HP.              |
+| #1903 | 04913bdc5 | aosdict              | Protection from shape changers wakes up shifters when they normalize.   |
+| #1923 | ed6cd6a42 | aosdict              | Recolor royal jelly to magenta                                          |
+| #1942 | 75ebf9a84 | aosdict              | Boulders deal 1+5d4.                                                    |
+| #1944 | 170c60410 | aosdict              | Confused cursed scroll of punishment decreases god anger by 1.          |
+| #1948 | 1c8377153 | aosdict              | Spellbooks can generate pre-read.                                       |
+| #1952 | e2b9d3c91 | aosdict              | Dipping scrolls of amnesia clears non-water non-polymorph potions.      |
+| #1976 | ea543e77b | aosdict              | Mixing oil with water always results in diluted oil.                    |
+| #1992 | 163af6658 | aosdict              | Potions of restore ability also cures wounded legs.                     |
+| #2023 | 2b553fee6 | aosdict              | Nerf slow digestion.                                                    |
+| #2062 | 460d74c91 | aosdict              | Casting clairvoyance at skilled lets it persist for a while.            |
+| #2082 | 04f87f673 | aosdict              | Aggravate monster spell cast at hero causes temporary aggro mon.        |
+| #2084 | 7800ffd44 | aosdict              | You cannot learn spells that you are restricted in.                     |
+| #2090 | 8b6a11458 | aosdict              | knock and wizard lock spell nerfs                                       |
+| #2199 | 896ed1feb | aosdict              | Crowning makes it impossible to change alignment ever again.            |
+| #2200 | 4be06d9a9 | aosdict              | Permanent alignment conversion prevents more divine protection          |
+| #2217 | b909ed83b | aosdict              | Your god will not crown you until you have completed the quest.         |
+| #2246 | 912e4d7f5 | aosdict              | Anti-magic fields block spellcasting.                                   |
+| #2281 | 8a2cc0e9f | aosdict              | The ranger quests gets a bunch of bear traps.                           |
+| #2435 | f05429d20 | aosdict              | Being satiated abuses wisdom for Samurai.                               |
+| #2472 | b9b973120 | aosdict              | You must have at least one free hand to zap a wand.                     |
+| #2551 | 09f52ef60 | aosdict              | Eating domestic animals causes aggro mon for 5000-7500 turns            |
+| #2589 | 10279d5a7 | aosdict              | Rogues start with a stack of knives instead of daggers.                 |
+| #2640 | 8be066328 | aosdict/Tone         | New monster: third eye.                                                 |
+| #2749 | 9252efc92 | aosdict              | Unique monsters can drop cards for cartomancers.                        |
+| #2829 | 5acc2b12c | aosdict              | No multishot when fumbling.                                             |
+| #2903 | 5a11551b7 | aosdict              | spell of knock nerf                                                     |
+| #2950 | a6abab270 | aosdict              | Shopkeepers offer 1/2 price for diluted potions.                        |
+| #2966 | 53c6df5fb | dingotron            | Archeologists can reach basic in axe.                                   |
+| #2985 | e1d625473 | aosdict              | Unicorn horns dissolve when dipped into acid, yields healing.           |
+| #3019 | 9250f9b84 | aosdict              | Cursed rings burn extra nutrition when worn.                            |
+| #3044 | bea6abeb1 | aosdict/bouquet      | Potions of restore ability can be alchemized.                           |
+| #3061 | 5d22ac85e | rikersan/aosdict     | Glib hands makes applying any item except towels drop them.             |
+| #3085 | 902bdf934 | riker                | Free action protects from stoning paralysis.                            |
+| #3092 | dd90a3c27 | aosdict              | Giant mimics get an engulf digest attack.                               |
+| #3110 | ca583e428 | mobileuser           | Archeologists start out knowing dwarvish mattocks.                      |
+| #3204 | 05bf49bad | aosdict              | You can kick with kicking boots even when your legs are wounded.        |
+| #3368 | 150193c7a | spicycat             | Aggravate monster causes monsters not be scared of musical instruments. |
+| #3375 | e8baf4d73 | many                 | A tree hit by a fire ray or explosion should instantly incinerate       |
+| #3390 | cb6f97237 | aosdict              | Samurai get a bonus for twoweaponing katana with wakizashi.             |
+| #3578 | fd709a04a | K2                   | Cursed armor weighs more when worn.                                     |
+| #3588 | d3b3f5176 | Umbire               | Limit range of attacks to 1 square when in a pit.                       |
+| #3658 | 20b345d6f | NetSysFire           | Falling rock traps can stun you.                                        |
+| #3826 | b0fc3027b | spicycat/aosdict     | Towels can be used to remove grease from specific objects.              |
+| #3866 | 92bca4df9 | spicycat             | Cartomancers cast spells by reading books                               |
+| #3878 | 4d02dafd6 | krm26                | New item: ring of withering.                                            |
+| #3931 | d70406a9a | aosdict              | Greased rings slip off your fingers                                     |
+| #3977 | 5b685c2f4 | aosdict/ais523       | Falling rock traps can dump multiple rocks                              |
+| #3991 | 267661174 | ais523/FIQ/Chris_ANG | Spell of charm monster nerfs/updates.                                   |
+| #4083 | 7ce16cf2f | aosdict              | Grease traps.                                                           |
+| #4259 | bc383ebde | aosdict/Shadow_Rider | Rogues can counterattack with knives and daggers.                       |
+| #4259 | 2abbcfca6 | aosdict/Shadow_Rider | Morning stars and flails can stun monsters on critical hits.            |
+| #4259 | 2abbcfca6 | aosdict/Shadow_Rider | Spears at expert skill can skewer through enemies.                      |
+| #4267 | e8baf4d73 | AntiGulp             | Hitting a tree with sufficient cold damage makes it explode.            |
+| #4350 | 445bbdf97 | amateurhour/aosdict  | Let rangers chop down the trees in the quest entry level.               |
+| #4364 | 842f6bd1d | aosdict              | New artifact: The Lenses of Truth.                                      |
+| #4411 | f9e5ea0f3 | Loggers_VIII         | Greased items sometimes slip when disarmed with a bullwhip.             |
 
 Many thanks to all the folks who have helped out with the original Hack'EM and NerfHack, contributing ideas, making patches, playtesting, or anything!
 
