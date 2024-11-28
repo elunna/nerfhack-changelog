@@ -459,7 +459,7 @@ Exceptions:
 * Zapping eggs with cancellation sterilizes them (from HackEM).
 * Cursed food items will no longer tame or pacify monsters.
 * Recolor royal jelly to magenta (EvilHack/xNetHack).
-
+* Nutrition tweaks and messages for lembas and cram (Evil)
 ### Potions
 * Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
 * Implement behavior for cursed potion of gain ability (xnh)
@@ -550,6 +550,9 @@ Exceptions:
 * Activating Protection from shape changers wakes up shifters when they revert to their normal shape (this also applies to Werebane, since that also confers PfSC)
 * Rings of free action offer protection from grabbing attacks (from SLASH'EM).
 * Lower chances of rings exploding during charging (SporkHack). Rings with enchantment +3 or lower will no longer have a chance to explode when charged, and rings at -5 or lower will only explode from cursed charging
+* Rings of conflict usually generate cursed.
+* Reduced the probability for amulets of reflection.
+* We fully identify rings of increase damage or accuracy with enough experience killing monsters.
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
@@ -579,6 +582,7 @@ Exceptions:
 * Credit cards may slip through a lock when cursed or hero is fumbling (xnh).
 * Reduce crystal ball paralysis if player has free action (Dyna)
 * saddles are now twice as common (FIQ)
+* Switch probabilities of bags of holding vs oilskin sacks so BoH are more rare.
 
 #### Safer bags of holding:
 The following safeguards were added to protect players from exploding bags:
@@ -622,7 +626,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
 * Boulders deal 1+5d4 damage instead of 1d20.
 * Cursed gems count as attacks when thrown at unicorns.
-
+* Significantly lowered the odds of luckstones generating randomly; increased the odds of other gray stones
 
 ## NEW ITEMS
 
@@ -689,7 +693,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Attempting to clone unique items or items that are too powerful will result in lesser quality results: magic markers, magic lamps, wands of wishing, scrolls of cloning, artifacts, and any invocation items.
 * To copy the enchantment on an item, the scroll must be blessed.
 * If the scroll is cursed, the resulting item will be cursed.
-* All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto. 
+* All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto.
 * When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
 * If confused and the scroll is blessed, you can also clone yourself to create a powerful tame pet if you currently hold a strong polyform (ie: master mind flayer, purple worm, etc)
 
@@ -877,7 +881,7 @@ Misc changes:
 * counters 80% of monster spells while wielded
 * whenever it successfully counters, it adds a2d6 penalty delay to the casters "mspec_used", making the caster require more time to recover
 * blocks you from casting spells when wielded
-* blocks aggravate monster
+* blocks aggravate monster and conflict
 * blocks barbarian blood rage from activating if wielded
 * prevents monsters from berserking
 * absorbs curses like Magicbane
@@ -1034,6 +1038,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * revenants can now shoot fireballs (inspired by DOOM 2)
 * revenants have fire resistance.
 * shadows can now stalk the player
+* shadows have some minor buffs: higher level, better AC, stronger attacks, unsolid.
 * shadow ogres spawn invisible and have a drain life attack
 * spiked orcs cannot wear anything in the armor slot
 * spined devils now have a passive spike attack
@@ -1085,7 +1090,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * captains are considered princes (xnh)
 * captains and watch captains generate with keys (Evil)
 * centaurs will keep their distance from the player naturally (xnh)
-* cockatrices and chickatrices can fly
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
 * deep ones and deeper ones also have thick skin.
@@ -1100,6 +1104,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * fell beasts can shriek, inflicting stun damage (xnh/evil)
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
 * fog clouds don't leave traces of steam (so they show up as v)
+* all footrice can fly
 * foocubi gain a level when draining one from the player (xnh)
 * gas spores and volatile mushrooms start with exactly 1 HP.
 * giant mimics get an engulf-digest attack
@@ -1167,6 +1172,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * pit fiends have speed 8 (K-Mod)
 * priests of Moloch are always generated hostile (SLASHEM)
 * purple worms have thick skin
+* pyrolisks have slightly negative alignment.
 * quasit buffs: faster, stronger attacks, see invisible, can appear in small groups (xnh)
 * queen bees can displace monsters
 * quest leaders resist death magic (Evil)
@@ -1579,6 +1585,7 @@ Curing rabid:
 * Archeologists start with an extra scroll and spellbook (SLASHEM).
 * Archeologists sometimes crack their whip at animals, scaring them. This usually occurs when hitting a natural 20, but occurs more often the higher whip skill is advanced. This inflicts an extra 1d2 damage.
 * Archeologists count as primary spellcasters, so they benefit from spell memory bonuses when casting spells.
+* Archeologists of any race can use dwarven mattocks.
 
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
@@ -2106,7 +2113,7 @@ Cartomancer gets adjusted different item generation odds.
   * Humans/vampires hate gnomish objects (too small) - but otherwise they can use all other racial equipment
 
 The effects of wearing armor or wielding weapons you hate:
-* +2AC penalty for each piece
+* +5AC penalty for each piece
 * -5 to-hit penalty for each piece
 * To make the mechanic obvious, you receive an explicit message when wearing or wielding any hated object.
 * You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
@@ -2236,7 +2243,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Throne #sits can summon much larger audiences.
 * Guaranteed pit trap just outside of wizard's zoo.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
-* Gnomish mines fill levels sometimes have varied lighting.
+* Gnomish mines fill levels sometimes have varied lighting; rarely they get ice patches.
 * Fake "Closed for inventory" shop engravings can appear in random places.
 
 ### New levels
