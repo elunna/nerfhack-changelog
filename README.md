@@ -150,6 +150,7 @@
       - [Toilet kicking:](#toilet-kicking)
     - [Bloody tiles](#bloody-tiles)
     - [Traps](#traps)
+      - [New container traps](#new-container-traps)
       - [Falling rock traps](#falling-rock-traps)
       - [Spear traps](#spear-traps)
       - [Magic beam traps](#magic-beam-traps)
@@ -350,9 +351,36 @@ Exceptions:
 ### Anti-magical items resist being enchanted (from SpliceHack)
 * If an item grants magic resistance, it will resist scrolls of enchant weapon and enchant armor.
 * The resistance is not absolute.
-* If the item's current enchantment is negative, it will always accept the enchantment.
-* If the item is +0 or greater, the chance of success for an enchantment effect is 1 in (n + 2), where n is the current enchantment.
 * Gray dragon scales can always be converted to dragon scale mail.
+
+**For enchant armor:**
+
+| Current enchantment | Chance of success |
+| ------------------- | ----------------- |
+| +0                  | 0%                |
+| +1                  | 14%               |
+| +2                  | 29%               |
+| +3                  | 43%               |
+| +4                  | 57%               |
+
+**For enchant weapon:**
+
+| Current enchantment | Chance of success |
+| ------------------- | ----------------- |
+| +0                  | 0%                |
+| +1                  | 8%                |
+| +2                  | 15%               |
+| +3                  | 23%               |
+| +4                  | 31%               |
+| +5                  | 38%               |
+| +6                  | 46%               |
+| +7                  | 54%               |
+| +8                  | 62%               |
+| +9                  | 69%               |
+| +10                 | 77%               |
+| +11                 | 85%               |
+| +12                 | 92%               |
+
 
 ### Weapon changes
 #### Higher max weapon enchantment
@@ -438,7 +466,8 @@ Exceptions:
 * plate mail now grants 8AC
 * crystal plate mail now grants 9AC
 * bronze plate mail now grants 7AC
-* leather armors don't grant any MC.
+* leather armors don't grant any MC
+* leather cloaks grant 3AC and 0MC
 
 #### Dragon scales and scale mail changes
 * The AC of dragon scales has been reduced from 3AC to 1AC
@@ -645,18 +674,18 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | silver short sword      | weapon    | SLASHEM    |                                              |
 | sling bullet            | weapon    | EvilHack   |                                              |
 | stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
-| orcish boots            | armor     | EvilHack   | 1AC + 2AC for orcs                           |
-| dwarvish boots          | armor     | EvilHack   | 2AC + 1AC for dwarves (replaces iron boots)  |
+| orcish boots            | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
+| dwarvish boots          | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
 | bronze gauntlets        | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
 | rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
-| anti-magic shield       | armor     | NerfHack   | provides MR, counters spells, blocks casting |
+| anti-magic shield       | armor     | NerfHack   | 2MC, provides MR, counters spellcasting      |
 | shield of integrity     | armor     | NerfHack   | provides disintegration and withering res    |
 | tower shield            | armor     | SpliceHack | Heavy, provides 4AC                          |
-| gnomish boots           | armor     | SlashTHEM  | -2AC for gnomes                              |
-| gnomish helm            | armor     | SlashTHEM  | -2AC for gnomes                              |
-| gnomish suit            | armor     | SlashTHEM  | -3AC for gnomes                              |
+| gnomish boots           | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
+| gnomish helm            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
+| gnomish suit            | armor     | SlashTHEM  | 1AC (+1AC for gnomes)                        |
 | fire helmet             | armor     | SlashTHEM  | fire resistance                              |
 | oilskin helm            | armor     | EvilHack   | protection from tentacle/wrap attacks        |
 | wand of corrosion       | wand      | SpliceHack | shoots acid rays                             |
@@ -683,7 +712,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | foulstone               | gem       | NerfHack   | aggravate monster & misc effects             |
 
 * Potions of reflection are immune to fire and cold damage.
-* (!) fingerless gloves do not protect against petrification!
+* (!) fingerless gloves do not protect against petrification
 
 **playing card deck:**
 * When applied, gives you a poker hand which correlates to your luck.
@@ -790,7 +819,7 @@ Other effects:
 * Artifact weapons can now be dual-wielded (SLASHEM)
 * Intrinsics are granted for both weapons accordingly.
 * Most artifact weapons get negative to-hit penalties instead of positive.
-  - The standard to-hit penalty is a flat -10
+  - The standard to-hit penalty is a flat -15
   - Magicbane and Quick Blade have a +0 to-hit.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
@@ -802,7 +831,9 @@ Other effects:
 * Creating Excalibur will fix any negative enchantment on it (xnh)
 * Fire Brand instakills highly flammable monsters and green slimes (xnh)
 * Fire Brand cures sliming whenever you attack with it
+* Fire Brand is now a short sword (Evil)
 * Frost Brand instakills water elementals
+* Frost Brand is now a short sword (Evil)
 * Vorpal Blade gets a 10% chance of beheading (SLASHEM)
 * Vorpal Blade grants see invisible whilst wielded
 * Vorpal Blade provides warning vs jabberwocks (Evil)
@@ -842,7 +873,7 @@ Other effects:
 | --------------------- | --------- | ----------------------- | ---------- |
 | Thunderfists          | neutral   | gauntlets of force      | NerfHack   |
 | Disrupter             | neutral   | mace                    | SLASHEM    |
-| Skullcrusher          | lawful    | club                    | SLASHEM    |
+| Skullcrusher          | lawful    | aklys                   | SLASHEM    |
 | The End               | neutral   | scythe                  | SpliceHack |
 | Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
 | Doomblade             | chaotic   | short sword             | SLASHEM    |
@@ -871,6 +902,7 @@ Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
 * Quick Blade is a silver short sword instead of an elvish short sword
 * Blackshroud was a neutral cloak in SlashTHEM - it was changed to chaotic.
+* Skullcrusher was a club in SLASH'EM, but it has been changed to an aklys.
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
@@ -1095,6 +1127,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * all quest guardian colors were changed to cyan
 * all A monsters are immune to death magic (xnh)
 * air elementals get shock resistance.
+* Aleax difficulty raised to 16 (SLASH'EM)
+* Aleax weapon attacks raised to 2d6 (SporkHack)
 * baluchitherium is now huge; strengthened claw attack from 5d4 to 5d12; increased difficulty
 * all bats can see invisible
 * captains are considered princes (xnh)
@@ -1853,6 +1887,7 @@ Curing rabid:
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards never receive magic missile in their starting inventory.
 * Wizards are able to sense magic fountains.
+* The Dark One gets a cloak of magic resistances and staff (from xNetHack).
 
 **Skill adjustments for wizards:**
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
