@@ -680,7 +680,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
 | gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
 | rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
-| anti-magic shield       | armor     | NerfHack   | 2MC, provides MR, counters spellcasting      |
+| anti-magic shield       | armor     | NerfHack   | 1AC/2MC, provides MR, counters spellcasting  |
 | shield of integrity     | armor     | NerfHack   | provides disintegration and withering res    |
 | tower shield            | armor     | SpliceHack | Heavy, provides 4AC                          |
 | gnomish boots           | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
@@ -820,7 +820,7 @@ Other effects:
 * Intrinsics are granted for both weapons accordingly.
 * Most artifact weapons get negative to-hit penalties instead of positive.
   - The standard to-hit penalty is a flat -15
-  - Magicbane and Quick Blade have a +0 to-hit.
+  - Magicbane, Skullcrusher, and Quick Blade have a +0 to-hit.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
 
@@ -1267,8 +1267,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * werewolves have a higher level and difficulty, stronger attacks
 * weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
-* wumpus is now huge; strengthened bite attack from 3d6 to 6d9; increased difficulty
+* wumpus is now huge with a thick hide; strengthened bite attack from 3d6 to 6d9; increased difficulty
 * xans can't fly (dnh)
+* The wumpus is now unique to the ranger quest and much scarier. It also now appears in a random room in the Ranger's locate level.
 * xorns have flanking
 * yellow and black light explosions are directionless (xnh)
 * yellow molds puff out clouds of stunning spores (as a corollary, pets will attack them less often now)
@@ -1640,6 +1641,7 @@ Curing rabid:
 * Archeologists count as primary spellcasters, so they benefit from spell memory bonuses when casting spells.
 * Archeologists of any race can use dwarvishmattocks.
 * Allow Archeologists to highly enchant fedoras (xnh)
+* Archeologists get a luck bonus for wearing a fedora (from UnNetHack).
 * Add boomerangs, spare tinning kit, grappling hook to Arc home (from xNetHack).
 
 
@@ -2212,7 +2214,7 @@ Like the other vampires players will encounter in the dungeon, player vampires c
 
 Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without the conflict ability, and standing on Elbereth incurs a -5 alignment penalty.
 
-Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Vampires also cannot use the #turn undead command.
+Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Fingerless gloves also don't protect V from silver weapons or shields. Vampires also cannot use the #turn undead command.
 
 ## SPELLCASTING CHANGES
 
@@ -2489,7 +2491,7 @@ New themed rooms introduced in NerfHack:
 * Cerberus now guards the entrace to the Valley.
 * One major change from the original Lethe patch is that the Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island (it does not count as a lethe level). This is to give the player access to the valuable loot in the castle before taking on the challenges of the Lethe, it also is less disruptive to the layout.
 * The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
-* All lethe levels are undiggable, hardfloor, and no teleport.
+* All lethe levels are hardfloor and undiggable.
 * More traps were added to these levels, especially anti-magic fields
 * Many items that were guaranteed in the original lethe patch (or dnh) were minimized or eliminated.
 * There are up to four potential altars available in the Lethe branch. Each altar has a 50% chance of appearing. If it does appear, there is a further 50% chance it's pre-cracked.
@@ -2755,6 +2757,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 * Getting troubles fixed by prayer abuses constitution.
 * Permanent alignment conversion prevents more divine protection from being granted
+* Artifacts gifts only unrestrict skill for the first gift.
 
 ### Altar cracking
 **Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.**
@@ -2807,6 +2810,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 | 10            | 0.48%    | 3.57%    |
 
 * The number of artiwishes is not factored in when determining the chance of a gift. The revised gift probabilities still apply, just filtered through the level check.
+
 
 ### CROWNING
 * Crowning requires 13 Luck (from dnh).
