@@ -15,7 +15,11 @@
       - [War Hammers](#war-hammers)
       - [Slings](#slings)
     - [Armor changes](#armor-changes)
-      - [Dragon scales and scale mail changes](#dragon-scales-and-scale-mail-changes)
+      - [New dragon armor system: DSM replaced by scaled armor (from xNetHack/Fourk).](#new-dragon-armor-system-dsm-replaced-by-scaled-armor-from-xnethackfourk)
+    - [Motivation for the Change](#motivation-for-the-change)
+    - [Benefits of the New System](#benefits-of-the-new-system)
+    - [Key Details](#key-details)
+      - [Other dragon scale notes:](#other-dragon-scale-notes)
     - [Comestibles](#comestibles)
     - [Potions](#potions)
       - [Diluted potion effects](#diluted-potion-effects)
@@ -234,7 +238,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID some potions when inhaling their vapors (xnh)
 * Auto-ID scrolls of scare monster when they crumble from picking up (Un)
 * Auto-ID scrolls of confuse monster when read
-* Auto-ID scrolls of enchant armor when they erodeproof or make dragon scale mail
+* Auto-ID scrolls of enchant armor when they erodeproof or make dragon scaled armor
 * Auto-ID scrolls of food detection if they have an obvious effect.
 * Auto-ID scrolls of enchant armor when they erodeproof or harden dragon scales.
 * Auto-ID scrolls of remove curse when read
@@ -351,7 +355,7 @@ Exceptions:
 ### Anti-magical items resist being enchanted (from SpliceHack)
 * If an item grants magic resistance, it will resist scrolls of enchant weapon and enchant armor.
 * The resistance is not absolute.
-* Gray dragon scales can always be converted to dragon scale mail.
+* Gray dragon scales can always be converted to dragon scaled armor.
 
 **For enchant armor:**
 
@@ -455,7 +459,7 @@ Exceptions:
 * gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
 * oilskin cloaks let you slip effortlessly out of web traps.
 * increased weight of dwarvish and elven mithril coats to 200 aum
-* increased weight of dragon scales and scale mail to 80 aum
+* increased weight of dragon scales to 80 aum
 * mummy wrappings always generate rotted
 * cursed armor weighs more when worn.
 * **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
@@ -469,20 +473,54 @@ Exceptions:
 * leather armors don't grant any MC
 * leather cloaks grant 3AC and 0MC
 
-#### Dragon scales and scale mail changes
-* The AC of dragon scales has been reduced from 3AC to 1AC
-* The AC of dragon scale mail has been reduced from 9AC to 4AC
-* Dragon scale mail weighs 80.
-* **Dragon scale mail cannot be wished for**
-* Any wishes for scale mails will simply be converted to the equivalent dragon scales instead. For example, if you wish for "yellow dragon scale mail", you will receive "yellow dragon scales".
+#### New dragon armor system: DSM replaced by scaled armor (from xNetHack/Fourk).
+
+Ported from xNetHack's implementation. The following text was revised from xNetHack
+commit 00fec37778:
+
+This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors—such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail while retaining their original properties.
+
+### Motivation for the Change
+The primary reason for replacing dragon scale mail with this system is to enhance armor strategy. Dragon scale mail was overwhelmingly optimal, rendering other armor choices irrelevant. It was simultaneously:
+- **Lightweight**,
+- **Higher in base AC** than any other armor,
+- **Naturally erodeproof**,
+- **Unrestrictive for spellcasting**,
+- **Easily obtainable** before the Castle or Quest, often as an early wish, and
+- **A source of powerful extrinsics** (e.g., reflection, magic resistance).
+
+Once dragon scale mail became available, there was little incentive to consider other armors. With this new system, players must weigh the pros and cons of different base armors, making armor strategy relevant beyond defeating the first few dragons.
+
+### Benefits of the New System
+This approach aligns with the philosophy of prioritizing found items over wished ones. Previously, even excellent armors like mithril chain mail would only serve as placeholders until dragon scale mail became available. Now, players can find dragon scales, integrate them into their chosen armor, and continue using it throughout the game.
+
+### Key Details
+- Dragon scales provide +3 AC when used as a cloak and add +3 AC to any scaled armor.
+- Scaled armor is **not automatically erodeproof**, maintaining the risk of erosion into the midgame. Players can still erodeproof their armor or attach scales to naturally erodeproof materials.
+- Following the system used in Nethack Fourk, if a player polymorphs and merges with their scaled armor, it will return after unpolymorphing. This is an intentional buff, ensuring that players do not lose enchantments or scales.
+
+
+#### Other dragon scale notes:
+* Dragon scales now weigh 80.
+* Shopkeepers price dragon-scaled armor at a high value (from xNetHack).
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
-* Green dragon scale mail also grants regeneration.
-* White dragon scale mail confers water walking (EvilHack).
-* Red dragon scale mail confers increase damage; enchantment works in the same fashion as a ring of increase damage.
-* Silver dragon scale mail offers protection against most blinding attacks.
-* Silver dragon scales and scale mail are actually coated in silver (Splice)
-* Shimmering dragon scales convey displacement; the scale-mail also conveys stun resistance. The scales also provide -2AC and the scale-mail provides -5AC.
+
+| Dragon     | Scales confer      | Scaled armor confers       |
+| ---------- | ------------------ | -------------------------- |
+| gray       | magic resistance   |                            |
+| gold       | light source       | hallucination resistance   |
+| silver     | reflection         | blinding resistance        |
+| shimmering | displacement       | stun resistance            |
+| red        | fire resistance    | increase damage            |
+| white      | cold resistance    | slow digest/water walk     |
+| orange     | sleep resistance   | free action                |
+| black      | disintegration res | drain/withering res        |
+| blue       | shock resistance   | speed                      |
+| green      | poison resistance  | regeneration, sickness res |
+| yellow     | acid resistance    | petrification res          |
+
+* Red dragon scaled armor confers increase damage; enchantment works in the same fashion as a ring of increase damage.
 
 ### Comestibles
 * Port the Oily Corpses Patch (xnh)
@@ -517,6 +555,7 @@ Exceptions:
 * Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
 * Dipping scrolls of amnesia blanks non-water non-polymorph potions.
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
+* Fizzy potions and booze can cause (loud) burps.
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
@@ -559,7 +598,6 @@ Exceptions:
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes the protection spell effects
-  * Small chance dragon scale mail will revert back to a set of scales if cancelled (Un/Evil)
 * Increase wand to-hit chance for high-dex characters  (Splice)
 * Wands of secret door detection can be broken to detect traps.
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
@@ -627,14 +665,20 @@ The following safeguards were added to protect players from exploding bags:
 
 DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
 
+* Another subtle but helpful change: bags are not susceptible to burning up when lava walking. In Vanilla this was never the case, but in some variants bags can sometimes burn up unless foo-proofed.
+
 #### Magic markers
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
 * They can still be creating from polypiling
 * There is a 1 in 4 chance of a magic marker being the Sokoban prize.
+* Guarantee magic marker in Moloch's Sanctum (from EvilHack).
+* Add magic markers to soko1-7 and soko1-8.
+* The head of the Lethe Branch has a 50% chance of having a magic marker in a chest (the other times it has a magic lamp)
+* Any role that could start with a magic marker always starts with one. 
 
 #### Unicorn horns
 * Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
-* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0, otherwise it is drained of 1 enchantment level.
+* Cancelled unicorn horns become degraded, unusable for curing. A unihorn only becomes degraded if it's enchantment is +0, otherwise it is drained of 1 enchantment level. However, a degraded horn still has a 1 in 20 chance of success.
 * Unicorn horn drops decrease as the number of unicorns killed increased.
 * Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn!
 * Unicorn horns cannot be poisoned (via toilet dipping)
@@ -648,6 +692,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
   * if you are a healer, double the entire above sum
   * Add all of the following for the time out reduction roll (or "troll").
   * For each afflication, we roll d(troll) for the amount reduced.
+* Regardless of any of the above, there is always a 1 in 20 chance of completely curing a condition.
 * Applying a unihorn can also exercise your unihorn skill.
 
 Note: The success rate change from SLASH'EM was experimented with, but ultimately discarded in favor of the timeout nerf.
@@ -712,6 +757,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | foulstone               | gem       | NerfHack   | aggravate monster & misc effects             |
 
 * Potions of reflection are immune to fire and cold damage.
+* Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
 
 **playing card deck:**
@@ -821,6 +867,7 @@ Other effects:
 * Most artifact weapons get negative to-hit penalties instead of positive.
   - The standard to-hit penalty is a flat -15
   - Magicbane, Skullcrusher, and Quick Blade have a +0 to-hit.
+* If a "bane"-type artifact weapon is used against it's baned monster (ie: Sunsword vs undead), it gets +25 to-hit to cancel out the penalty and apply an effective +10 to-hit bonus. This only applies for actual bane weapons and not something like Fire Brand vs non-fire resistant monsters.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
 
@@ -954,6 +1001,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | byahkee                | B   | SLASH'EM       |
 | cerastes               | S   | SpliceHack     |
 | Cerberus               | d   | Vanilla/*      |
+| compsognathus          | z   | NerfHack       |
 | deep one               | h   | SLASH'EM       |
 | deeper one             | h   | SLASH'EM       |
 | deepest one            | h   | SLASH'EM       |
@@ -1659,6 +1707,7 @@ Curing rabid:
 | shield | n/a        | ->  | skilled  |
 
 ### BARBARIAN
+* Barbarians start with a little more food (SLASH'EM).
 * Barbarians get a **blood rage bonus** for low health.
   * Only occurs when barbarians reach level 4 and higher.
   * When under 40% of their max HP, they get a damage bonus that scales with their level.
@@ -1716,6 +1765,7 @@ Curing rabid:
 * Healers start with 2 eucalyptus leaves.
 * Healers get a bonus when applying unicorn horns
 * Healers can use an uncursed unicorn horn as if it is blessed.
+* Healers know blood potions (SpliceHack).
 
 ### KNIGHT
 * Only lawful Knights can dip for Excalibur (Evil/Spork)
@@ -1753,7 +1803,6 @@ Curing rabid:
 | crossbow           | basic   | ->  | restricted |
 | quarterstaff       | basic   | ->  | expert     |
 | enchantment spells | basic   | ->  | skilled    |
-| attack spells      | basic   | ->  | restricted |
 | divination spells  | basic   | ->  | restricted |
 | escape spells      | skilled | ->  | restricted |
 | matter spells      | basic   | ->  | restricted |
@@ -1782,6 +1831,8 @@ Curing rabid:
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
 * Rogues start with a stack of knives instead of daggers
+* Rogues start with a leather jacket instead of armor.
+* Rogues start with scrolls of gold detection and teleport (SLASH'EM).
 
 **Return of Backstab Damage:**
 * Rogue's can inflict **backstab damage** for the first thrown weapon. In 3.4.3 this was a very powerful mechanic that was nerfed in 3.6. We are bringing it back in a limited form as a callback to 3.4.3 but also because it strongly fits the theme of the role.
@@ -1858,7 +1909,8 @@ Curing rabid:
 ### TOURIST
 * Tourists get automatic type identification for shop items (Un). This means that all items for sale are identified for you in shops. You can instantly identify anything by selling it.
 * Tourists start with more darts (Un)
-* Tourists start with all of their optional equipment (FIQ)
+* Tourists gain experience by discovering new special rooms.
+* Tourists start with a pair of walking shoes.
 
 **Skill adjustments for tourists:**
 | skill              | NetHack | ->  | NerfHack |
@@ -1878,6 +1930,7 @@ Curing rabid:
 * Valkyries get a winter wolf cub as a starting pet.
 * They can also pacify and tame winter wolves/cubs via the #chat command.
 * Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon while advancing shield skill)
+* Valkyries start with 5 daggers (SLASH'EM).
 
 
 **Skill adjustments for valkyries:**
@@ -2226,7 +2279,8 @@ difficult time with spellcasting.
 
 * The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM). Roles still start with 20000 turns of memory.
 * When reading or re-reading a spellbook, you will bring the retention back up to 10000
-* Primary spellcasters (healers, priests, monks, wizards, archeologists) get a memory boost of 500 turns when they cast spells (SLASH'EM)
+* Primary spellcasters (healers, priests, monks, wizards, archeologists) get a memory boost of 500 turns when they cast spells (SLASH'EM).
+* Non-primary spellcasters get a memory boost of 100-200 turns for casting.
 * Casting your **special spell** also grants a retention bonus of 500 turns no matter what role you are
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
 * Hungerless casting ignores too hungry to cast penalty (xnh)
@@ -2239,13 +2293,13 @@ difficult time with spellcasting.
 * Spellbook of identify was raised to level 5 (SLASHEM)
 * Cure sickness is now directional (Evil).
 * Only primary spellcasters can receive divine spellbook gifts.
-* You cannot learn spells that you are restricted in.
 * Spellbooks can generate pre-read.
 * Casting the spell of clairvoyance at skilled lets it persist for a while.
 * Display a single accurate spellcasting retention percentage in the spellbook list.
 * Remove the spell of identify outright (xnh)
 * Increase drain life up to level 3 (xnh)
-
+* Reading restricted spellbooks only grants 2000 turns of spell memory.
+* 
 ### Spellbook of charm monster
 * This spell is now a directional level 3 spell and only works on the first monster hit.
 * At unskilled and basic, the spell can only pacify monsters.
@@ -2339,7 +2393,7 @@ Add original author?
 | Gulf of N'Kai #4      | Location of vibrating square      | Lethe patch   |
 | Mephistopholes' lair  | Fortress with lethe river         | SpliceHack    |
 | Moloch's Sanctum #2   | Lava islands                      | Un/Evil       |
-| Moloch's Sanctum #3   | Cthulhu's sanctum                 | Lethe Patch   |
+| Moloch's Sanctum #3   | Cthulhu's sanctum (deferred)      | Lethe Patch   |
 | Lethe a #1            | river head - gargoyles & trices   | Lethe patch   |
 | Lethe a #2            | river head - Vampires and Byakhee | Lethe patch   |
 | Lethe b               | lethe entry level                 | Lethe patch   |
@@ -2351,7 +2405,8 @@ Add original author?
 | Lethe f               | Sylvan Park                       | Lethe patch   |
 | Lethe g               | Honycombe Canyon                  | Lethe patch   |
 | Lethe z               | The gates of Gehennom.            | Lethe patch   |
-| The Lost Tomb         |                                   | SLASH'EM      |
+| The Lost Tomb #1      | Some variations on SLASHEM's      | SLASH'EM      |
+| The Lost Tomb #2      | Repurposed Demo's map from xnh    | SLASH'EM      |
 | Mine end #4           | The Gnomish Sewer                 | xNetHack      |
 | Mine end #5           | Orc Temple                        | EvilHack      |
 | Mine end #6           | Gnome King's Apiary               | SlashTHEM     |
@@ -2487,14 +2542,16 @@ New themed rooms introduced in NerfHack:
 ### The Lethe Branch
 
 * The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
+* The Lethe can span up to 7 levels, but some levels may or may not appear. The head of the lethe appears as a upward branch from leth-b. Expect to see about 3-4 lethe maps on average in the main dungeon.
 * Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
-* Cerberus now guards the entrace to the Valley.
+* Cerberus now guards the entrance to the Valley.
 * One major change from the original Lethe patch is that the Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island (it does not count as a lethe level). This is to give the player access to the valuable loot in the castle before taking on the challenges of the Lethe, it also is less disruptive to the layout.
-* The lethe water mechanic was not imported. In its place, many oppressive mechanics take effect
+* The lethe water mechanic was not imported. In its place, many subtle but oppressive effects are present.
 * All lethe levels are hardfloor and undiggable.
 * More traps were added to these levels, especially anti-magic fields
 * Many items that were guaranteed in the original lethe patch (or dnh) were minimized or eliminated.
-* There are up to four potential altars available in the Lethe branch. Each altar has a 50% chance of appearing. If it does appear, there is a further 50% chance it's pre-cracked.
+* There are up to four altars available in the Lethe branch. Each altar has a 50% chance of generating pre-cracked.
+
 Lethe effects:
   * You cannot gain experience.
   * You don't gain skill points for using skills
@@ -2568,7 +2625,8 @@ Lethe effects:
 * 2 ghoul mages were added.
 
 ### Lost Tomb level
-* Ported from SLASH'EM
+* Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages. 
+* A second variation was created using Demogorgon's Lair from xNetHack. This level had a very mazelike structure that lends itself well to a lost tomb (but with no Demogorgon of course...)
 
 ### Big Room
 * Ported bigroom variants from UnNetHack and SpliceHack.
@@ -2624,6 +2682,7 @@ Toilets have received many enhancements after adapting them from SLASHEM. Notabl
 * If giants sit on toilets, they break.
 * Sitting on toilets fully heals your HP.
 * Toilets can sometimes break when sat on.
+* Dipping potions into toilets only contaminates potions into sickness.
 
 #### Toilet kicking:
 * Like sinks, toilets now have a couple different effects from kicking them, including a few YAFM.
@@ -2757,7 +2816,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 * Getting troubles fixed by prayer abuses constitution.
 * Permanent alignment conversion prevents more divine protection from being granted
-* Artifacts gifts only unrestrict skill for the first gift.
+* Only one skill per game will be unrestricted by your god via artifact gifts.
 
 ### Altar cracking
 **Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.**
@@ -3191,7 +3250,8 @@ Leveling up grants damage bonuses (SlashTHEM)
 * 8d93bedd9 Halu reverse geno troll msg (from UnNetHack).
 * 899833966 Funny troll #chat messages (from SpliceHack, I think).
 * Characters who don't like baths may resist fountain's urging (from xNetHack).
-
+* New hallucinatory monsters from Secret of Mana and Magic of Scheherazade. 
+* The fat lady sings if you win while hallucinating (from xNetHack).
 ## Quick Reference
 
 
