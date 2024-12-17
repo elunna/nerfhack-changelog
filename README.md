@@ -249,7 +249,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID wands when engraving (xnh)
 * Automatically use a process of elimination for auto-identifying wands when available (Un)
 * Auto-ID loadstones when attempting to drop or stash them (Un)
-* Auto-id flint yielded from applying rocks to eachother
+* Auto-id flint yielded from applying rocks to each-other
 * Auto-ID most musical instruments upon use (Un)
 * Auto-ID magic lamps and oil lamps when rubbing (Un)
 * Auto-ID dunce cap when it's first put on (Un)
@@ -299,7 +299,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 
 
 * **showdamage:** Displays damage dealt and flanking bonuses/penalties
-* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokobon penalty for each level used.
+* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
 * **invweight:** Show weights of objects in inventory
 
 ### WIZMODE FEATURES
@@ -320,7 +320,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 * Levels of erosion on an object can affect its price (Evil).
 * orcish equipment usually generates rusty and/or corroded
-* dwarven items frequently spawn as fixed.
+* dwarvish items frequently spawn as fixed.
 * Towels cannot be worn. Blindfolds now must be relied upon for blinding.
 
 ### Price Identification Nerf
@@ -344,7 +344,7 @@ Exceptions:
 * Poison gas clouds can rot organic armor
 * Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
 * Item erosion can be repaired by dipping into a potion of restore ability (xnh)
-* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.
+* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.)
 * Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor.
 * Passive acid attacks corrodes armor more often.
 * Thrown potions of acid can corrode items when they hit a monster or the player.
@@ -431,6 +431,7 @@ Exceptions:
 * **Daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 * **Bows and crossbows** are two-handed.
 * Ported the modified version of L's Bullwhip Patch (from xNetHack).
+* All *launchers* can contribute to missile projectile damage (adapted from SpliceHack); the damage is calculated as d(x/3), where x is the current enchantment of the launcher.
 
 #### War Hammers
 * war hammers have been changed from a one-handed weapon into a competitive two-handed weapon (xnh)
@@ -458,12 +459,12 @@ Exceptions:
 * gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
 * gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
 * oilskin cloaks let you slip effortlessly out of web traps.
-* increased weight of dwarvish and elven mithril coats to 200 aum
+* increased weight of dwarvish and elvish mithril coats to 200 aum
 * increased weight of dragon scales to 80 aum
 * mummy wrappings always generate rotted
 * cursed armor weighs more when worn.
 * **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
-* only elves can safely enchant elven armor over +3. Other races will get a warning vibration if their elven armor is enchanted over +3.
+* only elves can safely enchant elvish armor over +3. Other races will get a warning vibration if their elvish armor is enchanted over +3.
 * worn armor has a 25% weight reduction (xnh/FIQ)
 * dwarves and elves get a +1 bonus for each racially aligned piece of armor they wear (Evil)
 * orcs and gnomes get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
@@ -674,7 +675,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Guarantee magic marker in Moloch's Sanctum (from EvilHack).
 * Add magic markers to soko1-7 and soko1-8.
 * The head of the Lethe Branch has a 50% chance of having a magic marker in a chest (the other times it has a magic lamp)
-* Any role that could start with a magic marker always starts with one. 
+* Any role that could start with a magic marker always starts with one.
 
 #### Unicorn horns
 * Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
@@ -711,50 +712,54 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 ## NEW ITEMS
 
 
-| Item                    | Class     | Origin     | Notes                                        |
-| ----------------------- | --------- | ---------- | -------------------------------------------- |
-| rapier                  | weapon    | SLASHEM    | light metal saber                            |
-| scythe                  | weapon    | SpliceHack | strong polearm that can be used in melee     |
-| heavy sword             | weapon    | NerfHack   | base item for Load Brand                     |
-| silver short sword      | weapon    | SLASHEM    |                                              |
-| sling bullet            | weapon    | EvilHack   |                                              |
-| stomping boots          | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
-| orcish boots            | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
-| dwarvish boots          | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
-| bronze gauntlets        | armor     | NerfHack   | copper, 1AC                                  |
-| gauntlets of force      | armor     | NerfHack   | stuns monsters, better #force effects        |
-| gauntlets of swimming   | armor     | SLASHEM    | grants swimming                              |
-| rogue's gloves          | armor     | SpliceHack | Confers searching, fingerless (!)            |
-| anti-magic shield       | armor     | NerfHack   | 1AC/2MC, provides MR, counters spellcasting  |
-| shield of integrity     | armor     | NerfHack   | provides disintegration and withering res    |
-| tower shield            | armor     | SpliceHack | Heavy, provides 4AC                          |
-| gnomish boots           | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
-| gnomish helm            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
-| gnomish suit            | armor     | SlashTHEM  | 1AC (+1AC for gnomes)                        |
-| fire helmet             | armor     | SlashTHEM  | fire resistance                              |
-| oilskin helm            | armor     | EvilHack   | protection from tentacle/wrap attacks        |
-| wand of corrosion       | wand      | SpliceHack | shoots acid rays                             |
-| wand of poison gas      | wand      | SpliceHack | shoots poison gas                            |
-| wand of wonder          | wand      | SpliceHack | random wand effect                           |
-| wand of draining        | wand      | SLASHEM    | shoots drain life rays                       |
-| wand of identify        | wand      | SlashTHEM  | identifies items, spawns with 4-8 charges    |
-| scroll of cloning       | scroll    | SpliceHack | clones items or monsters                     |
-| scroll of knowledge     | scroll    | SpliceHack | learn about a random magic item              |
-| scroll of flood         | scroll    | Un/xnh     | generates water pools                        |
-| spellbook of repair     | spellbook | EvilHack   | repairs any item erosion                     |
-| spellbook of fire bolt  | spellbook | HackEM     | shoots a beam of fire                        |
-| potion of blood         | potion    | SLASHEM    | nutrition for vampires                       |
-| potion of vampire blood | potion    | SLASHEM    | nutrition/healing for vampires               |
-| potion of phasing       | potion    | NerfHack   | conveys temporary phasing                    |
-| potion of reflection    | potion    | SpliceHack | conveys temporary reflection                 |
-| ring of withering       | ring      | NerfHack   | causes withering                             |
-| ring of sleeping        | ring      | SLASHEM    | causes restful sleep                         |
-| ring of carrying        | ring      | xNetHack   | grants expanded carrying capacity            |
-| playing card deck       | tool      | SpliceHack | can reveal your current luck                 |
-| deck of fate            | tool      | SpliceHack | high risk, high reward!                      |
-| healthstone             | gem       | SLASHEM    | affects regeneration                         |
-| whetstone               | gem       | SLASHEM    | sharpens edged weapons                       |
-| foulstone               | gem       | NerfHack   | aggravate monster & misc effects             |
+| Item                     | Class     | Origin     | Notes                                        |
+|--------------------------|-----------|------------|----------------------------------------------|
+| razor card               | weapon    | SpliceHack | slightly weaker shuriken for cartomancers    |
+| silver short sword       | weapon    | SLASHEM    |                                              |
+| rapier                   | weapon    | SLASHEM    | light metal saber, erodeproof steel          |
+| heavy sword              | weapon    | NerfHack   | base item for Load Brand                     |
+| scythe                   | weapon    | SpliceHack | strong polearm that can be used in melee     |
+| gnomish helm             | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
+| fire helmet              | armor     | SlashTHEM  | fire resistance                              |
+| oilskin helm             | armor     | EvilHack   | protection from tentacle/wrap attacks        |
+| shimmering dragon scales | armor     | Deferred   | displacement, stun resistance                |
+| gnomish suit             | armor     | SlashTHEM  | 1AC (+1AC for gnomes)                        |
+| tower shield             | armor     | SpliceHack | Heavy, provides 4AC                          |
+| anti-magic shield        | armor     | NerfHack   | 1AC/2MC, provides MR, counters spellcasting  |
+| shield of integrity      | armor     | NerfHack   | provides disintegration and withering res    |
+| rogue's gloves           | armor     | SpliceHack | Confers searching, fingerless (!)            |
+| bronze gauntlets         | armor     | NerfHack   | copper, 1AC                                  |
+| gauntlets of swimming    | armor     | SLASHEM    | grants swimming                              |
+| gauntlets of force       | armor     | NerfHack   | stuns monsters, better #force effects        |
+| gnomish boots            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
+| orcish boots             | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
+| dwarvish boots           | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
+| stomping boots           | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
+| ring of withering        | ring      | NerfHack   | causes withering                             |
+| ring of sleeping         | ring      | SLASHEM    | causes restful sleep                         |
+| ring of carrying         | ring      | xNetHack   | grants expanded carrying capacity            |
+| playing card deck        | tool      | SpliceHack | can reveal your current luck                 |
+| deck of fate             | tool      | SpliceHack | high risk, high reward!                      |
+| glob of like-like        | food      | NerfHack   |                                              |
+| potion of reflection     | potion    | SpliceHack | conveys temporary reflection                 |
+| potion of phasing        | potion    | NerfHack   | conveys temporary phasing                    |
+| potion of blood          | potion    | SLASHEM    | nutrition for vampires                       |
+| potion of vampire blood  | potion    | SLASHEM    | nutrition/healing for vampires               |
+| scroll of cloning        | scroll    | SpliceHack | clones items or monsters                     |
+| scroll of knowledge      | scroll    | SpliceHack | learn about a random magic item              |
+| scroll of flood          | scroll    | Un/xnh     | generates water pools                        |
+| scroll of zapping        | scroll    | NerfHack   | special for cartomancers                     | 
+| spellbook of repair      | spellbook | EvilHack   | repairs any item erosion                     |
+| spellbook of fire bolt   | spellbook | HackEM     | shoots a beam of fire                        |
+| wand of wonder           | wand      | SpliceHack | random wand effect                           |
+| wand of identify         | wand      | SlashTHEM  | identifies items, spawns with 4-8 charges    |
+| wand of poison gas       | wand      | SpliceHack | shoots poison gas                            |
+| wand of corrosion        | wand      | SpliceHack | shoots acid rays                             |
+| wand of draining         | wand      | SLASHEM    | shoots drain life rays                       |
+| healthstone              | gem       | SLASHEM    | affects regeneration                         |
+| whetstone                | gem       | SLASHEM    | sharpens edged weapons                       |
+| foulstone                | gem       | NerfHack   | aggravate monster & misc effects             |
+| sling bullet             | weapon    | EvilHack   | 1d6 + 1 damage                               |
 
 * Potions of reflection are immune to fire and cold damage.
 * Shields of integrity are also immune to erosion.
@@ -918,31 +923,31 @@ Other effects:
 
 | Name                  | Align     | Type                    | From       |
 | --------------------- | --------- | ----------------------- | ---------- |
-| Thunderfists          | neutral   | gauntlets of force      | NerfHack   |
-| Disrupter             | neutral   | mace                    | SLASHEM    |
-| Skullcrusher          | lawful    | aklys                   | SLASHEM    |
-| The End               | neutral   | scythe                  | SpliceHack |
-| Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
-| Doomblade             | chaotic   | short sword             | SLASHEM    |
-| Poseidon's trident    | chaotic   | trident                 | SpliceHack |
-| Origin                | unaligned | quarterstaff            | SpliceHack |
-| Hellfire              | chaotic   | crossbow                | SLASHEM    |
-| Plague                | chaotic   | bow                     | SLASHEM    |
+| Carnwennan            | lawful    | knife                   | SpliceHack |
 | Pridwen               | lawful    | large shield            | SpliceHack |
 | Quick Blade           | lawful    | silver short sword      | SLASHEM    |
-| Carnwennan            | lawful    | knife                   | SpliceHack |
-| Load Brand            | unaligned | heavy sword             | NerfHack   |
-| Snakeskin             | Neutral   | robe                    | SlashTHEM  |
-| Blackshroud           | chaotic   | cloak of invisibility   | SlashTHEM  |
-| Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
-| Deluder               | neutral   | cloak of displacement   | SLASHEM    |
-| Whisperfeet           | neutral   | speed boots             | SLASHEM    |
-| Mayhem                | chaotic   | stomping boots          | NerfHack   |
-| The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
 | Serenity              | lawful    | silver spear            | NerfHack   |
-| Mouser's Scalpel      | neutral   | rapier                  | slashem-up |
-| Amulet of Storms      | chaotic   | amulet of flying        | xnh        |
+| Blackshroud           | chaotic   | cloak of invisibility   | SlashTHEM  |
 | David's Sling         | neutral   | sling                   | slashthem  |
+| Deluder               | neutral   | cloak of displacement   | SLASHEM    |
+| Disrupter             | neutral   | mace                    | SLASHEM    |
+| Skullcrusher          | lawful    | aklys                   | SLASHEM    |
+| Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
+| Thunderfists          | neutral   | gauntlets of force      | NerfHack   |
+| Mouser's Scalpel      | neutral   | rapier                  | slashem-up |
+| Snakeskin             | Neutral   | robe                    | SlashTHEM  |
+| The End               | neutral   | scythe                  | SpliceHack |
+| Whisperfeet           | neutral   | speed boots             | SLASHEM    |
+| Amulet of Storms      | chaotic   | amulet of flying        | xnh        |
+| Doomblade             | chaotic   | short sword             | SLASHEM    |
+| Hellfire              | chaotic   | crossbow                | SLASHEM    |
+| Mayhem                | chaotic   | stomping boots          | NerfHack   |
+| Plague                | chaotic   | bow                     | SLASHEM    |
+| Poseidon's trident    | chaotic   | trident                 | SpliceHack |
+| Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
+| Load Brand            | unaligned | heavy sword             | NerfHack   |
+| Origin                | unaligned | quarterstaff            | SpliceHack |
+| The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
 | Holographic Void Lily | chaotic   | credit card/banned card | SpliceHack |
 
 Misc changes:
@@ -985,110 +990,126 @@ Misc changes:
 The following summarizes the new monsters, advanced info can be found in the monster pokedex in NerfHack or on the NetHack Wiki.
 
 | Monster                | Sym | Origin         |
-| ---------------------- | --- | -------------- |
-| acid sphere            | e   | Splice/Evil    |
-| adherer                | M   | SpliceHack     |
-| alchemist              | Q   | SpliceHack     |
-| alhoon                 | h   | EvilHack       |
-| athol                  | B   | SLASH'EM       |
-| arc bug                | x   | SLASH'EM       |
-| arch-vile              | L   | NerfHack       |
-| assassin bug           | a   | SLASH'EM       |
-| asphynx                | S   | SLASH'EM       |
-| basilisk               | c   | EvilHack       |
-| blinking eye           | e   | SLASH'EM       |
-| bullet ant             | a   | SpliceHack     |
-| byahkee                | B   | SLASH'EM       |
-| cerastes               | S   | SpliceHack     |
-| Cerberus               | d   | Vanilla/*      |
-| compsognathus          | z   | NerfHack       |
-| deep one               | h   | SLASH'EM       |
-| deeper one             | h   | SLASH'EM       |
-| deepest one            | h   | SLASH'EM       |
-| diamond piercer        | p   | SpliceHack     |
-| elven cleric           | @   | EvilHack       |
-| familiar               | @   | NerfHack       |
-| fell beast             | D   | EvilHack       |
-| ghoul mage             | Z   | SLASH'EM       |
-| giant anacondas        | S   | EvilHack       |
-| giant centipede        | s   | EvilHack       |
-| giant fly              | w   | SpliceHack     |
+|------------------------|-----|----------------|
+| giant fly              | a   | SpliceHack     |
+| giant cockroach        | a   | EvilHack       |
 | giant praying mantis   | a   | SpliceHack     |
-| glowing eye            | e   | SLASH'EM       |
-| god piercer            | p   | SpliceHack     |
-| grave troll            | T   | SpliceHack     |
-| gray fungus            | F   | Evil/THEM      |
-| gug                    | Z   | SLASH'EM       |
-| ha-naga                | N   | SpliceHack     |
-| hedgehog               | r   | SpliceHack     |
-| kamadan                | f   | SLASH'EM       |
-| killer mimic           | m   | SpliceHack     |
-| koala                  | z   | SLASH'EM       |
-| landshark              | q   | SpliceHack     |
-| lava demon             | &   | Convict Patch  |
-| lightning bug          | x   | SLASH'EM       |
-| like-like              | P   | NerfHack       |
+| bullet ant             | a   | SpliceHack     |
 | locust                 | a   | EvilHack       |
-| maggot                 | w   | SLASHEM/Splice |
-| merfolk                | ;   | Splice/THEM    |
-| nightgaunt             | B   | SLASH'EM       |
-| nickelpede             | s   | SLASH'EM       |
-| ogre mage              | O   | SLASH'EM       |
-| phase spider           | s   | SLASHEM        |
-| pixie                  | n   | SLASH'EM       |
-| phoenix                | B   | SpliceHack     |
 | queen ant              | a   | EvilHack       |
-| rabbit                 | r   | SLASH'EM       |
-| redcap                 | i   | SpliceHack     |
-| recluse spider         | s   | SLASH'EM       |
-| revenant               | Z   | EvilHack       |
-| shadow                 | X   | SLASH'EM       |
-| shadow ogre            | O   | SLASH'EM       |
-| baby shimmering dragon | D   | Deferred       |
-| shimmering dragon      | D   | Deferred       |
-| spark bug              | x   | SLASH'EM       |
-| shoggoth               | P   | SLASH'EM       |
-| spiked orc             | o   | NerfHack       |
-| spined devil           | &   | SLASH'EM       |
-| stinking sphere        | e   | Fourk          |
-| t-rex                  | z   | SpliceHack     |
-| third eye              | e   | SLASHEM/YANI   |
-| thing from below       | ;   | SpliceHack     |
-| troll mummy            | M   | SLASH'EM       |
-| vampire mage           | V   | SLASH'EM       |
-| velociraptor           | z   | SpliceHack     |
-| volatile mushroom      | F   | SpliceHack     |
-| weretiger              | f/@ | SLASH'EM       |
-| will-o'-the-wisp       | y   | SpliceHack     |
-| zoo bat                | B   | SpliceHack     |
-| Baphomet               | &   | SpliceHack     |
-| Buer                   | &   | SpliceHack     |
-| Kostchtchie            | &   | SpliceHack     |
-| Lolth                  | &   | EvilHack       |
-| Malchanthet            | &   | SpliceHack     |
-| Mephistopholes         | &   | SpliceHack     |
+| assassin bug           | a   | SLASH'EM       |
+| migo drone             | a   | SLASH'EM       |
+| migo warrior           | a   | SLASH'EM       |
+| migo queen             | a   | SLASH'EM       |
 | jiggling blob          | b   | SLASH'EM       |
 | lava blob              | b   | SLASH'EM       |
 | static blob            | b   | SLASH'EM       |
 | burbling blob          | b   | SLASH'EM       |
+| basilisk               | c   | EvilHack       |
+| barghest               | d   | SpliceHack     |
+| Cerberus               | d   | Evil/xnh       |
+| glowing eye            | e   | SLASH'EM       |
+| stinking sphere        | e   | Fourk          |
+| acid sphere            | e   | Splice/Evil    |
+| third eye              | e   | SLASHEM/YANI   |
+| blinking eye           | e   | SLASH'EM       |
+| kamadan                | f   | SLASH'EM       |
+| weretiger              | f/@ | SLASH'EM       |
+| deep one               | h   | SLASH'EM       |
+| deeper one             | h   | SLASH'EM       |
+| deepest one            | h   | SLASH'EM       |
+| alhoon                 | h   | EvilHack       |
+| dretch                 | i   | SLASH'EM       |
+| rutterkin              | i   | SLASH'EM       |
+| blood imp              | i   | SLASH'EM       |
+| nupperibo              | i   | SLASH'EM       |
+| redcap                 | i   | SpliceHack     |
 | clear jelly            | j   | SLASH'EM       |
 | yellow jelly           | j   | SLASH'EM       |
 | orange jelly           | j   | SLASH'EM       |
 | rancid jelly           | j   | SLASH'EM       |
-| tunnel worm            | w   | SLASH'EM       |
-| rot worm               | w   | SLASH'EM       |
+| killer mimic           | m   | SpliceHack     |
+| pixie                  | n   | SLASH'EM       |
+| spiked orc             | o   | NerfHack       |
+| diamond piercer        | p   | SpliceHack     |
+| god piercer            | p   | SpliceHack     |
+| landshark              | q   | SpliceHack     |
+| pack rat               | r   | SLASH'EM       |
+| hedgehog               | r   | SpliceHack     |
+| rabbit                 | r   | SLASH'EM       |
+| nickelpede             | s   | SLASH'EM       |
+| recluse spider         | s   | SLASH'EM       |
+| phase spider           | s   | SLASHEM        |
+| werespider             | s   | SLASH'EM       |
+| monstrous spider       | s   | SpliceHack     |
+| giant centipede        | s   | EvilHack       |
+| maggot                 | w   | SLASHEM/Splice |
 | acid worm              | w   | SLASH'EM       |
 | bloodworm              | w   | SLASH'EM       |
-| dretch                 | i   | SLASH'EM       |
-| rutterkin              | i   | SLASH'EM       |
-| blood imp              | i   | SLASH'EM       |
-| barghest               | d   | SpliceHack     |
-| pack rat               | r   | SLASH'EM       |
-| ghoul queen            | Z   | SLASH'EM       |
-| werespider             | s   | SLASH'EM       |
-| weresnake              | S   | SLASH'EM       |
-| monstrous spider       | s   | SpliceHack     |
+| tunnel worm            | w   | SLASH'EM       |
+| rot worm               | w   | SLASH'EM       |
+| spark bug              | x   | SLASH'EM       |
+| arc bug                | x   | SLASH'EM       |
+| lightning bug          | x   | SLASH'EM       |
+| will-o'-the-wisp       | y   | SpliceHack     |
+| koala                  | z   | SLASH'EM       |
+| compsognathus          | z   | NerfHack       |
+| velociraptor           | z   | SpliceHack     |
+| t-rex                  | z   | SpliceHack     |
+| zoo bat                | B   | SpliceHack     |
+| athol                  | B   | SLASH'EM       |
+| phoenix                | B   | SpliceHack     |
+| byahkee                | B   | SLASH'EM       |
+| nightgaunt             | B   | SLASH'EM       |
+| fell beast             | D   | EvilHack       |
+| baby shimmering dragon | D   | Deferred       |
+| shimmering dragon      | D   | Deferred       |
+| volatile mushroom      | F   | SpliceHack     |
+| gray fungus            | F   | Evil/THEM      |
+| gnoll                  | G   | SLASH'EM       |
+| arch-vile              | L   | NerfHack       |
+| adherer                | M   | SpliceHack     |
+| troll mummy            | M   | SLASH'EM       |
+| ha-naga                | N   | SpliceHack     |
+| ogre mage              | O   | SLASH'EM       |
+| shadow ogre            | O   | SLASH'EM       |
+| like-like              | P   | NerfHack       |
+| shoggoth               | P   | SLASH'EM       |
 | orb weaver             | Q   | NerfHack       |
+| alchemist              | Q   | SpliceHack     |
+| cerastes               | S   | SpliceHack     |
+| asphynx                | S   | SLASH'EM       |
+| weresnake              | S   | SLASH'EM       |
+| giant anaconda         | S   | EvilHack       |
+| grave troll            | T   | SpliceHack     |
+| vampire mage           | V   | SLASH'EM       |
+| ghoul mage             | Z   | SLASH'EM       |
+| revenant               | Z   | EvilHack       |
+| gug                    | Z   | SLASH'EM       |
+| ghoul queen            | Z   | SLASH'EM       |
+| elven cleric           | @   | EvilHack       |
+| familiar               | @   | NerfHack       |
+| Wintercloak            | D   | NerfHack       |
+| shadow                 | X   | SLASH'EM       |
+| lava demon             | &   | Convict Patch  |
+| spined devil           | &   | SLASH'EM       |
+| Buer                   | &   | SpliceHack     |
+| Kostchtchie            | &   | SpliceHack     |
+| Baphomet               | &   | SpliceHack     |
+| Lolth                  | &   | EvilHack       |
+| Malchanthet            | &   | SpliceHack     |
+| Mephistopholes         | &   | SpliceHack     |
+| merfolk                | ;   | Splice/THEM    |
+| thing from below       | ;   | SpliceHack     |
+| cartomancer            | @   | SpliceHack     |
+| King of Games          | @   | SpliceHack     |
+| Del Zethire            | @   | SpliceHack     |
+| duelist                | @   | SpliceHack     |
+
+
+
+
+
 
 
 ### New monster notes
@@ -1723,6 +1744,7 @@ Curing rabid:
 | shield | n/a     | ->  | skilled  |
 
 ### CAVEMAN/CAVEWOMAN CHANGES
+* Cavemen start with a random set of dragon scales.
 * When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
 * Cavemen have also been gifted with more skills in rudimentary tools like rocks and flint:
 * They start the game with more flint and no rocks (xnh)
@@ -2537,13 +2559,13 @@ New themed rooms introduced in NerfHack:
 
 * Players can't regenerate hit points whilst in the Valley of the Dead (Evil)
 * Instead of dart traps, the player will encounter magic traps (Evil)
-* Less ghosts are guaranteed in the valley
+* Less ghosts spawn to clog up the valley
 
 ### The Lethe Branch
 
 * The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
 * The Lethe can span up to 7 levels, but some levels may or may not appear. The head of the lethe appears as a upward branch from leth-b. Expect to see about 3-4 lethe maps on average in the main dungeon.
-* Technicially, it doesn't count as a real "branch" in nethack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
+* Technically, it doesn't count as a real "branch" in NetHack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
 * Cerberus now guards the entrance to the Valley.
 * One major change from the original Lethe patch is that the Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island (it does not count as a lethe level). This is to give the player access to the valuable loot in the castle before taking on the challenges of the Lethe, it also is less disruptive to the layout.
 * The lethe water mechanic was not imported. In its place, many subtle but oppressive effects are present.
@@ -2589,7 +2611,7 @@ Lethe effects:
 * Sokoban now has two additional levels - an entry level with river obstacles (adapted from the town filler level from UnNetHack) and another puzzle level to solve.
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
-* Monsters won't break boulders in Sokobon.
+* Monsters won't break boulders in Sokoban.
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a white dragon
 * All Soko zoos have the white dragon guarding the treasure.
@@ -2600,7 +2622,7 @@ Lethe effects:
 * Sokoban prizes are always erodeproofed.
 * Stop Sokoban guilt after acquiring the prize.
 * The iron bars in some of the Soko levels can be phased through, but it now incurs a Luck penalty.
-* You will now receive a message when incurring a Sokobon Luck penalty.
+* You will now receive a message when incurring a Sokoban Luck penalty.
 * Sokoban maps above puzzle #2 get 2 mimics.
 
 ### Fort Ludios
