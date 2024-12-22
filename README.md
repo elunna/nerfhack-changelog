@@ -1121,16 +1121,19 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
 * byahkees were recolored to yellow
-* Cerastes buffs: 2 poison bites, poison res, higher difficulty.
+* cerastes buffs: 2 poison bites, poison res, higher difficulty.
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
-* Some deepest ones are guaranteed on the plane of water
+* some deepest ones are guaranteed on the plane of water
 * elven clerics were known as elven wizards in EvilHack
 * ghoul queens can generate randomly in the dungeon
+* ghoul mages are now clairvoyance
+* ghoul queens are now bright magenta
 * giant praying mantis now ignores all magical scaring
 * giant praying mantis has a higher level
 * grave trolls can spawn in graves/graveyards
 * grave troll corpses cause sickness when eaten.
-* Jiggling blobs can jump.
+* gugs are now orange
+* jiggling blobs can jump
 * kamadan are recolored to light green
 * kamadan can now jump and have infravision
 * kamadan get some poisonous snake bites
@@ -1148,8 +1151,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * revenants have fire resistance.
 * shadows can now stalk the player
 * shadows have some minor buffs: higher level, better AC, stronger attacks, unsolid.
-* Shadows also resist shock.
-* Shadows have the same defense as shades (must be hit with silver or blessed weapons)
+* shadows also resist shock.
+* shadows have the same defense as shades (must be hit with silver or blessed weapons)
 * shadow ogres spawn invisible and have a drain life attack
 * spiked orcs cannot wear anything in the armor slot
 * spined devils now have a passive spike attack
@@ -1159,16 +1162,16 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
 * weretigers are recolored to red and can jump
 * zoo bats now cause confusion when eaten
-* Rot worms are now tiny.
-* Bloodworms get a drain life bit instead of poison bite.
-* Tunnel worms are now huge.
-* Tunnel worms get a armor rending attack and a butt attack.
-* Dretches leave clouds of poison gas like hezrou.
+* rot worms are now tiny.
+* bloodworms get a drain life bit instead of poison bite.
+* tunnel worms are now huge.
+* tunnel worms get a armor rending attack and a butt attack.
+* dretches leave clouds of poison gas like hezrou.
 * werespiders can summon giant spiders, phase spiders, and monstrous spiders.
 * weresnakes can summon snakes, pit vipers, and asphynxes.
 * Weresnakes are now red
-* Monstrous spiders were buffed from level 8 to 12, difficulty 10 to 15.
-* Monstrous spiders now have berserk, infravision, infravisible, and MR 20.
+* monstrous spiders were buffed from level 8 to 12, difficulty 10 to 15.
+* monstrous spiders now have berserk, infravision, infravisible, and MR 20.
 
 **Passive spiking monsters:**
 * This mechanic was ported over from SpliceHack and applies to hedgehogs and spiked orcs.
@@ -1267,6 +1270,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * minotaurs carry wands of digging less often
 * all molds can generate in small groups.
 * molds and fungus can grow on corpses (SLASHEM/xnh)
+* monkeys get a small head start after they steal an item (xnh)
 * mordor orcs can spawn with orcish boots
 * mumakil get butts or kicks instead of bites
 * mummies get a nasty withering attack (xnh/Evil)
@@ -2648,7 +2652,8 @@ Lethe effects:
 
 ### Lost Tomb level
 * Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages. 
-* A second variation was created using Demogorgon's Lair from xNetHack. This level had a very mazelike structure that lends itself well to a lost tomb (but with no Demogorgon of course...)
+* A second variation was created using Demogorgon's Lair from xNetHack. This level had a very mazelike structure that lends itself well to a lost tomb (but with no Demogorgon of course...).
+* Both lost tomb levels are no-teleport
 
 ### Big Room
 * Ported bigroom variants from UnNetHack and SpliceHack.
@@ -2839,6 +2844,9 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Getting troubles fixed by prayer abuses constitution.
 * Permanent alignment conversion prevents more divine protection from being granted
 * Only one skill per game will be unrestricted by your god via artifact gifts.
+
+Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retaine, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependant chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
+
 
 ### Altar cracking
 **Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.**
@@ -3144,7 +3152,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
-
+* Allow performing the invocation while hallucinating.
 
 ## AC nerfs & buffs
 
@@ -3278,25 +3286,21 @@ Leveling up grants damage bonuses (SlashTHEM)
 
 
 **Most important (non-obvious) things to know about NerfHack:**
-1. WoWs cannot be recharged. Don't wish for a scroll of recharging!
+1. Wands of wishing cannot be recharged. Do not wish for a scroll of recharging!
 2. Quest artifacts cannot be wished for
-3. Genocide: Unnethack style, blessed = 1 species, uncursed = level
+3. Genocide is Unnethack style, blessed = 1 species, uncursed = level
 4. Cracked altars are destroyed by gifts/crowning.
-5. Many intrinsics can no longer be gained permanently: Invisibility, see invisible, telepathy, teleportitis, teleport control. Intrinsics cannot be gained permanently from eating jewelery.
-6. Pets no longer can steal from shops.
-7. Crowning requires max luck + blessed luckstone luck
-8. Your pets are limited by charisma, doubly so on the Astral Plane.
-9. Weapons can be safely enchanted up to +11 (if +5 was the old soft limit, +11 is the new soft limit).
-10. Unicorn horns only reduce timeout for most things (except illness/vomiting) and their effectiveness depends on it's enchantment and your skill.
-11. Rodney cannot steal your quest artifact.
-12. Items can completely erode away with enough damage
-13. To use a forge, wield a hammer and (a)pply it whilst standing over a forge (no #forge/#craft commands)
-
-Price identification changes:
-* Shopkeepers offer 1/2 price for diluted potions.
-* Magic markers and magic lamps cost $500
-* Magical tools cost more
-
+5. Your god will not crown you until you have completed the quest.
+6. Once you are crowned, you cannot change alignment again.
+7. Most intrinsics can no longer be gained permanently by eating (or other means).
+8. Pets no longer can steal from shops.
+9. Crowning requires max luck + blessed luckstone
+10. Your pets are limited by charisma, doubly so on the Astral Plane.
+11. Weapons can be safely enchanted up to +11 (if +5 was the old soft limit, +11 is the new soft limit).
+12. Unicorn horns only reduce timeout for most things (except illness/vomiting); enchant them for better treatment.
+13. Rodney cannot steal your quest artifact.
+14. To use a forge, wield a hammer and (a)pply it whilst standing over a forge (no #forge/#craft commands
+15. Avoid dipping unicorn horns into acid! This will dissolve the horn and you'll lose it.
 
 ## CREDITS
 
