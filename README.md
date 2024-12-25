@@ -670,10 +670,10 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 
 #### Magic markers
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
-* They can still be creating from polypiling
+* They can still be created from polypiling
 * There is a 1 in 4 chance of a magic marker being the Sokoban prize.
-* Guarantee magic marker in Moloch's Sanctum (from EvilHack).
-* Add magic markers to soko1-7 and soko1-8.
+* Guaranteed magic marker in Moloch's Sanctum (from EvilHack).
+* Added magic markers to soko1-7 and soko1-8.
 * The head of the Lethe Branch has a 50% chance of having a magic marker in a chest (the other times it has a magic lamp)
 * Any role that could start with a magic marker always starts with one.
 
