@@ -359,18 +359,18 @@ Exceptions:
 
 **For enchant armor:**
 
-| Current enchantment | Chance of success |
-| ------------------- | ----------------- |
-| +0                  | 0%                |
-| +1                  | 14%               |
-| +2                  | 29%               |
-| +3                  | 43%               |
-| +4                  | 57%               |
+| Current enchantment | Chance of success   |
+|---------------------|---------------------|
+| +0                  | 0%                  |
+| +1                  | 14%                 |
+| +2                  | 29%                 |
+| +3                  | 43%                 |
+| +4                  | 57%                 |
 
 **For enchant weapon:**
 
 | Current enchantment | Chance of success |
-| ------------------- | ----------------- |
+|---------------------|-------------------|
 | +0                  | 0%                |
 | +1                  | 8%                |
 | +2                  | 15%               |
@@ -430,7 +430,7 @@ Exceptions:
 * **Polearms and lances** can be pounded when blind (as long as you can sense the target)
 * **Daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 * **Bows and crossbows** are two-handed.
-* Ported the modified version of L's Bullwhip Patch (from xNetHack).
+* Ported the modified version of L's Bullwhip Patch (xnh).
 * All *launchers* can contribute to missile projectile damage (adapted from SpliceHack); the damage is calculated as d(x/3), where x is the current enchantment of the launcher.
 
 #### War Hammers
@@ -474,7 +474,7 @@ Exceptions:
 * leather armors don't grant any MC
 * leather cloaks grant 3AC and 0MC
 
-#### New dragon armor system: DSM replaced by scaled armor (from xNetHack/Fourk).
+#### New dragon armor system: DSM replaced by scaled armor
 
 Ported from xNetHack's implementation. The following text was revised from xNetHack
 commit 00fec37778:
@@ -503,7 +503,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 #### Other dragon scale notes:
 * Dragon scales now weigh 80.
-* Shopkeepers price dragon-scaled armor at a high value (from xNetHack).
+* Shopkeepers price dragon-scaled armor at a high value (xnh).
 * When wishing for dragon scales, any specified enchantment is nullified to +0 (xnh)
 * Dragon scales do not provide secondary intrinsics, they must be enchanted into scale-mail for the secondary effect to kick in.
 
@@ -529,7 +529,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Eucalyptus leaves can never be rotten unless cursed.
 * Zapping eggs with cancellation sterilizes them (from HackEM).
 * Cursed food items will no longer tame or pacify monsters.
-* Recolor royal jelly to magenta (EvilHack/xNetHack).
+* Recolor royal jelly to magenta (Evil/xnh).
 * Nutrition tweaks and messages for lembas and cram (Evil)
 * Bump up fried tin nutrition and add stale tins (xh).
 
@@ -548,7 +548,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (Evil)
 * Withering can be cured by quaffing holy water.
 * Blessed restore ability only restores a few levels (Evil)
-* potions of gain energy grant a lot more energy and get an alchemy recipe (from xNetHack).
+* potions of gain energy grant a lot more energy and get an alchemy recipe (xnh).
 * Mixing oil with water always results in diluted oil.
 * Dipping water into any potion will simply dilute the other potion (SLASHEM)
 * Dipping into a cursed potion always causes an explosion (SLASHEM).
@@ -672,7 +672,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
 * They can still be created from polypiling
 * There is a 1 in 4 chance of a magic marker being the Sokoban prize.
-* Guaranteed magic marker in Moloch's Sanctum (from EvilHack).
+* Guaranteed magic marker in Moloch's Sanctum (Evil).
 * Added magic markers to soko1-7 and soko1-8.
 * The head of the Lethe Branch has a 50% chance of having a magic marker in a chest (the other times it has a magic lamp)
 * Any role that could start with a magic marker always starts with one.
@@ -810,7 +810,7 @@ When the deck is cursed, the drawn card will be lowered by one notch, making it 
 Players can can also #tip the deck, emptying it for a stack of random razor cards.
 
 | Card                 | Effects                                                 |
-| -------------------- | ------------------------------------------------------- |
+|----------------------|---------------------------------------------------------|
 | The Tower            | Lightning and acid explosions for 1d30 each on self.    |
 | The Wheel of Fortune | Draw two more cards. Cartomancers get extra cards.      |
 | The Devil            | Summons a demon. Stop drawing from the deck.            |
@@ -1106,12 +1106,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | Del Zethire            | @   | SpliceHack     |
 | duelist                | @   | SpliceHack     |
 
-
-
-
-
-
-
 ### New monster notes
 * adherer AC was buffed from it's original AC in SpliceHack
 * alhoons were covetous in EvilHack, now they move normally but faster
@@ -1190,7 +1184,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * This pesky spellcaster will relentlessly summon spheres of all types
 * They will actively avoid the player and use the spheres as their offense.
 * Although they can cast clerical spells, they only can cast summon orbs, healing, and protection.
-* Currently uses the transmuter's tile from SpliceHack.
+* Currently, uses the transmuter's tile from SpliceHack.
 
 ## MONSTER CHANGES
 
@@ -1212,7 +1206,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * many major demons have been given flight (xnh)
 * disenchanters can appear in the main dungeon
 * disenchanter attacks can also remove erodeproofing from items
-* dragons, nagas, and golems don't balk at approaching as much.
+* dragons, nagas, and golems don't balk at approaching as much
 * dwaves sometimes start with potions of booze (xnh)
 * all elementals resist sickness
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
@@ -1220,15 +1214,15 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * ettins count as giants and are vulnerable to sling damage
 * fell beasts can shriek, inflicting stun damage (xnh/evil)
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
-* fog clouds don't leave traces of steam (so they show up as v)
+* fog clouds don't leave traces of steam (always visible as v)
 * all footrice can fly
 * foocubi gain a level when draining one from the player (xnh)
-* gas spores and volatile mushrooms start with exactly 1 HP.
-* All ghost class monsters get acid resistance.
+* gas spores and volatile mushrooms start with exactly 1 HP
+* all ghost class monsters get acid resistance.
 * giant mimics get an engulf-digest attack
 * giant spiders can ensnare monsters in webs (Evil)
-* gnome lords and kings always get gnomish suits.
-* gnomish wizards always get a gnomish helm.
+* gnome lords and kings always get gnomish suits
+* gnomish wizards always get a gnomish helm
 * gnomes get candles in the mines twice as often as before
 * goblins can generate in small groups (Spork)
 * grave trolls no longer have thick skin (they used to in SpliceHack)
@@ -1237,14 +1231,14 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * green slimes have a passive sliming attack (Grunt)
 * green slimes can appear in the main dungeon
 * gremlins can steal intrinsics no matter the time of day (FIQ)
-* peaceful gremlins don't use fountains/pools/etc. to split themselves (Fourk)
-* hezrou and steam vortices don't leave clouds unless they moved. This guarantees that they won't obscure their own visibility with self-generated clouds.
+* peaceful gremlins don't use fountains/pools/etc to split themselves (Fourk)
+* hezrou and steam vortices don't leave clouds unless they moved so they won't obscure their own visibility with self-generated clouds.
 * hobbits can get flint with their slings (xnh)
-* Horned devils get a butt attack (because horns)
+* horned devils get a butt attack
 * ice and bone devils are now lawful (xnh)
 * ice devils have speed 8 (K-Mod)
 * ice devils' cold sting and claw attacks have been buffed, they have the power to strip cold resistance from the player or monsters (xnh)
-* iron golems get a passive disenchant attack (from SLASH'EM steel golems).
+* iron golems get a passive disenchant attack (from SLASH'EM steel golems)
 * jellyfish get a passive paralyzing attack
 * Keystone Kops cannot be genocided (Un)
 * Keystone Kops are tougher (K-Mod)
@@ -1253,22 +1247,23 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * leprechauns do not stash gold in the ground after stealing it (reverted from 3.7)
 * lizards appear with slightly less frequency
 * ki-rin get shock, sleep, cold, and poison resistance (xnh)
-* long worms have thick skin
-* long worms get -5AC, four 1d10 bites, and accurate behavior.
+* long worms have thick skin, 7 speed
+* long worms get -5AC, a 2d10 bite attack, and accurate behavior
+* long worm segments have lower chance to be cut
 * lords and princes never get negative weapons or armor (xnh)
 * lieutenants are considered lords (xnh)
 * master liches and arch-liches can see invisible (FIQ)
 * mastodon is now huge; strengthened butt attacks from 4d8 to 4d16; increased difficulty
 * mastodon gets a hug attack and can berserk (Evil)
 * giant mimics, large mimics, and killer mimics are higher level and difficulty
-* mimics take the form of strange objects much less often.
+* mimics take the form of strange objects much less often
 * mind flayers are bright magenta
 * mind flayer attacks can make hero forget skills (Evil)
-* mind flayer psychic blasts do more damage; if telepathic they can stun the target.
+* mind flayer psychic blasts do more damage; if telepathic they can stun the target
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide, have flanking, and berserk
 * minotaurs carry wands of digging less often
-* all molds can generate in small groups.
+* all molds can generate in small groups
 * molds and fungus can grow on corpses (SLASHEM/xnh)
 * monkeys get a small head start after they steal an item (xnh)
 * mordor orcs can spawn with orcish boots
@@ -1276,8 +1271,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * mummies get a nasty withering attack (xnh/Evil)
 * all mummies get an additional -1AC to compensate for their ragged wrappings
 * Nazgul always spawn accompanied by a fell beast (Evil)
-* Nazgul have increased level, difficulty, AC, attack strength, and MR (Evil)
-* Nazgul get infravision (Evil)
+* Nazgul have increased level, difficulty, AC, attack strength, infravision, and MR (Evil)
 * Nazgul cannot be genocided (Evil/xnh)
 * Nazgul get an additional weapon/drain attack, can flank, and resist stoning
 * nurses won't heal you if you are undead
@@ -1293,14 +1287,14 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * pit fiends have speed 8 (K-Mod)
 * priests of Moloch are always generated hostile (SLASHEM)
 * purple worms have thick skin
-* pyrolisks have slightly negative alignment.
+* pyrolisks have slightly negative alignment
 * quasit buffs: faster, stronger attacks, see invisible, can appear in small groups (xnh)
 * queen bees can displace monsters
 * quest leaders resist death magic (Evil)
 * quest nemeses can break boulders after getting frustrated enough.
 * rock moles can actually eat rocks (xnh)
 * rock trolls are stoning resistant (xnh)
-* all spheres (shocking spheres, flaming spheres, etc) cannot be genocided.
+* all spheres (shocking spheres, flaming spheres, etc) cannot be genocided
 * all spheres explode on death (unless cancelled)
 * skeleton/shade slow attack is ineffective vs undead
 * soldiers get half as many C-and-K-rations and cannot load both types of rations (K-Mod)
@@ -1311,14 +1305,14 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * scorpions are tiny
 * shades get 20MR
 * shapechangers turn back to their base form when killed with 50-75% of their health (SLASH'EM)
-* shapechangers hold level-appropriate form longer, out-of-depth forms for less time (Fourk).
-* cancelled shapeshifters cannot change form.
+* shapechangers hold level-appropriate form longer, out-of-depth forms for less time (Fourk)
+* cancelled shapeshifters cannot change form
 * shopkeeper base level raised to 24, AC to -6 (SLASH'EM)
 * shopkeepers get a wand of sleep instead of striking (Evil)
 * shopkeepers get extra defensive items (SLASHEM)
 * shopkeepers and priests are colored yellow (xnh)
-* Shopkeepers resist sleep and poison.
-* tame spiders will not spin webs.
+* shopkeepers resist sleep and poison
+* tame spiders will not spin webs
 * titans can see invisible (FIQ)
 * titans resist death magic (SLASHEM)
 * titans are level 17 (K-Mod)
@@ -1332,17 +1326,17 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * all vortices (v) resist shock damage
 * vampire shapeshifting has been disabled for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * vampire mages can see invisible
-* vampires (any V) are not afraid of cracked or Molochian altars.
+* vampires (any V) are not afraid of cracked or Molochian altars
 * all werefoo in animal form get infravision
-* wargs have a thick hide.
+* wargs have a thick hide
 * werefoo revert back to their base form when killed (SLASH'EM)
 * werefoo can occasionally summon rabid breathren
 * werewolves have a higher level and difficulty, stronger attacks
 * weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dyna)
+* the wumpus is now unique to the ranger quest and much scarier; it also now appears in a random room in the Ranger's locate level
 * wumpus is now huge with a thick hide; strengthened bite attack from 3d6 to 6d9; increased difficulty
 * xans can't fly (dnh)
-* The wumpus is now unique to the ranger quest and much scarier. It also now appears in a random room in the Ranger's locate level.
 * xorns have flanking
 * yellow and black light explosions are directionless (xnh)
 * yellow molds puff out clouds of stunning spores (as a corollary, pets will attack them less often now)
@@ -1394,7 +1388,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * red dragons can berserk
 * blue dragons are faster (speed 24)
 * green dragons regenerate and are slightly higher level
-* orange dragons get a engulf digestion attack
+* orange dragons get an engulf digestion attack
 * black dragons get a terrifying roar
 * yellow dragons get a passive acid splash attack
 * white dragons are weaker than other dragons
@@ -1413,6 +1407,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Vlad gets stoning resistance.
 * King Arthur gets a full suite of resistances.
 * Give Baalzebub some combat buffs (xnh).
+* Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
 
 #### Medusa
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
@@ -1420,7 +1415,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * She gets -8AC (a big buff from 2AC)
 * Her weapon attack goes from 2d4 to 4d4
 * Instead of a single poisonous bite, she gets two poisonous snake bite attacks.
-* Medusa also gets a stoning bite (EvilHack).
+* Medusa also gets a stoning bite (Evil).
 * Medusa gets infravision
 
 #### Cerberus
@@ -1596,7 +1591,7 @@ Curing rabid:
 * Ported from EvilHack
 * Monsters can become infected with terminal illness, with a short countdown to death.
 * Monsters can cure themselves if they have the means, and the player can use cure sickness or eucalyptus leaves to heal sick pets.
-* Currently the only weapon that causes disease is Grimtooth.
+* Currently, the only weapon that causes disease is Grimtooth.
 
 ### Accurate behavior
 * Ported from EvilHack, with modifications
@@ -1714,17 +1709,18 @@ Curing rabid:
 * Archeologists count as primary spellcasters, so they benefit from spell memory bonuses when casting spells.
 * Archeologists of any race can use dwarvishmattocks.
 * Allow Archeologists to highly enchant fedoras (xnh)
-* Archeologists get a luck bonus for wearing a fedora (from UnNetHack).
-* Add boomerangs, spare tinning kit, grappling hook to Arc home (from xNetHack).
+* Archeologists get a luck bonus for wearing a fedora (Un).
+* Add boomerangs, spare tinning kit, grappling hook to Arc home (xnh).
 
 
-   **Archeologists vs snakes!**
+**Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
 * Snakes get a +1 to-hit bonus on archeologists
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks.
 * Some giant anacondas have a chance of appearing in the arc quest now.
 
 **Skill adjustments for archeologists:**
+
 | skill  | NetHack    | ->  | NerfHack |
 | ------ | ---------- | --- | -------- |
 | axe    | restricted | ->  | basic    |
@@ -1742,6 +1738,7 @@ Curing rabid:
 * The barbarian quest gets a lot more trees in the beginning (these can be chopped down now)
 
 **Skill adjustments for barbarians:**
+
 | skill  | NetHack | ->  | NerfHack |
 | ------ | ------- | --- | -------- |
 | riding | basic   | ->  | skilled  |
@@ -1772,6 +1769,7 @@ Curing rabid:
 * Their special spell has been removed (Evil)
 
 **Skill adjustments for cave dwellers:**
+
 | skill         | NetHack    | ->  | NerfHack   |
 | ------------- | ---------- | --- | ---------- |
 | dagger        | Basic      | ->  | Restricted |
@@ -1799,6 +1797,7 @@ Curing rabid:
 * The knight's quest has been infested with a swarm of merfolk
 
 **Skill adjustments for knights:**
+
 | skill       | NetHack | ->  | NerfHack   |
 | ----------- | ------- | --- | ---------- |
 | dagger      | Basic   | ->  | Restricted |
@@ -1820,10 +1819,10 @@ Curing rabid:
 * Monks get a **fully charged magic marker** as a crowning gift.
 * Add trees and two ponds to monk quest start.
 * Monks starting spell compentency depends on the spellbook.
-* Martial arts users are immune to leg damage from bad kicks (xNetHack).
-* Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
+* Martial arts users are immune to leg damage from bad kicks (xnh).
 
   **Skill adjustments for monks:**
+
 | skill              | NetHack | ->  | NerfHack   |
 | ------------------ | ------- | --- | ---------- |
 | crossbow           | basic   | ->  | restricted |
@@ -1843,6 +1842,7 @@ Curing rabid:
 * Vampire priests don't start with any food items. Instead they get unholy water, potions of blood, and a guaranteed spellbook of confusion.
 
 **Skill adjustments for priests:**
+
 | skill    | NetHack    | ->  | NerfHack   |
 | -------- | ---------- | --- | ---------- |
 | flail    | expert     | ->  | skilled    |
@@ -1877,6 +1877,7 @@ Curing rabid:
 * Each counterattack uses up 5 energy (at least 5 energy required to execute)
 
 **Skill adjustments for rogues:**
+
 | skill            | NetHack | ->  | NerfHack   |
 | ---------------- | ------- | --- | ---------- |
 | broad sword      | skilled | ->  | Restricted |
@@ -1898,9 +1899,10 @@ Curing rabid:
 * Rangers are not stunned from using portals (they are used to quick travel)
 * Rangers can chop down the trees in the quest entry level.
 * The ranger quest levels get a bunch of bear traps.
-* Rangers start the game with 2 beartraps (from xNetHack).
+* Rangers start the game with 2 beartraps (xnh).
 
 **Skill adjustments for rangers:**
+
 | skill        | NetHack | ->  | NerfHack   |
 | ------------ | ------- | --- | ---------- |
 | dagger       | expert  | ->  | skilled    |
@@ -1926,8 +1928,10 @@ Curing rabid:
 * Samurai get to-hit and damage bonuses for two-weaponing a katana with a wakizashi.
 * The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
 * Being satiated abuses wisdom for Samurai.
+* Samurai are also are immune to leg damage from bad kicks (xnh).
 
 **Skill adjustments for samurai:**
+
 | skill | NetHack | ->  | NerfHack |
 | ----- | ------- | --- | -------- |
 | spear | skilled | ->  | expert   |
@@ -1939,6 +1943,7 @@ Curing rabid:
 * Tourists start with a pair of walking shoes.
 
 **Skill adjustments for tourists:**
+
 | skill              | NetHack | ->  | NerfHack |
 | ------------------ | ------- | --- | -------- |
 | dagger             | expert  | ->  | basic    |
@@ -1960,6 +1965,7 @@ Curing rabid:
 
 
 **Skill adjustments for valkyries:**
+
 | skill  | NetHack | ->  | NerfHack |
 | ------ | ------- | --- | -------- |
 | shield | n/a     | ->  | master   |
@@ -1968,10 +1974,11 @@ Curing rabid:
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards never receive magic missile in their starting inventory.
 * Wizards are able to sense magic fountains.
-* The Dark One gets a cloak of magic resistances and staff (from xNetHack).
+* The Dark One gets a cloak of magic resistances and staff (xnh.
 
 **Skill adjustments for wizards:**
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
+
 | skill       | NetHack | ->  | NerfHack   |
 | ----------- | ------- | --- | ---------- |
 | knife       | skilled | ->  | restricted |
@@ -2000,6 +2007,7 @@ Curing rabid:
     * sack
 
 **Intrinsics:**
+
 | XL  | Intrinsic                                        |
 | --- | ------------------------------------------------ |
 | 1   | Slow (speed 10)                                  |
@@ -2012,6 +2020,7 @@ Curing rabid:
 * Cartomancers also start with 1 point of bonus Luck.
 
 #### Skill adjustments for cartomancers:
+
 | skill              | SpliceHack | ->  | NerfHack   |
 | ------------------ | ---------- | --- | ---------- |
 | bare handed combat | skilled    | ->  | basic      |
@@ -2135,6 +2144,7 @@ Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze 
 Spell beings have a "sparkling" description in farlook, so you can distinguish them from permanent monsters.
 
 ** Lifetime of spell-beings:**
+
 | XPLev | Turns |
 | ----- | ----- |
 | 1     | 19    |
@@ -2273,6 +2283,7 @@ You'll also have to move quickly and attack aggressively to keep draining blood 
 Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars which they can tame via #chat.
 
 #### Vampires resistances and abilities
+
 | XL  | Intrinsic             |
 | --- | --------------------- |
 | 1   | Regeneration          |
@@ -2532,7 +2543,7 @@ New themed rooms introduced in NerfHack:
   * piercer room
 
 ### SHOP CHANGES
-*  Shopkeeper's real name may be used in cursing shoplifters message (from xNetHack).
+*  Shopkeeper's real name may be used in cursing shoplifters message (xnh).
 
 **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
@@ -2595,7 +2606,7 @@ Lethe effects:
 ### Enhanced Gehennom
 
 * The fake wizard levels have been removed.
-* The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xNetHack/EvilHack)
+* The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
 * The portal to the wizard's tower has been moved to a random castle tower and changed to a stair up.
 
 * Most demon lairs are now phaseproof
@@ -2662,7 +2673,7 @@ Lethe effects:
 
 ### Grass
 * Ported using code from xNetHack, SpliceHack, and HackEM.
-* Monsters can hide under grass (from xNetHack).
+* Monsters can hide under grass (xnh).
 * You cannot dust engrave on grassy tiles.
 * Burned engravings also burn up grass.
 * Added grass to big rooms.
@@ -2757,7 +2768,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Spear traps only start appearing after level 5
 * Spear traps can be untrapped, potentially yielding a random spear type in the process.
 * Flying and levitation usually protect from being harmed by spear traps, however, there is still a 25% chance of being hit (by a abnormally long spear)
-* If you or a monster hit by the trap is thick skinned, the spear just breaks and the trap is deleted.
+* If you or a monster hit by the trap is thick-skinned, the spear just breaks and the trap is deleted.
 * The trap also doesn't affect unsolid monsters.
 * When hit, it deals 7-14 damage and wounds your legs for 10-19 turns.
 * Spear traps sometimes have poisoned spears.
@@ -2900,7 +2911,6 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 * The number of artiwishes is not factored in when determining the chance of a gift. The revised gift probabilities still apply, just filtered through the level check.
 
-
 ### CROWNING
 * Crowning requires 13 Luck (from dnh).
 * Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
@@ -2916,7 +2926,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 * Removed the quest turn limit (Un)
 * Players can enter the quest as soon as they reach level XL 10 (Un)
-* Prevent the player from skipping most of the quest (from xNetHack).
+* Prevent the player from skipping most of the quest (xnh).
   * Mark all quest levels as hardfloor.
   * Players cannot do horizontal or downward teleporting while the quest nemesis is alive.
 
@@ -2975,7 +2985,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Darkness offers protection from gaze attacks (as long as the player is on a dark square and the gazer doesn't have infravision and the player is infravisible).
 * If a gazer is in melee range, it will bypass invisibility and darkness protection.
 * Hallucination always protects against floating eye gaze.
-* Hallucination negates all incoming gaze attacks, except Medusa's glare (from xNetHack).
+* Hallucination negates all incoming gaze attacks, except Medusa's glare (xnh).
 
 ### Slow digestion nerf
 * Slow digestion now functions in a fashion opposite of the ring of hunger.
@@ -3111,7 +3121,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Humanoids are more careful about attacking you when you are a dangerous polyform.
 * Mind flayers won't purposely to eat the brains of petrifying monsters (ie: when you are polymorphed into a cockatrice)
 * When you polymorph into a 'nolimbs' monster, you are able to slip out of a ball & chain (Evil)
-* Escape from controlled polymorph prompt no longer causes random poly (from xNetHack).
+* Escape from controlled polymorph prompt no longer causes random poly (xnh).
 * Polymorphing into a horned monster destroys flimsy or cloth helms.
 
 ### Elbereth and Scare Monster
@@ -3279,9 +3289,9 @@ Leveling up grants damage bonuses (SlashTHEM)
 * These don't really fit into any category, or are just silly.
 * 8d93bedd9 Halu reverse geno troll msg (from UnNetHack).
 * 899833966 Funny troll #chat messages (from SpliceHack, I think).
-* Characters who don't like baths may resist fountain's urging (from xNetHack).
+* Characters who don't like baths may resist fountain's urging (xnh).
 * New hallucinatory monsters from Secret of Mana and Magic of Scheherazade. 
-* The fat lady sings if you win while hallucinating (from xNetHack).
+* The fat lady sings if you win while hallucinating (xnh).
 ## Quick Reference
 
 
