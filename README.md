@@ -359,17 +359,17 @@ Exceptions:
 
 **For enchant armor:**
 
-| Current enchantment | Chance of success   |
-|---------------------|---------------------|
-| +0                  | 0%                  |
-| +1                  | 14%                 |
-| +2                  | 29%                 |
-| +3                  | 43%                 |
-| +4                  | 57%                 |
+| Current enchantment | Chance of failure |
+|---------------------|-------------------|
+| +0                  | 0%                |
+| +1                  | 14%               |
+| +2                  | 29%               |
+| +3                  | 43%               |
+| +4                  | 57%               |
 
 **For enchant weapon:**
 
-| Current enchantment | Chance of success |
+| Current enchantment | Chance of failure |
 |---------------------|-------------------|
 | +0                  | 0%                |
 | +1                  | 8%                |
@@ -603,7 +603,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wands of secret door detection can be broken to detect traps.
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
-* You must have at least one free hand to zap a wand.
+* You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage.
 
 #### Wands of wishing
