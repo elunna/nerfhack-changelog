@@ -869,10 +869,6 @@ Other effects:
 ### General artifact changes
 * Artifact weapons can now be dual-wielded (SLASHEM)
 * Intrinsics are granted for both weapons accordingly.
-* Most artifact weapons get negative to-hit penalties instead of positive.
-  - The standard to-hit penalty is a flat -15
-  - Magicbane, Skullcrusher, and Quick Blade have a +0 to-hit.
-* If a "bane"-type artifact weapon is used against it's baned monster (ie: Sunsword vs undead), it gets +25 to-hit to cancel out the penalty and apply an effective +10 to-hit bonus. This only applies for actual bane weapons and not something like Fire Brand vs non-fire resistant monsters.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
 
@@ -2162,7 +2158,7 @@ The price of summon cards scales according to the difficulty of the monster they
 
 Monsters can also read summon cards, so it’s important for cartomancers to collect them before they are used against them. Cursed summon cards will always create hostile monsters.
 
-Activating summon cards costs 10101010101010101010 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
+Activating summon cards costs 5 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
 
 #### Explosive summon cards
 Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
@@ -2184,7 +2180,7 @@ Razor cards will occasionally appear as part of a cartomancer’s regular death 
 If a player comes across a deck of cards that they have no use for, they can #tip the deck to empty it, yielding a potentially large stack of razor cards.
 
 #### Zappable cards
-Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 10 energy per card.
+Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 5 energy per card.
 
 Cartomancers will never see wands generate. Anytime a wand would spawn it is instead replaced with its equivalent zap card. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
 
@@ -2199,7 +2195,7 @@ Cartomancers begin the game knowing the identities of all rulebooks, as the titl
   * level 5: 3 cards
   * level 10: 4 cards
   * level 15+: 5 cards
-* Starting the combo costs 5 energy. Further cards cost 10 energy per card to play as normal.
+* Starting the combo costs 5 energy. Further cards cost 5 energy per card to play as normal.
 
 **Cartomancers get special bonuses for wielding crystal balls:**
 Whilst wielding a crystal ball, a cartomancer will enjoy:
