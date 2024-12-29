@@ -794,20 +794,11 @@ Unique monsters can use these scrolls as well, but the Wizard of Yendor must sti
 **deck of fate:**
 This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
 
-If cursed, the drawn card will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
+If cursed, the drawn card value will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
 
-If blessed, the drawn card is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
+If blessed, the drawn card value is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
 
-Grants random effects when you draw a card from it. When you apply it, you are prompted for
-how many cards to draw. You can draw a max of 5 cards.
-
-* Can be #tipped and emptied for a stack of random razor cards
-
-This powerful tarot-based deck has been ported from SpliceHack, incorporating some significant changes. In the original version, players were prompted to choose how many cards to draw, but this has now been modified to require a mandatory draw of five cards, eliminating the prompt altogether. After using the deck, it is always destroyed, allowing for only one use. The deck contains 22 different cards, each with the potential for either beneficial or detrimental effects, with approximately half categorized as "good" and half as "bad." Additionally, a nudge factor comes into play depending on whether the deck is cursed or blessed.
-
-When the deck is cursed, the drawn card will be lowered by one notch, making it impossible to draw The World, as it is the highest numbered card at 22. Conversely, this increases the likelihood of drawing The Tower, which is card number 1. If the deck is blessed, the drawn card is raised by one notch, effectively doubling the chances of drawing The World whilst preventing The Tower from being drawn.
-
-Players can can also #tip the deck, emptying it for a stack of random razor cards.
+* Can also be #tipped and emptied for a stack of random razor cards
 
 | Card                 | Effects                                                 |
 |----------------------|---------------------------------------------------------|
