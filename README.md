@@ -15,7 +15,7 @@
       - [War Hammers](#war-hammers)
       - [Slings](#slings)
     - [Armor changes](#armor-changes)
-      - [New dragon armor system: DSM replaced by scaled armor (from xNetHack/Fourk).](#new-dragon-armor-system-dsm-replaced-by-scaled-armor-from-xnethackfourk)
+      - [New dragon armor system: DSM replaced by scaled armor](#new-dragon-armor-system-dsm-replaced-by-scaled-armor)
     - [Motivation for the Change](#motivation-for-the-change)
     - [Benefits of the New System](#benefits-of-the-new-system)
     - [Key Details](#key-details)
@@ -390,13 +390,13 @@ Exceptions:
 #### Higher max weapon enchantment
 * Weapons can be enchanted much higher, with a soft limit of +11.
 * This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
-* To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from 0 to +7.
+* To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
 * Random weapons have a small chance to generate with very high enchantment.
 * The enchantment based to-hit bonus for projectiles capped at +7.
-* Thrown projectiles above +7 have a high chance of dulling on hit. Even though projectiles can be enchanted quite high to +11, +12, or +13, they will quickly diminish to +7.
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
 * Abuse wisdom if items are destroyed by over-enchanting.
+* Players get an additional +1 to-hit bonus while XP1-5.
 
 #### Misc weapon changes
 * Swapping weapons take 0 turns (dnh)
@@ -536,7 +536,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 ### Potions
 * Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
 * Implement behavior for cursed potion of gain ability (xnh)
-* Vampires like cursed blood more than uncursed or blessed blood (the opposite of SLASH'EM)
 * Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
 * Dipping an eroded item in restore ability repairs the erosion (xnh)
 * Dipping in potions of reflection erodeproofs an item.
@@ -579,7 +578,10 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Reverse the name of the HACKEM MUCHE scroll
 * Cursed scrolls of remove curse will curse items.
 * Scrolls of genocide only clear a single monster species on the level (uncursed) or globally (blessed) (Un)
-* Endgame genocide nerf. Monsters cannot be fully genocided after entering the planes. Any genocides executed in the end game will be uncursed and only have a 1 in 4 chance of destroying each monster of that species. This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
+* Endgame genocide nerf. 
+  * Monsters cannot be truly genocided after entering the planes. 
+  * Any scrolls of genocide read in the endgame will be uncursed and their effectiveness depends on the monster's proximity to the hero. Targeted monsters within 2 squares of the hero are guaranteed kills, but further distance decreases the chance of success.
+  * This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
 * Enchant armor: Ability to choose worn piece of armor to enchant/repair (Evil)
 * Give enchanting vibrate warning for all weapons/armor (Dyna)
 * Blessed scroll of destroy armor asks which armor to destroy (xnh)
@@ -1121,7 +1123,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * koalas cannot calm berserking monsters.
 * rabid koalas are not capable of calming anything
 * landsharks were recolored to bright blue
-* like likes can eat your shields and cloaks when engulfing
+* like likes can eat organic shields and cloaks when engulfing you (note: dragonhide scales are not edible for them)
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with tridents or spears.
 * nightgaunts were recolored to purple
@@ -1147,7 +1149,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * bloodworms get a drain life bit instead of poison bite.
 * tunnel worms are now huge.
 * tunnel worms get a armor rending attack and a butt attack.
-* dretches leave clouds of poison gas like hezrou.
 * werespiders can summon giant spiders, phase spiders, and monstrous spiders.
 * weresnakes can summon snakes, pit vipers, and asphynxes.
 * Weresnakes are now red
@@ -1314,6 +1315,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * vampire shapeshifting has been disabled for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * vampire mages can see invisible
 * vampires (any V) are not afraid of cracked or Molochian altars
+* vampires attack with their bite attacks first
 * all werefoo in animal form get infravision
 * wargs have a thick hide
 * werefoo revert back to their base form when killed (SLASH'EM)
@@ -1773,6 +1775,7 @@ Curing rabid:
 
 ### HEALER
 * Added L's Wounds patch: healers can see damage on monsters
+* Healers start with a +1 scalpel
 * Healers start with 2 eucalyptus leaves.
 * Healers get a bonus when applying unicorn horns
 * Healers can use an uncursed unicorn horn as if it is blessed.
@@ -1826,7 +1829,7 @@ Curing rabid:
 * Instead of the standard crowning gift, priests always receive Mjollnir (Evil)
 * Priests reduce the chance of zombie revival by 50% (Dyna); when a zombie is destroyed for good, you get a special message
 * Priests start with more garlic and wolfsbane (similar to the undead slayer in SLASH'EM)
-* Vampire priests don't start with any food items. Instead they get unholy water, potions of blood, and a guaranteed spellbook of confusion.
+* Vampire priests don't start with any food items. Instead they get potions of blood and a guaranteed spellbook of confusion.
 
 **Skill adjustments for priests:**
 
@@ -2285,7 +2288,7 @@ Instead of the usual starting pet, vampires begin with a tame and loyal familiar
 
 To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes. Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
 
-In terms of food, most rations and fruit juice potions are replaced with blood potions when playing as a vampire. This avoids creating junk items and helps the player survive longer. Interestingly, vampires prefer cursed blood, as it provides more nutrition, whilst cursed vampire blood increases their maximum hit points. In contrast, blessed blood is treated as congealed and unusable. This behavior is the opposite of SLASH'EM. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and wearing an opera cloak grants a charisma bonus, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source, but shopkeepers charge more for blood when vampires are hungry.
+In terms of food, most rations and fruit juice potions are replaced with blood potions when playing as a vampire. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and wearing an opera cloak grants a charisma bonus, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source, but shopkeepers charge more for blood when vampires are hungry.
 
 Like the other vampires players will encounter in the dungeon, player vampires can no longer shapeshift using the #monster command. However, they now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack.
 
@@ -2729,7 +2732,6 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 ### Traps
 * Polytraps disappear with 1 in 7 chance when a monster steps on one.
 * Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
-* Disabled paranoid confirm for walking into vapor/clouds.
 * Anti-magic fields block spellcasting for the player and monsters
 * Anti-magic fields also block wand zapping
 * Arrow traps and dart traps cannot be avoided by flight.
@@ -2854,11 +2856,11 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Altars only generate in the main dungeon starting at level 6 
+* Altars only generate in the main dungeon starting at level 6.
 * Altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
-* Non-chaotic same-race sacrifice always cracks altar, as does throwing vampire blood onto an altar to convert it.
+* Non-chaotic same-race sacrifice always cracks altars.
 
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after two artifact gifts had been bestowed.
 
@@ -2900,10 +2902,8 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 ### CROWNING
 * Crowning requires 13 Luck (from dnh).
-* Crowning only grants *up to* 3 intrinsics. In Vanilla, crowning would grant fire, cold, poison, sleep, and shock resistance, as well as see invisible.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
-* In NerfHack, the game will roll 3 times to pick random intrinsics. On each roll, if the player already possesses that intrinsic, the roll is lost - otherwise the player gains it permanently.
 * Crowning gifts are only granted when crowned, never for #offer.
 * Your god will not crown you until you have completed the quest.
 * Crowning makes it impossible to change alignment ever again.
@@ -2945,7 +2945,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Ported from EvilHack
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics.
-* Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
+* Percentage gained is based on the weight of the corpse; minimum being 5% and maximum at 50% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
@@ -3076,17 +3076,16 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Shopkeepers start with more gold, usually more than double the standard amounts (gnoll)
 
 #### Pets are limited by charisma
-* Your maximum number of pets is normally (CHA / 4), but (CHA / 8) on the Astral Plane. If you get more pets than that, they will be untamed starting with the weakest first (Evil)
+* Your maximum number of pets is normally (CHA / 3). If you get more pets than that, they will be untamed starting with the weakest first (Evil)
 
 * Ported from EvilHack with modifications
-* The number of pets you can have on a level is now capped at Charisma divided by 4.
-* For example, if your charisma is only 7, you can keep 1 pet, at 8 charisma you can keep 2 pets.
+* The number of pets you can have on a level is now capped at Charisma divided by 3.
+* For example, if your charisma is only 7, you can keep 2 pets, at 9 charisma you can keep 3 pets.
 * However, if you exceed this limit, your weakest pets (based on level) will be the first to become untamed, with ties resolved randomly.
 * Untamed pets that were previously mistreated, such as resurrected ones, may even turn hostile.
 * Your steed, while counting toward your pet limit, will never become untamed.
 * Summoned spell beings do not count toward the total pet limit.
-* On the Astral Plane, the requirement is doubled - so your maximum pets is determined as (CHA / 8).
-* Since the minimum CHA possible is 3, you may not be able to have a pet if your charisma is too low.
+* Since the minimum CHA possible is 3, you should always be capable of retaining a pet.
 
 **Misc pet changes:**
 * Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (Evil)
@@ -3327,7 +3326,6 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 | ----- | --------- | -------------------- | ----------------------------------------------------------------------- |
 | #8    | 763e4ed25 | bezaban              | You can fall onto your own weapon whilst fumbling.                      |
 | #10   | e049887c8 | aosdict              | Wizards are able to sense magic fountains.                              |
-| #63   | 9ed322944 | jonadab              | All artifact weapons get negative to-hit penalties                      |
 | #125  | e03ac9fb5 | Andrio               | Spiked orcs, which are more deadly than regular orcs.                   |
 | #149  | 402066eab | AmyBSOD              | Falling down stairs while stunned or confused.                          |
 | #254  | 6d15685cf | NeroOneTrueKing      | Unicorn horns only reduce the timeouts of statuses.                     |
@@ -3351,7 +3349,7 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 | #2023 | 2b553fee6 | aosdict              | Nerf slow digestion.                                                    |
 | #2062 | 460d74c91 | aosdict              | Casting clairvoyance at skilled lets it persist for a while.            |
 | #2082 | 04f87f673 | aosdict              | Aggravate monster spell cast at hero causes temporary aggro mon.        |
-| #2084 | 7800ffd44 | aosdict              | You cannot learn spells that you are restricted in.                     |
+| #2084 | 7800ffd44 | aosdict              | You cannot learn spells that you are restricted in [now revamped]       |
 | #2090 | 8b6a11458 | aosdict              | knock and wizard lock spell nerfs                                       |
 | #2199 | 896ed1feb | aosdict              | Crowning makes it impossible to change alignment ever again.            |
 | #2200 | 4be06d9a9 | aosdict              | Permanent alignment conversion prevents more divine protection          |
