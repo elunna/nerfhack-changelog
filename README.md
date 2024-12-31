@@ -3013,7 +3013,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Quest artifacts cannot be wished for (dnh)
 * Attempting to wish for quest artifacts doesn't use up a wish
 * Wishes no longer increase prayer timeout (Dyna)
-* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. If the player doesn't get a wish, they lose 1 point of Luck. Once the player is granted a wish from a throne, the throne is guaranteed to disappear. (Evil with adjustments)
+* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. Whenever a player hits the 1 in 13 chance to get a wish and they don't, they lose 1 point of Luck (this roughly translates to a 6% chance of losing luck anytime you sit on a throne). Once the player is granted a wish from a throne, the throne is guaranteed to disappear. (Evil with adjustments)
 * The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
 * Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
 * Artiwishes only care about previous **successful** artiwishes.
