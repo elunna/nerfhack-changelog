@@ -121,6 +121,8 @@
     - [Vampires](#vampires)
       - [Vampires resistances and abilities](#vampires-resistances-and-abilities)
   - [SPELLCASTING CHANGES](#spellcasting-changes)
+    - [Spell memory](#spell-memory)
+    - [Other spellcasting changes](#other-spellcasting-changes)
     - [Spellbook of charm monster](#spellbook-of-charm-monster)
     - [Spellbook of light](#spellbook-of-light)
     - [Spellbook of dig](#spellbook-of-dig)
@@ -206,6 +208,7 @@
   - [Quick Reference](#quick-reference)
   - [CREDITS](#credits)
     - [NetHack Ideas Archive credits](#nethack-ideas-archive-credits)
+    - [Changes that were later adopted into NetHack 3.7.0](#changes-that-were-later-adopted-into-nethack-370)
     - [Special thanks to:](#special-thanks-to)
     - [Thanks:](#thanks)
 
@@ -219,6 +222,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Running and traveling no longer pushes boulders (xnh)
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
 * **Stinking clouds** no longer block line of sight
+* Launchers don't count as weapons for the 'hit with a wielded weapon' conduct.
 
 ### STREAMLINED IDENTIFICATION FEATURES
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -342,6 +346,7 @@ Exceptions:
 * Silver items can corrode (xnh)
 * The iron ball and chain cannot be destroyed from rusting (Evil)
 * Poison gas clouds can rot organic armor
+* Extrinsic poison resistance protects items from rotting in poison gas.
 * Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
 * Item erosion can be repaired by dipping into a potion of restore ability (xnh)
 * Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.)
@@ -1698,7 +1703,6 @@ Curing rabid:
 * Archeologists count as primary spellcasters, so they benefit from spell memory bonuses when casting spells.
 * Archeologists of any race can use dwarvishmattocks.
 * Allow Archeologists to highly enchant fedoras (xnh)
-* Archeologists get a luck bonus for wearing a fedora (Un).
 * Add boomerangs, spare tinning kit, grappling hook to Arc home (xnh).
 
 
@@ -1804,7 +1808,7 @@ Curing rabid:
 
 ### MONK
 * Dramatically increased the monk's body armor penalty (Evil)
-* Give explicit feedback for monks wearing/removing body armor
+* Give explicit feedback for monks and cartomancers wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
 * Monks get a **fully charged magic marker** as a crowning gift.
 * Add trees and two ponds to monk quest start.
@@ -2115,6 +2119,7 @@ Cartomancers do not receive a starting pet and are unable to tame monsters in th
 * If wearing armor, they receive an additional -20 to-hit penalty
 * If wearing a shield, they receive an additional -10 to-hit penalty
 * If attacking with a wielded weapon, they receive an additional -10 to-hit penalty.
+* Cartomancers get messages (similar to monks) for cumbersome armor and shields.
 
 #### Card drops
 When playing as a cartomancer, there is a chance that a monster will leave a card instead of a corpse upon death. Initially, this chance is 50%, but as you level up and progress deeper into the dungeon, the chance gradually decreases. When a monster dies and is eligible for a drop, one of three outcomes can occur: a razor card (with any BUC status or enchantment) may be dropped, a zap card may appear, or a summon card might be left behind. Summon drops are the most complex, as they can vary depending on RNG. The drop could be the same card as the monster that was killed, a higher difficulty monster, a random monster, or a sphere. If the monster is low level (below 3), it often doesn't leave any card. However, nasty monsters always drop their own summon cards.
@@ -2304,11 +2309,15 @@ that don't specialize (like fighters). Non-specialists can still attempt to util
 but they will have to work harder to maintain their spells. Cavemen will have a very
 difficult time with spellcasting.
 
-* The base memory retention ("KEEN") for spells is now 10000 turns, reduced from 20000 (SLASH'EM). Roles still start with 20000 turns of memory.
-* When reading or re-reading a spellbook, you will bring the retention back up to 10000
+### Spell memory
+* The base memory retention ("KEEN") for spells is now 20000 turns for primary spellcasters and 10000 for all other roles.
+* When reading or re-reading a spellbook, you will bring the retention back up to your roles KEEN value.
+* Reading restricted spellbooks only grants **half*** of your role's KEEN value.
 * Primary spellcasters (healers, priests, monks, wizards, archeologists) get a memory boost of 500 turns when they cast spells (SLASH'EM).
 * Non-primary spellcasters get a memory boost of 100-200 turns for casting.
 * Casting your **special spell** also grants a retention bonus of 500 turns no matter what role you are
+
+### Other spellcasting changes
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
 * Hungerless casting ignores too hungry to cast penalty (xnh)
 * Spellbooks' weight is directly related to their level (xnh)
@@ -2325,8 +2334,7 @@ difficult time with spellcasting.
 * Display a single accurate spellcasting retention percentage in the spellbook list.
 * Remove the spell of identify outright (xnh)
 * Increase drain life up to level 3 (xnh)
-* Reading restricted spellbooks only grants 2000 turns of spell memory.
-* 
+
 ### Spellbook of charm monster
 * This spell is now a directional level 3 spell and only works on the first monster hit.
 * At unskilled and basic, the spell can only pacify monsters.
@@ -3095,6 +3103,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Pets' items can be managed with #loot
 * We can also see if pets are stunned, confused, or blinded on farlook.
 * Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
+* Tame pets will not hide or conceal themselves.
 
 ### POLYMORPHING OBJECTS
 * The number of items you have polymorphed can be viewed in #conduct
@@ -3396,6 +3405,10 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 | #4411 | f9e5ea0f3 | Loggers_VIII         | Greased items sometimes slip when disarmed with a bullwhip.             |
 
 Many thanks to all the folks who have helped out with the original Hack'EM and NerfHack, contributing ideas, making patches, playtesting, or anything!
+
+
+### Changes that were later adopted into NetHack 3.7.0
+* Archeologists get a luck bonus for wearing a fedora (Un).
 
 ### Special thanks to:
 - My wife - for being endlessly patient with this time-consuming endeavor!
