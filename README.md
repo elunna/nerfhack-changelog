@@ -1785,6 +1785,7 @@ Curing rabid:
 * Healers get a bonus when applying unicorn horns
 * Healers can use an uncursed unicorn horn as if it is blessed.
 * Healers know blood potions (SpliceHack).
+* Healers start out knowing potions of restore ability, sickness, paralysis, and sleeping (from HackEM).
 
 ### KNIGHT
 * Only lawful Knights can dip for Excalibur (Evil/Spork)
