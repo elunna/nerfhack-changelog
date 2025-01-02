@@ -1999,8 +1999,9 @@ Curing rabid:
     * ~4 candy bars
     * 7 blessed summon raven cards
     * 1 random rulebook
-    * 33% chance of a potion of phasing
+    * 4 potions of phasing
     * sack
+    * a playing card deck or a deck of fate
 
 **Intrinsics:**
 
