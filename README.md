@@ -21,7 +21,7 @@
     - [Key Details](#key-details)
       - [Other dragon scale notes:](#other-dragon-scale-notes)
     - [Comestibles](#comestibles)
-    - [Potions](#potions)
+    - [Potions and alchemy](#potions-and-alchemy)
       - [Diluted potion effects](#diluted-potion-effects)
       - [GEM ALCHEMY](#gem-alchemy)
     - [Scrolls](#scrolls)
@@ -35,6 +35,12 @@
       - [Unicorn horns](#unicorn-horns)
     - [Gems/Stones/Rocks](#gemsstonesrocks)
   - [NEW ITEMS](#new-items)
+    - [playing card deck](#playing-card-deck)
+    - [scroll of cloning](#scroll-of-cloning)
+    - [deck of fate](#deck-of-fate)
+    - [healthstone](#healthstone)
+    - [whetstone](#whetstone)
+    - [foulstone](#foulstone)
   - [ARTIFACT CHANGES](#artifact-changes)
     - [General artifact changes](#general-artifact-changes)
     - [Specific artifact changes](#specific-artifact-changes)
@@ -538,7 +544,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Nutrition tweaks and messages for lembas and cram (Evil)
 * Bump up fried tin nutrition and add stale tins (xh).
 
-### Potions
+### Potions and alchemy
 * Potions can shatter when dropped on cold floor (this shows up in Sokoban and in Gehennom)
 * Implement behavior for cursed potion of gain ability (xnh)
 * Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
@@ -559,6 +565,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Dipping acid into toilets explodes and destroys the toilet.
 * Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
 * Dipping scrolls of amnesia blanks non-water non-polymorph potions.
+* Non-magical alchemy is less likely to result in an alchemical explosion.
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Fizzy potions and booze can cause (loud) burps.
 
@@ -1810,6 +1817,7 @@ Curing rabid:
 
 ### MONK
 * Monks can start with the spell of sleep (in addition to confuse monster, light, and protection).
+* Monks start with a potion of reflection.
 * Dramatically increased the monk's body armor penalty (Evil)
 * Give explicit feedback for monks and cartomancers wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
@@ -2262,8 +2270,8 @@ Cartomancer gets adjusted different item generation odds.
   * Humans/vampires hate gnomish objects (too small) - but otherwise they can use all other racial equipment
 
 The effects of wearing armor or wielding weapons you hate:
-* +5AC penalty for each piece
-* -5 to-hit penalty for each piece
+* +2AC penalty for each piece
+* -d5 to-hit penalty for each piece
 * To make the mechanic obvious, you receive an explicit message when wearing or wielding any hated object.
 * You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
 * When throwing items your race dislikes, they have a 1 in 7 chance of slipping - same as a cursed or greased projectile.
