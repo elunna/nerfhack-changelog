@@ -596,9 +596,10 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 ### Wands
 * Cursed wands have a higher chance of exploding and can backfire.
-* Raise odds of a cursed wand exploding to 1 in 30 (Un)
+* Raise odds of a zapped cursed wand exploding to 1 in 30 (Un)
 * Cursed wand backfire patch (Evil)
   * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
+* Wands will never explode when engraving with them (SLASHEM)
 * Blessed and uncursed wands wrest much more often
   * blessed wands wrest 1/7 of the time
   * uncursed wrest 1/23 of the time
@@ -772,7 +773,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
 
-**playing card deck:**
+### playing card deck
 * When applied, gives you a poker hand which correlates to your luck.
 * If the deck is blessed (or you are a cartomancer), you get a clear indication of your luck
   by using the kicker.
@@ -780,7 +781,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * If cursed, the meanings are reversed.
 * Can be #tipped and emptied for a stack of razor cards
 
-**scroll of cloning:**
+### scroll of cloning
 * Ported from SpliceHack with modifications
 * This is a $300 scroll that can clone an item in your inventory or clone yourself if read whilst confused.
 * Attempting to clone unique items or items that are too powerful will result in lesser quality results: magic markers, magic lamps, wands of wishing, scrolls of cloning, artifacts, and any invocation items.
@@ -798,7 +799,7 @@ Intelligent monsters can also use these scrolls to clone themselves, which helps
 
 Unique monsters can use these scrolls as well, but the Wizard of Yendor must still follow the Double Trouble routine, ensuring that no more than two Rodneys can oppose you at any time. However, other unique monsters have the potential to clone themselves more than once if the opportunity arises.
 
-**deck of fate:**
+### deck of fate
 This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
 
 If cursed, the drawn card value will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
@@ -832,7 +833,7 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 | The Star             | Identifies your inventory.                              |
 | The World            | Make a wish.                                            |
 
-**healthstone**
+### healthstone
 * Ported from SLASH'EM with updates
 * A blessed healthstone now increases your regeneration rate by 10%.
 * An uncursed healthston increases regeneration by 5%.
@@ -840,14 +841,14 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 * Stackable.
 * Monsters carrying noncursed healthstones also gain regeneration.
 
-**whetstone**
+### whetstone
 * Ported from SLASH'EM with updates from HackEM.
 * Whetstones no longer can add positive enchantment to a weapon, they can only repair it to +0.
 * Cursed whetstones either rust or corrode items now.
 * Blessed whetstones can uncurse a cursed weapon, but lose their blessed state in the process.
 * Most of the other small quality-of-life improvements from HackEM remain.
 
-**foulstone**
+### foulstone
 Effects of carrying a foulstone:
 * Causes aggravate monster (but without increasing the difficulty of spawned monsters)
 * Monsters cannot digest you and you cannot digest monsters carrying one.
@@ -1807,6 +1808,7 @@ Curing rabid:
 | shield      | n/a     | ->  | Expert     |
 
 ### MONK
+* Monks can start with the spell of sleep (in addition to confuse monster, light, and protection).
 * Dramatically increased the monk's body armor penalty (Evil)
 * Give explicit feedback for monks and cartomancers wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
@@ -2327,6 +2329,7 @@ difficult time with spellcasting.
 * Total hungerless casting is not possible anymore and the intelligence requirements have been increased. (FIQ)
 * Healing spell effectiveness is determined by skill (Evil)
 * Spellbook of identify was raised to level 5 (SLASHEM)
+* Spellbook of sleep was lowered to level 2 (EvilHack)
 * Cure sickness is now directional (Evil).
 * Only primary spellcasters can receive divine spellbook gifts.
 * Spellbooks can generate pre-read.
@@ -2542,8 +2545,9 @@ New themed rooms introduced in NerfHack:
 
 ### SHOP CHANGES
 *  Shopkeeper's real name may be used in cursing shoplifters message (xnh).
+* Improved the chances of some of the minetown shops appearing.
 
-**Lighting shops:**
+  **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
 
 #### New shop: Junk Shop
@@ -3156,7 +3160,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Demonic bribes are much more expensive.
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
-* Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking.
+* Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
 * Allow performing the invocation while hallucinating.
 
 ## AC nerfs & buffs
