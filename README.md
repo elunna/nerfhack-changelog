@@ -201,6 +201,7 @@
     - [Elbereth and Scare Monster](#elbereth-and-scare-monster)
     - [NEW GREASE EFFECTS](#new-grease-effects)
     - [ENDGAME CHANGES](#endgame-changes)
+    - [FARMING NERFS](#farming-nerfs)
   - [AC nerfs \& buffs](#ac-nerfs--buffs)
     - [Dexterity affects AC](#dexterity-affects-ac)
     - [Encumbrance affects AC](#encumbrance-affects-ac)
@@ -958,6 +959,7 @@ Misc changes:
 * Quick Blade is a silver short sword instead of an elvish short sword
 * Blackshroud was a neutral cloak in SlashTHEM - it was changed to chaotic.
 * Skullcrusher was a club in SLASH'EM, but it has been changed to an aklys.
+* Wielding Origin protects from amnesia.
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
@@ -3173,6 +3175,16 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
 * Allow performing the invocation while hallucinating.
+
+### FARMING NERFS
+
+A big philosophy of NerfHack is to discourage repetitive and potentially infinite strategies and exploits. These specific nerfs also are aimed at encouraging using "found items" and prodding the player deeper into the dungeon.
+
+* **Vault guard farming:** Vault guards don't get special offensive or defensive items on spawn and don't leave death drops.
+* **Temple ghost farming:** All abandoned temples only spawn one ghost and then lose their status as a temple.
+* **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
+* **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
+
 
 ## AC nerfs & buffs
 
