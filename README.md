@@ -408,6 +408,7 @@ Exceptions:
 * Beware, over-enchanted weapons that vaporize now explode.
 * Abuse wisdom if items are destroyed by over-enchanting.
 * Players get an additional +1 to-hit bonus while XP1-5.
+* The effect Luck has on to-hit bonuses has been reduced to (Luck / 3) (Evil/Spork)
 
 #### Misc weapon changes
 * Swapping weapons take 0 turns (dnh)
