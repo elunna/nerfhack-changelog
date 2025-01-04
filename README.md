@@ -576,6 +576,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Potions can sometimes generate diluted.
 * Shopkeepers only offer 1/2 price for diluted potions.
 * Diluted healing potions heal less and grant less max-HP (EvilHack).
+* Diluted vampire blood grants half the normal HP gains for vampires.
 
 #### GEM ALCHEMY
 * Ported from UnNetHack, originally from SLASH'EM.
@@ -659,6 +660,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Reduced weight of land mines to 40 aum (xnh)
 * Reduced weight of beartraps to 50 aum (xnh)
 * Reduced weight of pick-axe to 75 aum (SLASHEM)
+* Reduced weight of potions to 10 aum
 * Increase the prices of many magical tools
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
@@ -1765,6 +1767,10 @@ Curing rabid:
 
 **Illiterate bonuses:**
 * They can increase their max-HP at each level-up if they remain illiterate (Spork/THEM)
+  * XP1-3:  2 bonus HP
+  * XP4-7:  3 bonus HP
+  * XP8-15: 4 bonus HP
+  * XP16+:  5 bonus HP
 * An additional tier of HP gain has been added; after level 16 cavewomen can gain 1d4 max HP for remaining illiterate.
 
 **Spellcasting nerfs**
@@ -2482,8 +2488,6 @@ Add original author?
 | Sokoban 2-4           | 2-4 from SLASHEM                  | SLASH'EM      |
 | Sokoban 2-5           | 2-6 from SLASHEM                  | SLASH'EM      |
 | Sokoban 2-6           | 3-9 from Fourk                    | NetHack Fourk |
-| Sokoban 2-7           | 2-3 from UnNetHack                | UnNetHack     |
-| Sokoban 2-8           | 2-4 from UnNetHack                | UnNetHack     |
 | Sokoban 3-1           | 3-5 from SLASHEM                  | SLASH'EM      |
 | Sokoban 3-2           | 3-3 from SLASHEM                  | SLASH'EM      |
 | Sokoban 3-3           | 3-4 from SLASHEM                  | SLASH'EM      |
@@ -2641,7 +2645,7 @@ Lethe effects:
 * Sokoban now has two additional levels - an entry level with river obstacles (adapted from the town filler level from UnNetHack) and another puzzle level to solve.
 * Monsters are never generated peaceful in Sokoban (FIQ)
 * Zombies don't revive in Sokoban and they won't dig out of the ground.
-* Monsters won't break boulders in Sokoban.
+* Monsters won't break boulders in Sokoban with pick-axes or mattocks, or spellcasting.
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a white dragon
 * All Soko zoos have the white dragon guarding the treasure.
@@ -2881,7 +2885,7 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Altars only generate in the main dungeon starting at level 6.
+* Altars only generate in the main dungeon starting at level 5.
 * Altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
