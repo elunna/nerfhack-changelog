@@ -2399,7 +2399,6 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Extended the main dungeon to accomodate the new Lethe branch
 * Removed the **mysterious force** from the game (xnh)
 * **Branchport** always brings you to the entry level of a branch
-* Reverted the majority of **level flips** from 3.7. Flipped levels only appear in Sokoban and the big room special level.
 * The Rogue level has been disabled (many variants)
 * Chickatrices and cockatrice eggs will now appear in cockatrice nests (xnh)
 * Shops cannot have themed rooms with unusual floor textures (xnh)
@@ -3448,6 +3447,7 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 - cbus for many contributions
 - mobileuser and hothraxxa for extensively playtesting the original HackEM
 - malor for continuing maintenance of HackEM
+- Arseniy for being the first player to succumb to an unwinnable-game bug in the quest.
 - anyone who has playtested or reported bugs!
 
 ### Thanks:
@@ -3456,12 +3456,15 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 - aosdict
 - arahael
 - Ardub23
+- Arseniy/Doktor_L
 - bhaak
 - bouquet
 - cbus
 - Chris_ANG
+- Demo
 - disperse
 - Frozty
+- Hash56
 - hothraxxa
 - Janis
 - K2
