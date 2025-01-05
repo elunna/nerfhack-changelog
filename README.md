@@ -54,6 +54,7 @@
   - [MONSTER CHANGES](#monster-changes)
     - [Misc monster changes](#misc-monster-changes)
     - [Dangerous piercers](#dangerous-piercers)
+      - [Piercers can actually pierce hard helmets:](#piercers-can-actually-pierce-hard-helmets)
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
     - [Dragons](#dragons)
       - [Baby dragon changes](#baby-dragon-changes)
@@ -721,7 +722,6 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Reduced weight of flint stones to 2 aum (xnh/Spork)
 * Reduced base cost of flint stones to 1.
 * Reduced weight of rocks to 4 aum
-* Increased weight of all gray stones (except load and flint) to 25.
 * Rocks can be broken (a)pplied to produce flint stones (xnh). When the player breaks rocks, they enter into an occupation which continues until the rocks are used up.
 * Flint stones can be struck (applied) against objects made of iron, producing sparks (fire). This can scare certain monsters away who fear fire. (Spork/THEM)
 * Boulders deal 1+5d4 damage instead of 1d20.
@@ -781,6 +781,8 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | sling bullet             | weapon    | EvilHack   | 1d6 + 1 damage                               |
 
 * Potions of reflection are immune to fire and cold damage.
+* Cursed potions of reflection aggravate monster (similar to cursed potions of invisibility)
+* Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph) 
 * Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
 
@@ -1352,9 +1354,33 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * All piercers are mindless and can grow up
 * Much more AC is required to dodge dropping piercers (previously, -2AC would nullify their drop attacks, now -22AC is required)
 * Piercing damage scales with their level (monster level * 6) with a minimum of 4d6 being dealt.
-* Piercers actually pierce helmets; if the damage roll is (12 + (helmet enchantment * 6) or greater, any hard helmet blocking the attack is destroyed whilst absorbing the damage.
+
 * Piercers and lurkers/trappers always generate hidden if possible.
 * Hidden piercers (and other ceiling clingers) can surprise attack you from adjacent squares.
+
+#### Piercers can actually pierce hard helmets:
+
+Piercers can penetrate even the toughest helmets, but the level of enchantment on your helmet determines its resistance to piercer damage and destruction:
+
+**Helmet Resistance:**
+* Only hard and metal helmets are affected, cloth and leather helms are safe from this specific damage.
+* If a piercer strikes a helmet with a negative enchantment, the helmet is instantly destroyed.
+* For helmets with positive enchantments, a successful hit reduces the enchantment level by -1. With bad luck, the penalty may range from -1 to -3.
+
+**Glass and Crystal Helmets:**
+* Glass helmets (e.g., crystal helms) don’t lose enchantments. Instead, they crack over time, following erosion rules rather than enchantment degradation.
+
+**Enchanting Helmets:**
+* Enchanting your helmet can be both protective and risky. A higher enchantment level defends against weaker piercers but may still leave you vulnerable to stronger ones.
+
+Enchantment Levels and Piercer Resistance:
+* +1 enchantment: Generally protects against rock piercers.
+* +2 enchantment: Generally protects against iron piercers.
+* +3 enchantment: Generally protects against glass piercers.
+* +4 enchantment: Generally protects against diamond piercers.
+
+**Special Case – God Piercers:**
+* God piercers deal extremely high damage. Your best defense is achieving an AC of -22 or better, as even the most enchanted helmets provide limited protection against their attacks.
 
 ### Reviving and Poisonous Zombies
 * Zombie corpses may auto-revive similar to trolls (Evil/xnh)
@@ -2294,7 +2320,7 @@ This mechanic also applies to monsters, but they will also simply avoid using it
 ### Vampires
 Vampires have a rich history in NetHack, first appearing in SLASH'EM and later in UnNetHack, dNetHack, SpliceHack, and Hack'EM, with each implementation being slightly different. In this version, the aim was to combine the best aspects of each to create a fun yet balanced vampire race. Vampires start strong, avoiding issues like poison or GWAWOD deaths, and they can fly over many floor traps, such as sleeping gas. What you *will* have to worry about is your new worst enemies: silver and hunger:
 
-You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
+You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. Vampires can also "tin" blood from corpses that are both fresh and big enough to fill a potion with blood. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
 
 Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars which they can tame via #chat.
 
@@ -2312,7 +2338,9 @@ Instead of the usual starting pet, vampires begin with a tame and loyal familiar
 
 (Vampires are also immune to lycanthropy, withering, and rabid statuses.)
 
-To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes. Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
+To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes (even when you are merely polymorphed in a vampire and not the starting race). However, stunned, confused, or hallucinating vampires will bite anything so keep your guard up when impaired (Spork/UnNetHackPlus).
+
+Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
 
 In terms of food, most rations and fruit juice potions are replaced with blood potions when playing as a vampire. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and wearing an opera cloak grants a charisma bonus, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source, but shopkeepers charge more for blood when vampires are hungry.
 
@@ -2363,10 +2391,12 @@ difficult time with spellcasting.
 * You need to have skilled or expert skill in enchantment spells to tame monsters.
 
 ### Spellbook of light
-Spell of light effects scale with spellcasting ability.
-- At unskilled, the diameter of light is 2
-- At basic, it's 4
-- At skilled, it's 6, and at expert, it caps out at 7.
+Spell of light's diameter of effect scales with spellcasting ability.
+- restricted: 1
+- unskilled: 1
+- basic: 3
+- skilled: 5
+- expert: 7
 
 For reference, the uncursed scroll of light always illuminates a radius of 11.
 
@@ -2991,8 +3021,8 @@ This rewards leveling up and slows down the power grab that some characters migh
 * If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and half-spell damage, but is impossible to fully prevent.
 * Item destruction from elemental effects (like fire or cold) is prevented when rays are reflected.
 * Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
-* **Medusa's gaze** cannot be reflected back from more than 3 squares away.
-* If reflected, Medusa will protect herself from her own gaze 98% of the time.
+* **Medusa's gaze** has no effect on her if reflected back from more than 3 squares away.
+  * If she might be affected by her own gaze, Medusa will protect herself 98% of the time.
 
 ### Gaze attack protection
 * Displacement protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
@@ -3138,6 +3168,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * When you polymorph into a 'nolimbs' monster, you are able to slip out of a ball & chain (Evil)
 * Escape from controlled polymorph prompt no longer causes random poly (xnh).
 * Polymorphing into a horned monster destroys flimsy or cloth helms.
+* Being polymorphed into a wandering form will sometimes make you wander.
 
 ### Elbereth and Scare Monster
 * Conflict negates Elbereth and scare monster protection (Evil)
