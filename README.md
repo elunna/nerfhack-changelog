@@ -271,6 +271,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID kicking boots when they are kicked
 * Auto-ID BUC of products from BUC identified tinning kit or horn of plenty (UnNetHack++)
 * Auto-ID BUC of wands when they backfire
+* Auto-id bags of holding when items are added or removed
 * Blessed stethoscopes can identify eggs (Evil/Spork)
 * Make rustproof/erodeproof/fixed known by default (Dyna)
 
@@ -515,7 +516,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 - Dragon scales provide +3 AC when used as a cloak and add +3 AC to any scaled armor.
 - Scaled armor is **not automatically erodeproof**, maintaining the risk of erosion into the midgame. Players can still erodeproof their armor or attach scales to naturally erodeproof materials.
 - Following the system used in Nethack Fourk, if a player polymorphs and merges with their scaled armor, it will return after unpolymorphing. This is an intentional buff, ensuring that players do not lose enchantments or scales.
-
+- **Potions of phasing** can also be used to graft dragon scales onto armor.
 
 #### Other dragon scale notes:
 * Dragon scales now weigh 80.
@@ -554,6 +555,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Implement behavior for cursed potion of gain ability (xnh)
 * Cursed potions of gain level can be used in Sokoban to bypass a floor (xnh)
 * Dipping an eroded item in restore ability repairs the erosion (xnh)
+* Dipping worn dragon scales into a potion of phasing works the same as reading a scroll of enchant armor.
 * Dipping in potions of reflection erodeproofs an item.
 * Potions of restore ability can be alchemized.
 * Quaffing potions of restore ability also cures wounded legs.
@@ -1216,7 +1218,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * deep ones and deeper ones also have thick skin.
 * many major demons have been given flight (xnh)
 * disenchanters can appear in the main dungeon
-* disenchanter attacks can also remove erodeproofing from items
 * dragons, nagas, and golems don't balk at approaching as much
 * dwaves sometimes start with potions of booze (xnh)
 * all elementals resist sickness
