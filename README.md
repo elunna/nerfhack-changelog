@@ -179,6 +179,7 @@
     - [New room: Fungus farm (from SLASH'EM).](#new-room-fungus-farm-from-slashem)
     - [New room: Migo hive (from SLASH'EM).](#new-room-migo-hive-from-slashem)
   - [Altars, Prayer, and Priests](#altars-prayer-and-priests)
+- [Revised divine protection scheme](#revised-divine-protection-scheme)
     - [Altar cracking](#altar-cracking)
     - [#offer GIFT ODDS](#offer-gift-odds)
     - [CROWNING](#crowning)
@@ -333,7 +334,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Levels of erosion on an object can affect its price (Evil).
 * orcish equipment usually generates rusty and/or corroded
 * dwarvish items frequently spawn as fixed.
-* Towels cannot be worn. Blindfolds now must be relied upon for blinding.
+* Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding.
+* Wet towels provide 100% protection from poison gas when worn.
 
 ### Price Identification Nerf
 This change destroys price identification and aligns most potions, scrolls, wands, and rings to the same price (SLEX).
@@ -373,7 +375,7 @@ Exceptions:
 **For enchant armor:**
 
 | Current enchantment | Chance of failure |
-|---------------------|-------------------|
+| ------------------- | ----------------- |
 | +0                  | 0%                |
 | +1                  | 14%               |
 | +2                  | 29%               |
@@ -383,7 +385,7 @@ Exceptions:
 **For enchant weapon:**
 
 | Current enchantment | Chance of failure |
-|---------------------|-------------------|
+| ------------------- | ----------------- |
 | +0                  | 0%                |
 | +1                  | 8%                |
 | +2                  | 15%               |
@@ -624,6 +626,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage.
+* Wands can sometimes generate pre-charged
 
 #### Wands of wishing
 * Wands of wishing do not generate randomly.
@@ -732,7 +735,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 
 
 | Item                     | Class     | Origin     | Notes                                        |
-|--------------------------|-----------|------------|----------------------------------------------|
+| ------------------------ | --------- | ---------- | -------------------------------------------- |
 | razor card               | weapon    | SpliceHack | slightly weaker shuriken for cartomancers    |
 | silver short sword       | weapon    | SLASHEM    |                                              |
 | rapier                   | weapon    | SLASHEM    | light metal saber, erodeproof steel          |
@@ -749,7 +752,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | rogue's gloves           | armor     | SpliceHack | Confers searching, fingerless (!)            |
 | bronze gauntlets         | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of swimming    | armor     | SLASHEM    | grants swimming                              |
-| gauntlets of force       | armor     | NerfHack   | stuns monsters, better #force effects        |
+| gauntlets of force       | armor     | NerfHack   | stuns monsters, steadfastness, #force bonus  |
 | gnomish boots            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
 | orcish boots             | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
 | dwarvish boots           | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
@@ -767,7 +770,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | scroll of cloning        | scroll    | SpliceHack | clones items or monsters                     |
 | scroll of knowledge      | scroll    | SpliceHack | learn about a random magic item              |
 | scroll of flood          | scroll    | Un/xnh     | generates water pools                        |
-| scroll of zapping        | scroll    | NerfHack   | special for cartomancers                     | 
+| scroll of zapping        | scroll    | NerfHack   | special for cartomancers                     |
 | spellbook of repair      | spellbook | EvilHack   | repairs any item erosion                     |
 | spellbook of fire bolt   | spellbook | HackEM     | shoots a beam of fire                        |
 | wand of wonder           | wand      | SpliceHack | random wand effect                           |
@@ -822,7 +825,7 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 * Can also be #tipped and emptied for a stack of random razor cards
 
 | Card                 | Effects                                                 |
-|----------------------|---------------------------------------------------------|
+| -------------------- | ------------------------------------------------------- |
 | The Tower            | Lightning and acid explosions for 1d30 each on self.    |
 | The Wheel of Fortune | Draw two more cards. Cartomancers get extra cards.      |
 | The Devil            | Summons a demon. Stop drawing from the deck.            |
@@ -999,7 +1002,7 @@ Misc changes:
 The following summarizes the new monsters, advanced info can be found in the monster pokedex in NerfHack or on the NetHack Wiki.
 
 | Monster                | Sym | Origin         |
-|------------------------|-----|----------------|
+| ---------------------- | --- | -------------- |
 | giant fly              | a   | SpliceHack     |
 | giant cockroach        | a   | EvilHack       |
 | giant praying mantis   | a   | SpliceHack     |
@@ -1853,6 +1856,7 @@ Curing rabid:
 ### MONK
 * Monks can start with the spell of sleep (in addition to confuse monster, light, and protection).
 * Monks start with a potion of reflection.
+* Monks gain acid resistance at level 19 (from dNetHack).
 * Dramatically increased the monk's body armor penalty (Evil)
 * Give explicit feedback for monks and cartomancers wearing/removing body armor
 * Stop giving "You feel guilty message" eventually after breaking vegetarian conduct enough times (xnh)
@@ -2895,7 +2899,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 
 
 * When donating to priests - the gold vanishes upon receipt
-* Protection that can be bought from priests or granted by your god only ever grants 1AC per granting; the more protection the player has, the less likely it is to be granted (K-Mod)
+
 * Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
 * Converting altars has higher chance of summoning minions (SLASH'EM)
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
@@ -2904,6 +2908,26 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Only one skill per game will be unrestricted by your god via artifact gifts.
 
 Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retaine, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependant chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
+
+# Revised divine protection scheme
+* The more protection the player has, the less likely it is to be granted (K-Mod)
+* The maximum possible divine protection is capped at -9AC.
+* When protection is granted from priests or your god, it is limited to increments of 1AC per granting.
+
+
+| Current protection | Chance of fail |
+| ------------------ | -------------- |
+| 0                  | 0%             |
+| 1                  | 1%             |
+| 2                  | 4%             |
+| 3                  | 9%             |
+| 4                  | 16%            |
+| 5                  | 25%            |
+| 6                  | 36%            |
+| 7                  | 49%            |
+| 8                  | 64%            |
+| 9                  | 81%            |
+| 10                 | 100%           |
 
 
 ### Altar cracking
@@ -2915,7 +2939,7 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
 * Altars only generate in the main dungeon starting at level 5.
-* Altars are always cracked after level 15.
+* Randomly generated altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 * Non-chaotic same-race sacrifice always cracks altars.
