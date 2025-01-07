@@ -483,8 +483,8 @@ Exceptions:
 * **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
 * only elves can safely enchant elvish armor over +3. Other races will get a warning vibration if their elvish armor is enchanted over +3.
 * worn armor has a 25% weight reduction (xnh/FIQ)
-* dwarves and elves get a +1 bonus for each racially aligned piece of armor they wear (Evil)
-* orcs and gnomes get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
+* dwarves, elves, ad gnomes get a +1 bonus for each racially aligned piece of armor they wear (Evil)
+* orcs get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
 * plate mail now grants 8AC
 * crystal plate mail now grants 9AC
 * bronze plate mail now grants 7AC
@@ -1336,7 +1336,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * unique monsters cannot be tamed
 * violet fungi get a passive hallucination attack
 * all vortices (v) resist shock damage
-* vampire shapeshifting has been disabled for all vampires except Vlad; this includes vampshifting or the player polymorphed into a vampire as well.
 * vampire mages can see invisible
 * vampires (any V) are not afraid of cracked or Molochian altars
 * vampires attack with their bite attacks first
@@ -2285,6 +2284,7 @@ Cartomancer gets adjusted different item generation odds.
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
 * Orcs and vampires cannot make use of Elbereth; it fades as soon as it's engraved.
+* Vampires and orcs cannot successfully engrave Elbereth.
 
 ### New race/role combos.
 
@@ -2351,7 +2351,7 @@ In terms of food, most rations and fruit juice potions are replaced with blood p
 
 Like the other vampires players will encounter in the dungeon, player vampires can no longer shapeshift using the #monster command. However, they now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack.
 
-Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without the conflict ability, and standing on Elbereth incurs a -5 alignment penalty.
+Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
 
 Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Fingerless gloves also don't protect V from silver weapons or shields. Vampires also cannot use the #turn undead command.
 
@@ -3200,7 +3200,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Engraving Elbereth no longer exercises wisdom (from NetHack Fourk).
 * You can't dust engrave whilst being held by a monster.
 * You can't dust engrave on bloody or grassy tiles.
-* Don't waste turns for failed engrave attempts.
+* You don't waste turns for aborted engrave attempts.
 
 **Reverted 82f0b1e8e**
 * The previous behavior implmemented in 3.7.0 was "Scared hostile monster which cannot move away will attack."
