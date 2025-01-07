@@ -232,6 +232,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
 * **Stinking clouds** no longer block line of sight
 * Launchers don't count as weapons for the 'hit with a wielded weapon' conduct.
+* Stop occupations when the hero is caught in a poison gas cloud
 
 ### STREAMLINED IDENTIFICATION FEATURES
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -715,9 +716,10 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
   * the base fix is 1d3 + 1
   * your skill in unicorn horn (multiplied by 2)
   * the enchantment on your unicorn horn (multiplied by 3)
-  * if you are a healer, double the entire above sum
-  * Add all of the following for the time out reduction roll (or "troll").
-  * For each afflication, we roll d(troll) for the amount reduced.
+  * if you are a healer or you hit the luck bonus, double the entire above sum
+  * the **luck bonus** goes up with your luck. At 0 luck , there is a 4.2% chance, at 11 there is a 20.4% chance.
+  * Add all of the following for the time out reduction roll (or "tRoll").
+  * For each afflication, we roll d(tRoll) for the amount reduced.
 * Regardless of any of the above, there is always a 1 in 20 chance of completely curing a condition.
 * Applying a unihorn can also exercise your unihorn skill.
 
@@ -1151,6 +1153,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * like likes can eat organic shields and cloaks when engulfing you (note: dragonhide scales are not edible for them)
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with tridents or spears.
+* Migos explode into poison gas clouds on death
+* Migo drones and warriors are slightly lower level than in SLASH'EM.
 * nightgaunts were recolored to purple
 * pack rats can generate randomly in the dungeon
 * phase spiders may appear in small groups
@@ -1433,7 +1437,7 @@ Enchantment Levels and Piercer Resistance:
 
 ### Unique monster changes
 * Croesus can move other monsters out of his way (Evil)
-* Ixoth can berserk. Like other dragons also has buffs: level raised from 15->18, speed raised from 12 to 20, AC raised from -1 to -4, stronger claw attacks.
+* Ixoth can berserk. AC raised from -1 to -4, stronger claw attacks.
 * Ixoth gets poison resistance (Evil)
 * Lord Surtur can berserk
 * Cyclops can berserk
@@ -1790,7 +1794,8 @@ Curing rabid:
 
 **Caveman quest updates:**
 * The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
-* The Chromatic Dragon, like other dragons, also has been buffed : level raised from 15->18, speed raised from 12 to 20, AC raised from -1 to -4, stronger claw attacks.
+* The Chromatic Dragon has some buffs: AC raised from -1 to -4, stronger claw attacks.
+* The Chromatic Dragon can now berserk.
 * The narrow passageways in their quest have been opened up for convenience (Evil)
 * Their quest narration and dialogue is more caveman-like (xnh/Fourk)
 
@@ -2660,11 +2665,10 @@ Lethe effects:
 
 * The fake wizard levels have been removed.
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
-* The portal to the wizard's tower has been moved to a random castle tower and changed to a stair up.
-
+* The portal to the wizard's tower has been moved to a special level in the Gulf of N'Kai near the bottom of Gehennom.
 * Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
-* Juiblex gets some puddles and a shoggoth
+* Juiblex's lair gets some puddles and a shoggoth
 
 ### Gulf of N'kai
 * The last four levels of Gehennom have been replaced with the maps.
@@ -2710,9 +2714,9 @@ Lethe effects:
 
 ### Temple to Moloch level
 * Ported from SLASH'EM
-* Gargoyles replace the statue gargoyles in the original map.
-* Winged gargoyles replace 4 of the original gargoyles.
-* 2 ghoul mages were added.
+* Gargoyles replace the statue gargoyles in the original map
+* Winged gargoyles replace 4 of the original gargoyles
+* 2 ghoul mages were added
 
 ### Lost Tomb level
 * Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages. 
@@ -2810,7 +2814,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 
 #### Falling rock traps
 * At higher levels, boulders can drop from falling rock traps.
-* Falling rock traps can result in stunning with sufficient damage (at least 6)
+* Falling rock traps can result in stunning
 * Falling rock traps can drop multiple rocks (or boulders).
 * You cannot fly over falling rock traps.
 * You can now #untrap falling rock traps, obtaining rocks (from nhfourk).
@@ -3194,6 +3198,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Escape from controlled polymorph prompt no longer causes random poly (xnh).
 * Polymorphing into a horned monster destroys flimsy or cloth helms.
 * Being polymorphed into a wandering form will sometimes make you wander.
+* Being polyd into a vampire bat doesn't cause stunning.
 
 ### Elbereth and Scare Monster
 * Conflict negates Elbereth and scare monster protection (Evil)
