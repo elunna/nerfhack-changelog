@@ -187,6 +187,7 @@
   - [INTRINSICS AND EXTRINSICS](#intrinsics-and-extrinsics)
     - [PARTIAL INTRINSICS](#partial-intrinsics)
     - [PARTIAL REFLECTION](#partial-reflection)
+    - [Magic cancellation (MC) protects items vs cancellation](#magic-cancellation-mc-protects-items-vs-cancellation)
     - [Gaze attack protection](#gaze-attack-protection)
     - [Slow digestion nerf](#slow-digestion-nerf)
     - [Stealth changes](#stealth-changes)
@@ -287,6 +288,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * Display AC values for armor in the hero's inventory (Splice)
 * Prayer statistics (last prayed, reconciled, or received a gift) can be viewed in the attributes screen (via Ctrl-X)
+* Show how many points of divine protection hero has in the attributes screen.
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna)
 * We are able to see more monster conditions on farlook (Evil/Splice/xnh)
@@ -413,7 +415,7 @@ Exceptions:
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
 * Abuse wisdom if items are destroyed by over-enchanting.
-* Players get an additional +1 to-hit bonus while XP1-5.
+* Players get an additional +1 to-hit bonus whilst XP1-5.
 * The effect Luck has on to-hit bonuses has been reduced to (Luck / 3) (Evil/Spork)
 
 #### Misc weapon changes
@@ -497,7 +499,7 @@ Exceptions:
 Ported from xNetHack's implementation. The following text was revised from xNetHack
 commit 00fec37778:
 
-This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors—such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail while retaining their original properties.
+This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors—such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail whilst retaining their original properties.
 
 ### Motivation for the Change
 The primary reason for replacing dragon scale mail with this system is to enhance armor strategy. Dragon scale mail was overwhelmingly optimal, rendering other armor choices irrelevant. It was simultaneously:
@@ -756,7 +758,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | rogue's gloves           | armor     | SpliceHack | Confers searching, fingerless (!)            |
 | bronze gauntlets         | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of swimming    | armor     | SLASHEM    | grants swimming                              |
-| gauntlets of force       | armor     | NerfHack   | stuns monsters, steadfastness, #force bonus  |
+| gauntlets of force       | armor     | NerfHack   | stuns monsters, steadfastness                |
 | gnomish boots            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
 | orcish boots             | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
 | dwarvish boots           | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
@@ -875,6 +877,7 @@ Effects of carrying a foulstone:
 * Shopkeepers will not let you into their shops and won't buy it.
 * If blessed, has a 1 in 100 chance each turn of emitting a stench that scares monsters for a short while (similar to garlic breath)
 * If cursed, has a 1 in 100 chance each turn of emitting a poisonous cloud on your square.
+* The effects can stack, so carrying multiple foulstones increases the frequency of the cursed or blessed effects.
 
 Other effects:
 * Monsters will never eat this rock and it's inedible if you are polyd into a monster that could eat it.
@@ -971,6 +974,7 @@ Misc changes:
 * Blackshroud was a neutral cloak in SlashTHEM - it was changed to chaotic.
 * Skullcrusher was a club in SLASH'EM, but it has been changed to an aklys.
 * Wielding Origin protects from amnesia.
+* Snakeskin provided a point of protection in SlashTHEM but that was removed and provides MC2 as a robe.
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
@@ -985,18 +989,17 @@ Misc changes:
 ### Serenity
 * This silver spear has some nice benefits when wielded:
 * +d10 damage
-* counters 80% of monster spells while wielded
+* counters 80% of monster spells whilst wielded
 * whenever it successfully counters, it adds a2d6 penalty delay to the casters "mspec_used", making the caster require more time to recover
 * blocks you from casting spells when wielded
 * blocks aggravate monster and conflict
 * blocks barbarian blood rage from activating if wielded
 * prevents monsters from berserking
-* absorbs curses like Magicbane
 
 ### Thunderfists
-* A new artifact gauntlets of force
+* gauntlets of force
 * Grants shock resistance when worn
-* Deals shock damage
+* Deals shock damage when used bare-handed
 * When monks don these, they occasionally release a chain lightning blast
 * Grants MC1
 
@@ -1647,7 +1650,7 @@ Curing rabid:
 
 ### Withering attacks
 * Ported from xNetHack and EvilHack
-* Withering is a nasty new attack that will give the player the "wither" status temporarily. While withering you will lost 1HP per turn.
+* Withering is a nasty new attack that will give the player the "wither" status temporarily. Whilst withering you will lost 1HP per turn.
 * If you are already withering and the new wither attack is strong enough, it will also drain some of your maximum HP, making this threat quite insidious.
 * Withering can be cured by quaffing holy water, praying, or invoking the Staff of Aesculapius.
 * Any item that grants extrinsic disintegration res also grants withering resistance (black dragon scales, shield of integrity)
@@ -1855,7 +1858,6 @@ Curing rabid:
 | polearms    | skilled | ->  | Expert     |
 | spear       | skilled | ->  | Expert     |
 | trident     | Basic   | ->  | Restricted |
-| crossbow    | Skilled | ->  | Restricted |
 | shield      | n/a     | ->  | Expert     |
 
 ### MONK
@@ -1869,6 +1871,8 @@ Curing rabid:
 * Add trees and two ponds to monk quest start.
 * Monks starting spell compentency depends on the spellbook.
 * Martial arts users are immune to leg damage from bad kicks (xnh).
+* Whilst wearing the gauntlets of force, monks can break boulders and iron bars whilst bare-handed.
+* Monks that have reached grand master in martial arts and level 21 start getting a 1 in 20 chance for critical hits when fighting bare-handed. On critical hits, you inflict double damage.
 
   **Skill adjustments for monks:**
 
@@ -2009,7 +2013,7 @@ Curing rabid:
 * More fire traps on valk quest
 * Valkyries get a winter wolf cub as a starting pet.
 * They can also pacify and tame winter wolves/cubs via the #chat command.
-* Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon while advancing shield skill)
+* Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon whilst advancing shield skill)
 * Valkyries start with 5 daggers (SLASH'EM).
 
 
@@ -2187,7 +2191,7 @@ When playing as a cartomancer, there is a chance that a monster will leave a car
   * phoenixes (they always leave an egg)
   * cloned monsters (gremlins, blue jellies, etc.)
   * Keystone Kops (they can be farmed)
-* Cartomancers don't get card drops while polymorphed.
+* Cartomancers don't get card drops whilst polymorphed.
 
 #### Spell beings
 Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat or hide. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory. Spell-beings also don't count toward vanquished or special logged monsters.
@@ -3001,8 +3005,8 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Removed the quest turn limit (Un)
 * Players can enter the quest as soon as they reach level XL 10 (Un)
 * Prevent the player from skipping most of the quest (xnh).
-  * Mark all quest levels as hardfloor.
-  * Players cannot do horizontal or downward teleporting while the quest nemesis is alive.
+* Mark all quest levels as hardfloor.
+* Players cannot do horizontal or downward teleporting whilst the quest nemesis is alive.
 
 
 ## INTRINSICS AND EXTRINSICS
@@ -3053,6 +3057,21 @@ This rewards leveling up and slows down the power grab that some characters migh
 * **Medusa's gaze** has no effect on her if reflected back from more than 3 squares away.
   * If she might be affected by her own gaze, Medusa will protect herself 98% of the time.
 
+### Magic cancellation (MC) protects items vs cancellation
+* Any level of MC limits the damage if the enchantment on an item is positive.
+* If the enchantment is negative, the item's enchantment is cancelled to +0 as usual.
+* If it's a potion, scroll, or other item that would be blanked, it also gets an additional save roll.
+* With MC0, there is no protection when facing a cancel zap and the standard NetHack 3.7.0 rules apply.
+
+Each level of MC offers a higher minimum that you should expect to maintain. This minimum is not absolute however, there is an additional role (1 in MCx2) to determine if some damage will pass through.
+* MC1: Item enchantments will not usually go below +2
+* MC2: Item enchantments will not usually go below +4
+* MC3: Item enchantments will not usually go below +6
+
+* MC1: Items have a 1 in 2 chance to avoid blanking
+* MC2: Items have a 2 in 3 chance to avoid blanking
+* MC3: Items have a 5 in 6 chance to avoid blanking
+
 ### Gaze attack protection
 * Displacement protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
 * Invisibility protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
@@ -3083,7 +3102,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 ### Impaired Actions
 * Allow #terrain whilst impaired (xnh)
-* Falling downstairs does more damage - 2d3 instead of 1d3. (K-Mod)
+* Falling downstairs does more damage: 10-19 instead of 1d3. (K-Mod with higher damage)
 * Falling down a hole or pit whilst fumbling (or very low dex) can make you fall on a wielded weapon.
 * Going downstairs whilst stunned always results in falling, confusion sometimes does.
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
@@ -3170,7 +3189,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * For example, if your charisma is only 7, you can keep 2 pets, at 9 charisma you can keep 3 pets.
 * However, if you exceed this limit, your weakest pets (based on level) will be the first to become untamed, with ties resolved randomly.
 * Untamed pets that were previously mistreated, such as resurrected ones, may even turn hostile.
-* Your steed, while counting toward your pet limit, will never become untamed.
+* Your steed, whilst counting toward your pet limit, will never become untamed.
 * Summoned spell beings do not count toward the total pet limit.
 * Since the minimum CHA possible is 3, you should always be capable of retaining a pet.
 
@@ -3229,16 +3248,16 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 ### ENDGAME CHANGES
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
-* After the invocation (and while traversing through Gehennom), monsters will flood from the upstairs (Un/Evil)
+* After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (Un/Evil)
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * Demonic bribes are much more expensive.
-* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can be cancelled. This also includes the Wizard's Tower and Vlad's Tower.
+* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
-* Allow performing the invocation while hallucinating.
+* Allow performing the invocation whilst hallucinating.
 
 ### FARMING NERFS
 
@@ -3377,7 +3396,8 @@ Leveling up grants damage bonuses (SlashTHEM)
 * 899833966 Funny troll #chat messages (from SpliceHack, I think).
 * Characters who don't like baths may resist fountain's urging (xnh).
 * New hallucinatory monsters from Secret of Mana and Magic of Scheherazade. 
-* The fat lady sings if you win while hallucinating (xnh).
+* The fat lady sings if you win whilst hallucinating (xnh).
+
 ## Quick Reference
 
 
