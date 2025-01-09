@@ -3102,6 +3102,7 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * Aggravate monster causes monsters not to be scared of musical instruments.
 * Ring of aggravate monster causes pets to attack anything without fear.
 * Note: The ring of aggravate monster increases the monster generation difficulty by 15 (this was already implemented in NetHack 3.7, but it's worth including here as a recent change)
+* Carrying foulstones also confers aggravate monster
 
 ### Impaired Actions
 * Allow #terrain whilst impaired (xnh)
