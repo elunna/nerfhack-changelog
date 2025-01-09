@@ -137,6 +137,7 @@
     - [Spellbook of knock](#spellbook-of-knock)
     - [Spellbook of wizard-lock](#spellbook-of-wizard-lock)
     - [Spellbook of drain life](#spellbook-of-drain-life)
+    - [Spellbook of food detection](#spellbook-of-food-detection)
   - [DUNGEON CHANGES](#dungeon-changes)
     - [New levels](#new-levels)
     - [New themed rooms](#new-themed-rooms)
@@ -2389,13 +2390,12 @@ difficult time with spellcasting.
 * Spellcasting no longer exercises wisdom (FIQ)
 * Total hungerless casting is not possible anymore and the intelligence requirements have been increased. (FIQ)
 * Healing spell effectiveness is determined by skill (Evil)
-* Spellbook of identify was raised to level 5 (SLASHEM)
 * Spellbook of sleep was lowered to level 2 (EvilHack)
-* Cure sickness is now directional (Evil).
-* Only primary spellcasters can receive divine spellbook gifts.
-* Spellbooks can generate pre-read.
-* Casting the spell of clairvoyance at skilled lets it persist for a while.
-* Display a single accurate spellcasting retention percentage in the spellbook list.
+* Cure sickness is now directional (Evil)
+* Only primary spellcasters can receive divine spellbook gifts
+* Spellbooks can generate pre-read
+* Casting the spell of clairvoyance at skilled lets it persist for a while
+* Display a single accurate spellcasting retention percentage in the spellbook list
 * Remove the spell of identify outright (xnh)
 * Increase drain life up to level 3 (xnh)
 
@@ -2424,7 +2424,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Unskilled acts like a confused magic mapping (1 in 7 squares successfully mapped)
 * Basic maps 1 in 5 squares
 * Skilled maps 1 in 3 squares
-* Expert maps 1
+* Expert maps all squares
 
 ### Spellbook of knock
 * The spell of knock cannot be used to escape from an engulfer (this ability is retained for the wand of opening)
@@ -2434,8 +2434,11 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Range is reduced to 1
 
 ### Spellbook of drain life
-* Now ray-based to match the wand of draining.
+* Now ray-based to match the wand of draining
+* Be aware that these rays may bounce back from reflecting monster now
 
+### Spellbook of food detection
+* Vampires always detect potions with food detection spells and scrolls. 
 
 ## DUNGEON CHANGES
 
@@ -3103,7 +3106,7 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 ### Impaired Actions
 * Allow #terrain whilst impaired (xnh)
 * Falling downstairs does more damage: 10-19 instead of 1d3. (K-Mod with higher damage)
-* Falling down a hole or pit whilst fumbling (or very low dex) can make you fall on a wielded weapon.
+* Falling down a hole or pit whilst fumbling (or low dex) can make you fall on a wielded weapon.
 * Going downstairs whilst stunned always results in falling, confusion sometimes does.
 * Don't allow stunned jumping. Confused jumping has a 20% chance to fail (Evil)
 * Many item actions are now forbidden if you have both hands welded.
@@ -3254,7 +3257,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * Demonic bribes are much more expensive.
-* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy along with some stunning. It also drains the max of both (up to 1d8 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
+* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
 * Allow performing the invocation whilst hallucinating.
