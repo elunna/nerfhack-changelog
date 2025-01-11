@@ -228,7 +228,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 
 ## QUALITY OF LIFE FEATURES
 
-* Chaotics do not get alignment penalties for angering peacefuls (xnh)
+* Chaotics do not get alignment penalties for angering, attacking, or killing peacefuls (xnh)
 * Don't livelog events in explore mode
 * Running and traveling no longer pushes boulders (xnh)
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
@@ -579,6 +579,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Non-magical alchemy is less likely to result in an alchemical explosion.
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Fizzy potions and booze can cause (loud) burps.
+* Smoky potions cannot appear in any starting role's inventory.
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
@@ -823,38 +824,42 @@ Intelligent monsters can also use these scrolls to clone themselves, which helps
 Unique monsters can use these scrolls as well, but the Wizard of Yendor must still follow the Double Trouble routine, ensuring that no more than two Rodneys can oppose you at any time. However, other unique monsters have the potential to clone themselves more than once if the opportunity arises.
 
 ### deck of fate
-This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, its always destroyed, allowing only one use. There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
+This tarot-based deck is very powerful and was ported from SpliceHack with some major changes. In Splice, you would be prompted for how many cards to draw. This has been changed to be a mandatory draw of 5 cards, eliminating the prompt. After using the deck, it is always destroyed, allowing only one use. Because it is capable of granting wishes, the deck of fate cannot be wished for, cloned, or created from polypiling.
+
+There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
 
 If cursed, the drawn card value will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
 
 If blessed, the drawn card value is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
 
-* Can also be #tipped and emptied for a stack of random razor cards
+**Before you start drawing cards, your current alignment is set to -1.** Be wary of any artifacts you may wish for because the artifact blast is guaranteed - both because your alignment is negative and because the odds artifact blasts were set to always occur if possible. Artifact blasts have also been increased, making early arti-wishes much more dangerous.
 
-| Card                 | Effects                                                 |
-| -------------------- | ------------------------------------------------------- |
-| The Tower            | Lightning and acid explosions for 1d30 each on self.    |
-| The Wheel of Fortune | Draw two more cards. Cartomancers get extra cards.      |
-| The Devil            | Summons a demon. Stop drawing from the deck.            |
-| The Fool             | abuses INT and WIS.                                     |
-| Death                | touch of death; stop drawing from the deck.             |
-| Judgment             | You are punished.                                       |
-| The Emperor          | Curses two items.                                       |
-| The Hermit           | Teleport, invisibility, and aggravate monsters.         |
-| The Hanged Man       | Summons a rope golem and you lose 1 Luck.               |
-| Justice              | paralyzed for bad alignment, rewarded for good.         |
-| Temperance           | Destroy two worn pieces of armor. Curses the deck.      |
-| The Lovers           | Summons 2 peaceful foocubi.                             |
-| The Magician         | Ressurect Rodney, otherwise increase max energy.        |
-| Strength             | Increases your strength.                                |
-| The High Priestess   | Clears previous alignment abuse and you gain alignment. |
-| The Hierophant       | Creates an altar.                                       |
-| The Empress          | Creates a throne.                                       |
-| The Chariot          | Controlled level teleport.                              |
-| The Sun              | Gain (additional) intrinsic protection.                 |
-| The Moon             | Gain 7 luck.                                            |
-| The Star             | Identifies your inventory.                              |
-| The World            | Make a wish.                                            |
+* Unlike the playing card deck, this cannot be #tipped for razor cards, making it easy to identify.
+
+| Card                 | Effects                                                                                                                                                                                                                       |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The Tower            | Explosions of lightning and acid blast you for 1d30 each.                                                                                                                                                                     |
+| The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                          |
+| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck.                                                                                                           |
+| The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                     |
+| Death                | You are subjected to the touch of death; you cease drawing from the deck.                                                                                                                                                     |
+| Judgment             | You are punished.                                                                                                                                                                                                             |
+| The Emperor          | Two intrinsics are drained or outright stolen (like the gremlin attack).                                                                                                                                                      |
+| The Hermit           | You gain invisibility and teleportitis for 1000-1499 turns.                                                                                                                                                                   |
+| The Hanged Man       | A rope golem is summoned and you lose 1 Luck.                                                                                                                                                                                         |
+| Justice              | With -13 or less alignment abuse or non-positive luck, you are paralyzed for 20-49 turns and stop drawing cards. Otherwise you are unpunished. You may also receive divine protection if you have retained your original alignment. |
+| Temperance           | Two worn pieces of armor are destroyed; the deck becomes cursed for the rest of the draws.                                                                                                                                                                         |
+| The Lovers           | Two peaceful foocubi are summoned.                                                                                                                                                                                                   |
+| The Magician         | If the Wizard of Yendor has been killed he is resurrected, otherwise your max energy is increased by 10-29 points.                                                                                                            |
+| Strength             | Your strength is increased.                                                                                                                                                                                                      |
+| The High Priestess   | Your charisma is increased by 1 point and you gain intrinsic ESP for 1250-1999 turns                                                                                                                                               |
+| The Hierophant       | Creates an altar where you are standing if the terrain is valid.                                                                                                                                                              |
+| The Empress          | Creates a throne where you are standing if the terrain is valid. Summons an Elvenqueen if you have bad Luck.                                                                                                                  |
+| The Chariot          | Uncontrolled teleport on the current level.                                                                                                                                                                                   |
+| The Sun              | No effect if you have changed alignments, otherwise you are granted some divine protection.                                                                                                                                   |
+| The Moon             | You gain 7 luck.                                                                                                                                                                                                                  |
+| The World            | Your entire inventory is identified.                                                                                                                                                                                                    |
+| The Star             | You are granted a wish; cease drawing from the deck.                                                                                                                                                                                    |
 
 ### healthstone
 * Ported from SLASH'EM with updates
