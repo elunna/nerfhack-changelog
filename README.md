@@ -216,7 +216,6 @@
     - [EXPERIENCE CURVE CHANGES](#experience-curve-changes)
     - [Leveling up bonuses](#leveling-up-bonuses)
   - [Misc changes](#misc-changes)
-  - [Quick Reference](#quick-reference)
   - [CREDITS](#credits)
     - [NetHack Ideas Archive credits](#nethack-ideas-archive-credits)
     - [Changes that were later adopted into NetHack 3.7.0](#changes-that-were-later-adopted-into-nethack-370)
@@ -838,7 +837,7 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 
 | Card                 | Effects                                                                                                                                                                                                                       |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The Tower            | Explosions of lightning and acid blast you for 1d30 each.                                                                                                                                                                     |
+| The Tower            | Explosions of fire and magic blast you for 1d30 each and you are cancelled.                                                                                                                                                                     |
 | The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                          |
 | The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck.                                                                                                           |
 | The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                     |
@@ -860,7 +859,6 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 | The Moon             | You gain 7 luck.                                                                                                                                                                                                                  |
 | The World            | Your entire inventory is identified.                                                                                                                                                                                                    |
 | The Star             | You are granted a wish; cease drawing from the deck.                                                                                                                                                                                    |
-
 ### healthstone
 * Ported from SLASH'EM with updates
 * A blessed healthstone now increases your regeneration rate by 10%.
@@ -899,6 +897,10 @@ Other effects:
 * Intrinsics are granted for both weapons accordingly.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
+* Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
+* Artifacts blasts inflict much more damage (SLASHEM)
+* Cartomancers take doubled artifact blast damage.
+
 
 ### Specific artifact changes
 * The Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
@@ -3406,26 +3408,6 @@ Leveling up grants damage bonuses (SlashTHEM)
 * Characters who don't like baths may resist fountain's urging (xnh).
 * New hallucinatory monsters from Secret of Mana and Magic of Scheherazade. 
 * The fat lady sings if you win whilst hallucinating (xnh).
-
-## Quick Reference
-
-
-**Most important (non-obvious) things to know about NerfHack:**
-1. Wands of wishing cannot be recharged. Do not wish for a scroll of recharging!
-2. Quest artifacts cannot be wished for
-3. Genocide is Unnethack style, blessed = 1 species, uncursed = level
-4. Cracked altars are destroyed by gifts/crowning.
-5. Your god will not crown you until you have completed the quest.
-6. Once you are crowned, you cannot change alignment again.
-7. Most intrinsics can no longer be gained permanently by eating (or other means).
-8. Pets no longer can steal from shops.
-9. Crowning requires max luck + blessed luckstone
-10. Your pets are limited by charisma, doubly so on the Astral Plane.
-11. Weapons can be safely enchanted up to +11 (if +5 was the old soft limit, +11 is the new soft limit).
-12. Unicorn horns only reduce timeout for most things (except illness/vomiting); enchant them for better treatment.
-13. Rodney cannot steal your quest artifact.
-14. To use a forge, wield a hammer and (a)pply it whilst standing over a forge (no #forge/#craft commands
-15. Avoid dipping unicorn horns into acid! This will dissolve the horn and you'll lose it.
 
 ## CREDITS
 
