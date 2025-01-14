@@ -35,6 +35,7 @@
       - [Unicorn horns](#unicorn-horns)
     - [Gems/Stones/Rocks](#gemsstonesrocks)
   - [NEW ITEMS](#new-items)
+    - [potion of milk](#potion-of-milk)
     - [playing card deck](#playing-card-deck)
     - [scroll of cloning](#scroll-of-cloning)
     - [deck of fate](#deck-of-fate)
@@ -53,6 +54,7 @@
     - [New monster notes](#new-monster-notes)
   - [MONSTER CHANGES](#monster-changes)
     - [Misc monster changes](#misc-monster-changes)
+    - [Delayed stoning for all footrice effects](#delayed-stoning-for-all-footrice-effects)
     - [Dangerous piercers](#dangerous-piercers)
       - [Piercers can actually pierce hard helmets:](#piercers-can-actually-pierce-hard-helmets)
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
@@ -61,7 +63,6 @@
       - [Adult dragon changes](#adult-dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
       - [Medusa](#medusa)
-      - [Cerberus](#cerberus)
       - [Wizard of Yendor](#wizard-of-yendor)
       - [The riders](#the-riders)
   - [MONSTER BEHAVIOR](#monster-behavior)
@@ -146,9 +147,7 @@
       - [New shop: Collectible Card Game Company](#new-shop-collectible-card-game-company)
     - [Castle changes](#castle-changes)
     - [Valley of the Dead](#valley-of-the-dead)
-    - [The Lethe Branch](#the-lethe-branch)
     - [Enhanced Gehennom](#enhanced-gehennom)
-    - [Gulf of N'kai](#gulf-of-nkai)
     - [Sokoban](#sokoban)
     - [Fort Ludios](#fort-ludios)
     - [Minetown/Mines End](#minetownmines-end)
@@ -316,7 +315,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 
 
 * **showdamage:** Displays damage dealt and flanking bonuses/penalties
-* **noflipsoko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
+* **do_not_flip_soko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
 * **invweight:** Show weights of objects in inventory
 
 ### WIZMODE FEATURES
@@ -579,6 +578,8 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Fizzy potions and booze can cause (loud) burps.
 * Smoky potions cannot appear in any starting role's inventory.
+* Diluted smoky potions will never yield a djini from a bottle.
+* Diluted milky potions never yield ghosts.
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
@@ -701,9 +702,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
 * They can still be created from polypiling
 * There is a 1 in 4 chance of a magic marker being the Sokoban prize.
-* Guaranteed magic marker in Moloch's Sanctum (Evil).
 * Added magic markers to soko1-7 and soko1-8.
-* The head of the Lethe Branch has a 50% chance of having a magic marker in a chest (the other times it has a magic lamp)
 * Any role that could start with a magic marker always starts with one.
 
 #### Unicorn horns
@@ -770,6 +769,7 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | playing card deck        | tool      | SpliceHack | can reveal your current luck                 |
 | deck of fate             | tool      | SpliceHack | high risk, high reward!                      |
 | glob of like-like        | food      | NerfHack   |                                              |
+| potion of milk           | potion    | NerfHack   | cancels positive and negative status effects |
 | potion of reflection     | potion    | SpliceHack | conveys temporary reflection                 |
 | potion of phasing        | potion    | NerfHack   | conveys temporary phasing                    |
 | potion of blood          | potion    | SLASHEM    | nutrition for vampires                       |
@@ -795,6 +795,27 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 * Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph) 
 * Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
+
+### potion of milk
+Non-cursed potions of milk reliably cancel out a lot of good and bad effects:
+* hallucination
+* confusion
+* stunning
+* blindness
+* protection given by spell
+* reflection given by potion
+* phasing given by potion
+* invisiblity
+* see invisible
+* telepathy
+* milk also will un-poly a player or monster back to their original form.
+
+Other effects:
+* non-diluted milk heals 1 HP
+* Cursed milk is always spoiled and causes nausea without cancelling any effects.
+* Blessed milk also increases your max HP by 1.
+* Monsters will also drink milk to cure stunning and confusion only - but will have the other effects cancelled as unpolying.
+* Dipping a poisoned item into milk unpoisons it.
 
 ### playing card deck
 * When applied, gives you a poker hand which correlates to your luck.
@@ -835,30 +856,30 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 
 * Unlike the playing card deck, this cannot be #tipped for razor cards, making it easy to identify.
 
-| Card                 | Effects                                                                                                                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The Tower            | Explosions of fire and magic blast you for 1d30 each and you are cancelled.                                                                                                                                                                     |
-| The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                          |
-| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck.                                                                                                           |
-| The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                     |
-| Death                | You are subjected to the touch of death; you cease drawing from the deck.                                                                                                                                                     |
-| Judgment             | You are punished.                                                                                                                                                                                                             |
-| The Emperor          | Two intrinsics are drained or outright stolen (like the gremlin attack).                                                                                                                                                      |
-| The Hermit           | You gain invisibility and teleportitis for 1000-1499 turns.                                                                                                                                                                   |
-| The Hanged Man       | A rope golem is summoned and you lose 1 Luck.                                                                                                                                                                                         |
+| Card                 | Effects                                                                                                                                                                                                                             |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The Tower            | Explosions of fire and magic blast you for 1d30 each and you are cancelled.                                                                                                                                                         |
+| The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                                |
+| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck.                                                                                                                 |
+| The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                           |
+| Death                | You are subjected to the touch of death; you cease drawing from the deck.                                                                                                                                                           |
+| Judgment             | You are punished.                                                                                                                                                                                                                   |
+| The Emperor          | Two intrinsics are drained or outright stolen (like the gremlin attack).                                                                                                                                                            |
+| The Hermit           | You gain invisibility and teleportitis for 1000-1499 turns.                                                                                                                                                                         |
+| The Hanged Man       | A rope golem is summoned and you lose 1 Luck.                                                                                                                                                                                       |
 | Justice              | With -13 or less alignment abuse or non-positive luck, you are paralyzed for 20-49 turns and stop drawing cards. Otherwise you are unpunished. You may also receive divine protection if you have retained your original alignment. |
-| Temperance           | Two worn pieces of armor are destroyed; the deck becomes cursed for the rest of the draws.                                                                                                                                                                         |
-| The Lovers           | Two peaceful foocubi are summoned.                                                                                                                                                                                                   |
-| The Magician         | If the Wizard of Yendor has been killed he is resurrected, otherwise your max energy is increased by 10-29 points.                                                                                                            |
-| Strength             | Your strength is increased.                                                                                                                                                                                                      |
-| The High Priestess   | Your charisma is increased by 1 point and you gain intrinsic ESP for 1250-1999 turns                                                                                                                                               |
-| The Hierophant       | Creates an altar where you are standing if the terrain is valid.                                                                                                                                                              |
-| The Empress          | Creates a throne where you are standing if the terrain is valid. Summons an Elvenqueen if you have bad Luck.                                                                                                                  |
-| The Chariot          | Uncontrolled teleport on the current level.                                                                                                                                                                                   |
-| The Sun              | No effect if you have changed alignments, otherwise you are granted some divine protection.                                                                                                                                   |
-| The Moon             | You gain 7 luck.                                                                                                                                                                                                                  |
-| The World            | Your entire inventory is identified.                                                                                                                                                                                                    |
-| The Star             | You are granted a wish; cease drawing from the deck.                                                                                                                                                                                    |
+| Temperance           | Two worn pieces of armor are destroyed; the deck becomes cursed for the rest of the draws.                                                                                                                                          |
+| The Lovers           | Two peaceful foocubi are summoned.                                                                                                                                                                                                  |
+| The Magician         | If the Wizard of Yendor has been killed he is resurrected, otherwise your max energy is increased by 10-29 points.                                                                                                                  |
+| Strength             | Your strength is increased.                                                                                                                                                                                                         |
+| The High Priestess   | Your charisma is increased by 1 point and you gain intrinsic ESP for 1250-1999 turns                                                                                                                                                |
+| The Hierophant       | Creates an altar where you are standing if the terrain is valid.                                                                                                                                                                    |
+| The Empress          | Creates a throne where you are standing if the terrain is valid. Summons an Elvenqueen if you have bad Luck.                                                                                                                        |
+| The Chariot          | Uncontrolled teleport on the current level.                                                                                                                                                                                         |
+| The Sun              | No effect if you have changed alignments, otherwise you are granted some divine protection.                                                                                                                                         |
+| The Moon             | You gain 7 luck.                                                                                                                                                                                                                    |
+| The World            | Your entire inventory is identified.                                                                                                                                                                                                |
+| The Star             | You are granted a wish; cease drawing from the deck.                                                                                                                                                                                |
 ### healthstone
 * Ported from SLASH'EM with updates
 * A blessed healthstone now increases your regeneration rate by 10%.
@@ -975,6 +996,11 @@ Other effects:
 | Origin                | unaligned | quarterstaff            | SpliceHack |
 | The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
 | Holographic Void Lily | chaotic   | credit card/banned card | SpliceHack |
+| Glamdring             | chaotic   | long sword              | EvilHack   |
+| Angelslayer           | chaotic   | trident                 | EvilHack   |
+| Drowsing Rod          | unaligned | quarterstaff            | HackEM     |
+| Acidfall              | chaotic   | long sword              | SpliceHack |
+
 
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
@@ -1243,6 +1269,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
 * fog clouds don't leave traces of steam (always visible as v)
 * all footrice can fly
+* all footrice have more potent hissing attacks - the stoning process is twice as likely
 * foocubi gain a level when draining one from the player (xnh)
 * gas spores and volatile mushrooms start with exactly 1 HP
 * all ghost class monsters get acid resistance.
@@ -1368,6 +1395,12 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * yellow and black light explosions are directionless (xnh)
 * yellow molds puff out clouds of stunning spores (as a corollary, pets will attack them less often now)
 
+### Delayed stoning for all footrice effects
+* Instant petrification has been removed both for the player and for monsters
+* Instead, wherever a monster or player would have been insta-killed, a stoning timer is started for 5 turns.
+* This applies for every instapetrification effect: touching a footrice corpse, being knocked into a footrice
+* Footrice only inflict slow stoning for the player and for monsters 
+* 
 ### Dangerous piercers
 * All piercers are mindless and can grow up
 * Much more AC is required to dodge dropping piercers (previously, -2AC would nullify their drop attacks, now -22AC is required)
@@ -1459,6 +1492,7 @@ Enchantment Levels and Piercer Resistance:
 * King Arthur gets a full suite of resistances.
 * Give Baalzebub some combat buffs (xnh).
 * Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
+* Dispater drops a deck of fate.
 
 #### Medusa
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
@@ -1468,28 +1502,6 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Instead of a single poisonous bite, she gets two poisonous snake bite attacks.
 * Medusa also gets a stoning bite (Evil).
 * Medusa gets infravision
-
-#### Cerberus
-* Cerberus has been un-deferred and enabled with many tweaks. It acts as the end boss for the Lethe level.
-* Cerberus inherits many abilities from EvilHack:
-  - Level raised from 12 to 27
-  - Speed raised from 10 to 20
-  - AC raised from 2 to -7
-  - MR raised from 20 to 90
-  - Weight and nutrition raised
-  - Size raised from large to huge
-  - Added thick skin, berserk, poisonous corpse, see invisible, teleport control, accurate, displaces monsters.
-  - resists sleep, poison, stoning, draining, and death.
-  - Waits for the player to approach
-
-* And from xNetHack
-  - Bumped all bites to 5d6
-  - Added fire bite
-  - Replaced the breath attack with 2 6d6 claws
-
-* NerfHack:
-  - Added drain life bite
-
 
 #### Wizard of Yendor
 * Rodney is bright magenta (Evil)
@@ -2005,17 +2017,18 @@ Curing rabid:
 
 **Skill adjustments for tourists:**
 
-| skill              | NetHack | ->  | NerfHack |
-| ------------------ | ------- | --- | -------- |
-| dagger             | expert  | ->  | basic    |
-| knife              | skilled | ->  | basic    |
-| short sword        | expert  | ->  | basic    |
-| saber              | skilled | ->  | basic    |
-| unicorn horn       | skilled | ->  | basic    |
-| escape spells      | skilled | ->  | basic    |
-| two-weapon combat  | skilled | ->  | basic    |
-| base-handed combat | skilled | ->  | basic    |
-| shield             | n/a     | ->  | basic    |
+| skill              | NetHack    | ->  | NerfHack |
+| ------------------ | ---------- | --- | -------- |
+| club               | restricted | ->d | basic    |
+| dagger             | expert     | ->  | basic    |
+| knife              | skilled    | ->  | basic    |
+| short sword        | expert     | ->  | basic    |
+| saber              | skilled    | ->  | basic    |
+| unicorn horn       | skilled    | ->  | basic    |
+| escape spells      | skilled    | ->  | basic    |
+| two-weapon combat  | skilled    | ->  | basic    |
+| base-handed combat | skilled    | ->  | basic    |
+| shield             | n/a        | ->  | basic    |
 
 ### VALKYRIE
 * More fire traps on valk quest
@@ -2405,6 +2418,9 @@ difficult time with spellcasting.
 * Display a single accurate spellcasting retention percentage in the spellbook list
 * Remove the spell of identify outright (xnh)
 * Increase drain life up to level 3 (xnh)
+* The spellbook of fireball was moved to the Matter school (SLASH'EM)
+* The spellbook of cone of cold was moved to the Matter school (SLASH'EM)
+* The spellbook of fire bolt was moved to the attac school
 
 ### Spellbook of charm monster
 * This spell is now a directional level 3 spell and only works on the first monster hit.
@@ -2450,7 +2466,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 ## DUNGEON CHANGES
 
 
-* Extended the main dungeon to accomodate the new Lethe branch
+* Extended the main dungeon by 5 levels.
 * Removed the **mysterious force** from the game (xnh)
 * **Branchport** always brings you to the entry level of a branch
 * The Rogue level has been disabled (many variants)
@@ -2479,99 +2495,83 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 Add original author?
 * All original Vanilla Sokoban levels have been removed and replaced.
 
-| Level                 | Version                           | Source        |
-| --------------------- | --------------------------------- | ------------- |
-| Asmodeus' lair #2     | Lethe/lava                        | SpliceHack    |
-| Baalzebub's lair #2   | lethe marsh                       | SpliceHack    |
-| Baalzebub's lair #3   | variation on #1 with lava         | Un/Nerf       |
-| Bridge of Khazad-Dum  | Directly after the VotD           | Un            |
-| Orcus Town #2         | Lethe river runs through          | Lethe patch   |
-| Castle #2             | Lake surrounds castle             | Un/Evil       |
-| Castle #3             | Lava river                        | Un/Evil       |
-| Demogorgon's lair #1  | Enclosed in hell-maze             | SLASHEM       |
-| Demogorgon's lair #2  | Two towers                        | Lethe patch   |
-| Demogorgon's lair #3  | Fortress with lethe river         | Grunt/Evil    |
-| Dispater's lair #1    | Enclosed in hell-maze             | SLASHEM       |
-| Dispater's lair #2    | the city of Dis                   | Lethe patch   |
-| Dispater's lair #3    | Fortress with lethe river         | Grunt         |
-| Geryon's lair #1      | Enclosed in hell-maze             | SLASHEM       |
-| Geryon's lair #2      | the isle of Erytheia              | Grunt         |
-| Gulf of N'Kai #1A     | Version 1                         | Lethe patch   |
-| Gulf of N'Kai #1B     | Version 2                         | Lethe patch   |
-| Gulf of N'Kai #2      | Portal to Rodney's tower          | Lethe patch   |
-| Gulf of N'Kai #3      |                                   | Lethe patch   |
-| Gulf of N'Kai #4      | Location of vibrating square      | Lethe patch   |
-| Mephistopholes' lair  | Fortress with lethe river         | SpliceHack    |
-| Moloch's Sanctum #2   | Lava islands                      | Un/Evil       |
-| Moloch's Sanctum #3   | Cthulhu's sanctum (deferred)      | Lethe Patch   |
-| Lethe a #1            | river head - gargoyles & trices   | Lethe patch   |
-| Lethe a #2            | river head - Vampires and Byakhee | Lethe patch   |
-| Lethe b               | lethe entry level                 | Lethe patch   |
-| Lethe c #1            | Ogre Stockade                     | Lethe patch   |
-| Lethe c #2            | Undead Stockade                   | Lethe patch   |
-| Lethe d #1            | The Wizards Manse                 | Lethe patch   |
-| Lethe d #2            | The Lichs Manse                   | Lethe patch   |
-| Lethe e               | Troll Bridge                      | Lethe patch   |
-| Lethe f               | Sylvan Park                       | Lethe patch   |
-| Lethe g               | Honycombe Canyon                  | Lethe patch   |
-| Lethe z               | The gates of Gehennom.            | Lethe patch   |
-| The Lost Tomb #1      | Some variations on SLASHEM's      | SLASH'EM      |
-| The Lost Tomb #2      | Repurposed Demo's map from xnh    | SLASH'EM      |
-| Mine end #4           | The Gnomish Sewer                 | xNetHack      |
-| Mine end #5           | Orc Temple                        | EvilHack      |
-| Mine end #6           | Gnome King's Apiary               | SlashTHEM     |
-| Mine end #7           | Boulder Bonanza                   | SlashTHEM     |
-| Minetown #8           | Zoo Town                          | Spork/Evil    |
-| Minetown #9           | Lavender Town                     | SpliceHack    |
-| Minetown #10          | Mini-Castle Town                  | SlashTHEM     |
-| Minetown #11          | Creek Town                        | SlashTHEM     |
-| Moloch's Temple #1    |                                   | SLASHEM       |
-| Moloch's Temple #2    | New variation on #1               | NerfHack      |
-| Sokoban 1-1           | 1-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 1-2           | 1-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 1-3           | Dragon_of_Bactria                 | NetHack Fourk |
-| Sokoban 1-4           | 1-7 from Fourk                    | NetHack Fourk |
-| Sokoban 1-5           | 1-4 from Fourk                    | NetHack Fourk |
-| Sokoban 1-6           | 1-5 from Fourk                    | NetHack Fourk |
-| Sokoban 1-7           | 1-3 from Fourk                    | NetHack Fourk |
-| Sokoban 1-8           | 1-6 from Fourk                    | NetHack Fourk |
-| Sokoban 2-1           | 2-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-2           | 2-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-3           | 2-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-4           | 2-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-5           | 2-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 2-6           | 3-9 from Fourk                    | NetHack Fourk |
-| Sokoban 3-1           | 3-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-2           | 3-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-3           | 3-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-4           | 3-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-5           | 3-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 3-6           |                                   | GruntHack     |
-| Sokoban 3-7           |                                   | GruntHack     |
-| Sokoban 3-8           | 2-8 from Fourk                    |               |
-| Sokoban 4-1           | 4-3 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-2           | 4-4 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-3           | 4-5 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-4           | 3-6 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-5           | 3-7 from SLASHEM                  | SLASH'EM      |
-| Sokoban 4-6           | 3-15 from UnNetHack               | UnNetHack     |
-| Sokoban 4-7           |                                   | GruntHack     |
-| Sokoban 4-8           | 3-2 from NetHack Fourk            | NetHack Fourk |
-| Sokoban 5-1           | 4-3                               | SLASH'EM      |
-| Sokoban 5-2           | 4-4                               | SLASH'EM      |
-| Sokoban 5-3           | 4-5                               | SLASH'EM      |
-| Sokoban 5-4           | 3-4                               | UnNetHack     |
-| Sokoban 5-5           | 3-5                               | UnNetHack     |
-| Sokoban 5-6           | 4-3                               | NetHack Fourk |
-| Sokoban 5-7           | 4-7                               | NetHack Fourk |
-| Sokoban 5-8           | 4-10                              | NetHack Fourk |
-| Valley of the Dead #2 | Lethe river runs through          | Un/Lethe      |
-| Valley of the Dead #3 | Pleasant Valley                   | Lethe patch   |
-| Yeenoghu's lair #1    | Enclosed in hell-maze             | SLASHEM       |
-| Yeenoghu's lair #2    | Fortress in marsh                 | Lethe patch   |
-| Yeenoghu's lair #3    | Fortress with lethe river         | Grunt         |
-| Oracle #2             |                                   | xNetHack      |
-| Oracle #3             |                                   | xNetHack      |
+| Level                 | Version                        | Source        |
+| --------------------- | ------------------------------ | ------------- |
+| Asmodeus' lair #2     | River/lava                     | SpliceHack    |
+| Baalzebub's lair #2   | marsh                          | SpliceHack    |
+| Baalzebub's lair #3   | variation on #1 with lava      | Un/Nerf       |
+| Bridge of Khazad-Dum  | Directly after the VotD        | Un            |
+| Orcus Town #2         | river runs through             | Lethe patch   |
+| Castle #2             | Lake surrounds castle          | Un/Evil       |
+| Castle #3             | Lava river                     | Un/Evil       |
+| Demogorgon's lair #1  | Enclosed in hell-maze          | SLASHEM       |
+| Demogorgon's lair #2  | Two towers                     | Lethe patch   |
+| Demogorgon's lair #3  | Fortress with river            | Grunt/Evil    |
+| Dispater's lair #1    | Enclosed in hell-maze          | SLASHEM       |
+| Dispater's lair #2    | the city of Dis                | Lethe patch   |
+| Dispater's lair #3    | Fortress with river            | Grunt         |
+| Geryon's lair #1      | Enclosed in hell-maze          | SLASHEM       |
+| Geryon's lair #2      | the isle of Erytheia           | Grunt         |
+| Mephistopholes' lair  | Fortress with river            | SpliceHack    |
+| Moloch's Sanctum #2   | Lava islands                   | Un/Evil       |
+| Moloch's Sanctum #3   | Cthulhu's sanctum (deferred)   | Lethe Patch   |
+| The Lost Tomb #1      | Some variations on SLASHEM's   | SLASH'EM      |
+| The Lost Tomb #2      | Repurposed Demo's map from xnh | SLASH'EM      |
+| Mine end #4           | The Gnomish Sewer              | xNetHack      |
+| Mine end #5           | Orc Temple                     | EvilHack      |
+| Mine end #6           | Gnome King's Apiary            | SlashTHEM     |
+| Mine end #7           | Boulder Bonanza                | SlashTHEM     |
+| Minetown #8           | Zoo Town                       | Spork/Evil    |
+| Minetown #9           | Lavender Town                  | SpliceHack    |
+| Minetown #10          | Mini-Castle Town               | SlashTHEM     |
+| Minetown #11          | Creek Town                     | SlashTHEM     |
+| Moloch's Temple #1    |                                | SLASHEM       |
+| Moloch's Temple #2    | New variation on #1            | NerfHack      |
+| Sokoban 1-1           | 1-4 from SLASHEM               | SLASH'EM      |
+| Sokoban 1-2           | 1-3 from SLASHEM               | SLASH'EM      |
+| Sokoban 1-3           | Dragon_of_Bactria              | NetHack Fourk |
+| Sokoban 1-4           | 1-7 from Fourk                 | NetHack Fourk |
+| Sokoban 1-5           | 1-4 from Fourk                 | NetHack Fourk |
+| Sokoban 1-6           | 1-5 from Fourk                 | NetHack Fourk |
+| Sokoban 1-7           | 1-3 from Fourk                 | NetHack Fourk |
+| Sokoban 1-8           | 1-6 from Fourk                 | NetHack Fourk |
+| Sokoban 2-1           | 2-5 from SLASHEM               | SLASH'EM      |
+| Sokoban 2-2           | 2-7 from SLASHEM               | SLASH'EM      |
+| Sokoban 2-3           | 2-3 from SLASHEM               | SLASH'EM      |
+| Sokoban 2-4           | 2-4 from SLASHEM               | SLASH'EM      |
+| Sokoban 2-5           | 2-6 from SLASHEM               | SLASH'EM      |
+| Sokoban 2-6           | 3-9 from Fourk                 | NetHack Fourk |
+| Sokoban 3-1           | 3-5 from SLASHEM               | SLASH'EM      |
+| Sokoban 3-2           | 3-3 from SLASHEM               | SLASH'EM      |
+| Sokoban 3-3           | 3-4 from SLASHEM               | SLASH'EM      |
+| Sokoban 3-4           | 3-6 from SLASHEM               | SLASH'EM      |
+| Sokoban 3-5           | 3-7 from SLASHEM               | SLASH'EM      |
+| Sokoban 3-6           |                                | GruntHack     |
+| Sokoban 3-7           |                                | GruntHack     |
+| Sokoban 3-8           | 2-8 from Fourk                 |               |
+| Sokoban 4-1           | 4-3 from SLASHEM               | SLASH'EM      |
+| Sokoban 4-2           | 4-4 from SLASHEM               | SLASH'EM      |
+| Sokoban 4-3           | 4-5 from SLASHEM               | SLASH'EM      |
+| Sokoban 4-4           | 3-6 from SLASHEM               | SLASH'EM      |
+| Sokoban 4-5           | 3-7 from SLASHEM               | SLASH'EM      |
+| Sokoban 4-6           | 3-15 from UnNetHack            | UnNetHack     |
+| Sokoban 4-7           |                                | GruntHack     |
+| Sokoban 4-8           | 3-2 from NetHack Fourk         | NetHack Fourk |
+| Sokoban 5-1           | 4-3                            | SLASH'EM      |
+| Sokoban 5-2           | 4-4                            | SLASH'EM      |
+| Sokoban 5-3           | 4-5                            | SLASH'EM      |
+| Sokoban 5-4           | 3-4                            | UnNetHack     |
+| Sokoban 5-5           | 3-5                            | UnNetHack     |
+| Sokoban 5-6           | 4-3                            | NetHack Fourk |
+| Sokoban 5-7           | 4-7                            | NetHack Fourk |
+| Sokoban 5-8           | 4-10                           | NetHack Fourk |
+| Valley of the Dead #2 | river runs through             | Un/Lethe      |
+| Valley of the Dead #3 | Pleasant Valley                | Lethe patch   |
+| Yeenoghu's lair #1    | Enclosed in hell-maze          | SLASHEM       |
+| Yeenoghu's lair #2    | Fortress in marsh              | Lethe patch   |
+| Yeenoghu's lair #3    | Fortress with river            | Grunt         |
+| Oracle #2             |                                | xNetHack      |
+| Oracle #3             |                                | xNetHack      |
 
 a99935d6d Add lava to asmode-2; fix drawbridge.
 
@@ -2648,47 +2648,31 @@ New themed rooms introduced in NerfHack:
 * Instead of dart traps, the player will encounter magic traps (Evil)
 * Less ghosts spawn to clog up the valley
 
-### The Lethe Branch
-
-* The Lethe Patch is a classic set of levels and changes; it has been converted from 3.4.3 DES format to 3.7.0 LUA and adapted for NerfHack.
-* The Lethe can span up to 7 levels, but some levels may or may not appear. The head of the lethe appears as a upward branch from leth-b. Expect to see about 3-4 lethe maps on average in the main dungeon.
-* Technically, it doesn't count as a real "branch" in NetHack terms. The levels are simply sequenced after Medusa's level. This is different from the implementation in the SLethe patch, but was programmed this way so that most of the other dungeon teleportation and travel mechanics would still function as normal.
-* Cerberus now guards the entrance to the Valley.
-* One major change from the original Lethe patch is that the Castle level now appears as the precursor to the lethe branch shortly after Medusa's Island (it does not count as a lethe level). This is to give the player access to the valuable loot in the castle before taking on the challenges of the Lethe, it also is less disruptive to the layout.
-* The lethe water mechanic was not imported. In its place, many subtle but oppressive effects are present.
-* All lethe levels are hardfloor and undiggable.
-* More traps were added to these levels, especially anti-magic fields
-* Many items that were guaranteed in the original lethe patch (or dnh) were minimized or eliminated.
-* There are up to four altars available in the Lethe branch. Each altar has a 50% chance of generating pre-cracked.
-
-Lethe effects:
-  * You cannot gain experience.
-  * You don't gain skill points for using skills
-  * Spellcasters don't get a memory boost for casting spells on lethe levels.
-  * There are no extra death drops from monsters.
-  * Cartomancers don't get card drops in Lethe levels.
-  * You cannot read spellbooks to learn spells, you become disoriented during attempts.
-  * You cannot engrave Elbereth, you instead forget how and become confused.
-  * One cannot write spellbooks or scrolls effectively in the lethe levels.
-  * Lethe levels make spellcasting a little more difficult.
-  * Energy regeneration is slower on Lethe levels.
-  * Lethe levels make you burn more nutrition than normal.
-  * Monsters don't generate peaceful in the Lethe branch.
 
 ### Enhanced Gehennom
 
 * The fake wizard levels have been removed.
+* The portal to the wizard's tower will appear in a random Gehennom map
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
-* The portal to the wizard's tower has been moved to a special level in the Gulf of N'Kai near the bottom of Gehennom.
 * Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
 * Juiblex's lair gets some puddles and a shoggoth
-
-### Gulf of N'kai
-* The last four levels of Gehennom have been replaced with the maps.
-* Lava replaces the lethe water flowing through the levels.
-* These levels are NOT flagged with the "lethe" flag.
-* The final N'kai level takes the place of the standard vibrating square level.
+* The structure of Gehennom now follows the SLASH'EM template.
+  * Gehennom spans 17 levels
+  * All demon lairs are guaranteed to appear with their demons
+  * Level 1: The Valley of the Dead
+  * Level 2: The Bridge
+  * Levels 3-9: Stairs to Vlad's Tower
+  * Levels 3-7: Juiblex's lair
+  * Levels 3-7: Yeenoguhu's lair
+  * Levels 3-7: Orcustown
+  * Levels 3-7: Demogorgon's lair 
+  * Level 9: Portal to the wizards tower
+  * Levels 10-15: Dispater's lair
+  * Levels 10-15: Geryon's lair
+  * Levels 10-15: Asmodeus' lair
+  * Level 16: Vibrating Square
+  * Level 17: Moloch's Sanctum
 
 ### Sokoban
 
@@ -2710,6 +2694,7 @@ Lethe effects:
 * The iron bars in some of the Soko levels can be phased through, but it now incurs a Luck penalty.
 * You will now receive a message when incurring a Sokoban Luck penalty.
 * Sokoban maps above puzzle #2 get 2 mimics.
+* Almost all Sokoban levels ensure a spare boulder in case of mistakes or misfortune.
 
 ### Fort Ludios
 * Ported two Fort Ludios variants (Evil/Un)
@@ -2911,7 +2896,6 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Features a collection of slimy and oozy monsters.
 
 ### New room: Migo hive (from SLASH'EM).
-* Only appears in the Lethe branch
 
 
 ## Altars, Prayer, and Priests
@@ -2957,8 +2941,7 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Altars only generate in the main dungeon starting at level 5.
-* Randomly generated altars are always cracked after level 15.
+* Randomly generated altars are always cracked after level 20.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 * Non-chaotic same-race sacrifice always cracks altars.
@@ -3121,7 +3104,7 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit.
 * Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASHEM)
 * Auto-pickup is automatically disabled whilst hallucinating.
-
+* You will always hit monsters who are holding you.
 
 ## MECHANICS CHANGES
 
