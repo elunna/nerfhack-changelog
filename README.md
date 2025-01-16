@@ -154,6 +154,7 @@
     - [Oracle](#oracle)
     - [Temple to Moloch level](#temple-to-moloch-level)
     - [Lost Tomb level](#lost-tomb-level)
+    - [The Wyrm Caves](#the-wyrm-caves)
     - [Big Room](#big-room)
     - [Grass](#grass)
     - [Puddles](#puddles)
@@ -203,6 +204,7 @@
     - [POLY-SELF](#poly-self)
     - [Elbereth and Scare Monster](#elbereth-and-scare-monster)
     - [NEW GREASE EFFECTS](#new-grease-effects)
+    - [DEMON AND DEMON LAIR CHANGES](#demon-and-demon-lair-changes)
     - [ENDGAME CHANGES](#endgame-changes)
     - [FARMING NERFS](#farming-nerfs)
   - [AC nerfs \& buffs](#ac-nerfs--buffs)
@@ -578,7 +580,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Fizzy potions and booze can cause (loud) burps.
 * Smoky potions cannot appear in any starting role's inventory.
-* Diluted smoky potions will never yield a djini from a bottle.
+* Diluted smoky potions will never yield a djinni from a bottle.
 * Diluted milky potions never yield ghosts.
 
 #### Diluted potion effects
@@ -620,10 +622,11 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Cursed wand backfire patch (Evil)
   * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
 * Wands will never explode when engraving with them (SLASHEM)
-* Blessed and uncursed wands wrest much more often
-  * blessed wands wrest 1/7 of the time
-  * uncursed wrest 1/23 of the time
-  * cursed wands still wrest 1/121 of the time
+* Blessed and uncursed wands wrest much more often (EvilHack)
+  * blessed wands wrest 1/4 of the time
+  * uncursed wrest 1/6 of the time
+  * cursed wands still wrest 1/8 of the time
+* Wands are used up even if they fail their wresting chance (EvilHack)
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes the protection spell effects
@@ -636,8 +639,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wands can sometimes generate pre-charged
 
 #### Wands of wishing
-* Wands of wishing do not generate randomly.
-* The only wand of wishing is found at the castle and is precharged with 2 charges so will always yield 3 wishes, no more and no less.
+* Wands of wishing have been replaced with scrolls of wishing - see the section on Wishes.
 
 
 ### Rings/Amulets
@@ -655,6 +657,8 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Rings of conflict usually generate cursed.
 * Reduced the probability for amulets of reflection.
 * We fully identify rings of increase damage or accuracy with enough experience killing monsters.
+* Amulet of life saving will not work if the player is in nonliving form (from EvilHack).
+* Cursed amulets of life-saving are ineffective.
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
@@ -860,9 +864,9 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The Tower            | Explosions of fire and magic blast you for 1d30 each and you are cancelled.                                                                                                                                                         |
 | The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                                |
-| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck.                                                                                                                 |
+| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck and lose 7 luck.                                                                                                                 |
 | The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                           |
-| Death                | You are subjected to the touch of death; you cease drawing from the deck.                                                                                                                                                           |
+| Death                | If you have 7+ Luck, you may be polymorphed. Otherwise, you are subjected to the touch of death; you cease drawing from the deck in either case.                                                                                                                                                           |
 | Judgment             | You are punished.                                                                                                                                                                                                                   |
 | The Emperor          | Two intrinsics are drained or outright stolen (like the gremlin attack).                                                                                                                                                            |
 | The Hermit           | You gain invisibility and teleportitis for 1000-1499 turns.                                                                                                                                                                         |
@@ -1000,7 +1004,7 @@ Other effects:
 | Angelslayer           | chaotic   | trident                 | EvilHack   |
 | Drowsing Rod          | unaligned | quarterstaff            | HackEM     |
 | Acidfall              | chaotic   | long sword              | SpliceHack |
-
+| Mortality Dial        | lawful    | morning star            | SpliceHack |
 
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
@@ -1009,6 +1013,8 @@ Misc changes:
 * Skullcrusher was a club in SLASH'EM, but it has been changed to an aklys.
 * Wielding Origin protects from amnesia.
 * Snakeskin provided a point of protection in SlashTHEM but that was removed and provides MC2 as a robe.
+* Scythes are a type of polyarm that can be used in melee but they have a -2 to-hit penalty.
+* Mortality Dial was an executioner's mace in SpliceHack but it was changed to a morning star with higher damage. It also now grants warning.
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
@@ -1081,6 +1087,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | yellow jelly           | j   | SLASH'EM       |
 | orange jelly           | j   | SLASH'EM       |
 | rancid jelly           | j   | SLASH'EM       |
+| leper                  | l   | NerfHack       |
 | killer mimic           | m   | SpliceHack     |
 | pixie                  | n   | SLASH'EM       |
 | spiked orc             | o   | NerfHack       |
@@ -1187,6 +1194,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * koalas cannot calm berserking monsters.
 * rabid koalas are not capable of calming anything
 * landsharks were recolored to bright blue
+* lepers are generate sleeping and are fairly slow, but have a nasty disease touch.
+* lepers can spawn with bells and will ring them incessantly.
 * like likes can eat organic shields and cloaks when engulfing you (note: dragonhide scales are not edible for them)
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with tridents or spears.
@@ -1348,6 +1357,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * quest nemeses can break boulders after getting frustrated enough.
 * rock moles can actually eat rocks (xnh)
 * rock trolls are stoning resistant (xnh)
+* shriekers can shriek from any distance whenever they see you.
 * all spheres (shocking spheres, flaming spheres, etc) cannot be genocided
 * all spheres explode on death (unless cancelled)
 * skeleton/shade slow attack is ineffective vs undead
@@ -1570,6 +1580,9 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Cancelled displacers are incapable of displacement.
 * Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
 * Monsters can hide under other dungeon furniture (xnh)
+* mplayers can steal the amulet from the player (from EvilHack) - however they will not attempt to sacrifice it.
+* Monsters carrying the Amulet of Yendor are incapable of teleportation.
+* Player monsters or any covetous monsters will grudge any monster that has the Amulet of Yendor (from EvilHack). 
 
 ### Flanking behavior
 * Ported from SpliceHack, with enhancements
@@ -1780,6 +1793,7 @@ Curing rabid:
 * Snakes get a +1 to-hit bonus on archeologists
 * All snakes have the potential to paralyze archeologists in fear when they successfully connect a hit. Free action only protects the hero 75% of the time vs these paralyzing attacks.
 * Some giant anacondas have a chance of appearing in the arc quest now.
+* Archeologists are not afraid of snakes when hallucinating.
 
 **Skill adjustments for archeologists:**
 
@@ -1814,21 +1828,21 @@ Curing rabid:
 * Cavemen can lash flint to arrows, making them do slightly more damage (Spork/THEM). When arrows are flinted, their enchantment is also revealed.
 * Cavepersons can get an alignment boost via cannibalism (Spork)
 * Cavepersons' gods sometimes don't respond to prayer. There is a 10% chance of being ignored (Spork/THEM)
+* Unlike other roles, cavemen do not start out knowing scrolls of identify.
 
 **Caveman quest updates:**
 * The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
 * The Chromatic Dragon has some buffs: AC raised from -1 to -4, stronger claw attacks.
 * The Chromatic Dragon can now berserk.
-* The narrow passageways in their quest have been opened up for convenience (Evil)
 * Their quest narration and dialogue is more caveman-like (xnh/Fourk)
 
 **Illiterate bonuses:**
 * They can increase their max-HP at each level-up if they remain illiterate (Spork/THEM)
-  * XP1-3:  2 bonus HP
-  * XP4-7:  3 bonus HP
-  * XP8-15: 4 bonus HP
-  * XP16+:  5 bonus HP
-* An additional tier of HP gain has been added; after level 16 cavewomen can gain 1d4 max HP for remaining illiterate.
+* Updated XP boosts are from EvilHack:
+  * Experience levels 1-2: 2-4 HP boost per level.
+  * Experience levels 3-9: 3-6 hp boost per level.
+  * Experience levels 10-17: 3-8 hp boost per level.
+  * Experience levels 18 and up: 5-12 hp boost per level.
 
 **Spellcasting nerfs**
 * They cannot receive spells from their deity (Evil)
@@ -1926,7 +1940,6 @@ Curing rabid:
 | shield   | n/a        | ->  | basic      |
 
 ### ROGUE
-* In the Rogue quest, some hidden doors were added to the Master Assassin's lair to make accessing the nemesis a little easier.
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
 * Rogues start with a stack of knives instead of daggers
@@ -2048,7 +2061,8 @@ Curing rabid:
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards never receive magic missile in their starting inventory.
 * Wizards are able to sense magic fountains.
-* The Dark One gets a cloak of magic resistances and staff (xnh.
+* Wizards can always sense how many charges are left in wands.
+* The Dark One gets a cloak of magic resistances and staff (xnh)
 
 **Skill adjustments for wizards:**
 * Most of the wizard's combat based skills have been restricted and removed (Evil)
@@ -2398,7 +2412,6 @@ difficult time with spellcasting.
 * When reading or re-reading a spellbook, you will bring the retention back up to your roles KEEN value.
 * Reading restricted spellbooks only grants **half*** of your role's KEEN value.
 * Primary spellcasters (healers, priests, monks, wizards, archeologists) get a memory boost of 500 turns when they cast spells (SLASH'EM).
-* Non-primary spellcasters get a memory boost of 100-200 turns for casting.
 * Casting your **special spell** also grants a retention bonus of 500 turns no matter what role you are
 
 ### Other spellcasting changes
@@ -2635,7 +2648,7 @@ New themed rooms introduced in NerfHack:
 * Castle barracks may open into courtyard instead of throne room, letting soldiers flood the courtyard more quickly (xnh)
 * Added iron bars to the castle perimeter
 * Iron bars have been added to the castle towers (Spork)
-* The location of the chest containing the wand of wishing has been obfuscated. You will find matching chests and scrolls in each of the towers if you use object detection. The other chests have wands of nothing inside (Spork)
+* The location of the chest containing the scroll of wishing has been obfuscated. You will find matching chests and scrolls in each of the towers if you use object detection. The other chests have wands of nothing inside (Spork)
 * The drawbridge passtune range has been expanded by one square (xnh)
 * The drawbridge also does not always close with the passtune, one out of five times it will malfunction when trying to close it (xnh)
 * Castle courtyards are unlit
@@ -2652,13 +2665,13 @@ New themed rooms introduced in NerfHack:
 ### Enhanced Gehennom
 
 * The fake wizard levels have been removed.
-* The portal to the wizard's tower will appear in a random Gehennom map
+* The portal to the Wizard's Tower can appear in Gehennom levels 10-17.
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
 * Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
 * Juiblex's lair gets some puddles and a shoggoth
 * The structure of Gehennom now follows the SLASH'EM template.
-  * Gehennom spans 17 levels
+  * Gehennom spans 19-21 levels
   * All demon lairs are guaranteed to appear with their demons
   * Level 1: The Valley of the Dead
   * Level 2: The Bridge
@@ -2666,7 +2679,7 @@ New themed rooms introduced in NerfHack:
   * Levels 3-7: Juiblex's lair
   * Levels 3-7: Yeenoguhu's lair
   * Levels 3-7: Orcustown
-  * Levels 3-7: Demogorgon's lair 
+  * Levels 3-7: Demogorgon's lair
   * Level 9: Portal to the wizards tower
   * Levels 10-15: Dispater's lair
   * Levels 10-15: Geryon's lair
@@ -2697,6 +2710,7 @@ New themed rooms introduced in NerfHack:
 * Almost all Sokoban levels ensure a spare boulder in case of mistakes or misfortune.
 
 ### Fort Ludios
+* The portal to Fort Ludios is placed in the first eligible vault generated (from xnh/unnethack).
 * Ported two Fort Ludios variants (Evil/Un)
 * Some mermaids were added to patrol the moats.
 
@@ -2721,6 +2735,11 @@ New themed rooms introduced in NerfHack:
 * Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages. 
 * A second variation was created using Demogorgon's Lair from xNetHack. This level had a very mazelike structure that lends itself well to a lost tomb (but with no Demogorgon of course...).
 * Both lost tomb levels are no-teleport
+
+### The Wyrm Caves
+* Ported from SLASH'EM as it was
+* This level offer the player a small but difficult branch. There may be the promise of dragon scales in addition to various loot.
+* Occurs from levels 20-21
 
 ### Big Room
 * Ported bigroom variants from UnNetHack and SpliceHack.
@@ -2754,6 +2773,7 @@ New themed rooms introduced in NerfHack:
 * Forges always light up the square they occupy.
 * Cold rays have a chance cool forges.
 * Forges burn the grease and poison off dipped items.
+* You cannot forge while confused, stunned, hallucinating, weak from hunger, or with STR under 4.
 
 #### FORGING & FORGING RECIPES
 * Ported from EvilHack with modifications.
@@ -2941,7 +2961,8 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
 * Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Randomly generated altars are always cracked after level 20.
+* Altars don't start spawning until level 3.
+* Randomly generated altars are always cracked after level 15.
 * If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 * Non-chaotic same-race sacrifice always cracks altars.
@@ -2986,6 +3007,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 ### CROWNING
 * Crowning requires 13 Luck (from dnh).
+* Crowning only provides a 50% increase in resistances.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
 * Crowning gifts are only granted when crowned, never for #offer.
@@ -3024,6 +3046,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Phasing allows escape from being engulfed (Evil)
 * Max carry capacity has been raised to 1250, with strength playing a larger factor in its calculation.
 * Warn the player that invisibility is about to time out (xnh)
+* There is an increased Constitution penalty for getting lifesaved (from xNetHack).
 
 ### PARTIAL INTRINSICS
 * Ported from EvilHack
@@ -3110,18 +3133,19 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 
 
 ### WISHING
+* The wand of wishing in the Castle has been removed. Instead, there are guaranteed scrolls of wishing located at the Castle, Vlad's Tower, The Wizard's Tower, and Moloch's Sanctum.
+* Wands of wishing and scrolls of wishing do not generate randomly.
 * Quest artifacts cannot be wished for (dnh)
 * Attempting to wish for quest artifacts doesn't use up a wish
 * Wishes no longer increase prayer timeout (Dyna)
-* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. Whenever a player hits the 1 in 13 chance to get a wish and they don't, they lose 1 point of Luck (this roughly translates to a 6% chance of losing luck anytime you sit on a throne). Once the player is granted a wish from a throne, the throne is guaranteed to disappear. (Evil with adjustments)
-* The chance of getting a djinn from a smoky potion has been halved. The actual chances of getting a wish from the djinn have not been changed.
+* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. Whenever a player hits the 1 in 13 chance to get a wish and they don't, they lose 1 point of Luck (this roughly translates to a 6% chance of losing luck anytime you sit on a throne). Once the player is granted a wish from a throne, the throne is guaranteed to disappear. (Evil with adjustments)f
 * Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
 * Artiwishes only care about previous **successful** artiwishes.
 * Wishing with bad luck causes amnesia.
+* Diluted smoky potions no longer can spawn djinnis
 
 There are a few new sources of wishes:
 * Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
-* If you get crowned and you have all the resistances that are offered, you can get a wish.
 * If you zap a wand of wonder and get the wand of wishing effect (and pass a 1 in 100 roll), you can get a wish. The odds of getting a wish on any given zap are (1/28) * (1/100) for 1 in 2800 per zap.
 
 **The chance of receiving the artifact from a wish is:**
@@ -3240,6 +3264,13 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Greased feet/gloves cause fumbling.
 * Greased rings slip off your fingers as if you had greasy fingers.
 
+### DEMON AND DEMON LAIR CHANGES
+* Allow covetous monsters to follow normal AI (from xNetHack).
+* Demonic bribes are much more expensive.
+* Juiblex buffs.
+* Geryon buffs (from EvilHack). 
+* Increase speed of Baalzebub.
+
 ### ENDGAME CHANGES
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
 * After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (Un/Evil)
@@ -3247,7 +3278,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
-* Demonic bribes are much more expensive.
+
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
