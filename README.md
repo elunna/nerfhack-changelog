@@ -169,6 +169,7 @@
       - [Spear traps](#spear-traps)
       - [Magic beam traps](#magic-beam-traps)
       - [Grease traps](#grease-traps)
+      - [Cold Traps](#cold-traps)
       - [Door traps](#door-traps)
       - [Booby-trapped tins](#booby-trapped-tins)
   - [Special Rooms](#special-rooms)
@@ -338,7 +339,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 * Levels of erosion on an object can affect its price (Evil).
 * orcish equipment usually generates rusty and/or corroded
-* dwarvish items frequently spawn as fixed.
+* dwarvish items sometimes spawn as fixed.
 * Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding.
 * Wet towels provide 100% protection from poison gas when worn.
 
@@ -485,12 +486,10 @@ Exceptions:
 * mummy wrappings always generate rotted
 * cursed armor weighs more when worn.
 * **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
-* only elves can safely enchant elvish armor over +3. Other races will get a warning vibration if their elvish armor is enchanted over +3.
+* only elves can safely enchant elvish armor over +3. Other races will get a warning vibration once their armor passes +3.
 * worn armor has a 25% weight reduction (xnh/FIQ)
-* dwarves, elves, ad gnomes get a +1 bonus for each racially aligned piece of armor they wear (Evil)
-* orcs get a +2 bonus for each racially aligned piece of armor they wear (Evil/THEM)
 * plate mail now grants 8AC
-* crystal plate mail now grants 9AC
+* crystal plate mail now weighs 150, is gemstone, and resists destruction (EvilHack)
 * bronze plate mail now grants 7AC
 * leather armors don't grant any MC
 * leather cloaks grant 3AC and 0MC
@@ -646,7 +645,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Port FIQHack's ring initial enchantment rules
 * Cursed rings burn extra nutrition when worn.
 * Amulets of magical breathing are immune to water damage
-* The ring of levitation is now a valid starting ring.
 * Rings of sustain ability protect legs from wounding.
 * Cursed rings can slip off your fingers when Glib.
 * Amulets of unchanging can't be polymorphed (Un)
@@ -751,11 +749,11 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | rapier                   | weapon    | SLASHEM    | light metal saber, erodeproof steel          |
 | heavy sword              | weapon    | NerfHack   | base item for Load Brand                     |
 | scythe                   | weapon    | SpliceHack | strong polearm that can be used in melee     |
-| gnomish helm             | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
+| gnomish helm             | armor     | SlashTHEM  | 1AC                                          |
 | fire helmet              | armor     | SlashTHEM  | fire resistance                              |
 | oilskin helm             | armor     | EvilHack   | protection from tentacle/wrap attacks        |
 | shimmering dragon scales | armor     | Deferred   | displacement, stun resistance                |
-| gnomish suit             | armor     | SlashTHEM  | 1AC (+1AC for gnomes)                        |
+| gnomish suit             | armor     | SlashTHEM  | 2AC                                          |
 | tower shield             | armor     | SpliceHack | Heavy, provides 4AC                          |
 | anti-magic shield        | armor     | NerfHack   | 1AC/2MC, provides MR, counters spellcasting  |
 | shield of integrity      | armor     | NerfHack   | provides disintegration and withering res    |
@@ -763,9 +761,9 @@ Note: The success rate change from SLASH'EM was experimented with, but ultimatel
 | bronze gauntlets         | armor     | NerfHack   | copper, 1AC                                  |
 | gauntlets of swimming    | armor     | SLASHEM    | grants swimming                              |
 | gauntlets of force       | armor     | NerfHack   | stuns monsters, steadfastness                |
-| gnomish boots            | armor     | SlashTHEM  | 0AC (+1AC for gnomes)                        |
-| orcish boots             | armor     | EvilHack   | 1AC (+ 2AC for orcs)                         |
-| dwarvish boots           | armor     | EvilHack   | 2AC (+1AC for dwarves) - replaces iron boots |
+| gnomish boots            | armor     | SlashTHEM  | 1AC                                          |
+| orcish boots             | armor     | EvilHack   | 1AC (+ 1AC for orcs)                         |
+| dwarvish boots           | armor     | EvilHack   | 2AC - replaces iron boots                    |
 | stomping boots           | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
 | ring of withering        | ring      | NerfHack   | causes withering                             |
 | ring of sleeping         | ring      | SLASHEM    | causes restful sleep                         |
@@ -864,9 +862,9 @@ If blessed, the drawn card value is raised by one notch. This effectively double
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The Tower            | Explosions of fire and magic blast you for 1d30 each and you are cancelled.                                                                                                                                                         |
 | The Wheel of Fortune | Draw two more cards.                                                                                                                                                                                                                |
-| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck and lose 7 luck.                                                                                                                 |
+| The Devil            | If your luck is 0 or less a demon lord is summoned, otherwise a random demon appears;  cease drawing from the deck and lose 7 luck.                                                                                                 |
 | The Fool             | INT and WIS are each drained by 1-3 points. Grants aggravate monster for 1500-2245 turns.                                                                                                                                           |
-| Death                | If you have 7+ Luck, you may be polymorphed. Otherwise, you are subjected to the touch of death; you cease drawing from the deck in either case.                                                                                                                                                           |
+| Death                | If you have 7+ Luck, you may be polymorphed. Otherwise, you are subjected to the touch of death; you cease drawing from the deck in either case.                                                                                    |
 | Judgment             | You are punished.                                                                                                                                                                                                                   |
 | The Emperor          | Two intrinsics are drained or outright stolen (like the gremlin attack).                                                                                                                                                            |
 | The Hermit           | You gain invisibility and teleportitis for 1000-1499 turns.                                                                                                                                                                         |
@@ -2045,10 +2043,8 @@ Curing rabid:
 
 ### VALKYRIE
 * More fire traps on valk quest
-* Valkyries get a winter wolf cub as a starting pet.
-* They can also pacify and tame winter wolves/cubs via the #chat command.
+* Valkyries can pacify and tame winter wolves/cubs via the #chat command.
 * Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon whilst advancing shield skill)
-* Valkyries start with 5 daggers (SLASH'EM).
 
 
 **Skill adjustments for valkyries:**
@@ -2328,6 +2324,7 @@ Cartomancer gets adjusted different item generation odds.
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
 * Orcs and vampires cannot make use of Elbereth; it fades as soon as it's engraved.
+* orcs get a +1 bonus for each racially aligned piece of armor they wear (Evil)
 * Vampires and orcs cannot successfully engrave Elbereth.
 
 ### New race/role combos.
@@ -2873,6 +2870,12 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
   * If the grease hits your feet, your boots can become greased and fall off.
   * Otherwise, the grease hits your torso and your outermost armor becomes greased. Random items you are carrying can also become greased and fall from your possession. If you are carrying a towel, there is a 50% chance it becomes greased as well. If you are riding a steed the saddle will get hit with grease, making you fall off.
 * When a monster gets hit with grease, it will randomly grease an item in their inventory.
+
+#### Cold Traps
+* Ported from xNetHack, originally from UnNetHack
+* Cold traps are nasty and deal 4d8 cold damage, potentially shattering potions.
+* If you have less than 25% cold resistance, you can have your HP drained similar to fire traps
+* If you are 25% or more cold resistant, you may have a significant portion of your resistance (25-50%) sucked away by the trap.
 
 #### Door traps
 * Door traps actually explode in a ball of flame (Evil)
