@@ -193,6 +193,7 @@
     - [Gaze attack protection](#gaze-attack-protection)
     - [Slow digestion nerf](#slow-digestion-nerf)
     - [Stealth changes](#stealth-changes)
+    - [Flying Changes](#flying-changes)
     - [Aggravate Monster changes](#aggravate-monster-changes)
     - [Impaired Actions](#impaired-actions)
   - [MECHANICS CHANGES](#mechanics-changes)
@@ -233,7 +234,6 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Don't livelog events in explore mode
 * Running and traveling no longer pushes boulders (xnh)
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
-* **Stinking clouds** no longer block line of sight
 * Launchers don't count as weapons for the 'hit with a wielded weapon' conduct.
 * Stop occupations when the hero is caught in a poison gas cloud
 
@@ -312,6 +312,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Suggest donation amount (relative to XP level) when #chatting to priests
 * Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default
 * NERFHACKOPTIONS instead of NETHACKOPTIONS
+* Added a "Rabid" status for when the player is rabid
+* Added a "Phasing" status for hwen the player is phasing
 
 
 ## New config options
@@ -336,13 +338,13 @@ A general design philosophy of NerfHack is to automatically identify items that 
 
 
 * **Items that are 'lost'** from the players inventory will no longer be un-identified.
-* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
+
 * Levels of erosion on an object can affect its price (Evil).
 * orcish equipment usually generates rusty and/or corroded
 * dwarvish items sometimes spawn as fixed.
 * Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding.
 * Wet towels provide 100% protection from poison gas when worn.
-
+* Scrolls, rings, and wands have a variety of new appearences (Un/Slice)
 ### Price Identification Nerf
 This change destroys price identification and aligns most potions, scrolls, wands, and rings to the same price (SLEX).
 
@@ -1274,7 +1276,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * ettins count as giants and are vulnerable to sling damage
 * fell beasts can shriek, inflicting stun damage (xnh/evil)
 * floating eyes inflict less passive paralysis; wisdom limits duration (Dyna)
-* fog clouds don't leave traces of steam (always visible as v)
 * all footrice can fly
 * all footrice have more potent hissing attacks - the stoning process is twice as likely
 * foocubi gain a level when draining one from the player (xnh)
@@ -1293,7 +1294,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * green slimes can appear in the main dungeon
 * gremlins can steal intrinsics no matter the time of day (FIQ)
 * peaceful gremlins don't use fountains/pools/etc to split themselves (Fourk)
-* hezrou and steam vortices don't leave clouds unless they moved so they won't obscure their own visibility with self-generated clouds.
 * hobbits can get flint with their slings (xnh)
 * horned devils get a butt attack
 * ice and bone devils are now lawful (xnh)
@@ -1401,7 +1401,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * xans can't fly (dnh)
 * xorns have flanking
 * yellow and black light explosions are directionless (xnh)
-* yellow molds puff out clouds of stunning spores (as a corollary, pets will attack them less often now)
+* yellow molds puff out of stunning spores (as a corollary, pets will attack them less often now)
 
 ### Delayed stoning for all footrice effects
 * Instant petrification has been removed both for the player and for monsters
@@ -1652,7 +1652,7 @@ Effect of being rabid on the player:
 Curing rabid:
 * Generally the same guidelines for illness apply, but there are a couple important differences to know about.
 * **You cannot use a unicorn horn to heal rabid status!**
-* You can drink healing potions (in the early stages)
+* You can drink healing potions (before the fear of water sets in)
 * You can cast cure illness
 * You can pray (counts as a major trouble)
 * You can eat a eucalyptus leaf or a clove of garlic
@@ -3109,6 +3109,13 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
   * 0 Luck: 12.5% chance of a monster screaming when roused.
   * 2+ Luck: 0.3% chance
   * Negative luck has at least a 30% chance of rousing monsters.
+
+### Flying Changes
+* You cannot be fast while flying or levitating.
+* Stomping boots block flying.
+* Jumping boots block flying.
+* You cannot jump while flying.
+* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 
 ### Aggravate Monster changes
 * Cannibalism causes aggravation for 10-15k turns instead of permanently.
