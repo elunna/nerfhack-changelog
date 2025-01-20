@@ -3,6 +3,7 @@
   - [QUALITY OF LIFE FEATURES](#quality-of-life-features)
     - [STREAMLINED IDENTIFICATION FEATURES](#streamlined-identification-features)
     - [INTERFACE CHANGES](#interface-changes)
+      - [Farlook enhancements](#farlook-enhancements)
   - [New config options](#new-config-options)
     - [WIZMODE FEATURES](#wizmode-features)
   - [ITEM CHANGES](#item-changes)
@@ -16,7 +17,6 @@
       - [Slings](#slings)
     - [Armor changes](#armor-changes)
       - [New dragon armor system: DSM replaced by scaled armor](#new-dragon-armor-system-dsm-replaced-by-scaled-armor)
-    - [Motivation for the Change](#motivation-for-the-change)
     - [Benefits of the New System](#benefits-of-the-new-system)
     - [Key Details](#key-details)
       - [Other dragon scale notes:](#other-dragon-scale-notes)
@@ -33,6 +33,7 @@
       - [Safer bags of holding:](#safer-bags-of-holding)
       - [Magic markers](#magic-markers)
       - [Unicorn horns](#unicorn-horns)
+      - [Mirrors convert reflection while carried](#mirrors-convert-reflection-while-carried)
     - [Gems/Stones/Rocks](#gemsstonesrocks)
   - [NEW ITEMS](#new-items)
     - [potion of milk](#potion-of-milk)
@@ -131,14 +132,25 @@
   - [SPELLCASTING CHANGES](#spellcasting-changes)
     - [Spell memory](#spell-memory)
     - [Other spellcasting changes](#other-spellcasting-changes)
-    - [Spellbook of charm monster](#spellbook-of-charm-monster)
-    - [Spellbook of light](#spellbook-of-light)
-    - [Spellbook of dig](#spellbook-of-dig)
-    - [Spellbook of magic mapping](#spellbook-of-magic-mapping)
-    - [Spellbook of knock](#spellbook-of-knock)
-    - [Spellbook of wizard-lock](#spellbook-of-wizard-lock)
-    - [Spellbook of drain life](#spellbook-of-drain-life)
-    - [Spellbook of food detection](#spellbook-of-food-detection)
+    - [New skill-dependent spell ranges](#new-skill-dependent-spell-ranges)
+    - [spellbook of charm monster](#spellbook-of-charm-monster)
+    - [spellbook of clairvoyance](#spellbook-of-clairvoyance)
+    - [spellbook of cone of cold](#spellbook-of-cone-of-cold)
+    - [spellbook of cure sickness](#spellbook-of-cure-sickness)
+    - [spellbook of dig](#spellbook-of-dig)
+    - [spellbook of drain life](#spellbook-of-drain-life)
+    - [spellbook of fire bolt](#spellbook-of-fire-bolt)
+    - [spellbook of fireball](#spellbook-of-fireball)
+    - [spellbook of food detection](#spellbook-of-food-detection)
+    - [spellbook of haste self](#spellbook-of-haste-self)
+    - [spellbooks of healing and extra healing](#spellbooks-of-healing-and-extra-healing)
+    - [spellbook of invisibility](#spellbook-of-invisibility)
+    - [spellbook of knock](#spellbook-of-knock)
+    - [spellbook of levitation](#spellbook-of-levitation)
+    - [spellbook of light](#spellbook-of-light)
+    - [spellbook of magic mapping](#spellbook-of-magic-mapping)
+    - [spellbook of magic missile](#spellbook-of-magic-missile)
+    - [spellbook of sleep](#spellbook-of-sleep)
   - [DUNGEON CHANGES](#dungeon-changes)
     - [New levels](#new-levels)
     - [New themed rooms](#new-themed-rooms)
@@ -218,6 +230,7 @@
       - [Effects at different skill levels:](#effects-at-different-skill-levels)
     - [EXPERIENCE CURVE CHANGES](#experience-curve-changes)
     - [Leveling up bonuses](#leveling-up-bonuses)
+    - [To-hit bonuses and penalties](#to-hit-bonuses-and-penalties)
   - [Misc changes](#misc-changes)
   - [CREDITS](#credits)
     - [NetHack Ideas Archive credits](#nethack-ideas-archive-credits)
@@ -234,53 +247,56 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Don't livelog events in explore mode
 * Running and traveling no longer pushes boulders (xnh)
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
-* Launchers don't count as weapons for the 'hit with a wielded weapon' conduct.
+* Launchers don't count as weapons for the 'hit with a wielded weapon' conduct
 * Stop occupations when the hero is caught in a poison gas cloud
 
 ### STREAMLINED IDENTIFICATION FEATURES
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
 
-* All roles start out knowing potions of water, blank scrolls, and scrolls of identify
+* All roles start out knowing potions of water, blank scrolls, and scrolls of identify (one exception is cave dwellers, who don't know scrolls of identify)
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (Evil)
-* Auto-ID enchantment on non-projectile weapons when we are expert in at XP10+ and wielding the weapon.
+* Auto-identify rings of increase damage and accuracy with enough experience killing monsters.
+* When you are XP10+ and have expert skill in a weapon type, you can wield weapons of that type to auto-id the enchantment (only for non-projectile weapons)
 * Auto-ID potions of acid when water explosions result from dipping (xnh)
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
 * Auto-ID potions of sickness and fruit juice when dipping unihorn in sickness
 * Auto-ID potions of see inv and fruit juice by process of elimination when quaffed.
 * Auto-ID potions of restore ability when quaffed
-* Auto-ID potions of booze when quaffed.
+* Auto-ID potions of booze when quaffed
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xnh)
-* Auto-ID scrolls of scare monster when they crumble from picking up (Un)
+* Auto-ID scrolls of scare monster when they crumble from being picked up (Un)
 * Auto-ID scrolls of confuse monster when read
-* Auto-ID scrolls of enchant armor when they erodeproof or make dragon scaled armor
-* Auto-ID scrolls of food detection if they have an obvious effect.
-* Auto-ID scrolls of enchant armor when they erodeproof or harden dragon scales.
+* Auto-ID scrolls of enchant armor when they erodeproof armor or make dragon scaled armor
+* Auto-ID scrolls of food detection if they have an obvious effect
 * Auto-ID scrolls of remove curse when read
 * Auto-ID rings dropped into a sink (Un)
 * Auto-ID rings of regeneration when they heal you (Un)
 * Auto-ID +0 rings of protection (if MC is increased)
-* Auto-ID wand of cancellation after destroying a bag of holding (Un)
-* Auto-ID wands when engraving (xnh)
+* Auto-ID wands of cancellation after they destroy a bag of holding (Un)
+* Auto-ID most wands when engraving (xnh)
 * Automatically use a process of elimination for auto-identifying wands when available (Un)
-* Auto-ID loadstones when attempting to drop or stash them (Un)
-* Auto-id flint yielded from applying rocks to each-other
+* Auto-id flint stones yielded from (a)pplying rocks to each-other
 * Auto-ID most musical instruments upon use (Un)
-* Auto-ID magic lamps and oil lamps when rubbing (Un)
-* Auto-ID dunce cap when it's first put on (Un)
-* Auto-ID jumping boots upon wearing (Un/Ace)
+* Auto-ID magic lamps and oil lamps when #rub is used (Un)
+* Auto-ID dunce caps when one is first put on (Un)
+* Auto-ID jumping boots when they are worn (Un/Ace)
 * Auto-ID water walking boots when they waterwalk (xnh)
-* Auto-ID kicking boots when they are kicked
+* Auto-ID kicking boots when you #kick when them
 * Auto-ID BUC of products from BUC identified tinning kit or horn of plenty (UnNetHack++)
 * Auto-ID BUC of wands when they backfire
 * Auto-id bags of holding when items are added or removed
 * Blessed stethoscopes can identify eggs (Evil/Spork)
 * Make rustproof/erodeproof/fixed known by default (Dyna)
+* **Items that are 'lost'** from the players inventory are longer un-identified.
 
 ### INTERFACE CHANGES
-* Detailed object and monster Pokedex is available in the in-game lookup (xnh/Un/HackEM)
+* A detailed object and monster Pokedex is available in the in-game lookup (xnh/Un/HackEM)
+  * Farlook any monster (press '//'), then press ':' to access the pokedex entry
+  * You can also search for a monster or item: press '/' then '?', then type the name of the thing you want information on.
+  * For item details, open your inventory and press the letter of the item for info.
 * Object lookup also works for artifacts (HackEM)
 * Peaceful monsters are underlined [TTY and curses] (xnh)
 * Magic cancellation (MC) value is shown on the bottom line (Evil)
@@ -289,39 +305,39 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * Display AC values for armor in the hero's inventory (Splice)
-* Prayer statistics (last prayed, reconciled, or received a gift) can be viewed in the attributes screen (via Ctrl-X)
-* Show how many points of divine protection hero has in the attributes screen.
+* Prayer statistics (last prayed, reconciled, received a gift, divine protection) can be viewed in the attributes screen (via Ctrl-X)
 * All position prompts may be aborted
 * Show warning level 0 for very weak monsters (Dyna)
-* We are able to see more monster conditions on farlook (Evil/Splice/xnh)
-* Farlook also shows amulets and rings monsters are wearing
-* We are able to see what weapon a monster is wielding from farlook (Evil)
-* We are able to see roughly how much armor a monster is wearing on farlook (Evil)
 * More descriptive combat messages have been added to enhance hits and misses (xnh)
 * The SLASH'EM style message is used for getting zapped by cancellation
-* Show messages for objects that are randomly cursed (Dyna)
+* Show explicit messages for objects that are randomly cursed from monsters cursing your items or wizard harassment (Dyna)
 * Print an explicit message when summon nasties occurs as part of wizard harassment
 * Special room and special level walls can have their own unique coloring (Splice/xnh)
-* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
 * Enabled autocomplete for #twoweapon
+* Enable **full options** by default
+* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
 * Disabled **farlook help**
 * Disabled the 3.7 **tutorial**
-* Enable **full options** by default
 * Changed the symbol for **sinks** back to #
 * The hero's color reflects their race (SLASH'EM)
 * Suggest donation amount (relative to XP level) when #chatting to priests
-* Change woundedlegs, glowhands, and barehanded statuses to opt-out so they are available by default
-* NERFHACKOPTIONS instead of NETHACKOPTIONS
+* Use NERFHACKOPTIONS instead of NETHACKOPTIONS so it does't clash with NetHack.
 * Added a "Rabid" status for when the player is rabid
 * Added a "Phasing" status for hwen the player is phasing
 
+#### Farlook enhancements
+* We are able to see more monster conditions on farlook (Evil/Splice/xnh)
+  * You can ascertain monsters that are berserking, rabid, spell-beings.
+* Farlook also shows amulets and rings monsters are wearing
+* We are able to see what weapon a monster is wielding from farlook (Evil)
+* We are able to see roughly how much armor a monster is wearing on farlook (Evil)
 
 ## New config options
-
 
 * **showdamage:** Displays damage dealt and flanking bonuses/penalties
 * **do_not_flip_soko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
 * **invweight:** Show weights of objects in inventory
+* **autostairtravel:** Allow fast travel to stairs with < and >
 
 ### WIZMODE FEATURES
 * The #wizcrown command has been added for testing crowning (Evil)
@@ -331,22 +347,23 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Allow wishing (^W) for monsters in wizmode (Un)
 * Changed #debugfuzzer command to just #fuzz
 * Allow wishing for specific spell beings
-* Show wizmode timeouts for sick, rabid, withering, and most other afflictions
+* Show wizmode timeouts for sick, rabid, withering, and other afflictions in the enlightenment menu
 
 
 ## ITEM CHANGES
 
 
-* **Items that are 'lost'** from the players inventory will no longer be un-identified.
-
-* Levels of erosion on an object can affect its price (Evil).
+* Levels of erosion on an item can affect its price (Evil).
 * orcish equipment usually generates rusty and/or corroded
 * dwarvish items sometimes spawn as fixed.
 * Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding.
 * Wet towels provide 100% protection from poison gas when worn.
-* Scrolls, rings, and wands have a variety of new appearences (Un/Slice)
+* Scrolls, rings, and wands have a variety of new appearances (Un/Slice)
+* Having really low intelligence (under 6 INT) prevents you from reading most things (from EvilHack).
+
+
 ### Price Identification Nerf
-This change destroys price identification and aligns most potions, scrolls, wands, and rings to the same price (SLEX).
+This change destroys price identification and conforms most potions, scrolls, wands, and rings to the same price (SLEX).
 
 * All rings cost $200
 * All potions cost $200
@@ -354,26 +371,29 @@ This change destroys price identification and aligns most potions, scrolls, wand
 * All scrolls cost $200
 
 Exceptions:
-* Potions of water still cost 100 (if cursed or blessed)
-* Potions of blood cost 100
+* cursed or blessed potions of water still cost $100
+* Potions of blood cost $100
+* Potions of milk cost $100
 * Cards of zapping still cost $50. These are usually only present for cartomancers.
 
 ### ITEM EROSION AND DESTRUCTION
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
-* Almost all items are erodeable/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion. These items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
-* Silver items can corrode (xnh)
+* Almost all items are erodible/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion and destruction.
+* Silver items can also corrode (xnh)
 * The iron ball and chain cannot be destroyed from rusting (Evil)
 * Poison gas clouds can rot organic armor
-* Extrinsic poison resistance protects items from rotting in poison gas.
-* Monsters can wear down and destroy **ANY** armor with the destroy armor spell (Evil)
-* Item erosion can be repaired by dipping into a potion of restore ability (xnh)
+* Extrinsic poison resistance protects items from rotting in poison gas
+* Monsters can wear down and destroy any armor with the destroy armor spell except crystal plate mail (Evil)
 * Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.)
 * Getting hit by potions of acid can corrode armor. Monster acid attacks and spit also corrode armor.
 * Passive acid attacks corrodes armor more often.
-* Thrown potions of acid can corrode items when they hit a monster or the player.
+* Thrown potions of acid can corrode items or armor when they hit a monster or the player.
 * Water damage may disintegrate scrolls; may occur when dipping (Dyna)
 * Disintegration rays can vaporize boulders
-* Improved item destruction (xnh). This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
+
+Side notes:
+* Items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
+* Item erosion can be repaired by dipping into a potion of restore ability (xnh)
 
 ### Anti-magical items resist being enchanted (from SpliceHack)
 * If an item grants magic resistance, it will resist scrolls of enchant weapon and enchant armor.
@@ -415,12 +435,11 @@ Exceptions:
 * This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
 * To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
 * Random weapons have a small chance to generate with very high enchantment.
-* The enchantment based to-hit bonus for projectiles capped at +7.
+
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
 * Abuse wisdom if items are destroyed by over-enchanting.
-* Players get an additional +1 to-hit bonus whilst XP1-5.
-* The effect Luck has on to-hit bonuses has been reduced to (Luck / 3) (Evil/Spork)
+
 
 #### Misc weapon changes
 * Swapping weapons take 0 turns (dnh)
@@ -429,7 +448,7 @@ Exceptions:
 * Cursed projectiles can hit yourself in the leg (Evil).
 * Crysknives are never auto-quivered
 * Any slashing or piercing weapons can now be poisoned (SLASHEM)
-* All short swords get +1 to-hit (Dyna)
+
 * Reduced probability of long swords generating (K-Mod)
 * Increased probability of boomerangs
 * Increased weight of war hammers to 120.
@@ -442,7 +461,7 @@ Exceptions:
 * **Spetums** can skewer up to 3 monsters when used in melee whilst riding a steed
 * **Ranseurs** can disarm monsters or the player when pounded or used in melee whilst riding a steed.
 * **Bardiches (long poleaxes)** have a 1 in 100 chance of beheading monsters (or the player)
-* +4 to-hit bonus for attacking with a scimitar on a steed.
+
 * Wielding and unwielding **curved swords** takes 0 turns.
 * **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
@@ -450,7 +469,6 @@ Exceptions:
 * No multishot when **fumbling**
 * **Boomerangs** will can pass through enemies on hit.
 * **Polearms** can be used to trigger traps (from NetHack Fourk).
-* **Polearms** get a +4 to-hit bonus vs horses and centaurs.
 * **Polearms and lances** can be pounded when blind (as long as you can sense the target)
 * **Daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 * **Bows and crossbows** are two-handed.
@@ -473,15 +491,12 @@ Exceptions:
 * mud boots provide protection from wrapping attacks
 * hiking boots let you avoid pit traps
 * hiking boots provide extra carrying capacity (dnh)
-* fencing gloves provide +2 to-hit when you are attacking with a free off-hand (dnh)
 * old gloves don't take erosion damage (dnh)
 * padded gloves provide an extra point of AC (dnh)
 * leather gloves provide 0AC (from NetHack Brass)
 * combat boots provide 1AC and +1 to-hit (dnh)
 * jungle boots provide protection from wounded legs (dnh)
 * kicking boots allow kicking even when your legs are wounded.
-* gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
-* gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
 * oilskin cloaks let you slip effortlessly out of web traps.
 * increased weight of dwarvish and elvish mithril coats to 200 aum
 * increased weight of dragon scales to 80 aum
@@ -503,7 +518,7 @@ commit 00fec37778:
 
 This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors—such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail whilst retaining their original properties.
 
-### Motivation for the Change
+**Motivation for the Change**
 The primary reason for replacing dragon scale mail with this system is to enhance armor strategy. Dragon scale mail was overwhelmingly optimal, rendering other armor choices irrelevant. It was simultaneously:
 - **Lightweight**,
 - **Higher in base AC** than any other armor,
@@ -577,7 +592,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Dipping acid into toilets explodes and destroys the toilet.
 * Dipping a unicorn horn into a potion of acid will dissolve the horn, alchemizing it into a potion of healing.
 * Dipping scrolls of amnesia blanks non-water non-polymorph potions.
-* Non-magical alchemy is less likely to result in an alchemical explosion.
+* Non-magical alchemy is less likely to result in an alchemical explosion (1 in 20 chance instead of 1 in 10)
 * HP gains from healing potions are subject to nurse dancing limits, but the limit is always observed as if the players level is maxed out at 30.
 * Fizzy potions and booze can cause (loud) burps.
 * Smoky potions cannot appear in any starting role's inventory.
@@ -600,14 +615,15 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Gems auto-id after successful gem alchemy.
 
 ### Scrolls
-* Reduced probability of enchant weapon scrolls, increased prob of scrolls of knowledge.
+* Reduced probability of enchant weapon scrolls
+* Increased probability of scrolls of knowledge.
 * Blank scrolls cost 50
 * Buff the effects of the scroll of light (xnh)
 * Reverse the name of the HACKEM MUCHE scroll
 * Cursed scrolls of remove curse will curse items.
 * Scrolls of genocide only clear a single monster species on the level (uncursed) or globally (blessed) (Un)
-* Endgame genocide nerf. 
-  * Monsters cannot be truly genocided after entering the planes. 
+* Endgame genocide nerf.
+  * Monsters cannot be truly genocided after entering the planes.
   * Any scrolls of genocide read in the endgame will be uncursed and their effectiveness depends on the monster's proximity to the hero. Targeted monsters within 2 squares of the hero are guaranteed kills, but further distance decreases the chance of success.
   * This is a soft counter to the plane of water genocide strategy that most players employ. Players can still genocide ; before entering the planes, but beware, there might be more dangerous replacements waiting for them.
 * Enchant armor: Ability to choose worn piece of armor to enchant/repair (Evil)
@@ -631,7 +647,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes the protection spell effects
-* Increase wand to-hit chance for high-dex characters  (Splice)
 * Wands of secret door detection can be broken to detect traps.
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
@@ -656,7 +671,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Lower chances of rings exploding during charging (SporkHack). Rings with enchantment +3 or lower will no longer have a chance to explode when charged, and rings at -5 or lower will only explode from cursed charging
 * Rings of conflict usually generate cursed.
 * Reduced the probability for amulets of reflection.
-* We fully identify rings of increase damage or accuracy with enough experience killing monsters.
 * Amulet of life saving will not work if the player is in nonliving form (from EvilHack).
 * Cursed amulets of life-saving are ineffective.
 
@@ -715,6 +729,12 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Unicorn horn drops decrease as the number of unicorns killed increased.
 * Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn!
 * Unicorn horns cannot be poisoned (via toilet dipping)
+
+#### Mirrors convert reflection while carried
+* This applies to both the player and monsters.
+* While carrying a mirror in open inventory, you will benefit from reflection.
+* However, whenever a mirror reflects a ray, there is about a 50% chance the mirror will shatter. If you were the originator of the ray, you will be subject to a -2 luck penalty. If monsters cause the breakage, there is no luck effect.
+* Beware of nymphs since they regularly carry mirrors...
 
 **Unicorn horns now reduce the timeouts of most afflications instead of outright curing.**
 * For troubles that time out (not illness or vomiting), the unihorn has been nerfed so that it only reduces the timeout.
@@ -921,7 +941,6 @@ Other effects:
 * Artifact weapons can now be dual-wielded (SLASHEM)
 * Intrinsics are granted for both weapons accordingly.
 * Lawful and chaotic weapons cannot be two-weaponed (Evil)
-* Quest artifacts cannot be left in bones, they revert to ordinary objects.
 * Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
 * Artifacts blasts inflict much more damage (SLASHEM)
 * Cartomancers take doubled artifact blast damage.
@@ -1013,7 +1032,7 @@ Misc changes:
 * Skullcrusher was a club in SLASH'EM, but it has been changed to an aklys.
 * Wielding Origin protects from amnesia.
 * Snakeskin provided a point of protection in SlashTHEM but that was removed and provides MC2 as a robe.
-* Scythes are a type of polyarm that can be used in melee but they have a -2 to-hit penalty.
+* Scythes are a type of polearm that can be used in melee but they have a -2 to-hit penalty.
 * Mortality Dial was an executioner's mace in SpliceHack but it was changed to a morning star with higher damage. It also now grants warning.
 
 ### Load Brand
@@ -1389,6 +1408,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * vampire mages can see invisible
 * vampires (any V) are not afraid of cracked or Molochian altars
 * vampires attack with their bite attacks first
+* vampires can use weapons (EvilHack)
 * all werefoo in animal form get infravision
 * wargs have a thick hide
 * werefoo revert back to their base form when killed (SLASH'EM)
@@ -1404,11 +1424,12 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * yellow molds puff out of stunning spores (as a corollary, pets will attack them less often now)
 
 ### Delayed stoning for all footrice effects
+* This was ported from EvilHack and extended.
 * Instant petrification has been removed both for the player and for monsters
 * Instead, wherever a monster or player would have been insta-killed, a stoning timer is started for 5 turns.
 * This applies for every instapetrification effect: touching a footrice corpse, being knocked into a footrice
 * Footrice only inflict slow stoning for the player and for monsters 
-* 
+
 ### Dangerous piercers
 * All piercers are mindless and can grow up
 * Much more AC is required to dodge dropping piercers (previously, -2AC would nullify their drop attacks, now -22AC is required)
@@ -1827,6 +1848,7 @@ Curing rabid:
 * Cavepersons can get an alignment boost via cannibalism (Spork)
 * Cavepersons' gods sometimes don't respond to prayer. There is a 10% chance of being ignored (Spork/THEM)
 * Unlike other roles, cavemen do not start out knowing scrolls of identify.
+* Cave dwellers start with really low intelligence.
 
 **Caveman quest updates:**
 * The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (from SlashTHEM)
@@ -2037,6 +2059,7 @@ Curing rabid:
 | saber              | skilled    | ->  | basic    |
 | unicorn horn       | skilled    | ->  | basic    |
 | escape spells      | skilled    | ->  | basic    |
+| enchantment spells | basic      | ->  | skilled  |
 | two-weapon combat  | skilled    | ->  | basic    |
 | base-handed combat | skilled    | ->  | basic    |
 | shield             | n/a        | ->  | basic    |
@@ -2056,6 +2079,7 @@ Curing rabid:
 ### WIZARD
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards never receive magic missile in their starting inventory.
+* Wizards can start with a spellbook of fire bolt instead of force bolt.
 * Wizards are able to sense magic fountains.
 * Wizards can always sense how many charges are left in wands.
 * The Dark One gets a cloak of magic resistances and staff (xnh)
@@ -2368,7 +2392,9 @@ Vampires have a rich history in NetHack, first appearing in SLASH'EM and later i
 
 You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. Vampires can also "tin" blood from corpses that are both fresh and big enough to fill a potion with blood. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
 
-Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars which they can tame via #chat.
+Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars and other vampires.
+
+When playing as a vampire, you can try to pacify or tame a familiar with the #chat command. Your success will be affected by Luck.
 
 #### Vampires resistances and abilities
 
@@ -2412,6 +2438,7 @@ difficult time with spellcasting.
 * Casting your **special spell** also grants a retention bonus of 500 turns no matter what role you are
 
 ### Other spellcasting changes
+* Removed the spellbook of identify (xnh)
 * Wielding a quarterstaff provides a small bonus to spellcasting (about a 1/3rd of the bonus a robe confers) (Fourk)
 * Hungerless casting ignores too hungry to cast penalty (xnh)
 * Spellbooks' weight is directly related to their level (xnh)
@@ -2419,59 +2446,106 @@ difficult time with spellcasting.
 * You get a 100 turn reminder for spells that are close to fading away
 * Spellcasting no longer exercises wisdom (FIQ)
 * Total hungerless casting is not possible anymore and the intelligence requirements have been increased. (FIQ)
-* Healing spell effectiveness is determined by skill (Evil)
-* Spellbook of sleep was lowered to level 2 (EvilHack)
-* Cure sickness is now directional (Evil)
 * Only primary spellcasters can receive divine spellbook gifts
 * Spellbooks can generate pre-read
-* Casting the spell of clairvoyance at skilled lets it persist for a while
 * Display a single accurate spellcasting retention percentage in the spellbook list
-* Remove the spell of identify outright (xnh)
-* Increase drain life up to level 3 (xnh)
-* The spellbook of fireball was moved to the Matter school (SLASH'EM)
-* The spellbook of cone of cold was moved to the Matter school (SLASH'EM)
-* The spellbook of fire bolt was moved to the attac school
 
-### Spellbook of charm monster
+
+### New skill-dependent spell ranges
+* Your skill in a spell directly affects how far its ray or beam will travel:
+
+| Spellbook       | Unskilled | Basic | Skilled | Expert |
+| --------------- | --------- | ----- | ------- | ------ |
+| cancellation    | 2-8       | 7-13  | 9-13    | 11-13  |
+| charm monster   | 1-4       | 2-8   | 7-13    | 7-13   |
+| cone of cold    | 2-8       | 7-13  | 9-13    | 11-13  |
+| dig             | 1-4       | 2-8   | 7-13    | 7-13   |
+| drain life      | 1-4       | 2-8   | 7-13    | 7-13   |
+| finger of death | 2-8       | 7-13  | 9-13    | 11-13  |
+| fire bolt       | 1-4       | 2-8   | 7-13    | 7-13   |
+| fireball        | 2-8       | 7-13  | 9-13    | 11-13  |
+| force bolt      | 1-4       | 2-8   | 7-13    | 7-13   |
+| knock           | 1-4       | 2-8   | 7-13    | 7-13   |
+| polymorph       | 2-8       | 7-13  | 9-13    | 11-13  |
+| sleep           | 1-4       | 2-8   | 7-13    | 7-13   |
+| slow monster    | 1-4       | 2-8   | 7-13    | 7-13   |
+| wizard lock     | 1-4       | 2-8   | 7-13    | 7-13   |
+
+
+### spellbook of charm monster
 * This spell is now a directional level 3 spell and only works on the first monster hit.
-* At unskilled and basic, the spell can only pacify monsters.
-* You need to have skilled or expert skill in enchantment spells to tame monsters.
+* At unskilled, the spell can only pacify monsters.
+* At expert, you get two chances to tame each monster affected by the spell
 
-### Spellbook of light
-Spell of light's diameter of effect scales with spellcasting ability.
-- restricted: 1
-- unskilled: 1
-- basic: 3
-- skilled: 5
-- expert: 7
+### spellbook of clairvoyance
+* Casting the spell of clairvoyance at skilled lets it persist for a while
 
-For reference, the uncursed scroll of light always illuminates a radius of 11.
+### spellbook of cone of cold
+* Moved to the Matter school (SLASH'EM)
 
-### Spellbook of dig
+### spellbook of cure sickness
+* Cure sickness is now directional and can be used to cure pets or other monsters (Evil)
+
+### spellbook of dig
 * Lowered from a level 5 spell to level 3
-* The range of the digging beam has been roughly halved.
 
-### Spellbook of magic mapping
+### spellbook of drain life
+* Increased from level 2 to level 3 (xnh)
+* Now ray-based to match the wand of draining
+* Be aware that these rays may bounce back from reflecting monster now
+* At expert skill there is a 10% chance of firing an explosive ball of necrotic energy on each cast.
+
+### spellbook of fire bolt
+* Moved to the Attack school (SLASH'EM)
+
+### spellbook of fireball
+* Moved to the Matter school (SLASH'EM)
+
+### spellbook of food detection
+* Vampires always detect potions with food detection spells and scrolls.
+
+### spellbook of haste self
+haste self: unskilled = diluted
+
+### spellbooks of healing and extra healing
+* Healing spell effectiveness is determined by skill (Evil)
+
+| spell         | Unskilled | Basic | Skilled | Expert |
+| ------------- | --------- | ----- | ------- | ------ |
+| healing       | 4d4       | 6d4   | 8d4     | 10d4   |
+| extra healing | 4d8       | 6d8   | 8d8     | 10d8   |
+
+### spellbook of invisibility
+
+invisibility: unskilled = diluted potion effect (I re-synced the potion effect duration to xNetHack)
+
+### spellbook of knock
+* Cannot be used to escape from an engulfer (this ability is retained for the wand of opening)
+
+### spellbook of levitation
+levitation: unskilled = diluted
+
+### spellbook of light
+* Spell of light's diameter of effect scales with spellcasting ability.
+* For reference, the uncursed scroll of light always illuminates a radius of 11.
+
+|       | Unskilled | Basic | Skilled | Expert |
+| ----- | --------- | ----- | ------- | ------ |
+| range | 1         | 3     | 5       | 7      |
+
+### spellbook of magic mapping
 * The effectiveness of magic mapping depends on your spellcasting ability. The spell will never fully map a level, only the scroll can be depended upon for that.
-* Lowered from a level 5 spell to level 4
+* Lowered from level 5 to level 4
 * Unskilled acts like a confused magic mapping (1 in 7 squares successfully mapped)
 * Basic maps 1 in 5 squares
 * Skilled maps 1 in 3 squares
 * Expert maps all squares
 
-### Spellbook of knock
-* The spell of knock cannot be used to escape from an engulfer (this ability is retained for the wand of opening)
-* Range is reduced to 1
+### spellbook of magic missile
+magic missile: dmg adjustments
 
-### Spellbook of wizard-lock
-* Range is reduced to 1
-
-### Spellbook of drain life
-* Now ray-based to match the wand of draining
-* Be aware that these rays may bounce back from reflecting monster now
-
-### Spellbook of food detection
-* Vampires always detect potions with food detection spells and scrolls. 
+### spellbook of sleep
+* Lowered to level 2 (EvilHack)
 
 ## DUNGEON CHANGES
 
@@ -2499,6 +2573,7 @@ For reference, the uncursed scroll of light always illuminates a radius of 11.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
 * Gnomish mines fill levels sometimes have varied lighting; rarely they get ice patches.
 * Fake "Closed for inventory" shop engravings can appear in random places.
+* **Bones files are disabled** and will never be left or encountered unless playing in wizmode.
 
 ### New levels
 
@@ -2622,6 +2697,7 @@ a99935d6d Add lava to asmode-2; fix drawbridge.
 
 New themed rooms introduced in NerfHack:
   * piercer room
+  * room with random lava
 
 ### SHOP CHANGES
 *  Shopkeeper's real name may be used in cursing shoplifters message (xnh).
@@ -2813,7 +2889,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Bloody doors are more difficult to open and close.
 
 ### Traps
-* Polytraps disappear with 1 in 7 chance when a monster steps on one.
+* Polytraps always disappear whenever a monster steps on one.
 * Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
 * Anti-magic fields block spellcasting for the player and monsters
 * Anti-magic fields also block wand zapping
@@ -2857,10 +2933,11 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * Grease traps function similarly to rust traps, but they spray a blast of grease at the player or monster that stepped on it.
 * When you step on a grease trap, you either slip in a puddle of grease or get sprayed by a grease hose.
 * When stepped on, the trap disarms with a random 1 in 15 chance.
-* You can also #untrap grease traps, if successful you may yield a rubber hose or a can of grease.
+* You can also #untrap grease traps, if successful you may yield a rubber hose or - in rare cases - a can of grease.
 
 **Puddle of grease:**
   * If you don't have levitation or flying, you gain fumbling ("You step in a puddle of grease.")
+  * If you have flying - you are covered in grease, lose flying, and are blinded by goop.
   * Slipping in grease traps can cause you or monsters to become paralyzed for a few turns and inflicts a small amount of damage.
   * Mud boots and water walking boots protect from slipping on grease traps.
 
@@ -2870,6 +2947,8 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
   * If the grease hits your feet, your boots can become greased and fall off.
   * Otherwise, the grease hits your torso and your outermost armor becomes greased. Random items you are carrying can also become greased and fall from your possession. If you are carrying a towel, there is a 50% chance it becomes greased as well. If you are riding a steed the saddle will get hit with grease, making you fall off.
 * When a monster gets hit with grease, it will randomly grease an item in their inventory.
+
+Note: Getting hit by grease will not knock off worn cursed items.
 
 #### Cold Traps
 * Ported from xNetHack, originally from UnNetHack
@@ -3038,7 +3117,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Teleport control cannot be permanently gained intrinsically.
 * Amnesia can make you forget intrinsic telepathy.
 * Intrinsic disintegration resistance doesn't protect items from disintegration.
-* Strength doesn't affect to-hit calculations.
+
 * Regeneration only causes additional hunger when it's actually healing your HP.
 * Free action protects from stoning paralysis.
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (Evil)
@@ -3075,6 +3154,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
 * **Medusa's gaze** has no effect on her if reflected back from more than 3 squares away.
   * If she might be affected by her own gaze, Medusa will protect herself 98% of the time.
+* Monsters also have partial reflection, making them more vulnerable to various ray attacks.
 
 ### Magic cancellation (MC) protects items vs cancellation
 * Any level of MC limits the damage if the enchantment on an item is positive.
@@ -3114,6 +3194,7 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * You cannot be fast while flying or levitating.
 * Stomping boots block flying.
 * Jumping boots block flying.
+* Fumbling blocks flying (from boots, gloves, or greased feet)
 * You cannot jump while flying.
 * Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 
@@ -3271,7 +3352,8 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Grease can be washed off your feet/boots by dipping '-' in water, same action as dipping the player's hands.
 * Kicking monsters can sometimes get the grease to wear off your boots/feet.
 * Greased gloves cause Glib.
-* Greased feet/gloves cause fumbling.
+* Greased feet/boots cause fumbling.
+* If you try to take off greased boots or any boots while you have greasy feet, you become Glib for a short time.
 * Greased rings slip off your fingers as if you had greasy fingers.
 
 ### DEMON AND DEMON LAIR CHANGES
@@ -3291,7 +3373,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
-* Bones file trimming. When bones files are left, there's a high chance of items being polymorphed or shuddering away. This nerfs the common strategy of dumplog peeking or bones stuffing.
 * Allow performing the invocation whilst hallucinating.
 
 ### FARMING NERFS
@@ -3302,7 +3383,7 @@ A big philosophy of NerfHack is to discourage repetitive and potentially infinit
 * **Temple ghost farming:** All abandoned temples only spawn one ghost and then lose their status as a temple.
 * **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
 * **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
-
+* **Horn of plenty farming:** Horns of plenty yield diminishing returns as they are recharged. After 9 recharges, they will crumble with any further attempts.
 
 ## AC nerfs & buffs
 
@@ -3415,22 +3496,38 @@ This chart shows the number of successful uses of a skill required to reach each
 | 30       | 4 800 000   |
 
 ### Leveling up bonuses
-Players get a to-hit bonus after reaching level 20 (from EvilHack with adjustments)
-    * Level 22: +1 to-hit
-    * Level 24: +d2 to-hit
-    * Level 26: +d3 to-hit, and so on.
-
 Leveling up grants damage bonuses (SlashTHEM)
     * Level 10, +1 damage to attacks.
     * level 20+: +d(x), where x is 1 damage for every additional level gained.
     * For example: At level 25, you would get a combined total of +d6+1 damage (+1 for reaching XP 10 and +6 for levels 20-25).
 
+### To-hit bonuses and penalties
+A lot of changes have been introduced to reign back the bonuses for to-hit because in vanilla NetHack, its not uncommon to have nearly a 100% hit rate by the mid or late game.
+
+* Strength doesn't affect to-hit calculations.
+* * The effect Luck has on to-hit bonuses has been reduced to (Luck / 3) (Evil/Spork)
+* Luck still has an effect when -1, -2, +1, and +2 (xNetHack)
+* Players get an additional +1 to-hit bonus whilst XP1-5.
+*Players get a to-hit bonus after reaching level 20 (from EvilHack with adjustments)
+    * Level 22: +1 to-hit
+    * Level 24: +d2 to-hit
+    * Level 26: +d3 to-hit, and so on.
+* Weapon enchantments give variable to-hit bonus instead of flat bonus.
+* The enchantment based to-hit bonus for projectiles capped at +7.
+* All short swords get +1 to-hit (Dyna)
+* You get a +4 to-hit bonus for attacking with a scimitar on a steed.
+* **Polearms** get a +4 to-hit bonus vs horses and centaurs.
+* fencing gloves provide +2 to-hit when you are attacking with a free off-hand (dnh)
+* gauntlets of dexterity grant +1 to-hit whilst using bows (Evil)
+* gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
+* combat boots provide 1AC and +1 to-hit (dnh)
+* You have an increaseed wand to-hit chance for high-dex characters  (Splice)
 ## Misc changes
 * These don't really fit into any category, or are just silly.
 * 8d93bedd9 Halu reverse geno troll msg (from UnNetHack).
 * 899833966 Funny troll #chat messages (from SpliceHack, I think).
 * Characters who don't like baths may resist fountain's urging (xnh).
-* New hallucinatory monsters from Secret of Mana and Magic of Scheherazade. 
+* New hallucinatory monsters from Secret of Mana and Magic of Scheherazade.
 * The fat lady sings if you win whilst hallucinating (xnh).
 
 ## CREDITS
@@ -3535,6 +3632,7 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 
 ### Changes that were later adopted into NetHack 3.7.0
 * Archeologists get a luck bonus for wearing a fedora (Un).
+* Improved item destruction (xnh). This patch fixes some problems with item destruction, making it less random and more dependent on the damage dealt in the interaction. Overall, players should expect to get a more fair deal with fewer items destroyed.
 
 ### Special thanks to:
 - My wife - for being endlessly patient with this time-consuming endeavor!
