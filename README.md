@@ -209,6 +209,7 @@
     - [Aggravate Monster changes](#aggravate-monster-changes)
     - [Impaired Actions](#impaired-actions)
   - [MECHANICS CHANGES](#mechanics-changes)
+    - [INSTAKILLS](#instakills)
     - [WISHING](#wishing)
     - [Slow Luck timeouts (modified)](#slow-luck-timeouts-modified)
     - [Pet behavior](#pet-behavior)
@@ -653,6 +654,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage.
 * Wands can sometimes generate pre-charged
+* Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
 
 #### Wands of wishing
 * Wands of wishing have been replaced with scrolls of wishing - see the section on Wishes.
@@ -1172,12 +1174,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | shadow                 | X   | SLASH'EM       |
 | lava demon             | &   | Convict Patch  |
 | spined devil           | &   | SLASH'EM       |
-| Buer                   | &   | SpliceHack     |
-| Kostchtchie            | &   | SpliceHack     |
-| Baphomet               | &   | SpliceHack     |
-| Lolth                  | &   | EvilHack       |
-| Malchanthet            | &   | SpliceHack     |
-| Mephistopholes         | &   | SpliceHack     |
 | merfolk                | ;   | Splice/THEM    |
 | thing from below       | ;   | SpliceHack     |
 | cartomancer            | @   | SpliceHack     |
@@ -1572,7 +1568,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * The range of usable items has been expanded upon, notably:
   * All resistance rings
   * rings of teleportation and teleport control
-  * amulets and boots of flying
+  * amulets of flying and boots of levitation
   * stomping boots
   * amulets versus poison
   * amulets of ESP
@@ -1946,7 +1942,7 @@ Curing rabid:
 * Instead of the standard crowning gift, priests always receive Mjollnir (Evil)
 * Priests reduce the chance of zombie revival by 50% (Dyna); when a zombie is destroyed for good, you get a special message
 * Priests start with more garlic and wolfsbane (similar to the undead slayer in SLASH'EM)
-* Vampire priests don't start with any food items. Instead they get potions of blood and a guaranteed spellbook of confusion.
+* Vampire priests don't start with any food items. Instead they get potions of vampire blood.
 
 **Skill adjustments for priests:**
 
@@ -2347,7 +2343,6 @@ Cartomancer gets adjusted different item generation odds.
 * Orcs start with sickness potion (Spork)
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
-* Orcs and vampires cannot make use of Elbereth; it fades as soon as it's engraved.
 * orcs get a +1 bonus for each racially aligned piece of armor they wear (Evil)
 * Vampires and orcs cannot successfully engrave Elbereth.
 
@@ -2418,7 +2413,7 @@ In terms of food, most rations and fruit juice potions are replaced with blood p
 
 Like the other vampires players will encounter in the dungeon, player vampires can no longer shapeshift using the #monster command. However, they now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack.
 
-Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
+Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking or killing peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
 
 Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Fingerless gloves also don't protect V from silver weapons or shields. Vampires also cannot use the #turn undead command.
 
@@ -2573,7 +2568,6 @@ magic missile: dmg adjustments
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
 * Gnomish mines fill levels sometimes have varied lighting; rarely they get ice patches.
 * Fake "Closed for inventory" shop engravings can appear in random places.
-* **Bones files are disabled** and will never be left or encountered unless playing in wizmode.
 
 ### New levels
 
@@ -3191,10 +3185,10 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
   * Negative luck has at least a 30% chance of rousing monsters.
 
 ### Flying Changes
-* You cannot be fast while flying or levitating.
-* Stomping boots block flying.
-* Jumping boots block flying.
-* Fumbling blocks flying (from boots, gloves, or greased feet)
+* You cannot be Fast or Very Fast while levitating.
+* You cannot be Very Fast while flying.
+* Stomping boots and Jumping boots block flying.
+* Extrinsic fumbling blocks flying (from boots or gloves)
 * You cannot jump while flying.
 * Items that grant **steadfastness** will do so even if the hero is flying or levitating.
 
@@ -3222,6 +3216,10 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 
 ## MECHANICS CHANGES
 
+### INSTAKILLS
+* It is no longer possible to be insta-petrified by touching footrice or their corpses.
+* Bardiches are a new, but rare, source of insta-death. They have a 1 in 100 chance of beheading a monster or you on hit.
+* 
 
 ### WISHING
 * The wand of wishing in the Castle has been removed. Instead, there are guaranteed scrolls of wishing located at the Castle, Vlad's Tower, The Wizard's Tower, and Moloch's Sanctum.
