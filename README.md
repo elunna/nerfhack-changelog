@@ -949,6 +949,7 @@ Other effects:
 * Cleaver is prevented from cleaving peaceful bystanders (unless cursed) (xnh)
 * Excalibur will fix any negative enchantment on it when created from #dipping (xnh)
 * Eyes of the Overworld protect against more gaze attacks (Evil)
+* The Eyes of the Overworld's xray-vision range was increased to 8 (from FIQHack). 
 * Fire Brand instakills highly flammable monsters and green slimes (xnh)
 * Fire Brand cures sliming whenever you attack with it
 * Fire Brand is now a short sword (Evil)
@@ -1250,6 +1251,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * To prevent a phoenix from exploding or leaving an egg, you must cancel it or stone it
 * To prevent a phoenix egg from hatching, you can also cancel it
 * Lowered their MC protection from 40 to 20
+* Phoenixes now resist cold
+* Phoenixes have a fierce hatred toward undead and grudge them.
+
 
 **Orb Weaver:**
 * A brand new monster debuting in NerfHack
@@ -3418,6 +3422,7 @@ This chart shows the number of successful uses of a skill required to reach each
 * 1-damage hits train weapon/unarmed skills (Dyna)
 * Riding skill is exercised more quickly, closer to vanilla (Un)
 * Skill gain for spells is faster than skill gain for weapons (Un)
+* Shield skill gains are also quadrupled to keep pace with the increased skill requirements.
 * Training skill in pick-axe affects how fast you can dig (Evil)
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
