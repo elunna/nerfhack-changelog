@@ -267,7 +267,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID scrolls of food detection if they have an obvious effect
 * Auto-ID scrolls of remove curse when read
 * Auto-ID rings dropped into a sink (Un)
-* Auto-ID rings of regeneration when they heal you (Un)
+* Auto-ID rings of regeneration upon wearing
 * Auto-ID +0 rings of protection (if MC is increased)
 * Auto-ID wands of cancellation after they destroy a bag of holding (Un)
 * Auto-ID most wands when engraving (xnh)
@@ -701,7 +701,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * saddles are now twice as common (FIQ)
 * Switch probabilities of bags of holding vs oilskin sacks so BoH are more rare.
 * Make beartraps stackable (xnh).
-* Tools have the same recharging limits as wands. 
+* Tools have the same recharging limits as wands and have a chance to crumble (instead of exploding)
 
 #### Safer bags of holding:
 The following safeguards were added to protect players from exploding bags:
@@ -943,7 +943,6 @@ Other effects:
 * Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
 * Artifacts blasts inflict much more damage (SLASHEM)
 * Cartomancers take doubled artifact blast damage.
-
 
 ### Specific artifact changes
 * Cleaver is prevented from cleaving peaceful bystanders (unless cursed) (xnh)
@@ -1250,10 +1249,10 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * When zapped with polymorph, a phoenix will self-explode in resistance to the change
 * To prevent a phoenix from exploding or leaving an egg, you must cancel it or stone it
 * To prevent a phoenix egg from hatching, you can also cancel it
+* Couple of other ways permanantly kill them: disintegration rays (from a black dragon) and withering away
 * Lowered their MC protection from 40 to 20
 * Phoenixes now resist cold
 * Phoenixes have a fierce hatred toward undead and grudge them.
-
 
 **Orb Weaver:**
 * A brand new monster debuting in NerfHack
@@ -1379,7 +1378,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * shapechangers turn back to their base form when killed with 50-75% of their health (SLASH'EM)
 * shapechangers hold level-appropriate form longer, out-of-depth forms for less time (Fourk)
 * cancelled shapeshifters cannot change form
-* shopkeeper base level raised to 24, AC to -6 (SLASH'EM)
+* shopkeepers' base level raised to 24, AC to -6 (SLASH'EM)
 * shopkeepers get extra defensive items (SLASHEM)
 * shopkeepers get a wand of sleep instead of striking (Evil)
 * shopkeepers and priests are colored yellow (xnh)
@@ -1778,15 +1777,13 @@ Curing rabid:
 ### ARCHEOLOGIST
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
-* Archeologists start out knowing dwarvish mattocks.
+* Archeologists start out knowing dwarvish mattocks and any race can use them.
 * Archeologists always get an extra id when reading scrolls of identify.
 * Archeologists start with an extra scroll and spellbook (SLASHEM).
-* Archeologists sometimes crack their whip at animals, scaring them. This usually occurs when hitting a natural 20, but occurs more often the higher whip skill is advanced. This inflicts an extra 1d2 damage.
+* Archeologists sometimes crack their whip at animals, scaring them.
 * Archeologists count as primary spellcasters, so they benefit from spell memory bonuses when casting spells.
-* Archeologists of any race can use dwarvishmattocks.
-* Allow Archeologists to highly enchant fedoras (xnh)
+* Archeologists can highly enchant fedoras (xnh)
 * Add boomerangs, spare tinning kit, grappling hook to Arc home (xnh).
-
 
 **Archeologists vs snakes!**
 * Archeologists get a -1 to-hit penalty when fighting snakes (any S class monsters).
@@ -1956,7 +1953,7 @@ Curing rabid:
 * There are many restrictions:
   * The incoming attack must be a weapon, bite, claw, or kick attack.
   * You cannot be polymorphed
-  * You cannot be wearing any heavy metallic armor or wielding a bulky shield.
+  * You cannot be wearing any heavy metallic armor (excludes mithril) or wielding a bulky shield.
   * You cannot be weak (or worse from hunger) and you cannot be encumbered.
   * You cannot be fumbling or unaware.
   * You must be able to see the monster.
@@ -2049,7 +2046,6 @@ Curing rabid:
 * More fire traps on valk quest
 * Valkyries can pacify and tame winter wolves/cubs via the #chat command.
 * Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon whilst advancing shield skill)
-
 
 **Skill adjustments for valkyries:**
 
@@ -2541,14 +2537,13 @@ magic missile: dmg adjustments
 * No special **themed rooms** generate until level 3
 * Random rivers were added to many of the quest filler levels
 * Trees can generate in dungeon rooms (xnh)
-* Trees can be destroyed by fire, cold, and disintegration rays
-* If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction
+* Trees can be destroyed by fire, cold, and disintegration rays. If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction
 * Random secret doors are secret less of the time (xnh)
 * Random secret corridors have been removed (xnh)
 * Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment. It was removed to make the finite altars mechanic more relevant.
 * There is a guaranteed thing from below guarding Rodney and chance of a vampire mage as well.
 * Thrones can grant knowledge of magical items.
-* Throne #sits can summon much larger audiences.
+* Throne can summon much larger audiences when that #sit effect is hit.
 * Guaranteed pit trap just outside of wizard's zoo.
 * Courtrooms generated after level 20 can be filled with vampires (dNetHack).
 * Gnomish mines fill levels sometimes have varied lighting; rarely they get ice patches.
@@ -2556,7 +2551,6 @@ magic missile: dmg adjustments
 
 ### New levels
 
-Add original author?
 * All original Vanilla Sokoban levels have been removed and replaced.
 
 | Level                 | Version                        | Source        |
@@ -2637,8 +2631,6 @@ Add original author?
 | Oracle #2             |                                | xNetHack      |
 | Oracle #3             |                                | xNetHack      |
 
-a99935d6d Add lava to asmode-2; fix drawbridge.
-
 ### New themed rooms
 * Ported kitchen themed room from Splice/xnh
 * Ported most of the new themed rooms from xNetHack
@@ -2679,10 +2671,10 @@ New themed rooms introduced in NerfHack:
   * room with random lava
 
 ### SHOP CHANGES
-*  Shopkeeper's real name may be used in cursing shoplifters message (xnh).
+* Shopkeeper's real name may be used in cursing shoplifters message (xnh).
 * Improved the chances of some of the minetown shops appearing.
 
-  **Lighting shops:**
+**Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
 
 #### New shop: Junk Shop
@@ -2691,8 +2683,7 @@ New themed rooms introduced in NerfHack:
 
 #### New shop: Collectible Card Game Company
 * Brand new debuting in NerfHack!
-* This shop only spawns for cartomancers and features a large variety of summon cards, with the occasional deck box or backpack.
-* This will take the place of most food and weapon shops to give the cartomancer more ammo to work with.
+* This shop only spawns for cartomancers and features a large variety of summon cards, with the occasional deck box or backpack. Takes the place of most food and weapon shops.
 
 ### Castle changes
 
