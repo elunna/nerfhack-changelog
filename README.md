@@ -9,6 +9,8 @@
   - [ITEM CHANGES](#item-changes)
     - [Price Identification Nerf](#price-identification-nerf)
     - [ITEM EROSION AND DESTRUCTION](#item-erosion-and-destruction)
+      - [Fragile items are more vulnerable](#fragile-items-are-more-vulnerable)
+      - [Bones files trimming](#bones-files-trimming)
     - [Anti-magical items resist being enchanted (from SpliceHack)](#anti-magical-items-resist-being-enchanted-from-splicehack)
     - [Weapon changes](#weapon-changes)
       - [Higher max weapon enchantment](#higher-max-weapon-enchantment)
@@ -29,9 +31,10 @@
       - [Safer bags of holding:](#safer-bags-of-holding)
       - [Magic markers](#magic-markers)
       - [Unicorn horns](#unicorn-horns)
-      - [Mirrors convert reflection while carried](#mirrors-convert-reflection-while-carried)
+      - [Mirrors confer reflection while carried](#mirrors-confer-reflection-while-carried)
     - [Gems/Stones/Rocks](#gemsstonesrocks)
   - [NEW ITEMS](#new-items)
+    - [potions of blood and vampire blood](#potions-of-blood-and-vampire-blood)
     - [potion of milk](#potion-of-milk)
     - [playing card deck](#playing-card-deck)
     - [scroll of cloning](#scroll-of-cloning)
@@ -123,6 +126,7 @@
     - [Racial item preferences](#racial-item-preferences)
   - [New races](#new-races)
     - [Vampires](#vampires)
+      - [Changes to the vampire bite attacks](#changes-to-the-vampire-bite-attacks)
       - [Vampires resistances and abilities](#vampires-resistances-and-abilities)
   - [SPELLCASTING CHANGES](#spellcasting-changes)
     - [Spell memory](#spell-memory)
@@ -131,6 +135,7 @@
     - [spellbook of charm monster](#spellbook-of-charm-monster)
     - [spellbook of clairvoyance](#spellbook-of-clairvoyance)
     - [spellbook of cone of cold](#spellbook-of-cone-of-cold)
+    - [spellbook of create monster](#spellbook-of-create-monster)
     - [spellbook of cure sickness](#spellbook-of-cure-sickness)
     - [spellbook of dig](#spellbook-of-dig)
     - [spellbook of drain life](#spellbook-of-drain-life)
@@ -367,8 +372,8 @@ This change destroys price identification and conforms most potions, scrolls, wa
 
 Exceptions:
 * cursed or blessed potions of water still cost $100
-* Potions of blood cost $100
-* Potions of milk cost $100
+* Potions of blood, milk, and healing cost $100
+* Scrolls of identify and knowledge cost $100
 * Cards of zapping still cost $50. These are usually only present for cartomancers.
 
 ### ITEM EROSION AND DESTRUCTION
@@ -385,12 +390,21 @@ Exceptions:
 * Thrown potions of acid can corrode items or armor when they hit a monster or the player.
 * Water damage may disintegrate scrolls; may occur when dipping (Dyna)
 * Disintegration rays can vaporize boulders
-* Beams of force bolt and striking can break fragile items in inventory. 
-* Knockback attacks can also shatter fragile items in inventories.
-
-Side notes:
 * Items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
 * Item erosion can be repaired by dipping into a potion of restore ability (xnh)
+
+#### Fragile items are more vulnerable
+* Beams of force bolt and striking can break fragile items in inventory.
+* Knockback attacks can also shatter fragile items in inventories.
+* Fragile items can be fixed to avoid destruction (note that although mirrors can be tempered, they are still subject to shattering when reflecting rays)
+* Wands of striking and rings of shock resistance are immune from impact damage. 
+* Rings of shock resistance protect fragile items in your inventory from physical damage when worn.
+
+#### Bones files trimming
+* When bones files are left, a random selection of items are subject to shuddering or polymorph. Do not depend on the dumplog for accurate results!
+* Items that grant wishes will be converted to non-magical equivalents.
+* Magic markers are converted to athames.
+* Quest artifacts cannot be left in bones, they revert to ordinary objects.
 
 ### Anti-magical items resist being enchanted (from SpliceHack)
 * If an item grants magic resistance, it will resist scrolls of enchant weapon and enchant armor.
@@ -597,7 +611,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Potions can sometimes generate diluted.
 * Shopkeepers only offer 1/2 price for diluted potions.
 * Diluted healing potions heal less and grant less max-HP (EvilHack).
-* Diluted vampire blood grants half the normal HP gains for vampires.
+* Vampire blood doesn't provide HP gains if diluted. =
 
 #### GEM ALCHEMY
 * Ported from UnNetHack, originally from SLASH'EM.
@@ -644,7 +658,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
-* Plastic wands can neither be broken (via apply) nor exploded by shock damage.
+* Plastic wands can neither be broken (via apply) nor exploded by shock damage. This includes all wands made of plastic material including: "plastic", "pliable", and "green".
 * Wands can sometimes generate pre-charged
 
 
@@ -689,6 +703,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Increase the prices of many magical tools
 * Raised price of magic marker to 500
 * Raised price of magic lamp to 500 (xnh)
+* Magic lamps are more rare, wax candles are more common.
 * Using eroded unlocking tools also has a chance to break.
 * Playing eroded musical instruments can break the instrument or fail to play.
 * Applying rusty stethoscope is much less effective.
@@ -728,10 +743,13 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Since they are much more rare, be more careful when dipping into random potions as potions of acid will dissolve your unihorn!
 * Unicorn horns cannot be poisoned (via toilet dipping)
 
-#### Mirrors convert reflection while carried
+#### Mirrors confer reflection while carried
 * This applies to both the player and monsters.
 * While carrying a mirror in open inventory, you will benefit from reflection.
 * However, whenever a mirror reflects a ray, there is about a 50% chance the mirror will shatter. If you were the originator of the ray, you will be subject to a -2 luck penalty. If monsters cause the breakage, there is no luck effect.
+* Artifact mirrors like the Magic Mirror of Merlin are shatterproof and will resist destruction when reflecting any rays.
+* Cracked mirrors always shatter when they reflect a ray.
+* Medusa's stoning gaze always shatters mirrors that reflect her gaze.
 * Beware of nymphs since they regularly carry mirrors...
 
 **Unicorn horns now reduce the timeouts of most afflications instead of outright curing.**
@@ -758,6 +776,7 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 * Boulders deal 1+5d4 damage instead of 1d20.
 * Cursed gems count as attacks when thrown at unicorns.
 * Significantly lowered the odds of luckstones generating randomly; increased the odds of other gray stones
+* Unicorn gems are used up when they yield Luck.
 
 ## NEW ITEMS
 
@@ -817,6 +836,10 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 * Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph) 
 * Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
+
+### potions of blood and vampire blood
+Increase nutrition for blood potions, reduced nutrition for diluted blood.
+
 
 ### potion of milk
 Non-cursed potions of milk reliably cancel out a lot of good and bad effects:
@@ -1200,7 +1223,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * giant praying mantis now ignores all magical scaring
 * giant praying mantis has a higher level
 * grave trolls can spawn in graves/graveyards
-* grave troll corpses cause sickness when eaten.
+* grave troll corpses cause sickness when eaten
+* grave trolls are huge
 * gugs are now orange
 * jiggling blobs can jump
 * kamadan are recolored to light green, can now jump, have infravision, and get some poisonous snake bites
@@ -1298,7 +1322,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * gnomish wizards always get a gnomish helm
 * gnomes get candles in the mines twice as often as before
 * goblins can generate in small groups (Spork)
-* grave trolls no longer have thick skin (they used to in SpliceHack)
 * green slimes can hide on the ceiling (xnh)
 * green slimes can appear in the main dungeon, are faster (going from 6 to 13 speed), higher difficulty
 * green slimes have a passive sliming attack (Grunt)
@@ -1349,7 +1372,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * nurses cannot flank or assist flanking
 * nurses grant max-hp at a much higher rate, for quicker "nurse dancing"
 * nymphs spawn with mirrors half as often (25% chance instead of 50%)
-* olog hai get poison resistance
+* olog hai get poison resistance, are huge, have thick skin, higher level and speed, with raised difficulty. 
 * all orcs can stalk the player
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
@@ -1958,7 +1981,7 @@ Curing rabid:
   * You cannot be fumbling or unaware.
   * You must be able to see the monster.
 * The chance of countering goes up with your skill in the wielded weapon.
-* Each counterattack uses up 5 energy (at least 5 energy required to execute)
+* Each counterattack uses up 10 energy (at least 10 energy required to execute)
 
 **Skill adjustments for rogues:**
 
@@ -2366,11 +2389,23 @@ This mechanic also applies to monsters, but they will also simply avoid using it
 ### Vampires
 Vampires have a rich history in NetHack, first appearing in SLASH'EM and later in UnNetHack, dNetHack, SpliceHack, and Hack'EM, with each implementation being slightly different. In this version, the aim was to combine the best aspects of each to create a fun yet balanced vampire race. Vampires start strong, avoiding issues like poison or GWAWOD deaths, and they can fly over many floor traps, such as sleeping gas. What you *will* have to worry about is your new worst enemies: silver and hunger.
 
-You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. Vampires can also "tin" blood from corpses that are both fresh and big enough to fill a potion with blood. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
+You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
 
 Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars and other vampires.
 
 When playing as a vampire, you can try to pacify or tame a familiar with the #chat command. Your success will be affected by Luck.
+
+#### Changes to the vampire bite attacks
+To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes (even when you are merely polymorphed in a vampire and not the starting race). However, stunned, confused, or hallucinating vampires will bite anything so keep your guard up when impaired (Spork/UnNetHackPlus).
+
+In other variants, vampires can "feed" on a variety of monsters, but in NerfHack have been updates with "smart feeding".
+- Vampires can only feed on living monsters with blood.
+- When attacking, low level vampires can only use their bite attack or weapon attack - not both in the same round.
+- If the vampire is hungry (or close to hungry), they will always bite and attempt to feed first. 
+- Otherwise, there will be a 50/50 chance of either biting or attacking with a normal weapon.
+- After level 14, the ability to perform both biting and weapon attacks in the same round will unlock.
+- If a player wishes to only use the weapon, they can always bypass the bite attack by forcefighting (via "F").
+
 
 #### Vampires resistances and abilities
 
@@ -2386,15 +2421,13 @@ When playing as a vampire, you can try to pacify or tame a familiar with the #ch
 
 (Vampires are also immune to lycanthropy, withering, and rabid statuses.)
 
-To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes (even when you are merely polymorphed in a vampire and not the starting race). However, stunned, confused, or hallucinating vampires will bite anything so keep your guard up when impaired (Spork/UnNetHackPlus).
+
 
 Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
 
 In terms of food, most rations and fruit juice potions are replaced with blood potions when playing as a vampire. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and wearing an opera cloak grants a charisma bonus, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source, but shopkeepers charge more for blood when vampires are hungry.
 
-Like the other vampires players will encounter in the dungeon, player vampires can no longer shapeshift using the #monster command. However, they now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack.
-
-Vampires can use any racial items, except for gnomish items, which are too small for them. Additionally, they can use tinning kits to bottle blood from corpses, similar to the mechanic in SlashTHEM, but these tins provide only generic blood and do not grant any intrinsics. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking or killing peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
+Vampries now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack. Vampires can use any racial items, except for gnomish items, which are too small for them. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking or killing peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
 
 Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Fingerless gloves also don't protect V from silver weapons or shields. Vampires also cannot use the #turn undead command.
 
@@ -2458,6 +2491,10 @@ difficult time with spellcasting.
 
 ### spellbook of cone of cold
 * Moved to the Matter school (SLASH'EM)
+
+### spellbook of create monster
+* Increased from level 2 to level 4
+* Only creates spell beings at unskilled and basic levels.
 
 ### spellbook of cure sickness
 * Cure sickness is now directional and can be used to cure pets or other monsters (Evil)
@@ -3089,6 +3126,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Intrinsic disintegration resistance doesn't protect items from disintegration.
 
 * Regeneration only causes additional hunger when it's actually healing your HP.
+* When regeneration is active, it burns twice as much hunger.
 * Free action protects from stoning paralysis.
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (Evil)
 * The chance of gaining levels from wraiths has been reduced using the SLASH'EM version of edible wraith corpses.
@@ -3209,6 +3247,7 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * Artiwishes only care about previous **successful** artiwishes.
 * Wishing with bad luck causes amnesia.
 * Diluted smoky potions no longer can spawn djinnis
+* The odds for fountain wishes has been inverted: they more likely *the deeper* you are instead of being closer you are to the dungeon entry.
 
 There are a few new sources of wishes:
 * Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
@@ -3290,9 +3329,10 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 ### POLYMORPHING OBJECTS
 * The number of items you have polymorphed can be viewed in #conduct
 * Non-magical potions, scrolls, spellbooks, and wands are much less likely to transform into magical items. These items only have a 1% chance of transforming into something magical. This is now comparable to other non-magical items polymorphing into magical. (dnh)
-* The chances of getting a golem from polypiling have been increased (K-Mod)
+* The chances of getting a golem from polypiling have been increased (K-Mod/Spork)
 * The enchantment level or charges can be randomly reduced on polymorphed objects (Spork)
-
+* Golems created from polypiling immediately halt the polypiling process.
+* 
 ### POLY-SELF
 * Players can use gaze attacks in melee range when polymorphed into monsters with a gaze attack.
 * Humanoids are more careful about attacking you when you are a dangerous polyform.
@@ -3358,7 +3398,7 @@ A big philosophy of NerfHack is to discourage repetitive and potentially infinit
 * **Temple ghost farming:** All abandoned temples only spawn one ghost and then lose their status as a temple.
 * **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
 * **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
-* **Horn of plenty farming:** Horns of plenty yield diminishing returns as they are recharged. After 9 recharges, they will crumble with any further attempts.
+* **Horn of plenty farming:** Historically, horns of plenty could be endlessly recharged using the tourist's quest artifact, the Platinum Yendorian Express Card. However, this exploit has been nerfed to align with the restrictions on recharging tools, similar to the limitations imposed on wands.
 
 ## AC nerfs & buffs
 
@@ -3414,6 +3454,7 @@ This chart shows the number of successful uses of a skill required to reach each
 * Riding skill is exercised more quickly, closer to vanilla (Un)
 * Skill gain for spells is faster than skill gain for weapons (Un)
 * Shield skill gains are also quadrupled to keep pace with the increased skill requirements.
+* The spellcasting skill bonus no longer applies after you can advance the spell school past basic.
 * Training skill in pick-axe affects how fast you can dig (Evil)
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
