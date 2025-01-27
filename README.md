@@ -195,6 +195,7 @@
   - [Altars, Prayer, and Priests](#altars-prayer-and-priests)
 - [Revised divine protection scheme](#revised-divine-protection-scheme)
     - [Altar cracking](#altar-cracking)
+    - [Altar generation](#altar-generation)
     - [#offer GIFT ODDS](#offer-gift-odds)
     - [CROWNING](#crowning)
   - [THE QUEST](#the-quest)
@@ -248,6 +249,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Running and traveling no longer pushes boulders (xnh)
 * When traveling, engravings on graves will not be stopped on or considered 'interesting'
 * Stop occupations when the hero is caught in a poison gas cloud
+* Allow lighting only 1 candle in a stack (GnollHack).
 
 ### STREAMLINED IDENTIFICATION FEATURES
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -1015,39 +1017,39 @@ Other effects:
 ## NEW ARTIFACTS
 
 
-| Name                  | Align     | Type                    | From       |
-| --------------------- | --------- | ----------------------- | ---------- |
-| Acidfall              | chaotic   | long sword              | SpliceHack |
-| Amulet of Storms      | chaotic   | amulet of flying        | xnh        |
-| Angelslayer           | chaotic   | trident                 | EvilHack   |
-| Blackshroud           | chaotic   | cloak of invisibility   | SlashTHEM  |
-| Carnwennan            | lawful    | knife                   | SpliceHack |
-| David's Sling         | neutral   | sling                   | slashthem  |
-| Deluder               | neutral   | cloak of displacement   | SLASHEM    |
-| Disrupter             | neutral   | mace                    | SLASHEM    |
-| Doomblade             | chaotic   | short sword             | SLASHEM    |
-| Drowsing Rod          | unaligned | quarterstaff            | HackEM     |
-| Glamdring             | chaotic   | long sword              | EvilHack   |
-| Hellfire              | chaotic   | crossbow                | SLASHEM    |
-| Holographic Void Lily | chaotic   | credit card/banned card | SpliceHack |
-| Load Brand            | unaligned | heavy sword             | NerfHack   |
-| Mayhem                | chaotic   | stomping boots          | NerfHack   |
-| Mirrorbright          | neutral   | shield of reflection    | SLASHEM    |
-| Mortality Dial        | lawful    | morning star            | SpliceHack |
-| Mouser's Scalpel      | neutral   | rapier                  | slashem-up |
-| Origin                | unaligned | quarterstaff            | SpliceHack |
-| Plague                | chaotic   | bow                     | SLASHEM    |
-| Poseidon's trident    | chaotic   | trident                 | SpliceHack |
-| Pridwen               | lawful    | large shield            | SpliceHack |
-| Quick Blade           | lawful    | silver short sword      | SLASHEM    |
-| Serenity              | lawful    | silver spear            | NerfHack   |
-| Serpent's Tongue      | chaotic   | dagger                  | SLASHEM    |
-| Skullcrusher          | lawful    | aklys                   | SLASHEM    |
-| Snakeskin             | Neutral   | robe                    | SlashTHEM  |
-| The End               | neutral   | scythe                  | SpliceHack |
-| The Lenses of Truth   | unaligned | lenses                  | NerfHack   |
-| Thunderfists          | neutral   | gauntlets of force      | NerfHack   |
-| Whisperfeet           | neutral   | speed boots             | SLASHEM    |
+| Name                  | Align     | Type                  | From       | to-hit/dmg                             | Notes                                                                                                          |
+| --------------------- | --------- | --------------------- | ---------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Acidfall              | chaotic   | long sword            | SpliceHack | +d5 to-hit, 2x acid dmg                | intelligent, confers acid res when wielded                                                                     |
+| Amulet of Storms      | chaotic   | amulet of flying      | xnh        | n/a                                    | confers shock res when worn, prevents thunderstorm paralysis, pacify stormy monsters via #chat                 |
+| Angelslayer           | chaotic   | trident               | EvilHack   | +d5 to-hit, +d10 dmg                   | bane vs angels; confers searching and 1/2 spell damage when wielded                                            |
+| Blackshroud           | chaotic   | cloak of invisibility | SlashTHEM  | n/a                                    | confers warning and drain res when worn                                                                        |
+| Carnwennan            | lawful    | knife                 | SpliceHack | +d3 to-hit, +d8 dmg                    | confers searching and stealth when wielded                                                                     |
+| David's Sling         | neutral   | sling                 | slashthem  | +d5 to-hit, +d6 dmg                    | bane vs giants; confers 1/2 physical damage when wielded                                                       |
+| Deluder               | neutral   | cloak of displacement | SLASHEM    | n/a                                    | confers stealth and protection when worn                                                                       |
+| Disrupter             | neutral   | mace                  | SLASHEM    | +d5 to-hit, +d30 dmg vs undead         | bane vs undead                                                                                                 |
+| Doomblade             | chaotic   | short sword           | SLASHEM    | +d10 dmg, 25% chance of dmg bonus      |                                                                                                                |
+| Drowsing Rod          | unaligned | quarterstaff          | HackEM     | +d5 to-hit, +d5 sleep dmg              | first sacrifice gift for healers; confers sleep res when wielded                                               |
+| Glamdring             | chaotic   | long sword            | EvilHack   | +d8 to-hit, +d10 dmg                   | bane vs orcs; confers shock res and protection when worn                                                       |
+| Hellfire              | chaotic   | crossbow              | SLASHEM    | +d5 to-hit, +d7 dmg + explosion        | confers fire res when wielded                                                                                  |
+| Holographic Void Lily | chaotic   | credit card           | SpliceHack | n/a                                    | intelligent; energy regen, 1/2 spell dmg, and reflection when carried. #invoke for card drop boost             |
+| Load Brand            | unaligned | heavy sword           | NerfHack   | +d5 to-hit, double damage              | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
+| Mayhem                | chaotic   | stomping boots        | NerfHack   | n/a                                    | confers conflict and warning against undead when worn.                                                         |
+| Mirrorbright          | neutral   | shield of reflection  | SLASHEM    | n/a                                    | confers hallucination res when worn; light source; does not impede spellcasting.                               |
+| Mortality Dial        | lawful    | morning star          | SpliceHack | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
+| Mouser's Scalpel      | neutral   | rapier                | slashem-up | +d5 to-hit, +1 dmg; multihit bonus     | if not confused or stunned, chance of delivering extra strikes                                                 |
+| Origin                | unaligned | quarterstaff          | SpliceHack | +d3 to-hit, +d8 dmg                    | confers telepathy and teleport control when wielded; boosts spellcasting                                       |
+| Plague                | chaotic   | bow                   | SLASHEM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded                                                                              |
+| Poseidon's trident    | chaotic   | trident               | SpliceHack | +d3 to-hit, +d14                       | confers magical breathing when wielded; #invoke for water walking                                              |
+| Pridwen               | lawful    | large shield          | SpliceHack | n/a                                    | confers half physical damage and steadfastness when worn                                                       |
+| Quick Blade           | lawful    | silver short sword    | SLASHEM    | +d9 to-hit, +d2                        | confers speed when wielded                                                                                     |
+| Serenity              | lawful    | silver spear          | NerfHack   | +d3 to-hit, +d10                       | counters 80% of monster spells and blocks spellcasting; suppresses aggravate monster, berserking, and conflict |
+| Serpent's Tongue      | chaotic   | dagger                | SLASHEM    | +d2 to-hit, 2x damage + poison bonuses | always poisoned                                                                                                |
+| Skullcrusher          | lawful    | aklys                 | SLASHEM    | +d3 to-hit, +d10 dmg                   | first sacrifice gift for cavemen                                                                               |
+| Snakeskin             | Neutral   | robe                  | SlashTHEM  | n/a                                    | confers acid res and hallucination res when worn.                                                              |
+| The End               | neutral   | scythe                | SpliceHack | +d3 to-hit, +d10 dmg                   | confers drain res when wielded                                                                                 |
+| The Lenses of Truth   | unaligned | lenses                | NerfHack   | n/a                                    | confers see invisible and stun res when worn                                                                   |
+| Thunderfists          | neutral   | gauntlets of force    | NerfHack   | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
+| Whisperfeet           | neutral   | speed boots           | SLASHEM    | n/a                                    | confers stealth and luck when worn                                                                             |
 
 
 Misc changes:
@@ -2299,9 +2301,9 @@ Zap cards, which function as one-use wands, can drop when cartomancers kill mons
 Cartomancers will never see wands generate. Anytime a wand would spawn it is instead replaced with its equivalent zap card. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
 
 #### Spellcasting overhaul
-Cartomancers do not learn spells in the traditional way, meaning they cannot acquire spells from starting books, reading spellbooks, or receiving gifts from gods. Instead, they cast spells instantaneously by reading rulebooks. These rulebooks generate with 4-5 charges, and each reading consumes one charge. Once all charges are used, the rulebook is consumed and disappears.
+Cartomancers do not learn spells in the traditional way, meaning they cannot acquire spells from starting books, reading spellbooks, or receiving gifts from gods. Instead, they cast spells instantaneously by reading rulebooks. These rulebooks generate with 4-5 charges, and each reading consumes one charge. Once all charges are used, the rulebook is consumed and disappears. 
 
-Cartomancers begin the game knowing the identities of all rulebooks, as the title and purpose of a rulebook are typically clear from the cover. They always cast spells at expert level, ensuring high proficiency. Whilst rulebooks can still be written using magic markers without penalties (unlike when forging cards), they cannot be recharged with scrolls of charging. Additionally, cartomancers are able to read rulebooks even when blind.
+Cartomancers begin the game knowing the identities of all rulebooks, as the title and purpose of a rulebook are typically clear from the cover. They always cast spells at expert level, ensuring high proficiency. Whilst rulebooks can still be written using magic markers without penalties (unlike when forging cards), they cannot be recharged with scrolls of charging. Additionally, cartomancers are fortunate enough to know braille, allowing them to invoke their rulebooks even while blind.
 
 **Card combos:**
 * The 'Z' spellcasting command is instead is used for card combos that the cartomancer gets access to as they level up.
@@ -2574,6 +2576,7 @@ magic missile: dmg adjustments
 * No special **themed rooms** generate until level 3
 * Random rivers were added to many of the quest filler levels
 * Trees can generate in dungeon rooms (xnh)
+* Trees on special levels are generate pre-looted (they cannot be kicked for killer bees or fruits)
 * Trees can be destroyed by fire, cold, and disintegration rays. If a tree is destroyed by fire or cold, it has a 1 in 3 chance of exploding - possbily creating a chain reaction
 * Random secret doors are secret less of the time (xnh)
 * Random secret corridors have been removed (xnh)
@@ -3011,15 +3014,14 @@ Note: Getting hit by grease will not knock off worn cursed items.
 
 
 * When donating to priests - the gold vanishes upon receipt
-
-* Greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
+* There is a greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (Evil)
 * Converting altars has higher chance of summoning minions (SLASH'EM)
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 * Getting troubles fixed by prayer abuses constitution.
 * Permanent alignment conversion prevents more divine protection from being granted
 * Only one skill per game will be unrestricted by your god via artifact gifts.
 
-Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retaine, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependant chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
+Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retained, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependent chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
 
 # Revised divine protection scheme
 * The more protection the player has, the less likely it is to be granted (K-Mod)
@@ -3048,17 +3050,20 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 * There are two stages to the cracking. In the first stage the altar becomes partially cracked, which is purely cosmetic and doesn't affect the altar's functionality. This cracked status can be seen on an altar by farlooking. However, receiving another gift from a cracked altar will certainly destroy it, losing it forever.
 * Being crowned also counts as a gift. If you are crowned on a cracked altar, it will also almost always destroy it in the process (however - there is a 1 in 13 chance that the altar will survive the process).
 * Altars on the Astral Plane will never be destroyed. Note that they can still become cracked but are safe from destruction.
-* Altars also sometimes generate cracked. 1 in 4 altars will generate pre-cracked
 * Many of the guaranteed altars in quests now have a good chance to already be cracked. This is especially true if they are unattended or unaligned, implying there was recent conflict and the altar was damaged.
-* Altars don't start spawning until level 3.
-* Randomly generated altars are always cracked after level 15.
-* If more than one altar generates on a standard dungeon level, additional altars are always cracked.
 * Converting an altar will also frequently crack it. This occurs 1 in 13 times the altar is converted or 1/3rd of the time hostile minions are summoned.
 * Non-chaotic same-race sacrifice always cracks altars.
 
 The original altar nerf came from SpliceHack, where altars had a 50% chance of being destroyed after two artifact gifts had been bestowed.
 
 A new conduct was added to the #conduct menu so that players can track how many altars have been destroyed in their current game. Altar cracking is livelogged on game servers for the entertainment value.
+
+### Altar generation
+* **An uncracked altar is guaranteed to spawn at the Oracle's level.**
+* Altars don't start spawning until level 15 (other than the Oracle altar)
+* Randomly generated altars are always cracked after level 15.
+* Temples cannot appear until level 15. Unlike random altars, temple altars will not be cracked, as they are maintained by a priest.
+
 
 ### #offer GIFT ODDS
 **Altar gift frequency is tempered by your experience level (EvilHack).**
