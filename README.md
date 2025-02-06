@@ -1,14 +1,14 @@
 # NerfHack
 - [NerfHack](#nerfhack)
   - [QUALITY OF LIFE FEATURES](#quality-of-life-features)
-    - [STREAMLINED IDENTIFICATION FEATURES](#streamlined-identification-features)
-    - [INTERFACE CHANGES](#interface-changes)
+    - [Streamlined Identification Features](#streamlined-identification-features)
+    - [Interface Changes](#interface-changes)
       - [Farlook enhancements](#farlook-enhancements)
-  - [New config options](#new-config-options)
-    - [WIZMODE FEATURES](#wizmode-features)
+    - [New config options](#new-config-options)
+    - [Wizmode features](#wizmode-features)
   - [ITEM CHANGES](#item-changes)
     - [Price Identification Nerf](#price-identification-nerf)
-    - [ITEM EROSION AND DESTRUCTION](#item-erosion-and-destruction)
+    - [Item Erosion and Destruction](#item-erosion-and-destruction)
       - [Fragile items are more vulnerable](#fragile-items-are-more-vulnerable)
       - [Bones files trimming](#bones-files-trimming)
     - [Anti-magical items resist being enchanted (from SpliceHack)](#anti-magical-items-resist-being-enchanted-from-splicehack)
@@ -22,7 +22,7 @@
     - [Comestibles](#comestibles)
     - [Potions and alchemy](#potions-and-alchemy)
       - [Diluted potion effects](#diluted-potion-effects)
-      - [GEM ALCHEMY](#gem-alchemy)
+      - [Gem Alchemy](#gem-alchemy)
     - [Scrolls](#scrolls)
     - [Wands](#wands)
       - [Wands of wishing](#wands-of-wishing)
@@ -58,13 +58,8 @@
     - [Delayed stoning for all footrice effects](#delayed-stoning-for-all-footrice-effects)
     - [Dangerous piercers](#dangerous-piercers)
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
-    - [Dragons](#dragons)
-      - [Baby dragon changes](#baby-dragon-changes)
-      - [Adult dragon changes](#adult-dragon-changes)
+    - [Dragon changes](#dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
-      - [Medusa](#medusa)
-      - [Wizard of Yendor](#wizard-of-yendor)
-      - [The riders](#the-riders)
   - [MONSTER BEHAVIOR](#monster-behavior)
     - [Monster item use](#monster-item-use)
     - [Monster accessory use](#monster-accessory-use)
@@ -78,89 +73,41 @@
     - [Withering attacks](#withering-attacks)
   - [MONSTER SPELLCASTING](#monster-spellcasting)
     - [Clerical Spells](#clerical-spells)
-      - [protection](#protection)
-      - [geyser spell](#geyser-spell)
-      - [hobble](#hobble)
-      - [blight](#blight)
-      - [flesh to stone](#flesh-to-stone)
     - [Mage Spells](#mage-spells)
-      - [reflection](#reflection)
-      - [acid blast](#acid-blast)
-      - [ice bolt](#ice-bolt)
-      - [fire bolt](#fire-bolt)
-      - [destroy armor](#destroy-armor)
-      - [entomb](#entomb)
-      - [call undead](#call-undead)
-      - [evil eye](#evil-eye)
-      - [cure self](#cure-self)
   - [ROLE CHANGES](#role-changes)
-    - [ARCHEOLOGIST](#archeologist)
-    - [BARBARIAN](#barbarian)
-    - [CAVEMAN/CAVEWOMAN CHANGES](#cavemancavewoman-changes)
-    - [HEALER](#healer)
-    - [KNIGHT](#knight)
-    - [MONK](#monk)
-    - [PRIEST](#priest)
-    - [ROGUE](#rogue)
-    - [RANGER](#ranger)
-    - [SAMURAI](#samurai)
-    - [TOURIST](#tourist)
-    - [VALKYRIE](#valkyrie)
-    - [WIZARD](#wizard)
+    - [Archeologist](#archeologist)
+    - [Barbarian](#barbarian)
+    - [Cave Dweller](#cave-dweller)
+    - [Healer](#healer)
+    - [Knight](#knight)
+    - [Monk](#monk)
+    - [Priest](#priest)
+    - [Rogue](#rogue)
+    - [Ranger](#ranger)
+    - [Samurai](#samurai)
+    - [Tourist](#tourist)
+    - [Valkyrie](#valkyrie)
+    - [Wizard](#wizard)
   - [NEW ROLES](#new-roles)
-    - [CARTOMANCER](#cartomancer)
-      - [Skill adjustments for cartomancers:](#skill-adjustments-for-cartomancers)
-      - [Cartomancer terminology](#cartomancer-terminology)
-      - [Cartomancer rarity descriptions](#cartomancer-rarity-descriptions)
-      - [Card abuse penalties](#card-abuse-penalties)
-      - [Play mechanics](#play-mechanics)
-      - [No perma-pets](#no-perma-pets)
-      - [Melee combat nerfs](#melee-combat-nerfs)
-      - [Card drops](#card-drops)
-      - [Spell beings](#spell-beings)
-      - [Summon cards](#summon-cards)
-      - [Explosive summon cards](#explosive-summon-cards)
-      - [Razor cards](#razor-cards)
-      - [Zappable cards](#zappable-cards)
-      - [Spellcasting overhaul](#spellcasting-overhaul)
+    - [Undead Slayer](#undead-slayer)
+    - [Cartomancer](#cartomancer)
   - [PLAYER RACE CHANGES](#player-race-changes)
     - [New race/role combos.](#new-racerole-combos)
     - [Racial item preferences](#racial-item-preferences)
-  - [New races](#new-races)
+  - [NEW RACES](#new-races)
     - [Dhampir](#dhampir)
-      - [Changes to the vampire bite attacks](#changes-to-the-vampire-bite-attacks)
-      - [Vampires resistances and abilities](#vampires-resistances-and-abilities)
+      - [Dhampir's resistances and abilities](#dhampirs-resistances-and-abilities)
     - [Grung](#grung)
+      - [Grung Hydration Mechanics](#grung-hydration-mechanics)
   - [SPELLCASTING CHANGES](#spellcasting-changes)
     - [Spell memory](#spell-memory)
     - [Other spellcasting changes](#other-spellcasting-changes)
     - [New skill-dependent spell ranges](#new-skill-dependent-spell-ranges)
-    - [spellbook of charm monster](#spellbook-of-charm-monster)
-    - [spellbook of clairvoyance](#spellbook-of-clairvoyance)
-    - [spellbook of cone of cold](#spellbook-of-cone-of-cold)
-    - [spellbook of create monster](#spellbook-of-create-monster)
-    - [spellbook of cure sickness](#spellbook-of-cure-sickness)
-    - [spellbook of dig](#spellbook-of-dig)
-    - [spellbook of drain life](#spellbook-of-drain-life)
-    - [spellbook of fire bolt](#spellbook-of-fire-bolt)
-    - [spellbook of fireball](#spellbook-of-fireball)
-    - [spellbook of food detection](#spellbook-of-food-detection)
-    - [spellbook of haste self](#spellbook-of-haste-self)
-    - [spellbooks of healing and extra healing](#spellbooks-of-healing-and-extra-healing)
-    - [spellbook of invisibility](#spellbook-of-invisibility)
-    - [spellbook of knock](#spellbook-of-knock)
-    - [spellbook of levitation](#spellbook-of-levitation)
-    - [spellbook of light](#spellbook-of-light)
-    - [spellbook of magic mapping](#spellbook-of-magic-mapping)
-    - [spellbook of magic missile](#spellbook-of-magic-missile)
-    - [spellbook of sleep](#spellbook-of-sleep)
-    - [spellbook of poison blast](#spellbook-of-poison-blast)
+    - [Spell changes and updates](#spell-changes-and-updates)
   - [DUNGEON CHANGES](#dungeon-changes)
     - [New levels](#new-levels)
     - [New themed rooms](#new-themed-rooms)
-    - [SHOP CHANGES](#shop-changes)
-      - [New shop: Junk Shop](#new-shop-junk-shop)
-      - [New shop: Collectible Card Game Company](#new-shop-collectible-card-game-company)
+    - [Shop Changes](#shop-changes)
     - [Castle changes](#castle-changes)
     - [Valley of the Dead](#valley-of-the-dead)
     - [Enhanced Gehennom](#enhanced-gehennom)
@@ -175,7 +122,7 @@
     - [Grass](#grass)
     - [Puddles](#puddles)
     - [Forges](#forges)
-      - [FORGING \& FORGING RECIPES](#forging--forging-recipes)
+      - [Forging and Forging Recipes](#forging-and-forging-recipes)
     - [Toilets](#toilets)
       - [Toilet kicking:](#toilet-kicking)
     - [Bloody tiles](#bloody-tiles)
@@ -188,7 +135,7 @@
       - [Cold Traps](#cold-traps)
       - [Door traps](#door-traps)
       - [Booby-trapped tins](#booby-trapped-tins)
-  - [Special Rooms](#special-rooms)
+  - [SPECIAL ROOMS](#special-rooms)
     - [Art rooms](#art-rooms)
     - [Room colors patch](#room-colors-patch)
     - [New room: dragon lair (from SLASH'EM).](#new-room-dragon-lair-from-slashem)
@@ -197,16 +144,16 @@
     - [New room: Fungus farm (from SLASH'EM).](#new-room-fungus-farm-from-slashem)
     - [New room: Migo hive (from SLASH'EM).](#new-room-migo-hive-from-slashem)
     - [New room: terror halls (from SlashTHEM)](#new-room-terror-halls-from-slashthem)
-  - [Altars, Prayer, and Priests](#altars-prayer-and-priests)
-- [Revised divine protection scheme](#revised-divine-protection-scheme)
+  - [ALTARS, PRAYER, AND PRIESTS](#altars-prayer-and-priests)
+    - [Revised divine protection scheme](#revised-divine-protection-scheme)
     - [Altar cracking](#altar-cracking)
     - [Altar generation](#altar-generation)
     - [#offer GIFT ODDS](#offer-gift-odds)
-    - [CROWNING](#crowning)
+    - [Crowning](#crowning)
   - [THE QUEST](#the-quest)
   - [INTRINSICS AND EXTRINSICS](#intrinsics-and-extrinsics)
-    - [PARTIAL INTRINSICS](#partial-intrinsics)
-    - [PARTIAL REFLECTION](#partial-reflection)
+    - [Partial Intrinsics](#partial-intrinsics)
+    - [Partial Reflection](#partial-reflection)
     - [Magic cancellation (MC) protects items vs cancellation](#magic-cancellation-mc-protects-items-vs-cancellation)
     - [Gaze attack protection](#gaze-attack-protection)
     - [Slow digestion nerf](#slow-digestion-nerf)
@@ -215,32 +162,32 @@
     - [Aggravate Monster changes](#aggravate-monster-changes)
     - [Impaired Actions](#impaired-actions)
   - [MECHANICS CHANGES](#mechanics-changes)
-    - [INSTAKILLS](#instakills)
-    - [WISHING](#wishing)
+    - [Instakills](#instakills)
+    - [Wishing](#wishing)
     - [Genocide has been nerfed and renamed to Exile](#genocide-has-been-nerfed-and-renamed-to-exile)
     - [Slow Luck timeouts (modified)](#slow-luck-timeouts-modified)
     - [Pet behavior](#pet-behavior)
       - [Pet Theft](#pet-theft)
       - [Pets are limited by charisma](#pets-are-limited-by-charisma)
-    - [POLYMORPHING OBJECTS](#polymorphing-objects)
-    - [POLY-SELF](#poly-self)
+    - [Polymorphing Objects and Polypiling](#polymorphing-objects-and-polypiling)
+    - [Poly-Self](#poly-self)
     - [Elbereth and Scare Monster](#elbereth-and-scare-monster)
-    - [NEW GREASE EFFECTS](#new-grease-effects)
+    - [New Grease Effects](#new-grease-effects)
     - [DEMON AND DEMON LAIR CHANGES](#demon-and-demon-lair-changes)
-    - [ENDGAME CHANGES](#endgame-changes)
-    - [FARMING NERFS](#farming-nerfs)
+    - [Endgame Changes](#endgame-changes)
+    - [Farming Nerfs](#farming-nerfs)
     - [Underwater mechanics](#underwater-mechanics)
   - [AC nerfs \& buffs](#ac-nerfs--buffs)
     - [Dexterity affects AC](#dexterity-affects-ac)
     - [Encumbrance affects AC](#encumbrance-affects-ac)
   - [SKILLS AND EXPERIENCE](#skills-and-experience)
-    - [SKILL CHANGES](#skill-changes)
-    - [SHIELD SKILL](#shield-skill)
+    - [Skill Changes](#skill-changes)
+    - [Shield Skill](#shield-skill)
       - [Effects at different skill levels:](#effects-at-different-skill-levels)
-    - [EXPERIENCE CURVE CHANGES](#experience-curve-changes)
+    - [Experience Curve Changes](#experience-curve-changes)
     - [Leveling up bonuses](#leveling-up-bonuses)
     - [To-hit bonuses and penalties](#to-hit-bonuses-and-penalties)
-  - [Misc changes](#misc-changes)
+  - [MISC CHANGES](#misc-changes)
   - [CREDITS](#credits)
     - [NetHack Ideas Archive credits](#nethack-ideas-archive-credits)
     - [Changes that were later adopted into NetHack 3.7.0](#changes-that-were-later-adopted-into-nethack-370)
@@ -258,7 +205,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Stop occupations when the hero is caught in a poison gas cloud
 * Allow lighting only 1 candle in a stack (GnollHack).
 
-### STREAMLINED IDENTIFICATION FEATURES
+### Streamlined Identification Features
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
 
 * All roles start out knowing potions of water, blank scrolls, and scrolls of identify (one exception is cave dwellers, who don't know scrolls of identify)
@@ -300,7 +247,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Make rustproof/erodeproof/fixed known by default (Dyna)
 * **Items that are 'lost'** from the players inventory are longer un-identified.
 
-### INTERFACE CHANGES
+### Interface Changes
 * A detailed object and monster Pokedex is available in the in-game lookup (xnh/Un/HackEM)
   * Farlook any monster (press '//'), then press ':' to access the pokedex entry
   * You can also search for a monster or item: press '/' then '?', then type the name of the thing you want information on.
@@ -341,14 +288,14 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * We are able to see what weapon a monster is wielding from farlook (Evil)
 * We are able to see roughly how much armor a monster is wearing on farlook (Evil)
 
-## New config options
+### New config options
 
 * **showdamage:** Displays damage dealt and flanking bonuses/penalties
 * **do_not_flip_soko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
 * **invweight:** Show weights of objects in inventory
 * **autostairtravel:** Allow fast travel to stairs with < and >
 
-### WIZMODE FEATURES
+### Wizmode features
 * The #wizcrown command has been added for testing crowning (Evil)
 * The #wizclear (^z) command, clears all monsters on the screen (Splice)
 * Wizard mode can override an artifact ignoring you (xnh)
@@ -385,7 +332,7 @@ Exceptions:
 * Scrolls of identify and knowledge cost $100
 * Cards of zapping still cost $50. These are usually only present for cartomancers.
 
-### ITEM EROSION AND DESTRUCTION
+### Item Erosion and Destruction
 * Objects can be completely destroyed via rusting/rotting/corroding (Evil)
 * Almost all items are erodible/destroyable (Evil) - amulets, rings, wands, and tools are now eligible for erosion and destruction.
 * Silver items can also corrode (xnh)
@@ -406,7 +353,7 @@ Exceptions:
 * Beams of force bolt and striking can break fragile items in inventory.
 * Knockback attacks can also shatter fragile items in inventories.
 * Fragile items can be fixed to avoid destruction (note that although mirrors can be tempered, they are still subject to shattering when reflecting rays)
-* Wands of striking and rings of shock resistance are immune from impact damage. 
+* Wands of striking and rings of shock resistance are immune from impact damage.
 * Rings of shock resistance protect fragile items in your inventory from physical damage when worn.
 
 #### Bones files trimming
@@ -502,18 +449,20 @@ Exceptions:
 ### Armor changes
 * reduced weight of most armors by 50 aum (K-Mod)
 * reduced weight of elven gear by about 1/3'rd (Evil)
+* reduced weight of dwarvish shields to 75
 * kicking boots supersede thick_skinned monster or burdened status (Splice)
 * mud boots provide protection from wrapping attacks
 * hiking boots let you avoid pit traps
 * hiking boots provide extra carrying capacity (dnh)
-* old gloves don't take erosion damage (dnh)
+* old gloves are immune to erosion damage (dnh)
 * padded gloves provide an extra point of AC (dnh)
 * leather gloves provide 0AC (NetHack Brass)
 * combat boots provide 1AC and +1 to-hit (dnh)
 * jungle boots provide protection from wounded legs (dnh)
 * kicking boots allow kicking even when your legs are wounded
 * oilskin cloaks let you slip effortlessly out of web traps
-* increased weight of dwarvish and elvish mithril coats to 200 aum
+* increased weight of dwarvish mithril coats to 200 aum
+* dwarvish and elvish mithril coats only grant MC1
 * increased weight of dragon scales to 80 aum
 * mummy wrappings always generate rotted
 * cursed armor weighs more when worn.
@@ -521,18 +470,18 @@ Exceptions:
 * only elves can safely enchant elvish armor over +3. Other races will get a warning vibration once their armor passes +3.
 * worn armor has a 25% weight reduction (xnh/FIQ)
 * plate mail now grants 8AC
-* crystal plate mail now weighs 150, is gemstone, and resists destruction (EvilHack)
+* crystal plate mail now weighs 200, is gemstone, resists destruction, but only grants 5AC
 * bronze plate mail now grants 7AC
-* leather armor and studded leather armor don't grant any MC
+* leather armor and studded leather armor don't grant any MC but weigh much less
 * leather cloaks grant 3AC and 0MC
 
 #### New armor type: bracers
 
 TODO: Fill in
    New armor type: bracers, which also occupy the shield slot (from EvilHack).
-    
+
     This implementation mostly follows EvilHack's, just adapted to 3.7 and with new types of bracers.
-    
+
     Bracers weigh 15 (half as much as a small shield). They allow the use of weapons while worn and don't impede spellcasting or martial arts. However, to balance them out so that shields are not rendered obsolete, they grant 0AC. They still benefit from shield skill, but the rate is only 1AC per skill. So basic = 1AC, skilled = 2AC, etc.
 
 Elves and centaurs can spawn with bracers.
@@ -626,7 +575,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Diluted smoky potions will never yield a djinni from a bottle.
 * Diluted milky potions never yield ghosts.
 * Cursed diluted potions of gain level don't transport you, they levitate you momentarily.
-* Diluted potions of gain ability can only achieve uncursed results. 
+* Diluted potions of gain ability can only achieve uncursed results.
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
@@ -635,7 +584,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Diluted healing potions heal less and grant less max-HP (EvilHack).
 * Vampire blood doesn't provide HP gains if diluted.
 
-#### GEM ALCHEMY
+#### Gem Alchemy
 * Ported from UnNetHack, originally from SLASH'EM.
 * This allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance.
 * This adds some serious value to potions of acid and gems.
@@ -680,10 +629,8 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage. This includes all wands made of plastic material including: "plastic", "pliable", and "green".
 * Wands can sometimes generate pre-charged
 
-
 #### Wands of wishing
 * Wands of wishing have been replaced with scrolls of wishing - please see the section on Wishes.
-
 
 ### Rings/Amulets
 * Port FIQHack's ring initial enchantment rules
@@ -701,7 +648,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Reduced the probability for amulets of reflection.
 * Amulet of life saving will not work if the player is in nonliving form (EvilHack).
 * Cursed amulets of life-saving are ineffective.
-
 
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
@@ -798,88 +744,86 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 * Significantly lowered the odds of luckstones generating randomly; increased the odds of other gray stones
 * Unicorn gems are used up when they yield Luck.
 
+
 ## NEW ITEMS
 
 
-| Item                          | Class     | Origin     | Notes                                        |
-| ----------------------------- | --------- | ---------- | -------------------------------------------- |
-| razor card                    | weapon    | SpliceHack | slightly weaker shuriken for cartomancers    |
-| silver short sword            | weapon    | SLASHEM    |                                              |
-| rapier                        | weapon    | SLASHEM    | light metal saber, erodeproof steel          |
-| heavy sword                   | weapon    | NerfHack   | base item for Load Brand                     |
-| scythe                        | weapon    | SpliceHack | strong polearm that can be used in melee     |
-| sling bullet                  | weapon    | EvilHack   | 1d6 + 1 damage                               |
-| gnomish helm                  | armor     | SlashTHEM  | 1AC                                          |
-| fire helmet                   | armor     | SlashTHEM  | fire resistance                              |
-| oilskin helm                  | armor     | EvilHack   | protection from tentacle/wrap attacks        |
-| shimmering dragon scales      | armor     | Deferred   | displacement, stun resistance                |
-| gnomish suit                  | armor     | SlashTHEM  | 2AC                                          |
-| tower shield                  | armor     | SpliceHack | Heavy, provides 4AC                          |
-| anti-magic shield             | armor     | NerfHack   | 1AC/2MC, provides MR, counters spellcasting  |
-| shield of integrity           | armor     | NerfHack   | conveys dis/wither resistance, erodeproof    |
-| cloak of integrity            | armor     | NerfHack   | conveys dis/wither resistance, erodeproof    |
-| rogue's gloves                | armor     | SpliceHack | Confers searching, fingerless (!)            |
-| bronze gauntlets              | armor     | NerfHack   | copper, 1AC                                  |
-| gauntlets of swimming         | armor     | SLASHEM    | grants swimming                              |
-| gauntlets of force            | armor     | NerfHack   | stuns monsters, steadfastness                |
-| gnomish boots                 | armor     | SlashTHEM  | 1AC                                          |
-| orcish boots                  | armor     | EvilHack   | 1AC (+ 1AC for orcs)                         |
-| dwarvish boots                | armor     | EvilHack   | 2AC - replaces iron boots                    |
-| stomping boots                | armor     | SpliceHack | Instakills tiny/small monsters, noisy        |
-| freedom boots                 | armor     | NerfHack   | conveys free action                          |
-| leather bracers               | armor     | NerfHack   | 0AC                                          |
-| bracers of poison resistance  | armor     | NerfHack   | confers poison resistance                    |
-| bracers of sleep resistance   | armor     | NerfHack   | confers sleep resistance                     |
-| bracers of cold resistance    | armor     | NerfHack   | confers cold resistance                      |
-| bracers vs shapeshifters      | armor     | NerfHack   | confers protection vs shapechangers          |
-| bracers of unchanging         | armor     | NerfHack   | confers unchanging                           |
-| bracers vs stone              | armor     | NerfHack   | confers petrification resistance             |
-| ring of withering             | ring      | NerfHack   | causes withering                             |
-| ring of sleeping              | ring      | SLASHEM    | causes restful sleep                         |
-| ring of carrying              | ring      | xNetHack   | grants expanded carrying capacity            |
-| playing card deck             | tool      | SpliceHack | can reveal your current luck                 |
-| deck of fate                  | tool      | SpliceHack | high risk, high reward!                      |
-| potion of milk                | potion    | NerfHack   | cancels positive and negative status effects |
-| potion of reflection          | potion    | SpliceHack | conveys temporary reflection                 |
-| potion of phasing             | potion    | NerfHack   | conveys temporary phasing                    |
-| potion of blood               | potion    | SLASHEM    | nutrition for vampires                       |
-| potion of vampire blood       | potion    | SLASHEM    | nutrition/healing for vampires               |
-| scroll of cloning             | scroll    | SpliceHack | clones items or monsters                     |
-| scroll of knowledge           | scroll    | SpliceHack | learn about a random magic item              |
-| scroll of flood               | scroll    | Un/xnh     | generates water pools                        |
-| scroll of zapping             | scroll    | NerfHack   | special for cartomancers                     |
-| spellbook of repair           | spellbook | EvilHack   | repairs any item erosion                     |
-| spellbook of fire bolt        | spellbook | HackEM     | shoots a beam of fire                        |
-| spellbook of flesh-to-stone   | spellbook | NerfHack   | stones monsters                              |
-| spellbook of waterproofing    | spellbook | NerfHack   | protects items from water and rust           |
-| spellbook of sacred vision    | spellbook | NerfHack   | confers see invisible while active           |
-| spellbook of lightning        | spellbook | SLASHEM    |                                              |
-| spellbook of poison blast     | spellbook | SLASHEM    |                                              |
-| spellbook of divine reckoning | spellbook | NerfHack   | Massive damage vs undead and demons          |
-| spellbook of flame sphere     | spellbook | SLASHEM   |                                              |
-| spellbook of freeze sphere    | spellbook | SLASHEM   |                                              |
-| wand of wonder                | wand      | SpliceHack | random wand effect                           |
-| wand of identify              | wand      | SlashTHEM  | identifies items, spawns with 4-8 charges    |
-| wand of poison gas            | wand      | SpliceHack | shoots poison gas                            |
-| wand of corrosion             | wand      | SpliceHack | shoots acid rays                             |
-| wand of draining              | wand      | SLASHEM    | shoots drain life rays                       |
-| healthstone                   | gem       | SLASHEM    | affects regeneration                         |
-| whetstone                     | gem       | SLASHEM    | sharpens edged weapons                       |
-| foulstone                     | gem       | NerfHack   | aggravate monster & misc effects             |
-| pineapple                     | food      | SpliceHack | can be thrown for extra damage               |
-| mistletoe                     | food      | EvilHack   | can cure hallucination                       |
-| pinch of catnip               | food      | SpliceHack | can tame felines                             |
-| glob of like-like             | food      | NerfHack   |                                              |
+| Item                          | Class     | cost | aum | Origin     | Notes                                     |
+| ----------------------------- | --------- | ---- | --- | ---------- | ----------------------------------------- |
+| razor card                    | weapon    | 5    | 1   | SpliceHack | weaker shuriken for cartomancers          |
+| silver short sword            | weapon    | 50   | 36  | SLASHEM    |                                           |
+| rapier                        | weapon    | 40   | 15  | SLASHEM    | light metal saber, erodeproof steel       |
+| heavy sword                   | weapon    | 50   | 500 | NerfHack   | base item for Load Brand                  |
+| scythe                        | weapon    | 10   | 120 | SpliceHack | polearm that can be used in melee         |
+| sling bullet                  | weapon    | 1    | 2   | EvilHack   | 1d6 + 1 damage                            |
+| gnomish helm                  | armor     | 8    | 3   | SlashTHEM  | 1AC                                       |
+| fire helmet                   | armor     | 50   | 50  | SlashTHEM  | fire res                                  |
+| oilskin helm                  | armor     | 50   | 20  | EvilHack   | protection from tentacle/wrap attacks     |
+| shimmering dragon scales      | armor     | 700  | 80  | Deferred   | displacement, stun res                    |
+| gnomish suit                  | armor     | 40   | 50  | SlashTHEM  | 2AC                                       |
+| tower shield                  | armor     | 20   | 150 | SpliceHack | Heavy, provides 4AC                       |
+| anti-magic shield             | armor     | 75   | 25  | NerfHack   | 1AC/2MC, provides MR, counters spells     |
+| rogue's gloves                | armor     | 50   | 10  | SpliceHack | Confers searching, fingerless (!)         |
+| bronze gauntlets              | armor     | 30   | 20  | NerfHack   | copper, 2AC                               |
+| gauntlets of swimming         | armor     | 50   | 10  | SLASHEM    | grants swimming                           |
+| gauntlets of force            | armor     | 50   | 10  | NerfHack   | stuns monsters, steadfastness             |
+| gnomish boots                 | armor     | 16   | 10  | SlashTHEM  | 1AC                                       |
+| orcish boots                  | armor     | 16   | 30  | EvilHack   | 1AC (+ 1AC for orcs)                      |
+| dwarvish boots                | armor     | 16   | 50  | EvilHack   | 2AC - replaces iron boots                 |
+| stomping boots                | armor     | 50   | 50  | SpliceHack | Instakills tiny/small monsters, noisy     |
+| freedom boots                 | armor     | 50   | 20  | NerfHack   | conveys free action                       |
+| leather bracers               | armor     | 10   | 15  | NerfHack   | 0AC                                       |
+| bracers of integrity          | armor     | 50   | 15  | NerfHack   | conveys dis/wither res, erodeproof        |
+| bracers of sleep resistance   | armor     | 50   | 15  | NerfHack   | confers sleep res                         |
+| bracers of cold resistance    | armor     | 50   | 15  | NerfHack   | confers cold res                          |
+| bracers vs shapeshifters      | armor     | 50   | 15  | NerfHack   | confers protection vs shapechangers       |
+| bracers of unchanging         | armor     | 50   | 15  | NerfHack   | confers unchanging                        |
+| bracers vs stone              | armor     | 50   | 15  | NerfHack   | confers petrification res                 |
+| ring of withering             | ring      | 200  | 3   | NerfHack   | causes withering                          |
+| ring of sleeping              | ring      | 200  | 3   | SLASHEM    | causes restful sleep                      |
+| ring of carrying              | ring      | 200  | 3   | xNetHack   | grants expanded carrying capacity         |
+| playing card deck             | tool      | 80   | 10  | SpliceHack | can reveal your current luck              |
+| deck of fate                  | tool      | 300  | 10  | SpliceHack | high risk, high reward!                   |
+| potion of milk                | potion    | 100  | 10  | NerfHack   | cancels good and bad statuses             |
+| potion of reflection          | potion    | 200  | 10  | SpliceHack | conveys temporary reflection              |
+| potion of phasing             | potion    | 200  | 10  | NerfHack   | conveys temporary phasing                 |
+| potion of blood               | potion    | 100  | 10  | SLASHEM    | nutrition for vampires                    |
+| potion of vampire blood       | potion    | 200  | 10  | SLASHEM    | nutrition/healing for vampires            |
+| scroll of cloning             | scroll    | 200  | 5   | SpliceHack | clones items or monsters                  |
+| scroll of knowledge           | scroll    | 100  | 5   | SpliceHack | learn about a random magic item           |
+| scroll of flood               | scroll    | 200  | 5   | Un/xnh     | generates water pools                     |
+| scroll of zapping             | scroll    | 50   | 5   | NerfHack   | special for cartomancers                  |
+| spellbook of repair           | spellbook | 300  | 45  | EvilHack   | repairs any item erosion                  |
+| spellbook of fire bolt        | spellbook | 100  | 35  | HackEM     | shoots a beam of fire                     |
+| spellbook of flesh-to-stone   | spellbook | 700  | 65  | NerfHack   | stones monsters                           |
+| spellbook of waterproofing    | spellbook | 200  | 40  | NerfHack   | protects items from water and rust        |
+| spellbook of sacred vision    | spellbook | 200  | 40  | NerfHack   | confers see invisible while active        |
+| spellbook of lightning        | spellbook | 500  | 50  | SLASHEM    |                                           |
+| spellbook of poison blast     | spellbook | 500  | 55  | SLASHEM    |                                           |
+| spellbook of divine reckoning | spellbook | 800  | 70  | NerfHack   | Massive damage vs undead and demons       |
+| spellbook of flame sphere     | spellbook | 200  | 40  | SLASHEM    |                                           |
+| spellbook of freeze sphere    | spellbook | 200  | 40  | SLASHEM    |                                           |
+| wand of wonder                | wand      | 200  | 7   | SpliceHack | random wand effect                        |
+| wand of identify              | wand      | 200  | 7   | SlashTHEM  | identifies items, spawns with 4-8 charges |
+| wand of poison gas            | wand      | 200  | 7   | SpliceHack | shoots poison gas                         |
+| wand of corrosion             | wand      | 200  | 7   | SpliceHack | shoots acid rays                          |
+| wand of draining              | wand      | 200  | 7   | SLASHEM    | shoots drain life rays                    |
+| healthstone                   | gem       | 60   | 10  | SLASHEM    | affects regeneration                      |
+| whetstone                     | gem       | 45   | 10  | SLASHEM    | sharpens edged weapons                    |
+| foulstone                     | gem       | 0    | 10  | NerfHack   | aggravate monster & misc effects          |
+| pineapple                     | food      | 9    | 15  | SpliceHack | can be thrown for extra damage            |
+| mistletoe                     | food      | 10   | 1   | EvilHack   | can cure hallucination                    |
+| pinch of catnip               | food      | 7    | 1   | SpliceHack | can tame felines                          |
 
 * Potions of reflection are immune to fire and cold damage.
 * Cursed potions of reflection aggravate monster (similar to cursed potions of invisibility)
-* Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph) 
+* Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph)
 * Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
 
 ### potions of blood and vampire blood
-Increased the nutrition for blood potions, reduced nutrition for diluted blood.
-
+* Increased the nutrition for blood potions
+* reduced nutrition for diluted blood.
 
 ### potion of milk
 Non-cursed potions of milk reliably cancel out a lot of good and bad effects:
@@ -1010,9 +954,9 @@ Other effects:
 ### Specific artifact changes
 * Cleaver is prevented from cleaving peaceful bystanders (unless cursed) (xnh)
 * Excalibur will fix any negative enchantment on it when created from #dipping (xnh)
-* Eye of the Aethiopica must be worn to grant energy regeneration and half-spell damage. 
+* Eye of the Aethiopica must be worn to grant energy regeneration and half-spell damage.
 * Eyes of the Overworld protect against more gaze attacks (Evil)
-* Eyes of the Overworld's xray-vision range was increased to 8 (from FIQHack). 
+* Eyes of the Overworld's xray-vision range was increased to 8 (from FIQHack).
 * Fire Brand instakills highly flammable monsters and green slimes (xnh)
 * Fire Brand cures sliming whenever you attack with it
 * Fire Brand is now a short sword (Evil)
@@ -1044,7 +988,6 @@ Other effects:
 * Vorpal Blade grants see invisible whilst wielded
 * Vorpal Blade provides warning vs jabberwocks (Evil)
 * Werebane provides protection from shapechangers when wielded
-
 
 **Bane changes:**
 * All banes provide warning vs their bane monster type when wielded (Evil)
@@ -1128,6 +1071,7 @@ Misc changes:
 * Deals shock damage when used bare-handed
 * When monks don these, they occasionally release a chain lightning blast
 * Grants MC1
+
 
 ## NEW MONSTERS
 
@@ -1266,6 +1210,17 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | red grung              | 6   | NerfHack       |
 | orange grung           | 6   | NerfHack       |
 | gold grung             | 6   | NerfHack       |
+| bodak                  | W   | SpliceHack     |
+| slaughter wight        | W   | HackEM         |
+| eye of fear and flame  | L   | SpliceHack     |
+| worm that walks        | L   | SpliceHack     |
+| revenant hound         | d   | NerfHack       |
+| undead slayer          | @   | SLASH'EM       |
+| exterminator           | @   | SLASH'EM       |
+| The First Evil         | X   | NerfHack       |
+| Van Helsing            | @   | SLASH'EM       |
+
+
 
 ### New monster notes
 * all devas resist poison, fire, and shock damage
@@ -1278,6 +1233,12 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * assassin bugs are stronger than SLASHEM
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
+* barghests now have fire, cold, poison, drain, death resistance, and can swim.
+* barghests are now vulnerable to silver
+* barghests difficulty increased from 9 to 12
+* barghests get an additional 1d8 fiery claw attack; their existing 2d6 bite attack now drains life.
+* blinking eyes also get a passive blink that teleports attackers
+* bloodworms get a drain life bite instead of poison bite
 * byahkees were recolored to yellow
 * cerastes buffs: 2 poison bites, poison res, higher difficulty.
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
@@ -1288,6 +1249,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * ghoul queens are now bright magenta
 * giant praying mantis now ignores all magical scaring
 * giant praying mantis has a higher level
+* glowing eyes get a passive stunning gaze
 * grave trolls can spawn in graves/graveyards
 * grave troll corpses cause sickness when eaten
 * grave trolls are huge and have thick hides
@@ -1319,15 +1281,15 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * spined devils now have a passive spike attack
 * star vampires are telepathic
 * things from below can see invisible
+* third eyes inflict a passive hallucination gaze.
 * troll mummies get a withering attack
 * t-rex can berserk and emit a scary roar
 * velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
 * weretigers are recolored to red and can jump
 * zoo bats now cause confusion when eaten
 * rot worms are now tiny
-* bloodworms get a drain life bit instead of poison bite
-* tunnel worms are now huge, get an armor rending attack, and a butt attack
 
+* tunnel worms are now huge, get an armor rending attack, and a butt attack
 * werespiders can summon giant spiders, phase spiders, and monstrous spiders
 * weresnakes can summon snakes, pit vipers, and asphynxes
 * weresnakes are now red
@@ -1358,27 +1320,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * This pesky spellcaster will relentlessly summon spheres of all types
 * Although they can cast clerical spells, they only can cast summon orbs, healing, and protection.
 * Currently, uses the transmuter's tile from SpliceHack.
-
-**Cthulhu:**
-  
-    /* NerfHack's Cthulhu is a blend of his counterparts in SLASH'EM 
-     * and UnNetHack with some new enhancements to make him a fearsome
-     * component of the endgame:
-     * - Speed of 18 matches slashem.
-     * - AC was lowered from -15 to -8 to match un.
-     * - Cthulhu's inventory os prevented from being shown when probed (Un)
-     * - Cthulhu now has flying and is telepathic
-     * - Cthulhu can displace monsters, pass through iron bars, break boulders
-     *   and bust down doors to get to you.
-     * - Cthulhu will always track you down and chase you.
-     * - Converted the drain intelligence attack to drain energy instead 
-     * - Cthulhu is placed right in the middle of Moloch's Sanctum as a
-     *   guardian but does not receive the Amulet of Yendor.
-     *
-     * Important note: Even though Cthulhu is covetous (M3_WANTSAMUL) he will
-     * not teleport and instead follow the new movement rules that other
-     * covetous demons do.
- * Allow Cthulhu to return via harassment.
 
 ## MONSTER CHANGES
 
@@ -1448,7 +1389,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * giant mimics, large mimics, and killer mimics are higher level and difficulty
 * mimics take the form of strange objects much less often
 * mind flayers are bright magenta
-* mind flayer attacks can make hero forget skills (Evil) - however the frequency and impact of these attacks has been lessened
+* mind flayer attacks can make hero forget skills (Evil) - however the frequency and impact of these attacks has been weakened
 * mind flayer psychic blasts do more damage; if the victim is telepathic they can also be stunned
 * minotaurs resist death magic (SLASHEM)
 * minotaurs have a thick hide, have flanking, and berserk
@@ -1468,7 +1409,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * nurses cannot flank or assist flanking
 * nurses grant max-hp at a much higher rate, for quicker "nurse dancing"
 * nymphs spawn with mirrors half as often (25% chance instead of 50%)
-* olog hai get poison resistance, are huge, have thick skin, higher level and speed, with raised difficulty. 
+* olog hai get poison resistance, are huge, have thick skin, higher level and speed, with raised difficulty.
 * all orcs can stalk the player
 * orc captains now are lords and have speed 9 (xnh)
 * orc shamans and kobold shamans are skittish (FIQ)
@@ -1545,7 +1486,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Instant petrification has been removed both for the player and for monsters (keep in mind this only applies for footrice, NOT fore Medusa's gaze!)
 * Instead, wherever a monster or player would have been insta-killed, a stoning timer is started for 5 turns.
 * This applies for every instapetrification effect: touching a footrice corpse, being knocked into a footrice
-* Footrice only inflict slow stoning for the player and for monsters 
+* Footrice only inflict slow stoning for the player and for monsters
 
 ### Dangerous piercers
 * All piercers are mindless and can grow up
@@ -1579,13 +1520,13 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Sometimes zombies will try to bite the players legs, inflicting wounded legs for a short time.
 * Zombies are immune to being scared by any source (xnh)
 
-### Dragons
+### Dragon changes
 * Dragons have been overhauled to more closely resemble the versions in SLASH'EM and FIQHack.
 * An attempt has been made to make each dragon have a special quality or perk.
 * Part of the challenge in SLASH'EM was that adult dragons (and therefore dragon scales) were more difficult to come by. Baby dragons are plentiful and can potentially be tamed and grown up into adults, but with the large gap in levels the process is long and difficult. It's possible they might not be guaranteed in Ludios or the Castle anymore either, but the increased frequency means they should show up in Gehennom much more often.
-* Dragons are always generated awake and pissed for Knights (from EvilHack). 
+* Dragons are always generated awake and pissed for Knights (from EvilHack).
 
-#### Baby dragon changes
+**Baby dragon changes**
 * Most baby dragons are level 4 and difficulty 6 (SLASHEM)
 * Their size has been reduced from HUGE to LARGE (eliminates possible knockback on the player)
 * Reduced their weight from 1500 to 1000.
@@ -1603,7 +1544,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * baby gray dragons get a disenchanting bite
 * baby black dragons get a drain life attack (and level 7 difficulty)
 
-#### Adult dragon changes
+**Adult dragon changes**
 * They get a 3d8 bite and 2d4 claw attacks, and are frequency 2.
 * Their speed has been increased from 12 to 20, and have a small buff to their claw attacks (FIQ)
 * all dragons stalk/follow the player (FIQ)
@@ -1632,7 +1573,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
 * Dispater drops a deck of fate.
 
-#### Medusa
+**Medusa**
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * She goes from level 20 to 24
 * She gets -8AC (a big buff from 2AC)
@@ -1641,13 +1582,26 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Medusa also gets a stoning bite (Evil).
 * Medusa gets infravision
 
-#### Wizard of Yendor
+**Wizard of Yendor**
 * Rodney is bright magenta (Evil)
 * Rodney will never steal the quest artifact of the current role (Un)
 * Rodney gets a strong weapon and the ability to use it (Evil)
 
-#### The riders
+**The riders**
 * Each rider gets an additional 100 HP (EvilHack)
+
+**Cthulhu:**
+* NerfHack's Cthulhu is a blend of his counterparts in SLASH'EM and UnNetHack with some new enhancements to make him a fearsome component of the endgame:
+* Speed of 18 matches SLASH'EM.
+* AC was lowered from -15 to -8 to match UnNetHack.
+* Cthulhu's inventory os prevented from being shown when probed (Un)
+* Cthulhu now has flying and is telepathic
+* Cthulhu can displace monsters, pass through iron bars, break boulders and bust down doors to get to you.
+* Cthulhu will always track you down and chase you.
+* Converted the drain intelligence attack to drain energy instead.
+* Cthulhu is placed right in the middle of Moloch's Sanctum as a guardian but does not receive the Amulet of Yendor.
+* Important note: Even though Cthulhu is covetous (M3_WANTSAMUL) he will not teleport and instead follow the new movement rules that other covetous demons do.
+* Allow Cthulhu to return via wizard harassment if the player is carrying the Amulet of Yendor.
 
 ## MONSTER BEHAVIOR
 
@@ -1710,7 +1664,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Monsters can hide under other dungeon furniture (xnh)
 * mplayers can steal the amulet from the player (EvilHack) - however they will not attempt to sacrifice it.
 * Monsters carrying the Amulet of Yendor are incapable of teleportation.
-* Player monsters or any covetous monsters will grudge any monster that has the Amulet of Yendor (EvilHack). 
+* Player monsters or any covetous monsters will grudge any monster that has the Amulet of Yendor (EvilHack).
 
 ### Flanking behavior
 * Ported from SpliceHack, with enhancements
@@ -1819,6 +1773,7 @@ Curing rabid:
 * All mummies possess wither attacks.
 * Powerful clerics can also cast the Blight spell at range which can cause withering.
 
+
 ## MONSTER SPELLCASTING
 
 
@@ -1831,86 +1786,75 @@ Curing rabid:
 
 ### Clerical Spells
 
-TODO: Create a table
-
-#### protection
-* Ported from EvilHack
+**protection (EvilHack)**
 * This is the monster version of the protection spell already available to the player.
 * Provides a temporary magical shield that increases the monster's AC protection.
 * Can be dissipated with a blast of cancellation.
 
-#### geyser spell
+**geyser spell**
 * The core spell is unchanged from Vanilla NetHack, however now the geyser also rusts armor and instakills iron golems (Evil)
 
-#### hobble
+**hobble**
 * This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for a brief period
 * Ranged, can be cast at the hero from up to 13 squares away.
 
-#### blight
-* Ported from xNetHack
-* In xnh this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But I thought it would be pretty cool if extracted out and used as a new clerical spell. Not too many monsters use clerical spells, but they tend to be potent. The spell itself is pretty straightforward: it inflicts withering on the player. Since withering can only be cured by a few methods, this could end up quite dangerous if multiple blights are cast.
-* In xnh, the duration of the withering was 100-140 turns. For the big demons this might fly, but for lesser spellcasters I reduced it to 20-60 turns. In xnh I believe this could only be cast in melee range, but now it can also be cast up to 8 squares away - further increasing its deadliness.
-* Being polyd into a non-living form protects against the blight spell.
+**blight (xNetHack)**
+* In xnh, this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But it was extracted out and used as a new clerical spell which inflicts withering on the player.
+* The duration of the withering lasts 20-60 turns. It can also be cast up to 8 squares away.
 
-#### flesh to stone
-* This is the highest level clerical Spell
+**flesh to stone**
+* This is the highest level clerical spell
 * When cast it can start the stoning process on the hero.
 
 ### Mage Spells
-#### reflection
-* Ported from EvilHack
+**reflection (EvilHack)**
 * A spell that creates a shimmering globe around the caster, granting them reflection for several turns.
 * Can be dissipated with a blast of cancellation.
 
-#### acid blast
-* Ported from EvilHack
+**acid blast (EvilHack)**
 * Explodes an acid blast on its target and the surrounding squares. The damage output is dependent on the level of the monster casting it.
 * The acid from this spell also has a chance of eroding any unprotected weapons or armor in open inventory.
 * Ranged, can be cast at the hero up to 13 squares away.
 
-#### ice bolt
-* Ported from EvilHack
+**ice bolt (EvilHack)**
 * This spell explodes a small ice storm upon its target (and surrounding squares)
 * Any non-protected objects in open inventory are subject to being frozen.
 * This is a low-level spell, so access to this spell is given to every monster spellcaster that has access to mage-based spells.
 * Ranged, can be cast at the hero up to 13 squares away.
 
-#### fire bolt
-* Ported from EvilHack
+**fire bolt (EvilHack)**
 * This spell explodes a small fireball upon its target  (and surrounding squares)
 * Any flammable objects in open inventory are subject to being burned.
 * This is a low-level spell, so access to this spell is given to every monster spellcaster that has access to mage-based spells.
 * Ranged, can be cast at the hero up to 13 squares away.
 
-#### destroy armor
+**destroy armor**
 * Altered from Vanilla NetHack, ported from EvilHack
 * Having magic resistance is no longer full protection against this spell. Any piece of armor being worn can have its fixed status removed, and then can be deteriorated to the point that it's completely destroyed. Even armor that is normally erodeproof (dragonhide and dragon scales, etc) is affected. Having MR keeps the erosion level at one per cast, otherwise the erosion level is of one to three levels per cast. Blessed pieces of armor have a small chance of resisting. Armor-based quest artifacts are immune to this spell, as is crystal plate mail.
 
-#### entomb
-* Ported from xNetHack
+**entomb (xNetHack)**
 * Used by a monster when they are low on health or fleeing. It is primarily for escape and when cast surrounds the player with boulders.
 * Any mage-spellcaster can use it when desperate.
 * In xnh there was also a chance to create solid walls to block the player in, this effect was removed so it only drops boulders.
 
-#### call undead
+**call undead**
 * Ported from SLASHEM
 * Call Undead can only be cast by undead and demon spellcasters
 * Ranged, can be cast at the hero from up to 13 squares away.
 
-#### evil eye
-* Ported from dNetHack
-* When successfully cast on the hero, this lowers your Luck by 1 point.
+**evil eye (dNetHack)**
+* When successfully cast on the hero it lowers your Luck by 1 point.
 * Evil eye can only be cast by undead and demon spellcasters.
 * Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced. There is no maximum range to this spell.
 
-#### cure self
+**cure self**
 * Spellcasters can use this to cure illness, blindness, withering, and rabid statuses.
 
 
 ## ROLE CHANGES
 
 
-### ARCHEOLOGIST
+### Archeologist
 * An Archeologist wielding a bullwhip will not fall through trap doors (SLASHEM)
 * Archeologists get bonus when searching (FIQ)
 * Archeologists start out knowing dwarvish mattocks and any race can use them.
@@ -1936,7 +1880,7 @@ TODO: Create a table
 | spear  | restricted | ->  | basic    |
 | shield | n/a        | ->  | skilled  |
 
-### BARBARIAN
+### Barbarian
 * Barbarians start with a little more food (SLASH'EM).
 * Barbarians get a **blood rage bonus** for low health.
   * Only occurs when barbarians reach level 4 and higher.
@@ -1953,7 +1897,7 @@ TODO: Create a table
 | riding | basic   | ->  | skilled  |
 | shield | n/a     | ->  | skilled  |
 
-### CAVEMAN/CAVEWOMAN CHANGES
+### Cave Dweller
 * Cavemen start with a random set of dragon scales.
 * When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
 * Cavemen have also been gifted with more skills in rudimentary tools like rocks and flint:
@@ -1999,7 +1943,7 @@ TODO: Create a table
 * Cave dwellers cannot have skills in edged or pointy weapons unrestricted. Note that they can still receive these weapons as altar gifts. The exception is unicorn horns, which the cave dwellers can reach skilled in.
 * Cavemen get Skullcrusher as their first sacrifice gift.
 
-### HEALER
+### Healer
 * Added L's Wounds patch: healers can see damage on monsters
 * Healers start with a +1 scalpel
 * Healers start with 2 eucalyptus leaves.
@@ -2008,7 +1952,7 @@ TODO: Create a table
 * Healers know blood potions (SpliceHack).
 * Healers start out knowing potions of restore ability, sickness, paralysis, and sleeping (HackEM).
 
-### KNIGHT
+### Knight
 * Only lawful Knights can dip for Excalibur (Evil/Spork)
 * Knights start with a +0 studded leather armor instead of a +1 ring mail (K-Mod)
 * The knight's quest has been infested with a swarm of merfolk
@@ -2028,7 +1972,7 @@ TODO: Create a table
 | trident     | Basic   | ->  | Restricted |
 | shield      | n/a     | ->  | Expert     |
 
-### MONK
+### Monk
 * Monks can start with the spell of sleep (in addition to confuse monster, light, and protection).
 * Monks start with a potion of reflection.
 * Monks gain acid resistance at level 19 (dNetHack).
@@ -2053,7 +1997,7 @@ TODO: Create a table
 | escape spells      | skilled | ->  | restricted |
 | matter spells      | basic   | ->  | restricted |
 
-### PRIEST
+### Priest
 * Priests start with a +2 small shield (SLASHEM)
 * Priests cannot have edged weapon skills unrestricted (Evil)
 * Priests don't receive edged/pointy artifact weapons via altar sacrifice (Evil)
@@ -2073,7 +2017,7 @@ TODO: Create a table
 | riding   | restricted | ->  | basic      |
 | shield   | n/a        | ->  | basic      |
 
-### ROGUE
+### Rogue
 * Rogues also get a multishot bonus for knives.
 * Rogues start with a +2 stiletto instead of a short sword
 * Rogues start with a stack of knives instead of daggers
@@ -2112,7 +2056,7 @@ TODO: Create a table
 | divination       | skilled | ->  | basic      |
 | matter spells    | skilled | ->  | Restricted |
 
-### RANGER
+### Ranger
 * Rangers get extended range for seeing object's dknown appearance (this lets them see potions and gems from much further away)
 * Rangers get auto-id for launchers when they reach XP level 7
 * Rangers get auto-id for ammo enchantment when they reach XP level 10 (xnh)
@@ -2143,7 +2087,7 @@ TODO: Create a table
 | divination   | expert  | ->  | basic      |
 | shield       | n/a     | ->  | skilled    |
 
-### SAMURAI
+### Samurai
 * Samurai start with +3 wakizashi (Dyna)
 * Samurai get to-hit and damage bonuses for two-weaponing a katana with a wakizashi.
 * The samurai quest was updated to have more water and monsters (jellyfish, more ninjas, some nagas).
@@ -2156,7 +2100,7 @@ TODO: Create a table
 | ----- | ------- | --- | -------- |
 | spear | skilled | ->  | expert   |
 
-### TOURIST
+### Tourist
 * Tourists get automatic type identification for shop items (Un). This means that all items for sale are identified for you in shops. You can instantly identify anything by selling it.
 * Tourists start with more darts (Un)
 * Tourists gain experience by discovering new special rooms.
@@ -2178,10 +2122,12 @@ TODO: Create a table
 | base-handed combat | skilled    | ->  | basic    |
 | shield             | n/a        | ->  | basic    |
 
-### VALKYRIE
+### Valkyrie
+* Valkyries can start with a war hammer/cloak setup instead of spear/shield (SpliceHack)
+* The valkyrie's starting spear is always a standard spear, not a racial equivalent
+* Valkyries can pacify and tame winter wolves/cubs with food as if they were a domestic animal.
+* Note: because of a change with war hammers, Mjollnir is now a stronger two-handed weapon
 * More fire traps on valk quest
-* Valkyries can pacify and tame winter wolves/cubs via the #chat command.
-* Since the war hammer is now a two-handed weapon, valkyries will have to decide whether to use Mjollnir or go a different route (two-weaponing other weapons or using a single weapon whilst advancing shield skill)
 
 **Skill adjustments for valkyries:**
 
@@ -2189,7 +2135,7 @@ TODO: Create a table
 | ------ | ------- | --- | -------- |
 | shield | n/a     | ->  | master   |
 
-### WIZARD
+### Wizard
 * Wizards start with a cloak of protection instead of magic resistance.
 * Wizards never receive magic missile in their starting inventory.
 * Wizards can start with a spellbook of fire bolt instead of force bolt.
@@ -2214,7 +2160,24 @@ TODO: Create a table
 
 ## NEW ROLES
 
-### CARTOMANCER
+### Undead Slayer
+
+The **Undead Slayer** has been implemented as a new role, distinct from the Priest. This rework includes a fresh quest storyline in which the player must reclaim *The Argent Cross* from *The First Evil*. Custom quest levels include the desecrated monastery, haunted catacombs, and The Abyssal Vaults. Unlike the divine spellcasting Priest, the Undead Slayer is a dedicated warrior whose sole mission is to purge the undead.
+
+This version of the Undead Slayer blends old and new mechanics, making it a more challenging role early on but highly rewarding in the endgame. Undead Slayers begin with **drain resistance, sickness resistance, and warning against undead.** They start with **slow movement (speed 10)** as they did in SLASH’EM, but they gain to-hit and damage bonuses against undead and demons. One unique trait is their ability to **completely obliterate zombies, preventing them from leaving corpses.** However, they receive significant alignment and Luck penalties for consuming wraith corpses. Their special spell is *Protection*. They can be of any alignment and may choose from **human, gnome, elf, dwarf, grung, or dhampir** as their starting race.
+
+Undead Slayers also start with a **revenant hound**, a new undead canine with numerous resistances and the ability to phase through walls. These creatures do not eat, so they are tamed via `#chat` rather than food. In terms of weapon skills, Undead Slayers can now reach **skilled in riding and basic in short swords.**
+
+However, there are several things they *do not* get. They **lack stealth, poison resistance, and speed.** They do not receive a guaranteed sacrifice gift or any special techniques. Unlike Priests and Knights, they **cannot turn undead.** Additionally, they do not start with a silver pistol or silver bullets, but a new fourth starting kit has been substituted which features a silver short sword and leather cloak. While they can reach **expert** in Daggers, they are still **ineffective at multi-throwing.**
+
+Undead Slayers also face additional challenges, as **undead and demons always spawn hostile.** To support this, wooden stakes and holy wafers have been ported from SLASH’EM. The wooden stake has been enhanced with **staking mechanics from xNetHack**, allowing for **instakills on vampires**. Holy wafers now have the ability to **stop withering.** The quest levels have also been redesigned, drawing inspiration from dNetHack's Binder quest.
+
+The **new quest artifact** is *The Argent Cross*, an **artifact amulet of reflection** that grants **half spell damage reduction and withering resistance** when worn. It also acts as an **artifact light source**. When blessed, it will periodically activate the `#turn undead` effect without requiring the player to stand still. However, if cursed, if your god is angry, or if you are non-chaotic and polymorphed into an evil form, it will instead **aggravate monsters.** The cross follows the same activation timer as clairvoyance, triggering every **15-45 turns** after the last activation.
+
+The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and the *Bell of Opening*. This is a **high-level evil shade** with an arsenal of powerful abilities. It can cast mage spells and possesses **deadly touch attacks** that **paralyze, slow, freeze, and shock** its foes. Additionally, it is highly resistant to various forms of damage, including **cold, disintegration, stoning, sleep, poison, acid, and electricity.**
+
+
+### Cartomancer
 * The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games. The cartomancer has undergone some dramatic transformations from its original implementation in Splice, becoming a more focused and surprising role to play.
 
 **Starting inventory:**
@@ -2241,7 +2204,7 @@ TODO: Create a table
 
 * Cartomancers also start with 1 point of bonus Luck.
 
-#### Skill adjustments for cartomancers:
+**Skill adjustments for cartomancers:**
 
 | skill              | SpliceHack | ->  | NerfHack   |
 | ------------------ | ---------- | --- | ---------- |
@@ -2274,7 +2237,7 @@ TODO: Create a table
 **Quest artifact**
 The **Holographic Void Lily** is a quest artifact that functions as a chaotic credit card. When carried, it grants energy regeneration, half spell damage and reflection. Additionally, it can be invoked to provide a temporary boost in card drops, during which the Void Lily will shine brightly for 25-50 turns. This invocation effect replaces the original #invoke ability from SpliceHack, where it previously summoned a large group of random monsters.
 
-#### Cartomancer terminology
+**Cartomancer terminology**
 Whilst playing as a cartomancer, much of the standard NetHack terminology is revised:
 
 | item               | renamed as          |
@@ -2292,7 +2255,7 @@ Whilst playing as a cartomancer, much of the standard NetHack terminology is rev
 | scrolls for $300   | "legendary"         |
 * Whenever you or a monster reads a scroll, they instead "play" that card.
 
-#### Cartomancer rarity descriptions
+**Cartomancer rarity descriptions**
 Scrolls are also labeled according to their rarity. In the original SpliceHack implementation, this reflected the price. So a $100 card would be "uncommon", a $200 card would be rare, and so on. With the nerfing of price identification, this system has been revised so that the actual probability of cards is reflected. The following chart describes how this works.
 
 | Card            | Rarity | Description |
@@ -2322,13 +2285,13 @@ Scrolls are also labeled according to their rarity. In the original SpliceHack i
 | light           | 90     | common      |
 | identify        | 180    | common      |
 
-#### Card abuse penalties
+**Card abuse penalties**
 * Cartomancers receive severe alignment penalties for forging or defacing cards.
   - writing cards: -20 alignment, -5 luck
   - cloning cards: -20 alignment, -5 luck
   - polymorphing cards: -10 alignment, -2 luck
 
-#### Play mechanics
+**Play mechanics**
 * Cards (scrolls) only weigh 1 for cartomancers.
 * Rulebooks (spellbooks) only weigh 5 for cartomancers.
 * The camera is played as a holographic card for cartomancers, doesn't break when thrown.
@@ -2338,10 +2301,10 @@ Scrolls are also labeled according to their rarity. In the original SpliceHack i
   - For decks of fate, you will have a bonus toward a better result.
 * Cartomancers don't break illiterate conduct when playing cards.
 
-#### No perma-pets
+**No perma-pets**
 Cartomancers do not receive a starting pet and are unable to tame monsters in the usual way. When food is thrown at domestic animals, it only pacifies them rather than taming them. Any figurines that generate are automatically converted into summon cards, and the rulebook of create familiar also produces summon cards instead of familiars. All standard methods of creating permanent pets have been nullified for Cartomancers. On the Astral Plane, they receive an archon card in place of a guardian angel. When reading a confused scroll of cloning, they will simply receive a summon card instead of a possible tame pet.
 
-#### Melee combat nerfs
+**Melee combat nerfs**
 * Cartomancers are not great melee fighters - they prefer ranged weapons or fighting behind their summoned help. They have some severe penalties for melee combat.
 * There is a flat -5 to-hit penalty for all melee combat.
 * If wearing armor, they receive an additional -20 to-hit penalty
@@ -2349,7 +2312,7 @@ Cartomancers do not receive a starting pet and are unable to tame monsters in th
 * If attacking with a wielded weapon, they receive an additional -10 to-hit penalty.
 * Cartomancers get messages (similar to monks) for cumbersome armor and shields.
 
-#### Card drops
+**Card drops**
 When playing as a cartomancer, there is a chance that a monster will leave a card instead of a corpse upon death. Initially, this chance is 50%, but as you level up and progress deeper into the dungeon, the chance gradually decreases. When a monster dies and is eligible for a drop, one of three outcomes can occur: a razor card (with any BUC status or enchantment) may be dropped, a zap card may appear, or a summon card might be left behind. Summon drops are the most complex, as they can vary depending on RNG. The drop could be the same card as the monster that was killed, a higher difficulty monster, a random monster, or a sphere. If the monster is low level (below 3), it often doesn't leave any card. However, nasty monsters always drop their own summon cards.
 
 * Some monsters are restricted from dropping cards:
@@ -2361,12 +2324,12 @@ When playing as a cartomancer, there is a chance that a monster will leave a car
   * Keystone Kops (they can be farmed)
 * Cartomancers don't get card drops whilst polymorphed.
 
-#### Spell beings
+**Spell beings**
 Spell beings originally came from SLASH'EM. Whenever the flame sphere or freeze sphere spells were cast, they would summon a temporary sphere, which counted as a spell being. These beings are tame and act like pets, but they have a limited lifespan. (In SLASH'EM, there was no lifespan unless you left them on a level, causing them to become untame.) Here, when the cartomancer plays a summon card, it will summon a spell being with a predetermined lifespan that will fight aggressively for you, ignoring any hesitation a regular pet might exhibit and never stopping to eat or hide. If you receive credit for killing a spell being, they only grant 1 XP. Spell beings never leave corpses and spawn with no inventory. Spell-beings also don't count toward vanquished or special logged monsters.
 
 Spell beings have a "sparkling" description in farlook, so you can distinguish them from permanent monsters.
 
-** Lifetime of spell-beings:**
+**Lifetime of spell-beings:**
 
 | XPLev | Turns |
 | ----- | ----- |
@@ -2378,7 +2341,7 @@ Spell beings have a "sparkling" description in farlook, so you can distinguish t
 | 25    | 115   |
 | 30    | 135   |
 
-#### Summon cards
+**Summon cards**
 For cartomancers, cards of create monster are twice as common as for other roles, and when these cards spawn, they are keyed to a specific summon monster card. Cartomancers begin the game with seven summon raven cards and have opportunities to expand their collection as they slay monsters. Whilst low-level monsters rarely drop their own summon cards, there is always a small chance that any death drop will leave a higher-level monster card. As the cartomancer's level increases, so does the strength of these rare drops.
 
 The price of summon cards scales according to the difficulty of the monster they summon. In addition to reading summon cards, cartomancers can also throw them to activate the effect, which allows them to summon monsters at a distance, directly next to a threat.
@@ -2387,7 +2350,7 @@ Monsters can also read summon cards, so it’s important for cartomancers to col
 
 Activating summon cards costs 5 energy per card. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
 
-#### Explosive summon cards
+**Explosive summon cards**
 Summon "sphere" cards are special because they instantly explode when thrown at a monster. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
 
 These monster cards are eligible for this mechanic:
@@ -2399,20 +2362,20 @@ These monster cards are eligible for this mechanic:
 * volatile mushrooms
 * gas spores
 
-#### Razor cards
+**Razor cards**
 In **NerfHack**, razor cards have been properly implemented as their own weapon type, using the shuriken skill, unlike in **SpliceHack**, where they were simply renamed shuriken. Razor cards deal 1d6 damage to both small and large creatures, have a +2 to-hit bonus, and weigh 1. Cartomancers can multishot with shuriken-skill projectiles, such as shuriken and razor cards, and they gain multishot bonuses up to expert skill. However, they do not receive additional multishot bonuses at master skill level, though they still benefit from increased damage and to-hit bonuses.
 
 Razor cards will occasionally appear as part of a cartomancer’s regular death drops, sometimes replacing summon or zap cards. These follow the same rules as stacked weapons, so they may appear in stacks of 6-11 and could be blessed, cursed, unblessed, or possibly even poisoned. The strength damage bonus applies exclusively to thrown razor cards, and no other projectile qualifies for this bonus.
 
 If a player comes across a deck of cards that they have no use for, they can #tip the deck to empty it, yielding a potentially large stack of razor cards.
 
-#### Zappable cards
+**Zappable cards**
 Zap cards, which function as one-use wands, can drop when cartomancers kill monsters. These cards have a 0% generation chance for other roles, meaning only cartomancers will encounter them. Cursed zap cards have a chance to backfire like wands, but they cannot explode. Playing zap cards requires 5 energy per card.
 
 Cartomancers will never see wands generate. Anytime a wand would spawn it is instead replaced with its equivalent zap card. It's important to note that monsters can and will use both zap and summon cards against the player, so it's crucial to collect them as soon as they drop.
 
-#### Spellcasting overhaul
-Cartomancers do not learn spells in the traditional way, meaning they cannot acquire spells from starting books, reading spellbooks, or receiving gifts from gods. Instead, they cast spells instantaneously by reading rulebooks. These rulebooks generate with 4-5 charges, and each reading consumes one charge. Once all charges are used, the rulebook is consumed and disappears. 
+**Spellcasting overhaul**
+Cartomancers do not learn spells in the traditional way, meaning they cannot acquire spells from starting books, reading spellbooks, or receiving gifts from gods. Instead, they cast spells instantaneously by reading rulebooks. These rulebooks generate with 4-5 charges, and each reading consumes one charge. Once all charges are used, the rulebook is consumed and disappears.
 
 Cartomancers begin the game knowing the identities of all rulebooks, as the title and purpose of a rulebook are typically clear from the cover. They always cast spells at expert level, ensuring high proficiency. Whilst rulebooks can still be written using magic markers without penalties (unlike when forging cards), they cannot be recharged with scrolls of charging. Additionally, cartomancers are fortunate enough to know braille, allowing them to invoke their rulebooks even while blind.
 
@@ -2436,16 +2399,11 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 * The cartomancer quest levels have received some updates and detailing.
 * Buffed the King of Games and Dal Zethire.
 
-Cartomancer gets adjusted different item generation odds.
-    To make up for less corpse drops, they get more food.
-    They also get much fewer wands because they get zap cards.
-
 
 ## PLAYER RACE CHANGES
 
 
 * Removed infravision from dwarves, elves, gnomes, and orcs.
-* Added infravision to vampires
 * Elves can always squeeze between two trees (xnh)
 * Elves get see invisible at level 8
 * Elves can always reach Basic in enchantment spells (xnh)
@@ -2479,6 +2437,8 @@ Cartomancer gets adjusted different item generation odds.
 
 ### Racial item preferences
 
+* Orcs get a -1AC bonus for each piece of orcish equipment they were.
+
 * Monsters of certain races will usually prefer their own equipment and find other racial equipment awkward or uncomfortable to use.
   * Elves hate dwarvish, gnomish, and orcish objects
   * Orcs hate dwarvish, gnomish, and elven objects
@@ -2496,119 +2456,112 @@ The effects of wearing armor or wielding weapons you hate:
 This mechanic also applies to monsters, but they will also simply avoid using items they don't like.
 
 
-## New races
+## NEW RACES
 
 
 ### Dhampir
-Vampires have a rich history in NetHack, first appearing in SLASH'EM and later in UnNetHack, dNetHack, SpliceHack, and Hack'EM, with each implementation being slightly different. However in NerfHack we are taking a U-turn from the traditional vampire because it has also been overpowered. 
 
-  Vampires as a playable race in NerfHack remain fundamentally overpowered, and here’s why. They allow players to bypass too many core game mechanics and obstacles, including features that are new to the game. For instance, their immunity to Withering removes the threat posed by mummies and priests. Their immunity to Rabid nullifies another brand-new mechanic, undermining its impact. Poison resistance enables vampires to fight otherwise dangerous monsters like orcs with poison arrows or team a, while sleep resistance shields them from kamadan rays and later orange dragon attacks.
-    
-    Beyond resistances, their innate abilities exacerbate the imbalance. Shapeshifting makes polytraps irrelevant, flying allows them to avoid ground traps, bypass the Soko entry rivers, and ignore icy floors, and regeneration gives them a significant edge in combat. These abilities collectively strip away much of the difficulty and strategic planning required in the early game, which goes against the intended challenge of NerfHack.
-    
-    While I love the concept of a vampire race, it’s clear that the current implementation is too powerful. To address this, I propose introducing a new, lesser type of vampire: the Dhampir, or half-vampire. This race would retain some of the vampire’s strengths but would be a more balanced and trimmed-down version, fitting better alongside other vanilla races. This compromise could preserve the appeal of playing as a vampire while maintaining the integrity of the game’s mechanics and difficulty.
-    
-    Dhampirs start with innate resistance to draining and death magic, as well as being breathless, which provides immunity to gas, spores, choking, and drowning. They also have resistance to lycanthropy and possess infravision. A standout ability is their 1d6 drain bite. When biting and draining blood, Dhampirs heal HP, which replaces intrinsic regeneration. As an added bonus, they can absorb partial intrinsics from monsters they drain, such as fire, cold, and sleep resistance. However, all of their partial intrinsics are capped at 50%, even when granted through crowning, ensuring they rely more on extrinsic protections. Finally, Dhampirs excel at climbing and can easily escape pits. These carefully designed features make the Dhampir a compelling, yet balanced, alternative to the overpowered vampire race.
+Vampires have a rich history in NetHack, first appearing in SLASH'EM and later in UnNetHack, dNetHack, SpliceHack, and Hack'EM, with each variant implementing them slightly differently. However, in NerfHack, vampires take a U-turn from the traditional design due to their overwhelming power. As a playable race, they allowed players to bypass too many core mechanics and obstacles, including newly introduced features.
 
+For instance, their **immunity to withering** made mummies and priests trivial threats, while **immunity to rabies** negated an entirely new mechanic. **Poison resistance** let them fight deadly monsters like orcs or team a without fear, and **sleep resistance** nullified sleep rays. Beyond resistances, their innate abilities made the game even easier: their hardcoded vampire bat and fog cloud polyforms rendered polytraps meaningless, **flying** allowed them to **bypass ground traps, water, and icy floors**, and **regeneration** gave them an immense edge in combat. All of these factors stripped away much of the game's intended challenge, particularly in the early stages.
 
+**A Balanced Alternative: The Dhampir**
 
-  Dhampir also get innate hunger. 
+To address these issues, a **lesser type of vampire—the Dhampir (or half-vampire)**—was introduced. This new race retains some of the vampire's strengths but is far more balanced, fitting alongside other vanilla races. The Dhampir preserves the appeal of playing as a vampire while maintaining the integrity of the game's mechanics and difficulty.
 
+Dhampirs start with **resistance to draining and death magic**, and being **breathless**, they are immune to **gas, spores, choking, and drowning**. They also possess **lycanthropy resistance and infravision**. However, **all partial intrinsics are capped at 50%**, even when granted through crowning, ensuring they rely more on extrinsic protections.
 
-In this version, the aim was to combine the best aspects of each to create a fun yet balanced vampire race. Vampires start strong, avoiding issues like poison or GWAWOD deaths, and they can fly over many floor traps, such as sleeping gas. What you *will* have to worry about is your new worst enemies: silver and hunger.
+Dhampirs **excel at climbing** and can easily escape pits. Their standout ability is a **1d6 draining bite**, which **heals HP** when feeding on blood — replacing the vampire's intrinsic regeneration. As an added bonus, they can **absorb partial intrinsics from drained monsters**, such as **fire, cold, and sleep resistance**. These changes make the dhampir a compelling yet balanced alternative to the overpowered vampire race.
 
-You'll also have to move quickly and attack aggressively to keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM has been removed. It created quite a few bugs in the nutrition code, it resulted in tedious draining of corpses (which often are wasted anyway), and a better alternative was found in SpliceHack, which was simply doubling the nutrition from feeding on life blood during combat. The main drawback to this approach is that now vampirics cannot gain intrinsics or benefits from eating corpses. To compensate, you start off with the many intrinsics a regular vampire enjoys.
+To prevent "stupid deaths," **bite attacks are automatically prevented** when facing dangerous foes such as **cockatrices, Medusa, or green slimes** — even if the player is only polymorphed into a vampire. However, **stunned, confused, or hallucinating dhampirs will bite indiscriminately**, making careful gameplay crucial when impaired.
 
-Instead of the usual starting pet, vampires begin with a tame and loyal familiar. This is a humanoid (@) capable of wearing armor and wielding weapons. Vampires are now restricted from taming or pacifying any monsters except for familiars and other vampires.
+Dhampirs also come with a major weakness — **innate hunger**. This forces players to stay aggressive, attack often, and keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM was never ported due to bugs in the nutrition code and tedious corpse draining mechanics, and wasted corpses. Instead, SpliceHack's approach was adopted, where **life blood feeding in combat now provides more nutrition**. The tradeoff is that **Dhampirs can no longer eat nor gain benefits from eating corpses**.
 
-When playing as a vampire, you can try to pacify or tame a familiar with the #chat command. Your success will be affected by Luck.
+NerfHack introduces smarter feeding to regulate vampire bite mechanics:
+- Low-level dhampir can only use either a bite attack or weapon attack, but not both in the same round.
+- If the vampire is hungry (or close to hungry), they will always bite and attempt to feed first.
+- Otherwise, there is a 50/50 chance of either biting or attacking with a weapon.
+- The ability to combine a bite with a weapon attack is locked until Level 6.
+- After **Level 6**, vampires can perform **both biting and weapon attacks in the same round**.
+- If a player **wants to avoid biting**, they can forcefight using `"F"` to **only use their weapon attack**.
+- Dhampir also feed more efficiently when their victims are confused, incapacitated, or trapped.
 
-#### Changes to the vampire bite attacks
-To avoid "stupid deaths," bite attacks are prevented when fighting monsters like cockatrices, Medusa, or green slimes (even when you are merely polymorphed in a vampire and not the starting race). However, stunned, confused, or hallucinating vampires will bite anything so keep your guard up when impaired (Spork/UnNetHackPlus).
+These updates ensure that dhampirs remain strong but balanced, requiring strategy and resource management rather than bypassing core mechanics.
 
-In other variants, vampires can "feed" on a variety of monsters, but in NerfHack have been updates with "smart feeding".
-- Vampires can only feed on living monsters with blood.
-- When attacking, low level vampires can only use their bite attack or weapon attack - not both in the same round.
-- If the vampire is hungry (or close to hungry), they will always bite and attempt to feed first. 
-- Otherwise, there will be a 50/50 chance of either biting or attacking with a normal weapon.
-- After level 14, the ability to perform both biting and weapon attacks in the same round will unlock.
-- If a player wishes to only use the weapon, they can always bypass the bite attack by forcefighting (via "F").
+#### Dhampir's resistances and abilities
 
+| XL  | Intrinsic                   |
+| --- | --------------------------- |
+| 1   | Infravision                 |
+| 1   | Warning vs humans and elves |
+| 1   | Breathless                  |
+| 1   | Drain resistance            |
+| 1   | Immune to death magic       |
+| 1   | Immune to lycanthropy       |
 
-#### Vampires resistances and abilities
+Although dhampir have drain level resistance, they remain **vulnerable to blood-draining bite attacks** from other vampirics. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will.
 
-| XL  | Intrinsic             |
-| --- | --------------------- |
-| 1   | Regeneration          |
-| 1   | Breathless            |
-| 1   | Flying                |
-| 1   | Poison resistance     |
-| 1   | Drain resistance      |
-| 1   | Immune to death magic |
-| 9   | Sleep resistance      |
+In terms of food, **most rations and fruit juice potions are replaced with blood potions** when playing as a dhampir. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and **wearing an opera cloak grants a charisma bonus**, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source. Dhampir can use any racial items, except for gnomish items, which are too small for them.
 
-(Vampires are also immune to lycanthropy, withering, and rabid statuses.)
-
-
-
-Although vampires have drain level resistance, they remain vulnerable to life-draining bite attacks from other vampires. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will. Vampires also feed more efficiently when their victims are confused, incapacitated, or trapped, a feature adapted from Hack'EM.
-
-In terms of food, most rations and fruit juice potions are replaced with blood potions when playing as a vampire. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and wearing an opera cloak grants a charisma bonus, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source, but shopkeepers charge more for blood when vampires are hungry.
-
-Vampries now start the game with infravision and stand alone as the sole beneficary of that intrinsic in NerfHack. Vampires can use any racial items, except for gnomish items, which are too small for them. Vampires are inherently evil, a trait borrowed from EvilHack, and they face minimal alignment penalties for acts of cruelty, such as attacking or killing peaceful monsters. On the Astral Plane, vampires "desire conflict," even without conflict.
-
-Silver weapons also generate more frequently when playing as a vampire. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Vampires can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP. Fingerless gloves also don't protect V from silver weapons or shields. Vampires also cannot use the #turn undead command.
+**Silver weapons also generate more frequently **when playing as a dhampir. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Dhampir can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP.
 
 
 ### Grung
 
- New race and monsters: the Grung.
-    
-    I found out about the grung quite randomly from just watching a snippet of a YouTube video about random races in D&D, but I quickly became attached to the idea of converting it to a playable NetHack race and challenged myself to do it in under 24 hours.
-    
-    The grung are a nasty little race of frog people. They have teeth (no long tongues), poisonous skin, and come in a variety of colors. For the player race, I limited them only to the green grung. I played with the idea of making different colors available but cut it short to make implementing this easier. They also only in chaotic or neutral.
-    
-    Grung start with poison resistance, the ability to swim, and searching because they have strong perception. At level 5 they gain the extra ability to jump.
-    
-    Because of the toxic skin which continually secretes a poisonous substance, they have a potent passive poison attack when touched. They also can poison defenders when attacking bare handed. These poison attacks are about half as strong as the standard poisoned weapon attacks. Their toxic skin also allows them to #dip and poison weapons at any time making this race the master of poison.
-    
-    Their main limitations are low starting strength, their inability to wear boots, and their dislike for heavy metallic armor. They prefer leather even to mithril because anything metallic tends to dry them out faster.
-    
-    Speaking of drying out, grung feature a unique hydration mechanic which requires them to rehydrate by submerging themselves in water every 6000 turns. The hydration timers normally goes down by 1 tick a turn, but exposure to fire and dry conditions can speed up the dehydration process. As the player gets closer to dehydration, they'll receive status updates letting them know how desperate for water they are. Players can also get minor hydration by drinking water or sitting in water sources like puddles or fountains, however, these will eventually dry up.
-    
-    Along with the base race grung, there are many colors of monster grunds that represent the different castes: green, blue, purple, red, orange, and gold. Each has slightly different strength and attacks.
+**Grung** are a nasty little race of frog-like people known for their toxic skin, sharp teeth, vibrant colors, and lack of long tongues. The featured race here is the green grung. Their **skin naturally secretes poison**, giving them a **passive poison attack**. In combat, they can **poison enemies when striking barehanded**. Although their poison is only about half as strong as a standard poisoned weapon attack, it is still very efficient at wiping out enemies that don't resist poison. Additionally, they can **dip their weapons into their own skin** to coat them with venom for extra lethality.
+
+Grung possess several natural abilities. They have **resistance to poison** and are adept at **searching**. Their natural agility allows them to **swim effortlessly**, and as they gain experience, they achieve **jumping ability (XP5)** and **speed (XP7)**.
+
+One of the grung's **biggest concerns is hydration**.
+
+#### Grung Hydration Mechanics
+
+- **Hydration Requirement:** Grung **must stay wet to survive**
+- **Hydration Timer:** Starts at **6000** and counts down every turn
+- **Penalties for Low Hydration:**
+  - Below **1000** → **Speed and combat penalties**
+  - At **0** → **Instant death**
+- **Dehydration Accelerators:**
+  - **Fire, heat, and dry environments** speed up dehydration
+  - **Fire resistance** can **reduce some effects**
+- **Methods of Rehydration:**
+  - **Drinking water**  (+25-99)
+  - **Sitting in water sources**  (+25-99)
+  - **Being splashed with water**  (+25-99)
+  - **Submerging in water** restores **1000 hydration per turn**
+- **Scrolls of Flood:**
+  - Can be used for **rapid hydration**  (+3000-4500)
+  - If **read while confused**, they cause **severe dehydration** instead
+- **Environmental Effects:**
+  - Faster dehydration in Gehennom & the Plane of Fire
+  - Easy rehydration in the Plane of Water
+- **Prayer for Hydration:**
+  - If hydration drops to **250 or below**, it counts as **major trouble**
+  - **Praying** may grant **1000 hydration**, if your **god blesses you**
 
 
-Unlock grung priests.
-Grung get speed at level 7.
-The AC bonus for dexterity is doubled for grung.
-Bump the dex AC bonus up slightly for grung.
+Grung have several strengths in combat. Their **Dexterity-based armor class (AC) bonus** is **slightly increased and doubled** compared to other races. They also gain a **to-hit bonus against kamadan** and can **always reach skilled proficiency in darts**. However, they also have notable weaknesses. They **cannot wear boots** and strongly **dislike heavy or bulky armor**, though they are comfortable wearing racial armor as long as it isn’t cumbersome — mithril is a good choice. Additionally, their **passive poison ability does not function** while wearing **bulky armor**. Grung are particularly vulnerable to **dust vortices**, which accelerate their dehydration process.
 
-Change the grung armor restriction to be bulky armor and shields instead of specific materials. 
- Grungs passive poison doesn't work while wearing bulky armor.
+**Playable Roles & Alignments**
+Grung can be played as **neutral** or **chaotic** characters. They can take on these roles:
+- **Archeologist**
+- **Barbarian**
+- **Cartomancer**
+- **Monk**
+- **Priest/Priestess**
+- **Rogue**
+- **Ranger**
+- **Undead Slayer**
+- **Wizard**
 
-Passive poison attack
-   Grung poison will work even if wearing gloves.
-Barehanded poison attack
+Beyond the green grung, there are other members of the grung clan, each with slightly different abilities and strengths. Grung come in **six colors**:
+- **Green grung** possess **passive and active poison** that **drains strength**.
+- **Blue grung** **drain constitution** with their poison and can **cast mage spells**.
+- **Purple grung** have a **stunning poison** and can **cast clerical spells**.
+- **Red grung** poison their enemies by **draining dexterity** and wield a **2d6 weapon attack**.
+- **Orange grung** cause **hallucinations** with their poison and have a **1d6 weapon attack**.
+- **Gold grung** induce **sleep** with their poison and wield a **powerful 2d6 weapon attack**.
 
-Using forges dehydrates grung. 
-Player grung get a to-hit bonus on kamadan.
-Scrolls of flood heavily rehydrate grung. 
-
-Grung can always reach skilled in darts.
-Grung get rehydrated when hit by rust traps.
-Fire resistance affects dehydration for grung.
- Grung don't dehydrate if they are submerged in water.
-Dehydrated grung get speed penalties and decreased combat effectiveness.
-Dehydrate when fire is castmu. 
-
-
-Grung start with leather bracers instead of shields. 
-Grung start with bracers instead of gloves.
-
-Being submerged in water replenishes 1000 hydration per turn. 
-
-Grung dehydrate faster in Gehennom and the plane of fire, but rehydrate on the plane of water.
 
 ## SPELLCASTING CHANGES
 
@@ -2660,37 +2613,31 @@ difficult time with spellcasting.
 | wizard lock     | 1-4       | 2-8   | 7-13    | 7-13   |
 
 
-### spellbook of charm monster
-* This spell is now a directional level 3 spell and only works on the first monster hit.
-* At unskilled, the spell can only pacify monsters.
-* At expert, you get two chances to tame each monster affected by the spell
+### Spell changes and updates
 
-### spellbook of clairvoyance
-* Casting the spell of clairvoyance at skilled lets it persist for a while
+| Spellbook      | Notes                                                                                                                                                                                              |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| charm monster  | now a directional level 3 spell; <br/>only works on the first monster hit. <br/>At unskilled, the spell can only pacify monsters. <br/>At expert, you get 2 chances to tame each affected monster. |
+| clairvoyance   | At skilled, the effect will persist for a while                                                                                                                                                    |
+| cone of cold   | Moved to the Matter school (SLASH'EM)                                                                                                                                                              |
+| create monster | Increased from level 2 to level 4<br/>Only creates spell beings at unskilled and basic levels.                                                                                                     |
+| cure sickness  | Cure sickness is now directional and can be used to cure pets or other monsters (Evil)                                                                                                             |
+| dig            | Lowered from a level 5 spell to level 3                                                                                                                                                            |
+| drain life     | Increased from level 2 to level 3 (xnh)<br/>Now shoots a ray instead of a beam<br/>At expert, there is a 10% chance of firing an explosive ball of necrotic energy on each cast.                   |
+| fireball       | Moved to the Matter school (SLASH'EM)                                                                                                                                                              |
+| food detection | Dhampir always detect potions with food detection spells and scrolls.                                                                                                                              |
+| haste self     | At unskilled, same effect as a diluted potion of speed                                                                                                                                             |
+| invisibility   | unskilled = diluted potion of invisibility                                                                                                                                                         |
+| knock          | Cannot be used to escape from an engulfer (this ability is retained for the wand of opening)                                                                                                       |
+| levitation     | unskilled = diluted potion of levitation                                                                                                                                                           |
+| magic missile  | damage scales with skill                                                                                                                                                                           |
+| sleep          | Lowered to level 2                                                                                                                                                                                 |
+| poison blast   | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
+| fire bolt      | Moved to the Attack school<br/>stops after the first monster hitl<br/>Updated damage bonuses                                                                                                       |
+| healing        | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
+| extra healing  | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
 
-### spellbook of cone of cold
-* Moved to the Matter school (SLASH'EM)
-
-### spellbook of create monster
-* Increased from level 2 to level 4
-* Only creates spell beings at unskilled and basic levels.
-
-### spellbook of cure sickness
-* Cure sickness is now directional and can be used to cure pets or other monsters (Evil)
-
-### spellbook of dig
-* Lowered from a level 5 spell to level 3
-
-### spellbook of drain life
-* Increased from level 2 to level 3 (xnh)
-* Now ray-based to match the wand of draining
-* Be aware that these rays may bounce back from reflecting monster now
-* At expert skill there is a 10% chance of firing an explosive ball of necrotic energy on each cast.
-
-### spellbook of fire bolt
-* Moved to the Attack school (SLASH'EM)
-* Fire bolts always stop after the first monster hit, unlike force bolts which can travel through multiple monsters.
-
+**spellbook of fire bolt**
 The damage calculations have been revamped from HackEM:
 * Base damage is 1d10 fire damage
 * At skilled it deals 2d10 fire damage
@@ -2702,34 +2649,17 @@ The damage calculations have been revamped from HackEM:
 
 This means if the player has maxxed out their attack spell skill and leveled up to XP21, they could be dealing 3d10+3d4 with a level 1 spell.
 
-### spellbook of fireball
-* Moved to the Matter school (SLASH'EM)
 
-### spellbook of food detection
-* Vampires always detect potions with food detection spells and scrolls.
-
-### spellbook of haste self
-haste self: unskilled = diluted
-
-### spellbooks of healing and extra healing
-* Healing spell effectiveness is determined by skill (Evil)
+**spellbooks of healing and extra healing**
+* Healing power scales with skill level
 
 | spell         | Unskilled | Basic | Skilled | Expert |
 | ------------- | --------- | ----- | ------- | ------ |
 | healing       | 4d4       | 6d4   | 8d4     | 10d4   |
 | extra healing | 4d8       | 6d8   | 8d8     | 10d8   |
 
-### spellbook of invisibility
 
-invisibility: unskilled = diluted potion effect (I re-synced the potion effect duration to xNetHack)
-
-### spellbook of knock
-* Cannot be used to escape from an engulfer (this ability is retained for the wand of opening)
-
-### spellbook of levitation
-levitation: unskilled = diluted
-
-### spellbook of light
+**spellbook of light**
 * Spell of light's diameter of effect scales with spellcasting ability.
 * For reference, the uncursed scroll of light always illuminates a radius of 11.
 
@@ -2737,7 +2667,8 @@ levitation: unskilled = diluted
 | ----- | --------- | ----- | ------- | ------ |
 | range | 1         | 3     | 5       | 7      |
 
-### spellbook of magic mapping
+**spellbook of magic mapping**
+
 * The effectiveness of magic mapping depends on your spellcasting ability. The spell will never fully map a level, only the scroll can be depended upon for that.
 * Lowered from level 5 to level 4
 * Unskilled acts like a confused magic mapping (1 in 7 squares successfully mapped)
@@ -2745,14 +2676,14 @@ levitation: unskilled = diluted
 * Skilled maps 1 in 3 squares
 * Expert maps all squares
 
-### spellbook of magic missile
-magic missile: dmg adjustments
+**spellbook of magic missile**
 
-### spellbook of sleep
-* Lowered to level 2 (EvilHack)
+Damage scales with level. Unskilled now deals half the damage expert can.
 
-### spellbook of poison blast
-* Was level 4 in SLASH'EM, raised to level 5
+|       | Unskilled    | Basic        | Skilled      | Expert       |
+| ----- | ------------ | ------------ | ------------ | ------------ |
+| range | ((XL/2)+1)d3 | ((XL/2)+1)d4 | ((XL/2)+1)d5 | ((XL/2)+1)d6 |
+
 ## DUNGEON CHANGES
 
 
@@ -2815,6 +2746,7 @@ magic missile: dmg adjustments
 | Minetown #9           | Lavender Town                  | SpliceHack    |
 | Minetown #10          | Mini-Castle Town               | SlashTHEM     |
 | Minetown #11          | Creek Town                     | SlashTHEM     |
+| Minetown #12          | Forge Town                     | NerfHack      |
 | Moloch's Temple #1    |                                | SLASHEM       |
 | Moloch's Temple #2    | New variation on #1            | NerfHack      |
 | Sokoban 1-1           | 1-4 from SLASHEM               | SLASH'EM      |
@@ -2902,18 +2834,18 @@ New themed rooms introduced in NerfHack:
   * piercer room
   * room with random lava
 
-### SHOP CHANGES
+### Shop Changes
 * Shopkeeper's real name may be used in cursing shoplifters message (xnh).
 * Improved the chances of some of the minetown shops appearing.
 
 **Lighting shops:**
 * Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
 
-#### New shop: Junk Shop
+**New shop: Junk Shop**
 * Ported from SpliceHack
 * This counts as a general store that is usually pre-populated with a bunch of junky items.
 
-#### New shop: Collectible Card Game Company
+**New shop: Collectible Card Game Company**
 * Brand new debuting in NerfHack!
 * This shop only spawns for cartomancers and features a large variety of summon cards, with the occasional deck box or backpack. Takes the place of most food and weapon shops.
 
@@ -3008,7 +2940,7 @@ New themed rooms introduced in NerfHack:
 * 2 ghoul mages were added
 
 ### Lost Tomb level
-* Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages. 
+* Ported from SLASH'EM - this level now has some additional rooms (and treasures) with randomized passages.
 * A second variation was created using Demogorgon's Lair from xNetHack. This level had a very mazelike structure that lends itself well to a lost tomb (but with no Demogorgon of course...).
 * Both lost tomb levels are no-teleport
 
@@ -3051,7 +2983,7 @@ New themed rooms introduced in NerfHack:
 * Forges burn the grease and poison off dipped items.
 * You cannot forge while confused, stunned, hallucinating, weak from hunger, or with STR under 4.
 
-#### FORGING & FORGING RECIPES
+#### Forging and Forging Recipes
 * Ported from EvilHack with modifications.
 * No artifact forging
 * No armor recipes are available if you aren't a dwarf or orc.
@@ -3169,7 +3101,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Tins that you create from tinning kits will always be safe.
 
 
-## Special Rooms
+## SPECIAL ROOMS
 
 
 ### Art rooms
@@ -3205,7 +3137,8 @@ Note: Getting hit by grease will not knock off worn cursed items.
 ### New room: terror halls (from SlashTHEM)
 * Features a random assortment of U (hulk class) monsters
 
-## Altars, Prayer, and Priests
+
+## ALTARS, PRAYER, AND PRIESTS
 
 
 * When donating to priests - the gold vanishes upon receipt
@@ -3218,7 +3151,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 
 Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retained, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependent chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
 
-# Revised divine protection scheme
+### Revised divine protection scheme
 * The more protection the player has, the less likely it is to be granted (K-Mod)
 * The maximum possible divine protection is capped at -9AC.
 * When protection is granted from priests or your god, it is limited to increments of 1AC per granting.
@@ -3294,7 +3227,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 
 * The number of artiwishes is not factored in when determining the chance of a gift. The revised gift probabilities still apply, just filtered through the level check.
 
-### CROWNING
+### Crowning
 * Crowning requires 13 Luck (dNetHack).
 * Crowning only provides a 50% increase in resistances.
 * Intrinsic see invisible is no longer granted via crowning
@@ -3339,7 +3272,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Warn the player that invisibility is about to time out (xnh)
 * There is an increased CON penalty for getting lifesaved (xNetHack).
 
-### PARTIAL INTRINSICS
+### Partial Intrinsics
 * Ported from EvilHack
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics.
@@ -3352,7 +3285,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Cold traps and ice demons also steal (25 + d25)% of your cold resistance.
 * Enlightenment always shows the partial percentage acquired for intrinsics. If you have an extrinsic source that will be displayed separately.
 
-### PARTIAL REFLECTION
+### Partial Reflection
 * Ported from EvilHack
 * Reflection will deflect most, but not all, of the effects of ray attacks.
   * Example: You are hit by a cold ray, it reflects off your amulet of reflection, but you don't yet possess cold resistance.
@@ -3433,12 +3366,12 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 
 ## MECHANICS CHANGES
 
-### INSTAKILLS
+### Instakills
 * It is no longer possible to be insta-petrified by touching footrice or their corpses.
 * Bardiches are a new, but rare, source of insta-death. They have a 1 in 100 chance of beheading a monster or you on hit.
 * Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
 
-### WISHING
+### Wishing
 * The wand of wishing in the Castle has been removed. Instead, there are guaranteed scrolls of wishing located at the Castle, Vlad's Tower, The Wizard's Tower, and Moloch's Sanctum.
 * Wands of wishing and scrolls of wishing do not generate randomly.
 * Quest artifacts cannot be wished for (dnh)
@@ -3536,14 +3469,14 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
 * Tame pets will not hide or conceal themselves.
 
-### POLYMORPHING OBJECTS
+### Polymorphing Objects and Polypiling
 * The number of items you have polymorphed can be viewed in #conduct
 * Non-magical potions, scrolls, spellbooks, and wands are much less likely to transform into magical items. These items only have a 1% chance of transforming into something magical. This is now comparable to other non-magical items polymorphing into magical. (dnh)
 * The chances of getting a golem from polypiling have been increased (K-Mod/Spork)
 * The enchantment level or charges can be randomly reduced on polymorphed objects (Spork)
 * Golems created from polypiling immediately halt the polypiling process. This effectively nerfs the "one-giant-pile" strategy of polypiling.
-* 
-### POLY-SELF
+
+### Poly-Self
 * Players can use gaze attacks in melee range when polymorphed into monsters with a gaze attack.
 * Humanoids are more careful about attacking you when you are a dangerous polyform.
 * Mind flayers won't purposely to eat the brains of petrifying monsters (ie: when you are polymorphed into a cockatrice)
@@ -3565,7 +3498,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * This has been reverted so players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
 * The reason for this is that it violates the classic, expected behavior of Elbereth. There are other nerfs to Elbereth and scare-monster that take the place of this.
 
-### NEW GREASE EFFECTS
+### New Grease Effects
 Many of these changes were introduced to work in conjunction with the new grease trap.
 * Greased items can't be disarmed with a bullwhip
 * Greased items are harder to steal
@@ -3585,22 +3518,22 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Allow covetous monsters to follow normal AI (xNetHack).
 * Demonic bribes are much more expensive.
 * Juiblex buffs.
-* Geryon buffs (EvilHack). 
+* Geryon buffs (EvilHack).
 * Increase speed of Baalzebub.
 
-### ENDGAME CHANGES
+### Endgame Changes
 * Occasional earthquakes can occur during the ascension run (Un/Evil). These will cease after entering the planes.
 * After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (Un/Evil)
 * The identity of the Riders hidden via farlook (Un)
 * The correct temple on the Astral Plane will not be revealed due to fleeing monsters (Un)
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
-
+* Some monsters on the Astral Plane spawn with rings of slow digestion or teleport control to thwart "purple rain" and teleportation strategies.
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Allow performing the invocation whilst hallucinating.
 
-### FARMING NERFS
+### Farming Nerfs
 
 A big philosophy of NerfHack is to discourage repetitive and potentially infinite strategies and exploits. These specific nerfs also are aimed at encouraging using "found items" and prodding the player deeper into the dungeon.
 
@@ -3614,7 +3547,7 @@ A big philosophy of NerfHack is to discourage repetitive and potentially infinit
 ### Underwater mechanics
 * Prevent kicking monsters out of water while underwater or vice versa.
 * The hero and other monsters resist splash, spore, and fire effects while underwater.
-* Being underwater provides immunity from explosions. 
+* Being underwater provides immunity from explosions.
 * Being underwater prevents fire damage.
 
 ## AC nerfs & buffs
@@ -3653,7 +3586,7 @@ A big philosophy of NerfHack is to discourage repetitive and potentially infinit
 ## SKILLS AND EXPERIENCE
 
 
-### SKILL CHANGES
+### Skill Changes
 The skill system for achieving proficiency in weapons and spells has been adapted from the UnNetHack system. In UnNetHack most of the requirements for advancing skills have been substantially increased. The major exception is that training skills from unskilled only takes 50 uses compared to UnNetHack's 100.
 
 This chart shows the number of successful uses of a skill required to reach each level.  These values are:
@@ -3676,7 +3609,7 @@ This chart shows the number of successful uses of a skill required to reach each
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
 
-### SHIELD SKILL
+### Shield Skill
 * Ported from EvilHack with some modifications
 * Shield skill can be trained up like any other weapon attack. It is not actively trained, but passively as you block attacks with your shield. Sometimes you will train even if not directly shielding. There's a 2 in 3 chance of training shield skill whilst wearing one and a regular miss event occurs. A further check is rolled against the enchantment of the shield, with a higher enchantment resulting in more chance of training.
 * Different roles can reach different levels of shield skill.
@@ -3695,7 +3628,7 @@ This chart shows the number of successful uses of a skill required to reach each
 * All other shields deal 2 - 7 damage
 * If you are expert or greater in shield skill, you deal an extra d4 damage.
 
-### EXPERIENCE CURVE CHANGES
+### Experience Curve Changes
 | XP Level | XP Required |
 | -------- | ----------- |
 | 1        | 0           |
@@ -3756,7 +3689,11 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * gauntlets of fumbling grant -9 to-hit penalty whilst using bows (Evil)
 * combat boots provide 1AC and +1 to-hit (dnh)
 * You have an increaseed wand to-hit chance for high-dex characters  (Splice)
-## Misc changes
+
+
+## MISC CHANGES
+
+
 * These don't really fit into any category, or are just silly.
 * 8d93bedd9 Halu reverse geno troll msg (UnNetHack).
 * 899833966 Funny troll #chat messages (SpliceHack).
@@ -3785,6 +3722,7 @@ NerfHack draws inspiration and ideas from many variants of NetHack:
 * SporkHack
 * UnNetHack
 * xNetHack
+
 
 ### NetHack Ideas Archive credits
 
