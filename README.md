@@ -443,7 +443,7 @@ Exceptions:
 
 #### Slings
 * Projectiles receive a strength bonus when using slings (xnh). However, this bonus is 3/4'th what is normally granted.
-* Gem class projectiles do minimal damage vs thick-skinned monsters
+* Gem class projectiles do minimal damage vs thick-skinned monsters or unsolid monsters.
 * Launching gem class projectiles from slings has the potential to instakill H
 
 ### Armor changes
@@ -818,7 +818,6 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 * Potions of reflection are immune to fire and cold damage.
 * Cursed potions of reflection aggravate monster (similar to cursed potions of invisibility)
 * Cursed potions of phasing removes any intrinsic phasing and resets your stats (like self polymorph)
-* Shields of integrity are also immune to erosion.
 * (!) fingerless gloves do not protect against petrification
 
 ### potions of blood and vampire blood
@@ -877,9 +876,11 @@ This tarot-based deck is very powerful and was ported from SpliceHack with some 
 
 There are 22 different cards in the deck, each having a potentially good or bad effect. About half the cards are "good" and half "bad". There is a nudge factor that occurs if the deck is cursed or blessed.
 
-If cursed, the drawn card value will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1.
+If cursed, the drawn card value will be lowered by one notch. This means The World is impossible to draw with a cursed deck since it's the highest numbered card at 22. It also doubles the chance of drawing The Tower since that card is number 1. 
 
 If blessed, the drawn card value is raised by one notch. This effectively doubles your chances of drawing The World and prevents The Tower from being drawn.
+
+If no effects interfere with drawing or the BUC status of the deck, an uncursed deck has about a 24.3% chance of granting a wish and a blessed deck has a 43.5% chance.
 
 **Before you start drawing cards, your current alignment is set to -1.** Be wary of any artifacts you may wish for because an artifact blast is guaranteed - both because your alignment is negative and because artifact blasts will always occur if possible. Artifact blasts have also been increased, making early arti-wishes much more dangerous.
 
@@ -1033,7 +1034,7 @@ Other effects:
 | The Lenses of Truth   | unaligned | lenses                | NerfHack   | n/a                                    | confers see invisible and stun res when worn                                                                   |
 | Thunderfists          | neutral   | gauntlets of force    | NerfHack   | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
 | Whisperfeet           | neutral   | speed boots           | SLASHEM    | n/a                                    | confers stealth and luck when worn                                                                             |
-
+| Oathfire              | lawful    | leather bracers       | NerfHack   | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
 
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
@@ -1126,7 +1127,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | landshark              | q   | SpliceHack     |
 | pack rat               | r   | SLASH'EM       |
 | hedgehog               | r   | SpliceHack     |
-| rabbit                 | r   | SLASH'EM       |
 | nickelpede             | s   | SLASH'EM       |
 | recluse spider         | s   | SLASH'EM       |
 | phase spider           | s   | SLASHEM        |
@@ -1768,7 +1768,7 @@ Curing rabid:
 * Withering is a nasty new attack that will give the player the "wither" status temporarily. Whilst withering you will lost 1HP per turn.
 * If you are already withering and the new wither attack is strong enough, it will also drain some of your maximum HP, making this threat quite insidious.
 * Withering can be cured by quaffing holy water, praying, or invoking the Staff of Aesculapius.
-* Any item that grants extrinsic disintegration res also grants withering resistance (black dragon scales, shield of integrity)
+* Any item that grants extrinsic disintegration res also grants withering resistance (black dragon scales, bracers of integrity)
 * When playing as a vampire, you will also enjoy withering resistance by virtue of being undead.
 * All mummies possess wither attacks.
 * Powerful clerics can also cast the Blight spell at range which can cause withering.
@@ -2164,9 +2164,9 @@ Curing rabid:
 
 The **Undead Slayer** has been implemented as a new role, distinct from the Priest. This rework includes a fresh quest storyline in which the player must reclaim *The Argent Cross* from *The First Evil*. Custom quest levels include the desecrated monastery, haunted catacombs, and The Abyssal Vaults. Unlike the divine spellcasting Priest, the Undead Slayer is a dedicated warrior whose sole mission is to purge the undead.
 
-This version of the Undead Slayer blends old and new mechanics, making it a more challenging role early on but highly rewarding in the endgame. Undead Slayers begin with **drain resistance, sickness resistance, and warning against undead.** They start with **slow movement (speed 10)** as they did in SLASH’EM, but they gain to-hit and damage bonuses against undead and demons. One unique trait is their ability to **completely obliterate zombies, preventing them from leaving corpses.** However, they receive significant alignment and Luck penalties for consuming wraith corpses. Their special spell is *Protection*. They can be of any alignment and may choose from **human, gnome, elf, dwarf, grung, or dhampir** as their starting race.
+This version of the Undead Slayer blends old and new mechanics, making it a more challenging role early on but highly rewarding in the endgame. Undead Slayers begin with **drain resistance, sickness resistance, and warning against undead.** They start with **slow movement (speed 10)** as they did in SLASH’EM, but they gain to-hit and damage bonuses against undead and demons. One unique trait is their ability to **completely obliterate zombies, preventing them from leaving corpses.** However, they receive significant alignment and Luck penalties for consuming wraith corpses. Their special spell is *Protection*. They can be of any alignment and may choose from **human, gnome, elf, dwarf, or dhampir** as their starting race.
 
-Undead Slayers also start with a **revenant hound**, a new undead canine with numerous resistances and the ability to phase through walls. These creatures do not eat, so they are tamed via `#chat` rather than food. In terms of weapon skills, Undead Slayers can now reach **skilled in riding and basic in short swords.**
+Undead Slayers also start with a **revenant pup**, a new undead canine with numerous resistances and the ability to phase through walls. These creatures do not eat, so they are tamed via `#chat` rather than food. Chatting with your pet also increases apport. If you take are of your pup it will grow into the powerful revenant hound, a beast comparable in strength to the hell hound. In terms of weapon skills, Undead Slayers can now reach **skilled in riding.**
 
 However, there are several things they *do not* get. They **lack stealth, poison resistance, and speed.** They do not receive a guaranteed sacrifice gift or any special techniques. Unlike Priests and Knights, they **cannot turn undead.** Additionally, they do not start with a silver pistol or silver bullets, but a new fourth starting kit has been substituted which features a silver short sword and leather cloak. While they can reach **expert** in Daggers, they are still **ineffective at multi-throwing.**
 
@@ -2176,6 +2176,16 @@ The **new quest artifact** is *The Argent Cross*, an **artifact amulet of reflec
 
 The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and the *Bell of Opening*. This is a **high-level evil shade** with an arsenal of powerful abilities. It can cast mage spells and possesses **deadly touch attacks** that **paralyze, slow, freeze, and shock** its foes. Additionally, it is highly resistant to various forms of damage, including **cold, disintegration, stoning, sleep, poison, acid, and electricity.**
 
+Other notes:
+* The HP growth for undead slayers has been buffed from their SLASH'EM version to make them more durable.
+* Undead slayers take an alignment penalty for drinking vampire blood.
+* Undead Slayers max skills vary dynamically based on their starting kits.
+  * Crossbow, spear, long sword, short sword, and whip all default to a max of basic
+  * Starting the crossbow unlocks expert skill in crossbow
+  * Starting the silver short sword unlocks expert skill in short sword and skilled for long sword
+  * Starting the whip unlocks expert skill in whip and master skill in martial arts
+  * Starting the silver spear unlocks expert skill in spear
+* If you start with the crossbow, you start with more bolts.
 
 ### Cartomancer
 * The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games. The cartomancer has undergone some dramatic transformations from its original implementation in Splice, becoming a more focused and surprising role to play.
@@ -2189,7 +2199,7 @@ The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and
     * 1 random rulebook
     * 4 potions of phasing
     * sack
-    * a playing card deck or a deck of fate
+    * a playing card deck
 
 **Intrinsics:**
 
@@ -2590,7 +2600,7 @@ difficult time with spellcasting.
 * Only primary spellcasters can receive divine spellbook gifts
 * Spellbooks can generate pre-read
 * Display a single accurate spellcasting retention percentage in the spellbook list
-
+* Hide spells that are at 0% retention in the casting menu.
 
 ### New skill-dependent spell ranges
 * Your skill in a spell directly affects how far its ray or beam will travel:
@@ -2633,6 +2643,7 @@ difficult time with spellcasting.
 | magic missile  | damage scales with skill                                                                                                                                                                           |
 | sleep          | Lowered to level 2                                                                                                                                                                                 |
 | poison blast   | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
+| lighting   | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
 | fire bolt      | Moved to the Attack school<br/>stops after the first monster hitl<br/>Updated damage bonuses                                                                                                       |
 | healing        | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
 | extra healing  | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
@@ -2926,6 +2937,7 @@ New themed rooms introduced in NerfHack:
 * Ported Creek Town and Mini-Castle town (THEM)
 * Imported the Gnomish Sewer (xnh)
 * Imported 3 mines end variants (THEM)
+* Created a new minetown called "forge town"
 
 ### Oracle
 * The Oracle level now appears from levels 8-11.
@@ -3037,7 +3049,7 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 #### New container traps
 * A cream pie may spring out of the box and hit the player in the face.
 * A small critter (rat, snake, or spider) maybe jump out of the container, briefly scaring the player.
-* The hinges on the container may screech loudly, waking up nearby monsters.
+* A loud alarm may sound, waking up nearby monsters.
 
 #### Falling rock traps
 * At higher levels, boulders can drop from falling rock traps.
@@ -3444,6 +3456,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 #### Pet Theft
 * Pet theft from shops has been totally nerfed.
 * Pets will never pick up objects in shops nor eat unpaid food (Gnoll)
+* On the flip side - pets will also never take items from outside shops and drop them inside (like your pick-axe that you always have to leave right outside the door)
 * You also cannot #loot items to/from your pet that are unpaid.
 * Shopkeepers start with more gold, usually more than double the standard amounts (gnoll)
 
@@ -3487,7 +3500,7 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * Being polyd into a vampire bat doesn't cause stunning.
 
 ### Elbereth and Scare Monster
-* Conflict negates Elbereth and scare monster protection (Evil)
+* Conflict negates Elbereth and scare monster protection (Evil
 * Engraving Elbereth no longer exercises wisdom (Fourk).
 * You can't dust engrave whilst being held by a monster.
 * You can't dust engrave on bloody or grassy tiles.
@@ -3532,6 +3545,7 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Allow performing the invocation whilst hallucinating.
+* If you cause conflict on the astral plane, double the normal quantity of hostile angels can now appear
 
 ### Farming Nerfs
 
@@ -3627,6 +3641,7 @@ This chart shows the number of successful uses of a skill required to reach each
 * Tower shields deal 2 - 13 damage
 * All other shields deal 2 - 7 damage
 * If you are expert or greater in shield skill, you deal an extra d4 damage.
+
 
 ### Experience Curve Changes
 | XP Level | XP Required |
