@@ -60,6 +60,7 @@
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
     - [Dragon changes](#dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
+      - [Warping behavior for demon princes and lords and quest nemeses](#warping-behavior-for-demon-princes-and-lords-and-quest-nemeses)
   - [MONSTER BEHAVIOR](#monster-behavior)
     - [Monster item use](#monster-item-use)
     - [Monster accessory use](#monster-accessory-use)
@@ -72,8 +73,8 @@
     - [Jumping behavior](#jumping-behavior)
     - [Withering attacks](#withering-attacks)
   - [MONSTER SPELLCASTING](#monster-spellcasting)
-    - [Clerical Spells](#clerical-spells)
     - [Mage Spells](#mage-spells)
+    - [Clerical Spells](#clerical-spells)
   - [ROLE CHANGES](#role-changes)
     - [Archeologist](#archeologist)
     - [Barbarian](#barbarian)
@@ -92,6 +93,10 @@
     - [Undead Slayer](#undead-slayer)
     - [Cartomancer](#cartomancer)
   - [PLAYER RACE CHANGES](#player-race-changes)
+    - [Elves](#elves)
+    - [Dwarves](#dwarves)
+    - [Gnomes](#gnomes)
+    - [Orcs](#orcs)
     - [New race/role combos.](#new-racerole-combos)
     - [Racial item preferences](#racial-item-preferences)
   - [NEW RACES](#new-races)
@@ -248,6 +253,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * **Items that are 'lost'** from the players inventory are longer un-identified.
 
 ### Interface Changes
+* Created a new splash screen for the Windows build.
 * A detailed object and monster Pokedex is available in the in-game lookup (xnh/Un/HackEM)
   * Farlook any monster (press '//'), then press ':' to access the pokedex entry
   * You can also search for a monster or item: press '/' then '?', then type the name of the thing you want information on.
@@ -398,8 +404,9 @@ Exceptions:
 
 ### Weapon changes
 #### Higher max weapon enchantment
-* Weapons can be enchanted much higher, with a soft limit of +11.
-* This means that the new "+5" is "+11", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +11 weapon.
+* Weapons can be enchanted much higher, with a soft limit of +12.
+* This means that the new "+5" is "+12", and +13 is easily attainable by reading a blessed scroll of enchant weapon with a +12 weapon.
+* After +6, enchant weapon scrolls will only add +1 to a weapon.
 * To compensate, weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
 * Random weapons have a small chance to generate with very high enchantment.
 
@@ -595,7 +602,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 ### Scrolls
 * Reduced probability of enchant weapon scrolls
-* Increased probability of scrolls of knowledge.
+* Decreased the probability of scrolls of identify, replaced by scrolls of knowledge
 * Blank scrolls cost 50
 * Buff the effects of the scroll of light (xnh)
 * Reverse the name of the HACKEM MUCHE scroll
@@ -622,12 +629,13 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes most temporary effects (invisibility, protection, reflection)
-* Wands of secret door detection can be broken to detect traps.
+* Wands of secret door detection can be broken to detect traps and portals
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage. This includes all wands made of plastic material including: "plastic", "pliable", and "green".
 * Wands can sometimes generate pre-charged
+* Wands of polymorph appear less often.
 
 #### Wands of wishing
 * Wands of wishing have been replaced with scrolls of wishing - please see the section on Wishes.
@@ -652,13 +660,14 @@ This approach aligns with the philosophy of prioritizing found items over wished
 #### Eating Jewelery & Accessories
 * Eating rings and amulets only confers an intrinsic for a temporary period.
 * To compensate for the temporary nature of these intrinsics, the possibility of getting the property is guaranteed.
- * Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It is now 100%. The chance for an amulet by eating it was 1 in 5. It has been changed to 100%.
+* Before, the chance of getting an intrinsic from a ring by eating it was 1 in 3. It is now 100%. The chance for an amulet by eating it was 1 in 5. It has been changed to 100%.
 
-** Summary of revised eating effects:**
- - Eating a ring now grants 750-1500 turns of it's property intrinsically.
- - Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
- - Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
- - Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
+**Summary of revised eating effects:**
+- Eating a ring now grants 750-1500 turns of it's property intrinsically.
+- Eating an amulet now grants 1250-2000 turns of it's property intrinsically.
+- Eating the amulet of reflection now gives intrinsic reflection for 1250-2000 turns. Previously it would not grant anything.
+- Eating the amulet of flying now gives intrinsic flying for 1250-2000 turns. Previously it had no effect.
+- Rings of increase damage and increase accuracy only grant (+x / 2) with a minimum of 1 for positive enchantment. So rings that are +1 through +3 only grant a permanent +1, +4 and +5 will grant a +2 permanent bonus.
 
 ### Tools
 * Reduced weight of land mines to 40 aum (xnh)
@@ -694,12 +703,12 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * Another subtle but helpful change: bags are not susceptible to burning up when lava walking. In Vanilla this was never the case, but in some variants bags can sometimes burn up unless foo-proofed.
 
 #### Magic markers
+* Magic markers do not appear in a player's starting inventory.
 * Appear randomly much less often (1/5'th of the frequency in Vanilla)
 * They can still be created from polypiling
 * There is a 1 in 4 chance of a magic marker being the Sokoban prize.
 * There is also a chance of a magic marker being hidden in the Lost Tomb level.
 * Added magic markers to soko1-7 and soko1-8.
-* Any role that could start with a magic marker always starts with one.
 
 #### Unicorn horns
 * Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
@@ -967,7 +976,7 @@ Other effects:
 * Giantslayer conveys 18/\* strength whilst wielded (Dyna)
 * Grayswandir only deals bonus damage versus cross-aligned monsters.
 * Grimtooth can inflict disease on its victims (Evil)
-* Heart of Ahriman grants slotless flying and displacement instead of stealth (FIQ)
+* Heart of Ahriman is now a ruby that grants slotless flying, displacement, and Luck instead of stealth (FIQ)
 * Heart of Ahriman can be invoked for a blessed remove curse effect (Fourk)
 * The Longbow of Diana must be wielded to grant ESP
 * Longbow of Diana confers half physical damage when wielded
@@ -1001,41 +1010,44 @@ Other effects:
 ## NEW ARTIFACTS
 
 
-| Name                  | Align     | Type                  | From       | to-hit/dmg                             | Notes                                                                                                          |
-| --------------------- | --------- | --------------------- | ---------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Acidfall              | chaotic   | long sword            | SpliceHack | +d5 to-hit, 2x acid dmg                | intelligent, confers acid res when wielded                                                                     |
-| Amulet of Storms      | chaotic   | amulet of flying      | xnh        | n/a                                    | confers shock res when worn, prevents thunderstorm paralysis, pacify stormy monsters via #chat                 |
-| Angelslayer           | chaotic   | trident               | EvilHack   | +d5 to-hit, +d10 dmg                   | bane vs angels; confers searching and 1/2 spell damage when wielded                                            |
-| Blackshroud           | chaotic   | cloak of invisibility | SlashTHEM  | n/a                                    | confers warning and drain res when worn                                                                        |
-| Carnwennan            | lawful    | knife                 | SpliceHack | +d3 to-hit, +d8 dmg                    | confers searching and stealth when wielded                                                                     |
-| David's Sling         | neutral   | sling                 | slashthem  | +d5 to-hit, +d6 dmg                    | bane vs giants; confers 1/2 physical damage when wielded                                                       |
-| Deluder               | neutral   | cloak of displacement | SLASHEM    | n/a                                    | confers stealth and protection when worn                                                                       |
-| Disrupter             | neutral   | mace                  | SLASHEM    | +d5 to-hit, +d30 dmg vs undead         | bane vs undead                                                                                                 |
-| Doomblade             | chaotic   | short sword           | SLASHEM    | +d10 dmg, 25% chance of dmg bonus      |                                                                                                                |
-| Drowsing Rod          | unaligned | quarterstaff          | HackEM     | +d5 to-hit, +d5 sleep dmg              | first sacrifice gift for healers; confers sleep res when wielded                                               |
-| Glamdring             | chaotic   | long sword            | EvilHack   | +d8 to-hit, +d10 dmg                   | bane vs orcs; confers shock res and protection when worn                                                       |
-| Hellfire              | chaotic   | crossbow              | SLASHEM    | +d5 to-hit, +d7 dmg + explosion        | confers fire res when wielded                                                                                  |
-| Holographic Void Lily | chaotic   | credit card           | SpliceHack | n/a                                    | intelligent; energy regen, 1/2 spell dmg, and reflection when carried. #invoke for card drop boost             |
-| Load Brand            | unaligned | heavy sword           | NerfHack   | +d5 to-hit, double damage              | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
-| Mayhem                | chaotic   | stomping boots        | NerfHack   | n/a                                    | confers conflict and warning against undead when worn.                                                         |
-| Mirrorbright          | neutral   | shield of reflection  | SLASHEM    | n/a                                    | confers hallucination res when worn; light source; does not impede spellcasting.                               |
-| Mortality Dial        | lawful    | morning star          | SpliceHack | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
-| Mouser's Scalpel      | neutral   | rapier                | slashem-up | +d5 to-hit, +1 dmg; multihit bonus     | if not confused or stunned, chance of delivering extra strikes                                                 |
-| Origin                | unaligned | quarterstaff          | SpliceHack | +d3 to-hit, +d8 dmg                    | confers telepathy and teleport control when wielded; boosts spellcasting                                       |
-| Plague                | chaotic   | bow                   | SLASHEM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded                                                                              |
-| Poseidon's trident    | chaotic   | trident               | SpliceHack | +d3 to-hit, +d14                       | confers magical breathing when wielded; #invoke for water walking                                              |
-| Pridwen               | lawful    | large shield          | SpliceHack | n/a                                    | confers half physical damage and steadfastness when worn                                                       |
-| Quick Blade           | lawful    | silver short sword    | SLASHEM    | +d9 to-hit, +d2                        | confers speed when wielded                                                                                     |
-| Serenity              | lawful    | silver spear          | NerfHack   | +d3 to-hit, +d10                       | counters 80% of monster spells and blocks spellcasting; suppresses aggravate monster, berserking, and conflict |
-| Serpent's Tongue      | chaotic   | dagger                | SLASHEM    | +d2 to-hit, 2x damage + poison bonuses | always poisoned                                                                                                |
-| Skullcrusher          | lawful    | aklys                 | SLASHEM    | +d3 to-hit, +d10 dmg                   | first sacrifice gift for cavemen                                                                               |
-| Snakeskin             | Neutral   | robe                  | SlashTHEM  | n/a                                    | confers acid res and hallucination res when worn.                                                              |
-| The End               | neutral   | scythe                | SpliceHack | +d3 to-hit, +d10 dmg                   | confers drain res when wielded                                                                                 |
-| The Lenses of Truth   | unaligned | lenses                | NerfHack   | n/a                                    | confers see invisible and stun res when worn                                                                   |
-| Thunderfists          | neutral   | gauntlets of force    | NerfHack   | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
-| Whisperfeet           | neutral   | speed boots           | SLASHEM    | n/a                                    | confers stealth and luck when worn                                                                             |
-| Oathfire              | lawful    | leather bracers       | NerfHack   | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
+| Name                  | Align      | Type                  | From       | to-hit/dmg                             | Notes                                                                                                          |
+| --------------------- | ---------- | --------------------- | ---------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Acidfall              | chaotic(!) | long sword            | SpliceHack | +d5 to-hit, 2x acid dmg                | intelligent, confers acid res when wielded                                                                     |
+| Amulet of Storms      | chaotic    | amulet of flying      | xnh        | n/a                                    | confers shock res when worn, prevents thunderstorm paralysis, pacify stormy monsters via #chat                 |
+| Angelslayer           | chaotic(!) | trident               | EvilHack   | +d5 to-hit, +d10 dmg                   | bane vs angels; confers searching and 1/2 spell damage when wielded                                            |
+| Blackshroud           | chaotic    | cloak of invisibility | SlashTHEM  | n/a                                    | confers warning and drain res when worn                                                                        |
+| Carnwennan            | lawful     | knife                 | SpliceHack | +d3 to-hit, +d8 dmg                    | confers searching and stealth when wielded                                                                     |
+| David's Sling         | neutral    | sling                 | slashthem  | +d5 to-hit, +d6 dmg                    | bane vs giants; confers 1/2 physical damage when wielded                                                       |
+| Deluder               | neutral    | cloak of displacement | SLASHEM    | n/a                                    | confers stealth and protection when worn                                                                       |
+| Disrupter             | neutral    | mace                  | SLASHEM    | +d5 to-hit, +d30 dmg vs undead         | bane vs undead                                                                                                 |
+| Doomblade             | chaotic    | short sword           | SLASHEM    | +d10 dmg, 25% chance of dmg bonus      |                                                                                                                |
+| Drowsing Rod          | unaligned  | quarterstaff          | HackEM     | +d5 to-hit, +d5 sleep dmg              | first sacrifice gift for healers; confers sleep res when wielded                                               |
+| Glamdring             | chaotic    | long sword            | EvilHack   | +d8 to-hit, +d10 dmg                   | bane vs orcs; confers shock res and protection when worn                                                       |
+| Hellfire              | chaotic    | crossbow              | SLASHEM    | +d5 to-hit, +d7 dmg + explosion        | confers fire res when wielded                                                                                  |
+| Holographic Void Lily | chaotic(!) | credit card           | SpliceHack | n/a                                    | energy regen, 1/2 spell dmg, and reflection when carried. #invoke for card drop boost                          |
+| Load Brand            | unaligned  | heavy sword           | NerfHack   | +d5 to-hit, double damage              | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
+| Mayhem                | chaotic    | stomping boots        | NerfHack   | n/a                                    | confers conflict and warning against undead when worn.                                                         |
+| Mirrorbright          | neutral    | shield of reflection  | SLASHEM    | n/a                                    | confers hallucination res when worn; light source; does not impede spellcasting.                               |
+| Mortality Dial        | lawful     | morning star          | SpliceHack | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
+| Mouser's Scalpel      | neutral    | rapier                | slashem-up | +d5 to-hit, +1 dmg; multihit bonus     | if not confused or stunned, chance of delivering extra strikes                                                 |
+| Origin                | unaligned  | quarterstaff          | SpliceHack | +d3 to-hit, +d8 dmg                    | confers telepathy and teleport control when wielded; boosts spellcasting                                       |
+| Plague                | chaotic    | bow                   | SLASHEM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded                                                                              |
+| Poseidon's trident    | chaotic    | trident               | SpliceHack | +d3 to-hit, +d14                       | confers magical breathing when wielded; #invoke for water walking                                              |
+| Pridwen               | lawful     | large shield          | SpliceHack | n/a                                    | confers half physical damage and steadfastness when worn                                                       |
+| Quick Blade           | lawful     | silver short sword    | SLASHEM    | +d9 to-hit, +d2                        | confers speed when wielded                                                                                     |
+| Serenity              | lawful(!)  | silver spear          | NerfHack   | +d3 to-hit, +d10                       | counters 80% of monster spells and blocks spellcasting; suppresses aggravate monster, berserking, and conflict |
+| Serpent's Tongue      | chaotic    | dagger                | SLASHEM    | +d2 to-hit, 2x damage + poison bonuses | always poisoned                                                                                                |
+| Skullcrusher          | lawful     | aklys                 | SLASHEM    | +d3 to-hit, +d10 dmg                   | first sacrifice gift for cavemen                                                                               |
+| Snakeskin             | Neutral    | robe                  | SlashTHEM  | n/a                                    | confers acid res and hallucination res when worn.                                                              |
+| The End               | neutral    | scythe                | SpliceHack | +d3 to-hit, +d10 dmg                   | confers drain res when wielded                                                                                 |
+| The Lenses of Truth   | unaligned  | lenses                | NerfHack   | n/a                                    | confers see invisible and stun res when worn                                                                   |
+| Thunderfists          | neutral    | gauntlets of force    | NerfHack   | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
+| Whisperfeet           | neutral    | speed boots           | SLASHEM    | n/a                                    | confers stealth and luck when worn                                                                             |
+| Oathfire              | lawful(!)  | leather bracers       | NerfHack   | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
+| The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack   | n/a                                    | light source, half spell damage, withering resistance, passive turn undead                                                           |
 
+
+(!) - Means the artifact is intelligent
 Misc changes:
 * Plague was changed from an orcish bow to a standard bow.
 * Quick Blade is a silver short sword instead of an elvish short sword
@@ -1239,14 +1251,16 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * barghests get an additional 1d8 fiery claw attack; their existing 2d6 bite attack now drains life.
 * blinking eyes also get a passive blink that teleports attackers
 * bloodworms get a drain life bite instead of poison bite
+* bullet ants get an additional 2d4 cold bite.
 * byahkees were recolored to yellow
 * cerastes buffs: 2 poison bites, poison res, higher difficulty.
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
 * some deepest ones are guaranteed on the plane of water
 * elven clerics were known as elven wizards in EvilHack
-* ghoul queens can generate randomly in the dungeon
 * ghoul mages are now clairvoyance
+* ghoul queens can generate randomly in the dungeon
 * ghoul queens are now bright magenta
+* ghoul queens have -5 AC, level 16, and difficulty 21
 * giant praying mantis now ignores all magical scaring
 * giant praying mantis has a higher level
 * glowing eyes get a passive stunning gaze
@@ -1264,7 +1278,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * like likes can eat organic shields and cloaks when engulfing you (note: dragonhide scales are not edible for them)
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with rustproof tridents or spears.
-* migos explode into poison gas clouds on death
+* migos explode into poison gas clouds on death and don't leave any corpses
 * migos are immune to poison gas.
 * migo drones and warriors are slightly lower level than in SLASH'EM.
 * monstrous spiders get a stunning gaze
@@ -1331,7 +1345,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * air elementals get shock resistance.
 * Aleax difficulty raised to 16 (SLASH'EM)
 * Aleax weapon attacks raised to 2d6 (SporkHack)
-* baluchitherium are now huge; strengthened claw attack from 5d4 to 5d12; increased difficulty
+* baluchitherium are now huge; have -5 AC, strengthened claw attack from 5d4 to 5d12; increased difficulty
 * all bats can see invisible
 * captains are considered princes (xnh)
 * captains and watch captains generate with keys (Evil)
@@ -1340,6 +1354,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * couatls get a stunning gaze and can generate invisible
 * deep ones and deeper ones have thick skin, matching deepest ones
 * many major demons have been given flight (xnh)
+* dingos have been replaced with warg pups - very similar to dingos but slight adjustments so they can grow into wargs.
 * disenchanters can appear in the main dungeon
 * dragons, nagas, and golems don't balk at approaching as much
 * dwarves sometimes start with potions of booze (xnh)
@@ -1384,7 +1399,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * lords and princes never get negative weapons or armor (xnh)
 * lieutenants are considered lords (xnh)
 * master liches and arch-liches can see invisible (FIQ)
-* mastodon is now huge; strengthened butt attacks from 4d8 to 4d16; increased difficulty
+* mastodon is now huge; has -8 AC, strengthened butt attacks from 4d8 to 4d16; increased difficulty
 * mastodon gets a hug attack and can berserk (Evil)
 * giant mimics, large mimics, and killer mimics are higher level and difficulty
 * mimics take the form of strange objects much less often
@@ -1449,10 +1464,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * titans are level 17 (K-Mod)
 * tigers are orange (Evil)
 * tigers can also jump
-* titanothere is now huge; strengthened claw attack from 2d8 to 8d8; increased difficulty
+* titanothere is now huge; has -2 AC, strengthened claw attack from 2d8 to 8d8; increased difficulty
 * trappers and lurkers above are mindless and speed 6
 * troll meat provides temporary intrinsic regeneration (xnh)
-* unique monsters cannot be tamed
 * violet fungi puff out hallucination-causing spores when hit
 * all vortices (v) resist shock damage
 * vampire mages can see invisible
@@ -1483,7 +1497,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 
 ### Delayed stoning for all footrice effects
 * This was ported from EvilHack with extensions.
-* Instant petrification has been removed both for the player and for monsters (keep in mind this only applies for footrice, NOT fore Medusa's gaze!)
+* Instant petrification has been removed both for the player and for monsters (keep in mind this only applies for footrice, NOT for Medusa's gaze!)
 * Instead, wherever a monster or player would have been insta-killed, a stoning timer is started for 5 turns.
 * This applies for every instapetrification effect: touching a footrice corpse, being knocked into a footrice
 * Footrice only inflict slow stoning for the player and for monsters
@@ -1559,8 +1573,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * shimmering dragons have displacement and resist stunning
 
 ### Unique monster changes
+* unique monsters cannot be tamed
 * Croesus can move other monsters out of his way (Evil)
-* Ixoth can berserk. AC raised from -1 to -4, stronger claw attacks.
+* Ixoth can berserk. Speed raised to 20, AC raised from -1 to -4, stronger claw attacks.
 * Ixoth gets poison resistance (Evil)
 * Lord Surtur can berserk
 * Cyclops can berserk
@@ -1572,6 +1587,11 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Give Baalzebub some combat buffs (xnh).
 * Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
 * Dispater drops a deck of fate.
+
+#### Warping behavior for demon princes and lords and quest nemeses
+* These covetous monsters will now only perform one initial warp to get to the player. After their introduction, they will revert to standard AI and movement.
+* This makes most lords and nemeses a little less dangerous to handle and allows the player to create different strategies to deal with them.
+* Cthulhu is a unique threat - because he resurrects he will be able to regain the warp each time he revives.
 
 **Medusa**
 Inspired by EvilHack, Medusa gets an overall difficulty boost:
@@ -1600,8 +1620,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Cthulhu will always track you down and chase you.
 * Converted the drain intelligence attack to drain energy instead.
 * Cthulhu is placed right in the middle of Moloch's Sanctum as a guardian but does not receive the Amulet of Yendor.
-* Important note: Even though Cthulhu is covetous (M3_WANTSAMUL) he will not teleport and instead follow the new movement rules that other covetous demons do.
 * Allow Cthulhu to return via wizard harassment if the player is carrying the Amulet of Yendor.
+* **Note: Cthulhu is covetous and will perform a single warp to reach the player.** After that, he will revert to standard non-covetous movement - however, when he dies and resurrects, he will always get the initial warp back.
 
 ## MONSTER BEHAVIOR
 
@@ -1783,30 +1803,16 @@ Curing rabid:
 * Monster spellcasters will prioritize healing when wounded.
 * Monster spellcasters can cast stone-to-flesh in response to getting stoned (Evil).
 * Don't let monster cleric stunning reset stun counter to 1 when stunned.
-
-### Clerical Spells
-
-**protection (EvilHack)**
-* This is the monster version of the protection spell already available to the player.
-* Provides a temporary magical shield that increases the monster's AC protection.
-* Can be dissipated with a blast of cancellation.
-
-**geyser spell**
-* The core spell is unchanged from Vanilla NetHack, however now the geyser also rusts armor and instakills iron golems (Evil)
-
-**hobble**
-* This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for a brief period
-* Ranged, can be cast at the hero from up to 13 squares away.
-
-**blight (xNetHack)**
-* In xnh, this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But it was extracted out and used as a new clerical spell which inflicts withering on the player.
-* The duration of the withering lasts 20-60 turns. It can also be cast up to 8 squares away.
-
-**flesh to stone**
-* This is the highest level clerical spell
-* When cast it can start the stoning process on the hero.
+* Displacement, invisibility, and darkness offer limited protection from spellcasters.
+* Telepathic spellcasters can usually bypass invisibility and displacement protections.
 
 ### Mage Spells
+
+**psi bolt**
+* Now a ranged spell.
+* Does an extra 1d6 if you have telepathy.
+* Damage scales down the further away the caster is.
+
 **reflection (EvilHack)**
 * A spell that creates a shimmering globe around the caster, granting them reflection for several turns.
 * Can be dissipated with a blast of cancellation.
@@ -1841,6 +1847,9 @@ Curing rabid:
 * Ported from SLASHEM
 * Call Undead can only be cast by undead and demon spellcasters
 * Ranged, can be cast at the hero from up to 13 squares away.
+* All wraith class monsters (W) are eligible, depending on difficulty
+* Mummy class monsters (M) are also eligible (SLEX)
+* Excessive chain-summoner spawns are prevented; a caster can only summon a spellcaster of lower difficulty so a demilich could summon a lich, but not another demilich. Ghoul mages and liches are both difficulty 14 so neither can summon the other.
 
 **evil eye (dNetHack)**
 * When successfully cast on the hero it lowers your Luck by 1 point.
@@ -1849,6 +1858,37 @@ Curing rabid:
 
 **cure self**
 * Spellcasters can use this to cure illness, blindness, withering, and rabid statuses.
+
+
+### Clerical Spells
+
+**open wounds:**
+* Now a ranged spell.
+* Damage scales down the further away the caster is.
+
+**lightning:**
+* Now a ranged spell.
+
+**protection (EvilHack)**
+* This is the monster version of the protection spell already available to the player.
+* Provides a temporary magical shield that increases the monster's AC protection.
+* Can be dissipated with a blast of cancellation.
+
+**geyser spell**
+* The core spell is unchanged from Vanilla NetHack, however now the geyser also rusts armor and instakills iron golems (Evil)
+
+**hobble**
+* This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for a brief period
+* Ranged, can be cast at the hero from up to 13 squares away.
+* Damage scales down the further away the caster is.
+
+**blight (xNetHack)**
+* In xnh, this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But it was extracted out and used as a new clerical spell which inflicts withering on the player.
+* The duration of the withering lasts 20-60 turns. It can also be cast up to 8 squares away.
+
+**flesh to stone**
+* This is the highest level clerical spell
+* When cast it can start the stoning process on the hero.
 
 
 ## ROLE CHANGES
@@ -1889,6 +1929,7 @@ Curing rabid:
   * Each rage attack uses up 1d5 energy, so at least 3 energy is required to trigger a rage attack.
   * This feature was adapted from the SpliceHack skill system.
 * The barbarian quest gets a lot more trees in the beginning (these can be chopped down now)
+* More random O and T spawn in the quest.
 
 **Skill adjustments for barbarians:**
 
@@ -1910,7 +1951,7 @@ Curing rabid:
 
 **Caveman quest updates:**
 * The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (SlashTHEM)
-* The Chromatic Dragon has some buffs: AC raised from -1 to -4, stronger claw attacks.
+* The Chromatic Dragon has some buffs: Speed raised to 20, AC raised from -1 to -4, stronger claw attacks.
 * The Chromatic Dragon can now berserk.
 * Their quest narration and dialogue is more caveman-like (xnh/Fourk)
 
@@ -2414,10 +2455,16 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 
 
 * Removed infravision from dwarves, elves, gnomes, and orcs.
+
+### Elves
 * Elves can always squeeze between two trees (xnh)
 * Elves get see invisible at level 8
 * Elves can always reach Basic in enchantment spells (xnh)
+
+### Dwarves
 * Dwarves can always reach Skilled in pick-axe (xnh)
+
+### Gnomes
 * Gnomes are good at slipping free from grabbing attacks
 * Gnomes start with a nightvision radius of 2 (dnh)
 * Gnomes start with an interesting tool
@@ -2425,11 +2472,29 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 * Gnomes get a damage bonus for shooting crossbows
 * Gnomes can always reach Skilled in crossbow
 * Gnomes can always reach Basic in club (xnh)
+
+### Orcs
+* Orcs cannot successfully engrave Elbereth.
 * Orcs start with sickness potion (Spork)
 * Orcs get an alignment boost for cannibalism (dnh)
 * Orcs can always reach Skilled in saber (xnh)
 * orcs get a +1 bonus for each racially aligned piece of armor they wear (Evil)
-* Vampires and orcs cannot successfully engrave Elbereth.
+* Orcs start with -20 alignment
+* Orcs don't get penalties for attacking and murdering peacefuls, even quest guardians or leaders.
+* Orcs get alignment bonuses for attacking peaceful, helpless, or fleeing monsters.
+* No extra monsters generate peaceful than necessary.
+* Shopkeepers generate peaceful, but watchguards and watch captains will immediately pursue orcs on sight.
+* Cross-aligned priests will generate hostile - however, priests of Moloch will generate peaceful.
+* Orcs and watchguards have a grudge vs each-other.
+* Orcs love drinking blood and get an alignment bonus and exercise constitution when doing so.
+* Orcs cannot pacify or tame most monsters because they are just too evil. However, they do have the ability to pacify and tame a few monsters with food: goblins, wargs, trolls, ogres, and barghests.
+* The range of monsters they can tame magically is reduced to these monster types: o O T D U
+* Orcs get significant STR, CON, and DEX bonuses for leveling up.
+* Orcs can saddle and ride wargs
+* Orcs always start with a warg pup
+* Orcs never get help on Astral and always receive an angry pack of Angels.
+* Orcs also hate items made of mithril (this isn't the same mechanic as other variants where mithril does extra damage or prevents damage, they just find it uncomfortable to wear or wield)
+
 
 ### New race/role combos.
 
@@ -2643,7 +2708,7 @@ difficult time with spellcasting.
 | magic missile  | damage scales with skill                                                                                                                                                                           |
 | sleep          | Lowered to level 2                                                                                                                                                                                 |
 | poison blast   | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
-| lighting   | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
+| lighting       | Was level 4 in SLASH'EM, raised to level 5                                                                                                                                                         |
 | fire bolt      | Moved to the Attack school<br/>stops after the first monster hitl<br/>Updated damage bonuses                                                                                                       |
 | healing        | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
 | extra healing  | Healing spell effectiveness is determined by skill (Evil)                                                                                                                                          |
@@ -3137,6 +3202,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 ### New room: giant courtroom (from SLASH'EM).
 * Giant courts sometimes have tinning kits.
 * Monsters in giant courts are always hostile.
+* Always ruled by a titan
 
 ### New room: Real zoo (from SLASH'EM).
 * Monsters in real zoos are always hostile.
@@ -3238,6 +3304,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 | 10            | 0.48%    | 3.57%    |
 
 * The number of artiwishes is not factored in when determining the chance of a gift. The revised gift probabilities still apply, just filtered through the level check.
+* #offer odds also improve with a perfect alignment abuse record (from EvilHack)
 
 ### Crowning
 * Crowning requires 13 Luck (dNetHack).
@@ -3326,8 +3393,8 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * MC3: Items have a 5 in 6 chance to avoid blanking
 
 ### Gaze attack protection
-* Displacement protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
-* Invisibility protects from gaze attacks, only letting 1 in 11 gaze attacks find the player
+* Displacement protects from gaze attacks, only letting 1 in 3 gaze attacks find the player
+* Invisibility protects from gaze attacks, only letting 1 in 3 gaze attacks find the player
 * Darkness offers protection from gaze attacks (as long as the player is on a dark square and the gazer doesn't have infravision and the player is infravisible).
 * If a gazer is in melee range, it will bypass invisibility and darkness protection.
 * Hallucination always protects against floating eye gaze.
@@ -3528,7 +3595,6 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Greased rings slip off your fingers as if you had greasy fingers.
 
 ### DEMON AND DEMON LAIR CHANGES
-* Allow covetous monsters to follow normal AI (xNetHack).
 * Demonic bribes are much more expensive.
 * Juiblex buffs.
 * Geryon buffs (EvilHack).
@@ -3556,7 +3622,10 @@ A big philosophy of NerfHack is to discourage repetitive and potentially infinit
 * **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
 * **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
 * **Horn of plenty farming:** Historically, horns of plenty could be endlessly recharged using the tourist's quest artifact, the Platinum Yendorian Express Card. However, this exploit has been nerfed to align with the restrictions on recharging tools, similar to the limitations imposed on wands.
-* Trees on special levels are pre-looted. This doesn't fit into the classic "infinite" farming category, but because many levels have been modified to feature copious amounts of trees, a player could farm them all for bees and fruits.
+* **Trees on special levels are pre-looted.** This doesn't fit into the classic "infinite" farming category, but because many levels have been modified to feature copious amounts of trees, a player could farm them all for bees and fruits.
+* **Death drops decrease as games get longer:** For every 5000 turns that has passed, the chance of a death drop does down by 1. This is a nerf to slowly starve players out and to reduce inventory bloat toward the end of a game. It's also a good reason to play fast. The chance of a death drop is traditionally 1 in 6. So, at 5k turns it would decrease to 1 in 7, at 10k turns it goes to 1 in 8 and so on.
+
+
 
 ### Underwater mechanics
 * Prevent kicking monsters out of water while underwater or vice versa.
