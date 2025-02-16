@@ -116,6 +116,8 @@
     - [Castle changes](#castle-changes)
     - [Valley of the Dead](#valley-of-the-dead)
     - [Enhanced Gehennom](#enhanced-gehennom)
+    - [The Wizard's Tower Overhaul](#the-wizards-tower-overhaul)
+    - [Vlad's Tower revamp](#vlads-tower-revamp)
     - [Sokoban](#sokoban)
     - [Fort Ludios](#fort-ludios)
     - [Minetown/Mines End](#minetownmines-end)
@@ -300,6 +302,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * **do_not_flip_soko:** Enables player to choose whether they want Sokoban levels to be flipped. If enabled, incurs Sokoban penalty for each level used.
 * **invweight:** Show weights of objects in inventory
 * **autostairtravel:** Allow fast travel to stairs with < and >
+* **hide_old_spells:** This option allows the player to control whether spells with 0% retention show up in the spellcasting menu.
 
 ### Wizmode features
 * The #wizcrown command has been added for testing crowning (Evil)
@@ -352,8 +355,8 @@ Exceptions:
 * Thrown potions of acid can corrode items or armor when they hit a monster or the player.
 * Water damage may disintegrate scrolls; may occur when dipping (Dyna)
 * Disintegration rays can vaporize boulders
-* Items can be erodeproofed via confused enchant weapon scrolls or by dipping into potions of reflection.
-* Item erosion can be repaired by dipping into a potion of restore ability (xnh)
+* Items can be erodeproofed via confused enchant weapon scrolls or by dipping into non-diluted potions of reflection.
+* Item erosion can be repaired by dipping into a non-diluted potion of restore ability (xnh)
 
 #### Fragile items are more vulnerable
 * Beams of force bolt and striking can break fragile items in inventory.
@@ -586,7 +589,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 #### Diluted potion effects
 * Most potions have a much less potent effect when diluted (EvilHack)
-* Potions can sometimes generate diluted.
+* Potions can sometimes generate diluted
 * Shopkeepers only offer 1/2 price for diluted potions.
 * Diluted healing potions heal less and grant less max-HP (EvilHack).
 * Vampire blood doesn't provide HP gains if diluted.
@@ -614,6 +617,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Confused cursed scroll of destroy armor prompts for armor to fix
 * Confused scroll of identify gives enlightenment (xnh)
 * Confused cursed scroll of punishment decreases god anger by 1.
+* Confused scrolls of gold detection no longer detect magic portals.
 
 ### Wands
 * Cursed wands have a higher chance of exploding and can backfire.
@@ -629,13 +633,12 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes most temporary effects (invisibility, protection, reflection)
-* Wands of secret door detection can be broken to detect traps and portals
 * Wand explosions discharge their effects in an explosion (SLASH'EM).
 * Monsters zapping cursed wands have double the chance of explosions.
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage. This includes all wands made of plastic material including: "plastic", "pliable", and "green".
-* Wands can sometimes generate pre-charged
-* Wands of polymorph appear less often.
+* Wands can sometimes generate pre-charged, especially for monsters
+* Wands of polymorph appear less often and monsters never spawn with them
 
 #### Wands of wishing
 * Wands of wishing have been replaced with scrolls of wishing - please see the section on Wishes.
@@ -652,6 +655,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 * Amulets of magical breathing are immune to water damage
 * Amulets of unchanging can't be polymorphed (Un)
+* Rings of sustain ability cannot be polymorphed
 * Amulets of guarding are now chargable with variable AC protection (positive or negative)
 * Reduced the probability for amulets of reflection.
 * Amulet of life saving will not work if the player is in nonliving form (EvilHack).
@@ -704,11 +708,12 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 
 #### Magic markers
 * Magic markers do not appear in a player's starting inventory.
-* Appear randomly much less often (1/5'th of the frequency in Vanilla)
-* They can still be created from polypiling
-* There is a 1 in 4 chance of a magic marker being the Sokoban prize.
+* Magic markers don't spawn randomly.
+* They cannot be created from polypiling
+* There is a 1 in 4 chance of a magic marker being the Sokoban prize and two Sokoban levels have magic markers guaranteed.
 * There is also a chance of a magic marker being hidden in the Lost Tomb level.
-* Added magic markers to soko1-7 and soko1-8.
+* A magic marker can also be found in the Boulder Bonanza Mine's End level.
+
 
 #### Unicorn horns
 * Unicorn horns are now one-handed, dealing d6 vs small/d7 vs large
@@ -732,7 +737,7 @@ DISCLAIMER: Bag of holding explosions are not prevented when confused or halluci
 * The amount reduced depends on a few factors:
   * the base fix is 1d3 + 1
   * your skill in unicorn horn (multiplied by 2)
-  * the enchantment on your unicorn horn (multiplied by 3)
+  * the enchantment on your unicorn horn (multiplied by 2.5)
   * if you are a healer or you hit the luck bonus, double the entire above sum
   * the **luck bonus** goes up with your luck. At 0 luck, there is a 4.2% chance, at 11 there is a 20.4% chance.
   * Add all of the following for the time out reduction roll (or "tRoll").
@@ -871,6 +876,7 @@ Other effects:
 * All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto.
 * When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
 * If confused and the scroll is blessed, you can also clone yourself to create a powerful tame pet if you currently hold a strong polyform (ie: master mind flayer, purple worm, etc)
+* Scrolls of cloning cannot be created from polypiling
 
 **Here are the updated features from SpliceHack:**
 
@@ -1044,7 +1050,7 @@ Other effects:
 | Thunderfists          | neutral    | gauntlets of force    | NerfHack   | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
 | Whisperfeet           | neutral    | speed boots           | SLASHEM    | n/a                                    | confers stealth and luck when worn                                                                             |
 | Oathfire              | lawful(!)  | leather bracers       | NerfHack   | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
-| The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack   | n/a                                    | light source, half spell damage, withering resistance, passive turn undead                                                           |
+| The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack   | n/a                                    | light source, half spell damage, disintegration/withering res, passive turn undead                             |
 
 
 (!) - Means the artifact is intelligent
@@ -1110,6 +1116,9 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | basilisk               | c   | EvilHack       |
 | barghest               | d   | SpliceHack     |
 | Cerberus               | d   | Evil/xnh       |
+| revenant hound         | d   | NerfHack       |
+| warg pup               | d   | NerfHack       |
+| vulpenferno            | d   | SpliceHack     |
 | glowing eye            | e   | SLASH'EM       |
 | stinking sphere        | e   | Fourk          |
 | acid sphere            | e   | Splice/Evil    |
@@ -1158,6 +1167,10 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | compsognathus          | z   | NerfHack       |
 | velociraptor           | z   | SpliceHack     |
 | t-rex                  | z   | SpliceHack     |
+| dark Angel             | A   | UnNetHack      |
+| movanic deva           | A   | SLASH'EM       |
+| monadic deva           | A   | SLASH'EM       |
+| astral deva            | A   | SLASH'EM       |
 | zoo bat                | B   | SpliceHack     |
 | athol                  | B   | SLASH'EM       |
 | phoenix                | B   | SpliceHack     |
@@ -1166,10 +1179,13 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | fell beast             | D   | EvilHack       |
 | baby shimmering dragon | D   | Deferred       |
 | shimmering dragon      | D   | Deferred       |
+| Wintercloak            | D   | NerfHack       |
 | volatile mushroom      | F   | SpliceHack     |
 | gray fungus            | F   | Evil/THEM      |
-| gnoll                  | G   | SLASH'EM       |
+| elder minotaur         | H   | EvilHack       |
 | arch-vile              | L   | NerfHack       |
+| eye of fear and flame  | L   | SpliceHack     |
+| worm that walks        | L   | SpliceHack     |
 | adherer                | M   | SpliceHack     |
 | troll mummy            | M   | SLASH'EM       |
 | ha-naga                | N   | SpliceHack     |
@@ -1184,24 +1200,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | weresnake              | S   | SLASH'EM       |
 | giant anaconda         | S   | EvilHack       |
 | grave troll            | T   | SpliceHack     |
-| vampire mage           | V   | SLASH'EM       |
-| ghoul mage             | Z   | SLASH'EM       |
-| revenant               | Z   | EvilHack       |
-| gug                    | Z   | SLASH'EM       |
-| ghoul queen            | Z   | SLASH'EM       |
-| elven cleric           | @   | EvilHack       |
-| familiar               | @   | NerfHack       |
-| Wintercloak            | D   | NerfHack       |
-| shadow                 | X   | SLASH'EM       |
-| lava demon             | &   | Convict Patch  |
-| spined devil           | &   | SLASH'EM       |
-| Cthulhu                | &   | SLASHEM/Un     |
-| merfolk                | ;   | Splice/THEM    |
-| thing from below       | ;   | SpliceHack     |
-| cartomancer            | @   | SpliceHack     |
-| King of Games          | @   | SpliceHack     |
-| Del Zethire            | @   | SpliceHack     |
-| duelist                | @   | SpliceHack     |
 | hunger hulk            | U   | SpliceHack     |
 | slumber hulk           | U   | SpliceHack     |
 | umbral hulk            | U   | THEM/Splice    |
@@ -1209,10 +1207,33 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | gorgon hulk            | U   | NerfHack       |
 | fire vampire           | U   | SLASH'EM       |
 | star vampire           | U   | SLASH'EM/dnh   |
-| vulpenferno            | d   | SpliceHack     |
-| movanic deva           | A   | SLASH'EM       |
-| monadic deva           | A   | SLASH'EM       |
-| astral deva            | A   | SLASH'EM       |
+| dhampir                | V   | NerfHack       |
+| vampire mage           | V   | SLASH'EM       |
+| vampire king           | V   | EvilHack       |
+| bodak                  | W   | SpliceHack     |
+| slaughter wight        | W   | HackEM         |
+| shadow                 | X   | SLASH'EM       |
+| The First Evil         | X   | NerfHack       |
+| ghoul mage             | Z   | SLASH'EM       |
+| revenant               | Z   | EvilHack       |
+| gug                    | Z   | SLASH'EM       |
+| ghoul queen            | Z   | SLASH'EM       |
+| elven cleric           | @   | EvilHack       |
+| familiar               | @   | NerfHack       |
+| lava demon             | &   | Convict Patch  |
+| spined devil           | &   | SLASH'EM       |
+| Cthulhu                | &   | SLASHEM/Un     |
+| weredemon              | &/d | EvilHack       |
+| merfolk                | ;   | Splice/THEM    |
+| thing from below       | ;   | SpliceHack     |
+| cartomancer            | @   | SpliceHack     |
+| King of Games          | @   | SpliceHack     |
+| Del Zethire            | @   | SpliceHack     |
+| duelist                | @   | SpliceHack     |
+| undead slayer          | @   | SLASH'EM       |
+| exterminator           | @   | SLASH'EM       |
+| Van Helsing            | @   | SLASH'EM       |
+| The Executioner        | @   | UnNetHack      |
 | wax golem              | '   | SLASH'EM       |
 | plastic golem          | '   | SLASH'EM       |
 | grung                  | 6   | NerfHack       |
@@ -1222,16 +1243,10 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | red grung              | 6   | NerfHack       |
 | orange grung           | 6   | NerfHack       |
 | gold grung             | 6   | NerfHack       |
-| bodak                  | W   | SpliceHack     |
-| slaughter wight        | W   | HackEM         |
-| eye of fear and flame  | L   | SpliceHack     |
-| worm that walks        | L   | SpliceHack     |
-| revenant hound         | d   | NerfHack       |
-| undead slayer          | @   | SLASH'EM       |
-| exterminator           | @   | SLASH'EM       |
-| The First Evil         | X   | NerfHack       |
-| Van Helsing            | @   | SLASH'EM       |
-
+| gnoll                  | 9   | SLASH'EM       |
+| gnoll warrior          | 9   | SLASH'EM       |
+| gnoll chieftain        | 9   | SLASH'EM       |
+| gnoll shaman           | 9   | SLASH'EM       |
 
 
 ### New monster notes
@@ -1241,7 +1256,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * adherer AC was buffed from it's original AC in SpliceHack
 * alhoons were covetous in EvilHack, now they move normally but faster
 * alhoons can now displace monsters
-* arch-viles are fast and lethal L class monsters that can cast fire pillar from a distance and revive monsters
+* arch-viles are fast and lethal L class monsters that can cast fire pillar from a distance and revive monsters. They can also cast other clerical spells.
 * assassin bugs are stronger than SLASHEM
 * athols have increased size, weight, and nutrition
 * athols are now strong, berserk, flank, and have infravision
@@ -1256,6 +1271,12 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * cerastes buffs: 2 poison bites, poison res, higher difficulty.
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
 * some deepest ones are guaranteed on the plane of water
+* deep ones, deeper ones, and deepest ones have all received major buffs.
+* deep/er/est ones all get regeneration, faster speed in water, are non-tameable, and not infravisible anymore.
+* deeper ones resist sleep and shock.
+* deepest ones resist sleep, shock, acid, and magic. They also have 100 MR.
+* deepest ones get an additional hug attack.
+* deeper ones and deepest ones take extra damage from blessed weapons.
 * elven clerics were known as elven wizards in EvilHack
 * ghoul mages are now clairvoyance
 * ghoul queens can generate randomly in the dungeon
@@ -1264,6 +1285,14 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * giant praying mantis now ignores all magical scaring
 * giant praying mantis has a higher level
 * glowing eyes get a passive stunning gaze
+* gnolls now have '9' symbol instead of 'G' (Splice)
+* all gnolls get berserking instead of traitorous (Evil)
+* all gnolls get flanking (Splice)
+* all gnolls resist poison, fire, sleep, draining, and sickness. They no longer hide.
+* gnoll shamans gets teleport control.
+* gnoll warriors get the lord tag.
+* gnoll chieftains get the prince tag.
+
 * grave trolls can spawn in graves/graveyards
 * grave troll corpses cause sickness when eaten
 * grave trolls are huge and have thick hides
@@ -1359,6 +1388,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * dragons, nagas, and golems don't balk at approaching as much
 * dwarves sometimes start with potions of booze (xnh)
 * all elementals resist sickness
+* arch-liches resist acid
 * elf-lords get 9AC, elvenkings get 8AC (K-Mod)
 * erinys can generate up to 13 times (previously only 3 could be birthed in the entire game)
 * ettins count as giants and are vulnerable to sling damage
@@ -1587,6 +1617,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Give Baalzebub some combat buffs (xnh).
 * Master Kaen and the Grand Master receive the same intrinsics that high level monks have.
 * Dispater drops a deck of fate.
+* Dispater can walk through walls
 
 #### Warping behavior for demon princes and lords and quest nemeses
 * These covetous monsters will now only perform one initial warp to get to the player. After their introduction, they will revert to standard AI and movement.
@@ -1606,6 +1637,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Rodney is bright magenta (Evil)
 * Rodney will never steal the quest artifact of the current role (Un)
 * Rodney gets a strong weapon and the ability to use it (Evil)
+* Rodney is now telepathic
 
 **The riders**
 * Each rider gets an additional 100 HP (EvilHack)
@@ -1647,6 +1679,8 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * When playing as a cartomancer, monsters can use monster summon cards and zappable cards against you.
 * Some monsters will not throw a weapon that is usable for melee.
 * Monsters won't try to use wands of digging on hardfloor levels.
+* Monsters will not be tricked into picking up projectiles endlessly while in combat.
+* Monster will attempt to wrest wands if there are no charges left.
 
 ### Monster accessory use
 * Adapted from EvilHack with modifications
@@ -2213,7 +2247,7 @@ However, there are several things they *do not* get. They **lack stealth, poison
 
 Undead Slayers also face additional challenges, as **undead and demons always spawn hostile.** To support this, wooden stakes and holy wafers have been ported from SLASH’EM. The wooden stake has been enhanced with **staking mechanics from xNetHack**, allowing for **instakills on vampires**. Holy wafers now have the ability to **stop withering.** The quest levels have also been redesigned, drawing inspiration from dNetHack's Binder quest.
 
-The **new quest artifact** is *The Argent Cross*, an **artifact amulet of reflection** that grants **half spell damage reduction and withering resistance** when worn. It also acts as an **artifact light source**. When blessed, it will periodically activate the `#turn undead` effect without requiring the player to stand still. However, if cursed, if your god is angry, or if you are non-chaotic and polymorphed into an evil form, it will instead **aggravate monsters.** The cross follows the same activation timer as clairvoyance, triggering every **15-45 turns** after the last activation.
+The **new quest artifact** is *The Argent Cross*, an **artifact amulet of reflection** that grants **half spell damage reduction and disintegration/withering resistance** when worn. It also acts as an **artifact light source**. When blessed, it will periodically activate the `#turn undead` effect without requiring the player to stand still. However, if cursed, if your god is angry, or if you are non-chaotic and polymorphed into an evil form, it will instead **aggravate monsters.** The cross follows the same activation timer as clairvoyance, triggering every **15-45 turns** after the last activation.
 
 The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and the *Bell of Opening*. This is a **high-level evil shade** with an arsenal of powerful abilities. It can cast mage spells and possesses **deadly touch attacks** that **paralyze, slow, freeze, and shock** its foes. Additionally, it is highly resistant to various forms of damage, including **cold, disintegration, stoning, sleep, poison, acid, and electricity.**
 
@@ -2950,7 +2984,6 @@ New themed rooms introduced in NerfHack:
 * The fake wizard levels have been removed.
 * The portal to the Wizard's Tower can appear in Gehennom levels 10-17.
 * The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
-* Most demon lairs are now phaseproof
 * Marked the Asmodeus levels as cold and added cold traps
 * Juiblex's lair gets some puddles and a shoggoth
 * The structure of Gehennom now follows the SLASH'EM template.
@@ -2967,8 +3000,25 @@ New themed rooms introduced in NerfHack:
   * Levels 10-15: Dispater's lair
   * Levels 10-15: Geryon's lair
   * Levels 10-15: Asmodeus' lair
-  * Level 16: Vibrating Square
+  * Level 16: Vibrating Square - now has it's own dedicated level.
   * Level 17: Moloch's Sanctum
+
+### The Wizard's Tower Overhaul
+* NerfHack borrows from other great variants to create the biggest and baddest tower that Rodney could ever reside in.
+* The Wizard's Tower has been expanded to a staggering 8 levels high.
+* Level 8: wizard1 from EvilHack and where the Wizard of Yendor awaits.
+* Level 7: Return of Sokoban: it's an evil version of Sokoban from vanilla NetHack - the Wizard is certainly cruel isn't he... and no prizes either :(.
+* Level 6: wizard1 from xNetHack - fight your way through a honeycomb of randomly generated chambers.
+* Level 5: wizard2 from xNetHack - the teleportation maze, now scaled back a bit.
+* Level 4: wizard2 from EvilHack - now featuring a nest of nasty petrifying monsters.
+* Level 3: wizard3 from xNetHack - a moving chamber puzzle.
+* Level 2: wizard3 from EvilHack - can you withstand a storm of fire, ice, and explosive migos?
+* Level 1: This is the entry to the wizard's tower. It was previously the bottom level of UnNetHack's Sheol branch and features the Executioner who will kindly Cleave (I mean greet) you.
+
+### Vlad's Tower revamp
+* This ports the updated and enlarged levels for Vlad's from EvilHack (except for the caverns which will come later).
+* Some flair was added to the levels to further torture players.
+* To make this a strategic nightmare, lots of iron bars and small niches were added that act as prisons. In these prisons are placed the most annoying gazing and ranged monsters to distract the player while vampires flank them from all sides.
 
 ### Sokoban
 
@@ -3251,7 +3301,7 @@ Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes
 
 
 ### Altar cracking
-**Once the player has received two gifts or has been crowned, altars have a 50% chance to crack with each subsequent gift.**
+**Once the player has received *any* gifts or has been crowned, altars will crack with each subsequent gift.**
 
 * There are two stages to the cracking. In the first stage the altar becomes partially cracked, which is purely cosmetic and doesn't affect the altar's functionality. This cracked status can be seen on an altar by farlooking. However, receiving another gift from a cracked altar will certainly destroy it, losing it forever.
 * Being crowned also counts as a gift. If you are crowned on a cracked altar, it will also almost always destroy it in the process (however - there is a 1 in 13 chance that the altar will survive the process).
@@ -3350,6 +3400,9 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Max carry capacity has been raised to 1250, with strength playing a larger factor in its calculation.
 * Warn the player that invisibility is about to time out (xnh)
 * There is an increased CON penalty for getting lifesaved (xNetHack).
+* Extrinsic acid resistance only provides 50% damage reduction.
+* Half physical damage only provides one-quarter (25%) physical damage reduction.
+* Half spell damage only provides one-quarter (25%) spell damage reduction.
 
 ### Partial Intrinsics
 * Ported from EvilHack
@@ -3608,10 +3661,12 @@ Many of these changes were introduced to work in conjunction with the new grease
 * Replaced undead on Astral Plane with random A (xnh).
 * Wizard harassment (after initially killing the Wizard of Yendor) has been increased by 20-25%
 * Some monsters on the Astral Plane spawn with rings of slow digestion or teleport control to thwart "purple rain" and teleportation strategies.
-* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower.
+* Level-teleporting (or branchporting) in hell causes major pain. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower. **Teleport pain goes away once you've killed the Wizard of Yendor.**
 * Amulet of Yendor needs only be carried to hint of nearby portals (Spork).
 * Allow performing the invocation whilst hallucinating.
 * If you cause conflict on the astral plane, double the normal quantity of hostile angels can now appear
+* Confused scrolls of gold detection no longer detect magic portals - however, the Amulet of Yendor does not require wearing to give hints when portals are nearby.
+
 
 ### Farming Nerfs
 
