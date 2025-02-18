@@ -876,7 +876,7 @@ Other effects:
 * All other properties on the item should be copied exactly as is. This enables fun tricks like cloning a +13 fixed crysknife, or that blessed figurine of an Archon you've been holding onto.
 * When confused, the scroll clones the player. The resulting clone will have no inventory. A blessed scroll creates a tame clone, an uncursed scroll makes a peaceful clone, and a cursed scroll makes a hostile clone. An interesting side-effect of this is that cloning yourself reduces your current HP by half.
 * If confused and the scroll is blessed, you can also clone yourself to create a powerful tame pet if you currently hold a strong polyform (ie: master mind flayer, purple worm, etc)
-* Scrolls of cloning cannot be created from polypiling
+* Scrolls of cloning cannot be created from polypiling nor written.
 
 **Here are the updated features from SpliceHack:**
 
@@ -1037,7 +1037,7 @@ Other effects:
 | Mortality Dial        | lawful     | morning star          | SpliceHack | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
 | Mouser's Scalpel      | neutral    | rapier                | slashem-up | +d5 to-hit, +1 dmg; multihit bonus     | if not confused or stunned, chance of delivering extra strikes                                                 |
 | Origin                | unaligned  | quarterstaff          | SpliceHack | +d3 to-hit, +d8 dmg                    | confers telepathy and teleport control when wielded; boosts spellcasting                                       |
-| Plague                | chaotic    | bow                   | SLASHEM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded                                                                              |
+| Plague                | chaotic    | bow                   | SLASHEM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded, poison res when carried.                                                    |
 | Poseidon's trident    | chaotic    | trident               | SpliceHack | +d3 to-hit, +d14                       | confers magical breathing when wielded; #invoke for water walking                                              |
 | Pridwen               | lawful     | large shield          | SpliceHack | n/a                                    | confers half physical damage and steadfastness when worn                                                       |
 | Quick Blade           | lawful     | silver short sword    | SLASHEM    | +d9 to-hit, +d2                        | confers speed when wielded                                                                                     |
@@ -1292,7 +1292,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * gnoll shamans gets teleport control.
 * gnoll warriors get the lord tag.
 * gnoll chieftains get the prince tag.
-
 * grave trolls can spawn in graves/graveyards
 * grave troll corpses cause sickness when eaten
 * grave trolls are huge and have thick hides
@@ -1327,12 +1326,13 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * third eyes inflict a passive hallucination gaze.
 * troll mummies get a withering attack
 * t-rex can berserk and emit a scary roar
-* velociraptors are stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
+* velociraptors are much stronger than in SpliceHack (roughly the same strength as SLASHEM's kangaroos)
 * weretigers are recolored to red and can jump
 * zoo bats now cause confusion when eaten
 * rot worms are now tiny
-
 * tunnel worms are now huge, get an armor rending attack, and a butt attack
+* vampire kings get two drain life bites, a stronger weapon attack, 75MR, and cold resistance
+* vampire kings can displace monsters to get to you and cannot be tamed.
 * werespiders can summon giant spiders, phase spiders, and monstrous spiders
 * weresnakes can summon snakes, pit vipers, and asphynxes
 * weresnakes are now red
@@ -2826,84 +2826,96 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 
 * All original Vanilla Sokoban levels have been removed and replaced.
 
-| Level                 | Version                        | Source        |
-| --------------------- | ------------------------------ | ------------- |
-| Asmodeus' lair #2     | River/lava                     | SpliceHack    |
-| Baalzebub's lair #2   | marsh                          | SpliceHack    |
-| Baalzebub's lair #3   | variation on #1 with lava      | Un/Nerf       |
-| Bridge of Khazad-Dum  | Directly after the VotD        | Un            |
-| Orcus Town #2         | river runs through             | Lethe patch   |
-| Castle #2             | Lake surrounds castle          | Un/Evil       |
-| Castle #3             | Lava river                     | Un/Evil       |
-| Demogorgon's lair #1  | Enclosed in hell-maze          | SLASHEM       |
-| Demogorgon's lair #2  | Two towers                     | Lethe patch   |
-| Demogorgon's lair #3  | Fortress with river            | Grunt/Evil    |
-| Dispater's lair #1    | Enclosed in hell-maze          | SLASHEM       |
-| Dispater's lair #2    | the city of Dis                | Lethe patch   |
-| Dispater's lair #3    | Fortress with river            | Grunt         |
-| Geryon's lair #1      | Enclosed in hell-maze          | SLASHEM       |
-| Geryon's lair #2      | the isle of Erytheia           | Grunt         |
-| Mephistopholes' lair  | Fortress with river            | SpliceHack    |
-| Moloch's Sanctum #2   | Lava islands                   | Un/Evil       |
-| Moloch's Sanctum #3   | Cthulhu's sanctum (deferred)   | Lethe Patch   |
-| The Lost Tomb #1      | Some variations on SLASHEM's   | SLASH'EM      |
-| The Lost Tomb #2      | Repurposed Demo's map from xnh | SLASH'EM      |
-| Mine end #4           | The Gnomish Sewer              | xNetHack      |
-| Mine end #5           | Orc Temple                     | EvilHack      |
-| Mine end #6           | Gnome King's Apiary            | SlashTHEM     |
-| Mine end #7           | Boulder Bonanza                | SlashTHEM     |
-| Minetown #8           | Zoo Town                       | Spork/Evil    |
-| Minetown #9           | Lavender Town                  | SpliceHack    |
-| Minetown #10          | Mini-Castle Town               | SlashTHEM     |
-| Minetown #11          | Creek Town                     | SlashTHEM     |
-| Minetown #12          | Forge Town                     | NerfHack      |
-| Moloch's Temple #1    |                                | SLASHEM       |
-| Moloch's Temple #2    | New variation on #1            | NerfHack      |
-| Sokoban 1-1           | 1-4 from SLASHEM               | SLASH'EM      |
-| Sokoban 1-2           | 1-3 from SLASHEM               | SLASH'EM      |
-| Sokoban 1-3           | Dragon_of_Bactria              | NetHack Fourk |
-| Sokoban 1-4           | 1-7 from Fourk                 | NetHack Fourk |
-| Sokoban 1-5           | 1-4 from Fourk                 | NetHack Fourk |
-| Sokoban 1-6           | 1-5 from Fourk                 | NetHack Fourk |
-| Sokoban 1-7           | 1-3 from Fourk                 | NetHack Fourk |
-| Sokoban 1-8           | 1-6 from Fourk                 | NetHack Fourk |
-| Sokoban 2-1           | 2-5 from SLASHEM               | SLASH'EM      |
-| Sokoban 2-2           | 2-7 from SLASHEM               | SLASH'EM      |
-| Sokoban 2-3           | 2-3 from SLASHEM               | SLASH'EM      |
-| Sokoban 2-4           | 2-4 from SLASHEM               | SLASH'EM      |
-| Sokoban 2-5           | 2-6 from SLASHEM               | SLASH'EM      |
-| Sokoban 2-6           | 3-9 from Fourk                 | NetHack Fourk |
-| Sokoban 3-1           | 3-5 from SLASHEM               | SLASH'EM      |
-| Sokoban 3-2           | 3-3 from SLASHEM               | SLASH'EM      |
-| Sokoban 3-3           | 3-4 from SLASHEM               | SLASH'EM      |
-| Sokoban 3-4           | 3-6 from SLASHEM               | SLASH'EM      |
-| Sokoban 3-5           | 3-7 from SLASHEM               | SLASH'EM      |
-| Sokoban 3-6           |                                | GruntHack     |
-| Sokoban 3-7           |                                | GruntHack     |
-| Sokoban 3-8           | 2-8 from Fourk                 |               |
-| Sokoban 4-1           | 4-3 from SLASHEM               | SLASH'EM      |
-| Sokoban 4-2           | 4-4 from SLASHEM               | SLASH'EM      |
-| Sokoban 4-3           | 4-5 from SLASHEM               | SLASH'EM      |
-| Sokoban 4-4           | 3-6 from SLASHEM               | SLASH'EM      |
-| Sokoban 4-5           | 3-7 from SLASHEM               | SLASH'EM      |
-| Sokoban 4-6           | 3-15 from UnNetHack            | UnNetHack     |
-| Sokoban 4-7           |                                | GruntHack     |
-| Sokoban 4-8           | 3-2 from NetHack Fourk         | NetHack Fourk |
-| Sokoban 5-1           | 4-3                            | SLASH'EM      |
-| Sokoban 5-2           | 4-4                            | SLASH'EM      |
-| Sokoban 5-3           | 4-5                            | SLASH'EM      |
-| Sokoban 5-4           | 3-4                            | UnNetHack     |
-| Sokoban 5-5           | 3-5                            | UnNetHack     |
-| Sokoban 5-6           | 4-3                            | NetHack Fourk |
-| Sokoban 5-7           | 4-7                            | NetHack Fourk |
-| Sokoban 5-8           | 4-10                           | NetHack Fourk |
-| Valley of the Dead #2 | river runs through             | Un/Lethe      |
-| Valley of the Dead #3 | Pleasant Valley                | Lethe patch   |
-| Yeenoghu's lair #1    | Enclosed in hell-maze          | SLASHEM       |
-| Yeenoghu's lair #2    | Fortress in marsh              | Lethe patch   |
-| Yeenoghu's lair #3    | Fortress with river            | Grunt         |
-| Oracle #2             |                                | xNetHack      |
-| Oracle #3             |                                | xNetHack      |
+| Level                 | Version                         | Source        |
+| --------------------- | ------------------------------- | ------------- |
+| Asmodeus' lair #2     | river/lava                      | SpliceHack    |
+| Baalzebub's lair #2   | marsh                           | SpliceHack    |
+| Baalzebub's lair #3   | variation on #1 with lava       | Un/Nerf       |
+| Bridge of Khazad-Dum  | directly after the VotD         | UnNetHack     |
+| Orcus Town #2         | river runs through              | Lethe patch   |
+| Castle #2             | lake surrounds castle           | Un/Evil       |
+| Castle #3             | lava river                      | Un/Evil       |
+| Demogorgon's lair #1  | enclosed in hell-maze           | SLASHEM       |
+| Demogorgon's lair #2  | two towers                      | Lethe patch   |
+| Demogorgon's lair #3  | fortress with river             | Grunt/Evil    |
+| Dispater's lair #1    | enclosed in hell-maze           | SLASHEM       |
+| Dispater's lair #2    | the city of dis                 | Lethe patch   |
+| Dispater's lair #3    | fortress with river             | Grunt         |
+| Geryon's lair #1      | enclosed in hell-maze           | SLASHEM       |
+| Geryon's lair #2      | the isle of erytheia            | Grunt         |
+| Mephistopholes' lair  | fortress with river             | SpliceHack    |
+| Moloch's Sanctum #2   | lava islands                    | Un/Evil       |
+| The Lost Tomb #1      | tomb.des from SLASH'EM (**)     | SLASH'EM      |
+| The Lost Tomb #2      | demogorgon's lair from xnh (**) | xNetHack      |
+| Mine end #4           | the gnomish sewer               | xNetHack      |
+| Mine end #5           | orc temple                      | EvilHack      |
+| Mine end #6           | gnome king's apiary             | SlashTHEM     |
+| Mine end #7           | boulder bonanza                 | SlashTHEM     |
+| Minetown #8           | zoo town                        | Spork/Evil    |
+| Minetown #9           | lavender town                   | SpliceHack    |
+| Minetown #10          | mini-castle town                | SlashTHEM     |
+| Minetown #11          | creek town                      | SlashTHEM     |
+| Minetown #12          | forge town                      | NerfHack      |
+| Moloch's Temple #1    |                                 | SLASHEM       |
+| Moloch's Temple #2    | variation on #1                 | NerfHack      |
+| Sokoban 1-1           | 1-4 from SLASHEM                | SLASH'EM      |
+| Sokoban 1-2           | 1-3 from SLASHEM                | SLASH'EM      |
+| Sokoban 1-3           | Dragon_of_Bactria               | NetHack Fourk |
+| Sokoban 1-4           | 1-7 from Fourk                  | NetHack Fourk |
+| Sokoban 1-5           | 1-4 from Fourk                  | NetHack Fourk |
+| Sokoban 1-6           | 1-5 from Fourk                  | NetHack Fourk |
+| Sokoban 1-7           | 1-6 from Fourk                  | NetHack Fourk |
+| Sokoban 1-8           |                                 | GruntHack     |
+| Sokoban 1-9           |                                 | GruntHack     |
+| Sokoban 2-1           | 2-5 from SLASHEM                | SLASH'EM      |
+| Sokoban 2-2           | 2-7 from SLASHEM                | SLASH'EM      |
+| Sokoban 2-3           | 2-3 from SLASHEM                | SLASH'EM      |
+| Sokoban 2-4           | 2-4 from SLASHEM                | SLASH'EM      |
+| Sokoban 2-5           | 2-6 from SLASHEM                | SLASH'EM      |
+| Sokoban 2-6           | 3-9 from Fourk                  | NetHack Fourk |
+| Sokoban 3-1           | 3-5 from SLASHEM                | SLASH'EM      |
+| Sokoban 3-2           | 3-3 from SLASHEM                | SLASH'EM      |
+| Sokoban 3-3           | 3-4 from SLASHEM                | SLASH'EM      |
+| Sokoban 3-4           | 3-6 from SLASHEM                | SLASH'EM      |
+| Sokoban 3-5           | 3-7 from SLASHEM                | SLASH'EM      |
+| Sokoban 3-6           |                                 | GruntHack     |
+| Sokoban 3-7           |                                 | GruntHack     |
+| Sokoban 3-8           | 2-8 from Fourk                  |               |
+| Sokoban 4-1           | 4-3 from SLASHEM                | SLASH'EM      |
+| Sokoban 4-2           | 4-4 from SLASHEM                | SLASH'EM      |
+| Sokoban 4-3           | 4-5 from SLASHEM                | SLASH'EM      |
+| Sokoban 4-4           | 3-6 from SLASHEM                | SLASH'EM      |
+| Sokoban 4-5           | 3-7 from SLASHEM                | SLASH'EM      |
+| Sokoban 4-6           | 3-15 from UnNetHack             | UnNetHack     |
+| Sokoban 4-7           |                                 | GruntHack     |
+| Sokoban 4-8           | 3-2 from NetHack Fourk          | NetHack Fourk |
+| Sokoban 5-1           | 4-3                             | SLASH'EM      |
+| Sokoban 5-2           | 4-4                             | SLASH'EM      |
+| Sokoban 5-3           | 4-5                             | SLASH'EM      |
+| Sokoban 5-4           | 3-4                             | UnNetHack     |
+| Sokoban 5-5           | 3-5                             | UnNetHack     |
+| Sokoban 5-6           | 4-3                             | NetHack Fourk |
+| Sokoban 5-7           | 4-7                             | NetHack Fourk |
+| Sokoban 5-8           | 4-10                            | NetHack Fourk |
+| Valley of the Dead #2 | river runs through              | Un/Lethe      |
+| Yeenoghu's lair #1    | enclosed in hell-maze           | SLASHEM       |
+| Yeenoghu's lair #2    | fortress in marsh               | Lethe patch   |
+| Yeenoghu's lair #3    | fortress with river             | Grunt         |
+| Oracle #2             |                                 | xNetHack      |
+| Oracle #3             |                                 | xNetHack      |
+| wizard1               | wizard1 from Evil (**)          | EvilHack      |
+| wizard2               | soko1-1 or soko1-2 (**)         | NetHack       |
+| wizard3               | wizard1 from xnh                | xNetHack      |
+| wizard4               | wizard2 from xnh (**)           | xNetHack      |
+| wizard5               | wizard2 from Evil (**)          | EvilHack      |
+| wizard6               | wizard3 from xnh                | xNetHack      |
+| wizard7               | wizard3 from Evil (**)          | EvilHack      |
+| wizard8               | palace_e from UnNetHack (**)    | UnNetHack     |
+| tower1                | tower1 from EvilHack (**)       | EvilHack      |
+| tower2                | tower2 from EvilHack (**)       | EvilHack      |
+| tower3                | tower3 from EvilHack (**)       | EvilHack      |
+
+(**) - With light-to-extensive modifications from it's original version
 
 ### New themed rooms
 * Ported kitchen themed room from Splice/xnh
@@ -2981,11 +2993,12 @@ New themed rooms introduced in NerfHack:
 
 ### Enhanced Gehennom
 
-* The fake wizard levels have been removed.
+* The second fake wizard level has been removed.
 * The portal to the Wizard's Tower can appear in Gehennom levels 10-17.
-* The wizard's tower levels have been moved out of Gehennom and extracted to their own branch (xnh/Evil)
+* The wizard's tower has been extracted to its own branch (xnh/Evil)
 * Marked the Asmodeus levels as cold and added cold traps
 * Juiblex's lair gets some puddles and a shoggoth
+* Random item generation has roughly cut in half for Gehennom fill levels.
 * The structure of Gehennom now follows the SLASH'EM template.
   * Gehennom spans 19-21 levels
   * All demon lairs are guaranteed to appear with their demons
@@ -3005,7 +3018,7 @@ New themed rooms introduced in NerfHack:
 
 ### The Wizard's Tower Overhaul
 * NerfHack borrows from other great variants to create the biggest and baddest tower that Rodney could ever reside in.
-* The Wizard's Tower has been expanded to a staggering 8 levels high.
+* The Wizard's Tower has been expanded to a staggering 8 levels high to provide a highly challenging penultimate test.
 * Level 8: wizard1 from EvilHack and where the Wizard of Yendor awaits.
 * Level 7: Return of Sokoban: it's an evil version of Sokoban from vanilla NetHack - the Wizard is certainly cruel isn't he... and no prizes either :(.
 * Level 6: wizard1 from xNetHack - fight your way through a honeycomb of randomly generated chambers.
