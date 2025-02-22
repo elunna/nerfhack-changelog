@@ -366,7 +366,7 @@ Exceptions:
 * Rings of shock resistance protect fragile items in your inventory from physical damage when worn.
 
 #### Bones files trimming
-* When bones files are left, a random selection of items are subject to shuddering or polymorph. Do not depend on the dumplog for accurate results!
+* When bones files are left, a random selection of items are subject to shuddering.
 * Items that grant wishes will be converted to non-magical equivalents.
 * Magic markers are converted to athames.
 * Quest artifacts cannot be left in bones, they revert to ordinary objects.
@@ -475,6 +475,7 @@ Exceptions:
 * dwarvish and elvish mithril coats only grant MC1
 * increased weight of dragon scales to 80 aum
 * mummy wrappings always generate rotted
+* mummy wrappings grant 0MC
 * cursed armor weighs more when worn.
 * **the protective effect of hard helmets** has been reduced when heavy objects fall on the hero's head.
 * only elves can safely enchant elvish armor over +3. Other races will get a warning vibration once their armor passes +3.
@@ -998,6 +999,7 @@ Other effects:
 * Staff of Aesculapius can cure withering (xnh/Evil)
 * Sting actually cuts through webs when exiting a web
 * Trollsbane grants regeneration whilst wielded (many variants)
+* Trollsbane only needs to be carried to suppress troll revival
 * Tsurugi of Muramasa has a 10% chance of bisection (SLASHEM)
 * Tsurugi of Muramasa also confers very fast speed when wielded (Fourk)
 * Vorpal Blade gets a 10% chance of beheading (SLASHEM)
@@ -1337,6 +1339,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * weresnakes can summon snakes, pit vipers, and asphynxes
 * weresnakes are now red
 * monstrous spiders were buffed from level 8 to 12, difficulty 10 to 15, have berserk, infravision, infravisible, and MR 20
+* worms that walk get an additional hug/grapple attack
 
 
 **New hulk changes**:
@@ -1892,6 +1895,9 @@ Curing rabid:
 
 **cure self**
 * Spellcasters can use this to cure illness, blindness, withering, and rabid statuses.
+
+**teleport**
+* High level spellcasters are able to warp to the hero when further than 7 square away.
 
 
 ### Clerical Spells
@@ -3421,7 +3427,7 @@ This rewards leveling up and slows down the power grab that some characters migh
 * Ported from EvilHack
 * Instead of binary resistances where the player either has it or doesn't, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics.
-* Percentage gained is based on the weight of the corpse; minimum being 5% and maximum at 50% (capped at 100%).
+* Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
