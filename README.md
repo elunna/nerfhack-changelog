@@ -1717,6 +1717,7 @@ Inspired by EvilHack, Medusa gets an overall difficulty boost:
 * Cancelled monsters can't explode (in death or as an attack).
 * Displacing monsters (like the displacer beast) cannot displace you if helpless or trapped.
 * Cancelled displacers are incapable of displacement.
+* Force-fighting displaced monster can also result in displacement.
 * Because see invisible cannot be gained intrinsically - peaceful monsters will not make themselves invisible by means of potions, wands, or spells.
 * Monsters can hide under other dungeon furniture (xnh)
 * mplayers can steal the amulet from the player (EvilHack) - however they will not attempt to sacrifice it.
@@ -1985,9 +1986,10 @@ Curing rabid:
 * They start the game with more flint and no rocks (xnh)
 * Cavemen can lash flint to arrows, making them do slightly more damage (Spork/THEM). When arrows are flinted, their enchantment is also revealed.
 * Cavepersons can get an alignment boost via cannibalism (Spork)
-* Cavepersons' gods sometimes don't respond to prayer. There is a 10% chance of being ignored (Spork/THEM)
+* Cavepersons' gods sometimes don't respond to prayer. If you have abused your alignment, there is a 10% chance of being ignored (Spork/THEM/Evil)
 * Unlike other roles, cavemen do not start out knowing scrolls of identify.
-* Cave dwellers start with really low intelligence.
+* Cave dwellers start with really low intelligence. As a result, they are incapable of reading scrolls, spellbooks, or other legible items until reaching 6 INT.
+* Instead of the standard crowning gift, cavemen always receive Giantslayer (Evil)
 
 **Caveman quest updates:**
 * The cavewoman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (SlashTHEM)
