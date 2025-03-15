@@ -207,10 +207,12 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 ## QUALITY OF LIFE FEATURES
 
 * Chaotics do not get alignment penalties for angering, attacking, or killing peacefuls (xnh)
-* Running and traveling no longer pushes boulders (xnh)
-* When traveling, engravings on graves will not be stopped on or considered 'interesting'
+* Running and travelling no longer pushes boulders (xnh)
+* When travelling, engravings on graves will not be stopped on or considered 'interesting'
+* When travelling, the player will avoid ice and puddles.
 * Stop occupations when the hero is caught in a poison gas cloud
 * Allow lighting only 1 candle in a stack (GnollHack).
+* Inform player when casting healing at monsters with full HP.
 
 ### Streamlined Identification Features
 A general design philosophy of NerfHack is to automatically identify items that are unambiguous from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -363,7 +365,7 @@ Exceptions:
 * Knockback attacks can also shatter fragile items in inventories.
 * Fragile items can be fixed to avoid destruction (note that although mirrors can be tempered, they are still subject to shattering when reflecting rays)
 * Wands of striking and rings of shock resistance are immune from impact damage.
-* Rings of shock resistance protect fragile items in your inventory from physical damage when worn.
+* Extrinsic shock resistance protects fragile items in your inventory from physical damage when worn.
 
 #### Bones files trimming
 * When bones files are left, a random selection of items are subject to shuddering.
@@ -780,7 +782,7 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 | anti-magic shield             | armor     | 75   | 25  | NerfHack   | 1AC/2MC, provides MR, counters spells     |
 | rogue's gloves                | armor     | 50   | 10  | SpliceHack | Confers searching, fingerless (!)         |
 | bronze gauntlets              | armor     | 30   | 20  | NerfHack   | copper, 2AC                               |
-| gauntlets of swimming         | armor     | 50   | 10  | SLASHEM    | grants swimming                           |
+| gauntlets of swimming         | armor     | 50   | 10  | SLASHEM    | grants swimming, protects items from water |
 | gauntlets of force            | armor     | 50   | 10  | NerfHack   | stuns monsters, steadfastness             |
 | gnomish boots                 | armor     | 16   | 10  | SlashTHEM  | 1AC                                       |
 | orcish boots                  | armor     | 16   | 30  | EvilHack   | 1AC (+ 1AC for orcs)                      |
@@ -829,6 +831,7 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 | pineapple                     | food      | 9    | 15  | SpliceHack | can be thrown for extra damage            |
 | mistletoe                     | food      | 10   | 1   | EvilHack   | can cure hallucination                    |
 | pinch of catnip               | food      | 7    | 1   | SpliceHack | can tame felines                          |
+| magic candle                  | tool      | 500  | 2   | SLASH'EM   | permanent light source                    |
 
 * Potions of reflection are immune to fire and cold damage.
 * Cursed potions of reflection aggravate monster (similar to cursed potions of invisibility)
@@ -1033,7 +1036,7 @@ Other effects:
 | Glamdring             | chaotic    | long sword            | EvilHack   | +d8 to-hit, +d10 dmg                   | bane vs orcs; confers shock res and protection when worn                                                       |
 | Hellfire              | chaotic    | crossbow              | SLASHEM    | +d5 to-hit, +d7 dmg + explosion        | confers fire res when wielded                                                                                  |
 | Holographic Void Lily | chaotic(!) | credit card           | SpliceHack | n/a                                    | energy regen, 1/2 spell dmg, and reflection when carried. #invoke for card drop boost                          |
-| Load Brand            | unaligned  | heavy sword           | NerfHack   | +d5 to-hit, double damage              | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
+| Load Brand            | unaligned  | heavy sword           | NerfHack   | -9 to-hit, double damage              | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
 | Mayhem                | chaotic    | stomping boots        | NerfHack   | n/a                                    | confers conflict and warning against undead when worn.                                                         |
 | Mirrorbright          | neutral    | shield of reflection  | SLASHEM    | n/a                                    | confers hallucination res when worn; light source; does not impede spellcasting.                               |
 | Mortality Dial        | lawful     | morning star          | SpliceHack | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
@@ -1068,10 +1071,10 @@ Misc changes:
 
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
-* Deals 3d10 vs small monsters and 3d16 vs large monsters
+* Deals 3d6 vs small monsters and 3d8 vs large monsters
 * Double damage
-* It also confers half physical damage, steadfastness, and MC1 protection.
-* As a bonus, it also absorbs curses like Magicbane
+* It also confers half physical damage, steadfastness, and MC1 protection
+* Similar to Magicbane, it also absorbs curses
 
 ### The Lenses of Truth
 * Confers see invisible and stun resistance when worn.
@@ -1277,7 +1280,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * deep/er/est ones all get regeneration, faster speed in water, are non-tameable, and not infravisible anymore.
 * deeper ones resist sleep and shock.
 * deepest ones resist sleep, shock, acid, and magic. They also have 100 MR.
-* deepest ones get an additional hug attack.
+* deeper and deepest ones get an additional hug attack.
 * deeper ones and deepest ones take extra damage from blessed weapons.
 * elven clerics were known as elven wizards in EvilHack
 * ghoul mages are now clairvoyance
@@ -1316,6 +1319,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * pack rats can generate randomly in the dungeon
 * phase spiders may appear in small groups
 * phase spiders can't move diagonally
+* phase spiders have shock resistance
 * revenants can now shoot fireballs (inspired by DOOM 2)
 * revenants have fire resistance.
 * shadows have higher level, better AC, stronger attacks, are unsolid, resist shock, and can now stalk the player
@@ -1401,7 +1405,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * all footrice have more potent hissing attacks - the stoning process is twice as likely
 * foocubi gain a level when draining one from the player (xnh)
 * gas spores and volatile mushrooms start with exactly 1 HP
-* all ghost class monsters get acid resistance.
+* genetic engineers grudge all other monsters
+* all ghost class monsters get acid resistance
 * giant mimics get an engulf-digest attack
 * giant spiders can ensnare monsters in webs (Evil)
 * gnome lords and kings always get gnomish suits
@@ -1610,7 +1615,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Croesus can move other monsters out of his way (Evil)
 * Ixoth can berserk. Speed raised to 20, AC raised from -1 to -4, stronger claw attacks.
 * Ixoth gets poison resistance (Evil)
-* Lord Surtur can berserk
+* Lord Surtur can berserk, jump, and cast mage spells.
+* Lord
 * Cyclops can berserk
 * The Master Assassin is poison resistant (xnh)
 * The Master Assassin is stronger, faster, sees invisible, resists sleep, and gets one additional attack.
@@ -2295,8 +2301,6 @@ Other notes:
 | 15  | Fast                                             |
 | 15  | Can ascertain razor card and all scroll/card BUC |
 
-* Cartomancers also start with 1 point of bonus Luck.
-
 **Skill adjustments for cartomancers:**
 
 | skill              | SpliceHack | ->  | NerfHack   |
@@ -2916,9 +2920,8 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 | wizard3               | wizard1 from xnh                | xNetHack      |
 | wizard4               | wizard2 from xnh (**)           | xNetHack      |
 | wizard5               | wizard2 from Evil (**)          | EvilHack      |
-| wizard6               | wizard3 from xnh                | xNetHack      |
-| wizard7               | wizard3 from Evil (**)          | EvilHack      |
-| wizard8               | palace_e from UnNetHack (**)    | UnNetHack     |
+| wizard6               | wizard3 from Evil (**)          | EvilHack      |
+| wizard7               | palace_e from UnNetHack (**)    | UnNetHack     |
 | tower1                | tower1 from EvilHack (**)       | EvilHack      |
 | tower2                | tower2 from EvilHack (**)       | EvilHack      |
 | tower3                | tower3 from EvilHack (**)       | EvilHack      |
@@ -2969,7 +2972,7 @@ New themed rooms introduced in NerfHack:
 * Improved the chances of some of the minetown shops appearing.
 
 **Lighting shops:**
-* Magic lamps are one notch rarer - down to 11.3% per game now overall (Spork)
+* Magic lamps will never appear in lighting shops. Instead, magic candles take their place.
 
 **New shop: Junk Shop**
 * Ported from SpliceHack
@@ -3026,13 +3029,12 @@ New themed rooms introduced in NerfHack:
 
 ### The Wizard's Tower Overhaul
 * NerfHack borrows from other great variants to create the biggest and baddest tower that Rodney could ever reside in.
-* The Wizard's Tower has been expanded to a staggering 8 levels high to provide a highly challenging penultimate test.
-* Level 8: wizard1 from EvilHack and where the Wizard of Yendor awaits.
-* Level 7: Return of Sokoban: it's an evil version of Sokoban from vanilla NetHack - the Wizard is certainly cruel isn't he... and no prizes either :(.
-* Level 6: wizard1 from xNetHack - fight your way through a honeycomb of randomly generated chambers.
-* Level 5: wizard2 from xNetHack - the teleportation maze, now scaled back a bit.
-* Level 4: wizard2 from EvilHack - now featuring a nest of nasty petrifying monsters.
-* Level 3: wizard3 from xNetHack - a moving chamber puzzle.
+* The Wizard's Tower has been expanded to a staggering 7 levels high to provide a highly challenging penultimate test.
+* Level 7: wizard1 from EvilHack and where the Wizard of Yendor awaits.
+* Level 6: Return of Sokoban: it's an evil version of Sokoban from vanilla NetHack - the Wizard is certainly cruel isn't he... and no prizes either :(.
+* Level 5: wizard1 from xNetHack - fight your way through a honeycomb of randomly generated chambers.
+* Level 4: wizard2 from xNetHack - the teleportation maze, now scaled back a bit.
+* Level 3: wizard2 from EvilHack - now featuring a nest of nasty petrifying monsters.
 * Level 2: wizard3 from EvilHack - can you withstand a storm of fire, ice, and explosive migos?
 * Level 1: This is the entry to the wizard's tower. It was previously the bottom level of UnNetHack's Sheol branch and features the Executioner who will kindly Cleave (I mean greet) you.
 
@@ -3040,6 +3042,7 @@ New themed rooms introduced in NerfHack:
 * This ports the updated and enlarged levels for Vlad's from EvilHack (except for the caverns which will come later).
 * Some flair was added to the levels to further torture players.
 * To make this a strategic nightmare, lots of iron bars and small niches were added that act as prisons. In these prisons are placed the most annoying gazing and ranged monsters to distract the player while vampires flank them from all sides.
+* All levels of Vlad's Tower are fully lit.
 
 ### Sokoban
 
