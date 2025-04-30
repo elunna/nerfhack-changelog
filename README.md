@@ -232,6 +232,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xNetHack)
 * Auto-ID scrolls of scare monster when they crumble from being picked up (UnNetHack)
+* Auto-ID scrolls of scare monster when read
 * Auto-ID scrolls of confuse monster when read
 * Auto-ID scrolls of enchant armor when they erodeproof armor or make dragon scaled armor
 * Auto-ID scrolls of food detection if they have an obvious effect
@@ -358,7 +359,7 @@ Exceptions:
 * Water damage may disintegrate scrolls; may occur when dipping (Dynahack)
 * Disintegration rays can vaporize boulders
 * Items can be erodeproofed via confused enchant weapon scrolls or by dipping into non-diluted potions of reflection.
-* Item erosion can be repaired by dipping into a non-diluted potion of restore ability (xNetHack)
+* Item erosion and negative enchantment can be repaired by dipping into a non-diluted potion of restore ability; the read counters on spellbooks can also be refreshed (xNetHack)
 
 #### Fragile items are more vulnerable
 * Beams of force bolt and striking can break fragile items in inventory.
@@ -1072,6 +1073,7 @@ Misc changes:
 ### Load Brand
 * This heavy sword was forged from load stones and weighs in at a hefty 500aum!
 * Deals 3d6 vs small monsters and 3d8 vs large monsters
+* -9 to-hit penalty
 * Double damage
 * It also confers half physical damage, steadfastness, and MC1 protection
 * Similar to Magicbane, it also absorbs curses
@@ -1478,6 +1480,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * rock trolls are stoning resistant (xNetHack)
 * shriekers can shriek from any distance whenever they see you.
 * all spheres explode on death (unless cancelled)
+* all spheres have speed 15 and 0 AC.
 * skeleton and shade slow attacks are ineffective vs undead
 * soldiers get half as many C-and-K-rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -1988,8 +1991,8 @@ Curing rabid:
 * Cavemen start with a random set of dragon scales.
 * When reading scrolls of identify, cavemen will never be able to identify all items, they will be instead identify 1 instead.
 * Cavemen have also been gifted with more skills in rudimentary tools like rocks and flint:
-* They start the game with more flint and no rocks (xNetHack)
-* Cavemen can lash flint to arrows, making them do slightly more damage (Sporkhack/THEM). When arrows are flinted, their enchantment is also revealed.
+  * They start the game with more flint and no rocks (xNetHack)
+  * Cavemen can lash flint to arrows, making them do slightly more damage (Sporkhack/THEM). When arrows are flinted, their enchantment is also revealed.
 * Cavepersons can get an alignment boost via cannibalism (Sporkhack)
 * Cavepersons' gods sometimes don't respond to prayer. If you have abused your alignment, there is a 10% chance of being ignored (Sporkhack/SlashTHEM/EvilHack)
 * Unlike other roles, cavemen do not start out knowing scrolls of identify.
