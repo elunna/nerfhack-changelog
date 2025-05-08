@@ -338,7 +338,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 
 
 * The new Saving Grace feature introduced in 3.7.0 has been disabled.
-* The beginner flag is only set true for tourists. This means that you will usually be able to use-test items more effectively in the very early game.
+* The beginner flag is only set true for tourists. This means that you will usually be able to use-test items more effectively earlier in the game.
 * Invisibility and see invisible cannot be permanently gained intrinsically (xNetHack)
 * Telepathy cannot be permanently gained intrinsically
 * Teleportitis cannot be permanently gained intrinsically.
@@ -370,8 +370,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
 * Tins convey the same percentage from whatever they are made from.
 * You will always get a percentage intrinsic from each corpse eaten.
-* You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding corpse grants a small percentage each of poison, cold, and shock resistance.)
-* Damage/effects dealt felt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
+* You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding glob grants a small percentage each of poison, cold, and shock resistance.)
+* Damage and effects dealt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
 * Gremlins steal (25 + d25)% of your intrinsics
 * Cold traps and ice demons also steal (25 + d25)% of your cold resistance.
 * Enlightenment always shows the partial percentage acquired for intrinsics. If you have an extrinsic source that will be displayed separately.
@@ -379,10 +379,10 @@ A general design philosophy of NerfHack is to automatically identify items that 
 ### Partial Reflection
 * Ported from EvilHack
 * Reflection will deflect most, but not all, of the effects of ray attacks.
-  * Example: You are hit by a cold ray, it reflects off your amulet of reflection, but you don't yet possess cold resistance.
+* Example: You are hit by a cold ray, it reflects off your amulet of reflection, but you don't yet possess cold resistance.
 * If you don't have sleep resistance, but you reflect a sleep ray, you will fall asleep for 1d6 turns (which could be lessened by your current level of sleep resistance).
 * If you reflect disintegration ray, you still take 12d6 damage (subject to your current level of disintegration resistance).
-* If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and half-spell damage, but is impossible to fully prevent.
+* If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and spell damage reduction, but is impossible to fully prevent.
 * Item destruction from elemental effects (like fire or cold) is prevented when rays are reflected.
 * Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to d2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
 * **Medusa's gaze** has no effect on her if reflected back from more than 3 squares away.
@@ -463,21 +463,18 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
 * Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
 
 ### Wishing
-* Wands of wishing and scrolls of wishing do not generate randomly.
-* The wand of wishing in the Castle has been removed. Instead, there are guaranteed scrolls of wishing located at the Castle, Vlad's Tower, The Wizard's Tower, and Moloch's Sanctum.
+**Wands vs scrolls:**
+* Wands of wishing have been replaced by one-use scrolls of wishing. Whenever a WoW would generate, a scroll will instead generate in its place.
+* Scrolls of wishing do not generate randomly.
+* The wand of wishing in the Castle has been replaced by a scroll of wishing.
+* There are now guaranteed scrolls of wishing located at the Castle, Vlad's Tower, The Wizard's Tower, and Moloch's Sanctum.
+
+**Wishing restrictions and effects:**
 * Quest artifacts cannot be wished for (dNetHack)
 * Attempting to wish for quest artifacts doesn't use up a wish
+* Artifact wishes only care about previous **successful** artiwishes.
 * Wishes no longer increase prayer timeout (Dynahack)
-* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. Whenever a player hits the 1 in 13 chance to get a wish and they don't, they lose 1 point of Luck (this roughly translates to a 6% chance of losing luck anytime you sit on a throne). Once the player is granted a wish from a throne, the throne is guaranteed to disappear (from EvilHcack with adjustments).
-* Players have a chance of getting a wish from crowning now (if no intrinsics were granted).
-* Artiwishes only care about previous **successful** artiwishes.
 * Wishing with bad luck causes amnesia.
-* Diluted smoky potions no longer can spawn djinnis
-* The odds for fountain wishes has been inverted: they are more likely *the deeper* you are instead of the closer you are to the dungeon entry.
-
-**There are a few new sources of wishes:**
-* Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
-* If you zap a wand of wonder and trigger the wishing effect (and pass a 1 in 100 roll), you can get a wish. The odds of getting a wish on any given zap are (1/28) * (1/100) for 1 in 2800 per zap.
 
 **The chance of receiving the artifact from a wish is:**
 
@@ -487,6 +484,16 @@ Each level of MC offers a higher minimum that you should expect to maintain. Thi
   * Artifact wish #2: 1 in 2 chance of success (50%)
   * Artifact wish #3: 1 in 3 chance of success (33%)
   * And so on.
+
+**How wishes have been suppressed:**
+* Wishes from thrones are much more rare. The chance of getting a wish from sitting on a throne is now about 1.5%. Whenever a player hits the 1 in 13 chance to get a wish and they don't, they lose 1 point of Luck (this roughly translates to a 6% chance of losing luck anytime you sit on a throne). Once the player is granted a wish from a throne, the throne is guaranteed to disappear (from EvilHack with adjustments).
+* Diluted smoky potions no longer can spawn djinnis
+* The odds for fountain wishes has been inverted: they are more likely *the deeper* you are instead of the closer you are to the dungeon entry.
+* The lighting shops in Minetown no longer can offer magic lamps, instead they offer magic candles (which are not capable of granting wishes)
+
+**There are a few new sources of wishes:**
+* Using the Deck of Fate can result in a wish if you draw The World card. The deck is then used up.
+* If you zap a wand of wonder and trigger the wishing effect (and pass a 1 in 100 roll), you can get a wish. The odds of getting a wish on any given zap are (1/28) * (1/100) for 1 in 2800 per zap.
 
 ### Genocide has been nerfed and renamed to Exile
 * A renaming was in order because genocide was heavily nerfed and functions differently from vanilla NetHack.
