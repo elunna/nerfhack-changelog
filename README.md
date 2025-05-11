@@ -138,8 +138,10 @@
     - [Racial item preferences](#racial-item-preferences)
   - [NEW RACES](#new-races)
     - [Dhampir](#dhampir)
+      - [NerfHack introduces smarter feeding to regulate vampire bite mechanics:](#nerfhack-introduces-smarter-feeding-to-regulate-vampire-bite-mechanics)
       - [Dhampir's resistances and abilities](#dhampirs-resistances-and-abilities)
     - [Grung](#grung)
+      - [Grung's resistances and abilities](#grungs-resistances-and-abilities)
       - [Grung Hydration Mechanics](#grung-hydration-mechanics)
   - [SPELLCASTING CHANGES](#spellcasting-changes)
     - [Spell memory](#spell-memory)
@@ -219,6 +221,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Crysknives are never auto-quivered
 * Launchers don't count as weapons for the 'hit with a wielded weapon' conduct
 * Give enchanting vibrate warning for all weapons and armor when using scrolls of enchant weapon or armor (Dynahack)
+* The spellcasting skill bonus no longer applies after you can advance the spell school past basic.
 
 #### Safer bags of holding:
 The following safeguards were added to protect players from exploding bags:
@@ -721,7 +724,6 @@ This chart shows the number of successful uses of a skill required to reach each
 * Riding skill is exercised more quickly, closer to vanilla (UnNetHack)
 * Skill gain for spells is faster than skill gain for weapons (UnNetHack)
 * Shield skill gains are also quadrupled to keep pace with the increased skill requirements.
-* The spellcasting skill bonus no longer applies after you can advance the spell school past basic.
 * Training skill in pick-axe affects how fast you can dig (EvilHack)
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
@@ -959,7 +961,7 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * crystal plate mail now weighs 200, is gemstone, resists destruction, but only grants 5AC
 * bronze plate mail now grants 7AC
 * leather armor and studded leather armor don't grant any MC but weigh much less
-* leather cloaks grant 3AC and 0MC
+* leather cloaks grant 1AC and 0MC
 
 #### New armor type: bracers
 
@@ -2479,6 +2481,7 @@ Curing rabid:
 * They cannot receive spells from their deity (EvilHack)
 * They have an 80% chance of failing to read any spellbook
 * Their special spell has been removed (EvilHack)
+* They cannot read spellbooks until their INT is 6 or greater (this is a general nerf for all roles, but cavemen in particular start with 3-4 INT)
 
 **Skill adjustments for cave dwellers:**
 
@@ -2676,8 +2679,7 @@ Curing rabid:
 | shield             | n/a        | ->  | basic    |
 
 ### Valkyrie
-* Valkyries can start with a war hammer/cloak setup instead of spear/shield (SpliceHack)
-* The valkyrie's starting spear is always a standard spear, not a racial equivalent
+* Valkyries can also start with a + 1 war hammer and cloak instead of spear and shield (SpliceHack)
 * Valkyries can pacify and tame winter wolves/cubs with food as if they were a domestic animal.
 * Note: because of a change with war hammers, Mjollnir is now a stronger two-handed weapon
 * More fire traps on quest
@@ -2717,7 +2719,17 @@ Curing rabid:
 
 The **Undead Slayer** has been implemented as a new role, distinct from the Priest. This rework includes a fresh quest storyline in which the player must reclaim *The Argent Cross* from *The First Evil*. Custom quest levels include the desecrated monastery, haunted catacombs, and The Abyssal Vaults. Unlike the divine spellcasting Priest, the Undead Slayer is a dedicated warrior whose sole mission is to purge the undead.
 
-This version of the Undead Slayer blends old and new mechanics, making it a more challenging role early on but highly rewarding in the endgame. Undead Slayers begin with **drain resistance, sickness resistance, and warning against undead.** They start with **slow movement (speed 10)** as they did in SLASH'EM, but they gain to-hit and damage bonuses against undead and demons. One unique trait is their ability to **completely obliterate zombies, preventing them from leaving corpses.** However, they receive significant alignment and Luck penalties for consuming wraith corpses. Their special spell is *Protection*. They can be of any alignment and may choose from **human, gnome, elf, or dhampir** as their starting race.
+This version of the Undead Slayer blends old and new mechanics, making it a more challenging role early on but highly rewarding in the endgame. Undead Slayers begin with **drain resistance, sickness resistance, and warning against undead.** They start with **slow movement (speed 10)** as they did in SLASH'EM, but they gain to-hit and damage bonuses against undead and demons. One unique trait is their ability to **completely obliterate zombies, preventing them from leaving corpses.** However, they receive significant alignment and Luck penalties for consuming wraith corpses. Their special spell is *protection*. They can be of any alignment and may choose from **human, gnome, elf, or dhampir** as their starting race.
+
+**Intrinsics:**
+
+| XL  | Intrinsic              |
+| --- | ---------------------- |
+| 1   | Slow (speed 10)        |
+| 1   | Drain resistance       |
+| 1   | Sickness resistance    |
+| 1   | Warning against undead |
+
 
 Undead Slayers also start with a **revenant pup**, a new undead canine with numerous resistances and the ability to phase through walls. These creatures do not eat, so they are tamed via `#chat` rather than food. Chatting with your pet also increases apport. If you take are of your pup it will grow into the powerful revenant hound, a beast comparable in strength to the hell hound. In terms of weapon skills, Undead Slayers can now reach **skilled in riding.**
 
@@ -2729,7 +2741,7 @@ The **new quest artifact** is *The Argent Cross*, an **artifact amulet of reflec
 
 The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and the *Bell of Opening*. This is a **high-level evil shade** with an arsenal of powerful abilities. It can cast mage spells and possesses **nasty touch attacks** that can paralyze, slow, freeze, and shock its foes. Additionally, it is highly resistant to various forms of damage, including cold, disintegration, stoning, sleep, poison, acid, and electricity.
 
-Other notes:
+**Other notes:**
 * The HP growth for undead slayers has been buffed from their SLASH'EM version to make them more durable.
 * Undead slayers take an alignment penalty for drinking vampire blood.
 * **Undead slayers' max skills vary dynamically based on their starting kits.**
@@ -2739,6 +2751,45 @@ Other notes:
   * Starting the whip unlocks expert skill in whip and master skill in martial arts
   * Starting the silver spear unlocks expert skill in spear
 * If you start with the crossbow, you start with more bolts.
+
+
+**Skill adjustments for undead slayers (from SLASH'EM):**
+
+| skill              | SLASH'EM     | ->  | NerfHack   |
+| ------------------ | ------------ | --- | ---------- |
+| boomerang          | basic        | ->  | restricted |
+| bow                | basic        | ->  | restricted |
+| club               | skilled      | ->  | restricted |
+| crossbow           | expert       | ->  | basic**    |
+| dagger             | expert       | ->  | expert     |
+| dart               | basic        | ->  | restricted |
+| firearm            | expert       | ->  | n/a        |
+| flail              | skilled      | ->  | expert     |
+| hammer             | skilled      | ->  | skilled    |
+| javelin            | skilled      | ->  | n/a        |
+| long sword         | skilled      | ->  | basic**    |
+| mace               | skilled      | ->  | skilled    |
+| morning star       | skilled      | ->  | expert     |
+| paddle             | skilled      | ->  | n/a        |
+| polearms           | skilled      | ->  | skilled    |
+| quarterstaff       | skilled      | ->  | restricted |
+| short sword        | skilled      | ->  | basic**    |
+| shuriken           | basic        | ->  | restricted |
+| sling              | basic        | ->  | restricted |
+| spear              | expert       | ->  | basic*     |
+| unicorn horn       | skilled      | ->  | skilled    |
+| whip               | expert       | ->  | basic**    |
+| body spell         | skilled      | ->  | n/a        |
+| cleric spell       | n/a          | ->  | basic      |
+| escape spell       | n/a          | ->  | basic      |
+| matter spell       | basic        | ->  | skilled    |
+| protection spell   | skilled      | ->  | n/a        |
+| bare handed combat | grand master | ->  | skilled**  |
+| shield             | n/a          | ->  | skilled    |
+| riding             | restricted   | ->  | skilled    |
+
+** These skills have their max capability increased if the Undead Slayer starts with a related item in their inventory.
+
 
 ### Cartomancer
 * The cartomancer is a unique role ported over from SpliceHack. Cartomancers are spellcasters with a focus on using cards and summoning temporary minions to do their bidding. Many parts of the role are inspired by or pay homage to various trading card games. The cartomancer has undergone some dramatic transformations from its original implementation in SpliceHack, becoming a more focused and surprising role to play.
@@ -2765,7 +2816,7 @@ Other notes:
 | 15  | Fast                                             |
 | 15  | Can ascertain razor card and all scroll/card BUC |
 
-**Skill adjustments for cartomancers:**
+**Skill adjustments for cartomancers (from SpliceHack):**
 
 | skill              | SpliceHack | ->  | NerfHack   |
 | ------------------ | ---------- | --- | ---------- |
@@ -3022,7 +3073,9 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 
 ### Racial item preferences
 
-* Orcs get a -1AC bonus for each piece of orcish equipment they were.
+* Dwarves, elves, orcs, and gnomes get a -1AC bonus for each piece of racially aligned equipment they wear (Evil/THEM).
+* While wielding a racially aligned weapon, you get a +1 to-hit bonus (ie: a dwarf wielding a dwarvish spear).
+* Wielding a racially aligned off-hand weapon also adds a to-hit bonus that stacks.
 
 * Monsters of certain races will usually prefer their own equipment and find other racial equipment awkward or uncomfortable to use.
   * Elves hate dwarvish, gnomish, and orcish objects
@@ -3032,9 +3085,9 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
   * Humans/vampires hate gnomish objects (too small) - but otherwise they can use all other racial equipment
 
 The effects of wearing armor or wielding weapons you hate:
-* +2AC penalty for each piece
+* +3AC penalty for each piece
 * -d5 to-hit penalty for each piece
-* To make the mechanic obvious, you receive an explicit message when wearing or wielding any hated object.
+* You receive an explicit message when wearing or wielding any hated object.
 * You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
 * When throwing items your race dislikes, they have a 1 in 7 chance of slipping - same as a cursed or greased projectile.
 
@@ -3052,21 +3105,21 @@ For instance, their **immunity to withering** made mummies and priests trivial t
 
 **A Balanced Alternative: The Dhampir**
 
-To address these issues, a **lesser type of vampire—the Dhampir (or half-vampire)**—was introduced. This new race retains some of the vampire's strengths but is far more balanced, fitting alongside other vanilla races. The Dhampir preserves the appeal of playing as a vampire while maintaining the integrity of the game's mechanics and difficulty.
+To address these issues, a **lesser type of vampire—the Dhampir (or demi-vampire)**—was introduced. This new race retains some of the vampire's strengths but is far more balanced, fitting alongside other vanilla races. The Dhampir preserves the appeal of playing as a vampire while maintaining the integrity of NerfHack's mechanics and difficulty.
 
-Dhampirs start with **resistance to draining and death magic**, and being **breathless**, they are immune to gas, spores, choking, and drowning. They also possess **lycanthropy resistance and infravision**. However, **all partial intrinsics are capped at 50%**, even when granted through crowning, ensuring they rely more on extrinsic protections.
+Dhampirs start with **resistance to draining and death magic**, and being **breathless**, they are immune to gas, spores, choking, and drowning. They also resist **lycanthropy** and possess **infravision**. However, **all partial intrinsics are capped at 50%**, even when granted through crowning, ensuring they rely more on extrinsic protections.
 
 Dhampirs **excel at climbing** and can easily escape pits. Their standout ability is a **1d6 draining bite**, which **heals HP** when feeding on blood — replacing the vampire's intrinsic regeneration. As an added bonus, they can **absorb partial intrinsics from drained monsters**, such as **fire, cold, and sleep resistance**.
 
-To prevent frustrating deaths, **bite attacks are automatically prevented** when facing dangerous foes such as **cockatrices, Medusa, or green slimes** — even if the player is only polymorphed into a vampire. However, **stunned, confused, or hallucinating dhampirs will bite indiscriminately**, making careful gameplay crucial when impaired.
+To prevent frustrating deaths, **bite attacks are automatically prevented** when facing dangerous foes such as **cockatrices, Medusa, or green slimes** — even if the player is only polymorphed into a vampire. However, **stunned, confused, or hallucinating dhampirs and vampires will bite indiscriminately**, making careful gameplay crucial when impaired.
 
 Dhampirs also come with a major weakness — **innate hunger**. This forces players to stay aggressive, attack often, and keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM was never ported due to bugs in the nutrition code and tedious corpse draining mechanics. Instead, SpliceHack's approach was adopted, where **life blood feeding in combat now provides more nutrition**. The tradeoff is that **Dhampirs can no longer eat nor gain benefits from eating corpses**.
 
-NerfHack introduces smarter feeding to regulate vampire bite mechanics:
+#### NerfHack introduces smarter feeding to regulate vampire bite mechanics:
 - Low-level dhampir can only use either a bite attack or weapon attack, but not both in the same round.
 - If the vampire is hungry (or close to hungry), they will always bite and attempt to feed first.
 - Otherwise, there is a 50/50 chance of either biting or attacking with a weapon.
-- The ability to combine a bite with a weapon attack is locked until Level 6.
+- The ability to combine a bite with a weapon attack is locked until Level 10.
 - After **Level 9**, dhampir can perform **both biting and weapon attacks in the same round**.
 - If a player **wants to avoid biting**, they can forcefight using `"F"` to **only use their weapon attack**.
 - Dhampir also feed more efficiently when their victims are confused, incapacitated, or trapped.
@@ -3086,16 +3139,27 @@ NerfHack introduces smarter feeding to regulate vampire bite mechanics:
 
 Although dhampir have drain level resistance, they remain **vulnerable to blood-draining bite attacks** from other vampirics and blood-suckers. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source, such as the Stormbringer, will.
 
-In terms of food, **most rations and fruit juice potions are replaced with blood potions** when playing as a dhampir. This avoids creating junk items and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and **wearing an opera cloak grants a charisma bonus**, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source. Dhampir can use any racial items, except for gnomish items, which are too small for them.
+In terms of food, **most rations and fruit juice potions are replaced with blood potions** when playing as a dhampir. This avoids creating junk items throughout the game and helps the player survive longer. Some vampires receive an opera cloak, though it is rarer than in SLASH'EM, and **wearing an opera cloak grants a charisma bonus**, as in UnNetHack. Potions of blood and vampire blood offer vampires a drinkable food source. Dhampir can use any racial items, except for gnomish items, which are too small for them.
 
-**Silver weapons also generate more frequently **when playing as a dhampir. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Dhampir can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP.
+**Silver weapons also generate more frequently** when playing as a dhampir. After difficulty level 8 kicks in, 10% of all eligible weapons will be converted to silver. Dhampir can handle silver items, but if they come into direct contact (ie: wielding a silver saber without gloves), they will take some damage and be unable to regenerate further HP.
 
 
 ### Grung
 
-**Grung** are a nasty little race of frog-like people known for their toxic skin, sharp teeth, vibrant colors, and lack of long tongues. The featured race here is the green grung. Their **skin naturally secretes poison**, giving them a **passive poison attack**. In combat, they can **poison enemies when striking barehanded**. Although their poison is only about half as strong as a standard poisoned weapon attack, it is still very efficient at wiping out enemies that don't resist poison. Additionally, they can **dip their weapons into their own skin** to coat them with venom for extra lethality.
+**Grung** are a nasty little race of frog-like people known for their toxic skin, sharp teeth, vibrant colors, and lack of long tongues. The featured race here is the green grung. Their **skin naturally secretes poison**, giving them a **passive poison attack**. In combat, they can **poison enemies when striking barehanded**. Although their poison is only about half as strong as a standard poisoned weapon attack, it is still very efficient at wiping out enemies that don't resist poison. Additionally, they can **poison their weapons using their toxic skin** to coat them with venom for extra lethality.
 
 Grung possess several natural abilities. They have **resistance to poison** and are adept at **searching**. Their natural agility allows them to **swim effortlessly**, and as they gain experience, they achieve **jumping ability (XP5)** and **speed (XP7)**.
+
+#### Grung's resistances and abilities
+
+| XL  | Intrinsic         |
+| --- | ----------------- |
+| 1   | Poison resistance |
+| 1   | Searching         |
+| 1   | Swimming          |
+| 5   | Jumping           |
+| 7   | Fast speed        |
+
 
 One of the grung's **biggest concerns is hydration**.
 
@@ -4020,6 +4084,7 @@ Many thanks to all the folks who have helped out with the original Hack'EM and N
 - shadowrider38
 - stenno
 - terrapin
+- tinklebear
 - transcendreamer
 - Umbire
 - VaderFLAG
