@@ -251,11 +251,13 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xNetHack)
 * Auto-ID scrolls of scare monster when they crumble from being picked up (UnNetHack)
-* Auto-ID scrolls of scare monster when read
-* Auto-ID scrolls of confuse monster when read
-* Auto-ID scrolls of enchant armor when they erodeproof armor or make dragon scaled armor
-* Auto-ID scrolls of food detection if they have an obvious effect
-* Auto-ID scrolls of remove curse when read
+* Auto-ID scrolls that have obvious effects when read:
+  * scare monster
+  * confuse monster
+  * food detection
+  * remove curse
+  * flood
+  * scrolls of enchant armor when they erodeproof armor or create dragon scaled armor
 * Auto-ID rings dropped into a sink (UnNetHack)
 * Auto-ID rings of regeneration upon wearing
 * Auto-ID +0 rings of protection (if MC is increased)
@@ -348,7 +350,6 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Teleport control cannot be permanently gained intrinsically.
 * Amnesia can make you forget intrinsic telepathy.
 * Intrinsic disintegration resistance doesn't protect items from disintegration.
-
 * Regeneration only causes additional hunger when it's actively healing your HP.
 * When regeneration is active, it burns twice as much hunger.
 * Free action protects from stoning paralysis.
@@ -365,6 +366,8 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Magic resistance and spell damage reduction only halve magic missile damage instead of preventing it (EvilHack)
 * Half physical damage only provides one-quarter (25%) physical damage reduction.
 * Half spell damage only provides one-quarter (25%) spell damage reduction.
+* Having really low intelligence (under 6 INT) prevents you from reading most things (EvilHack).
+* Low intelligence players also cannot successfully write Elbereth.
 
 ### Partial Intrinsics
 * Ported from EvilHack
@@ -820,7 +823,6 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding.
 * Wet towels provide 100% protection from poison gas when worn.
 * Scrolls, rings, and wands have a variety of new appearances (UnNetHack/Slice)
-* Having really low intelligence (under 6 INT) prevents you from reading most things (EvilHack).
 
 ### Item Erosion and Destruction
 * Objects can be completely destroyed via rusting/rotting/corroding (EvilHack)
@@ -896,6 +898,8 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Lords, princes, and uniques will also appear with much higher enchantment on their weapons.
 * Beware, over-enchanted weapons that vaporize now explode.
 * Your wisdom is abused whenever you over-enchant and destroy weapons.
+* Kicking edged weapons with bare feet or non-metal boots is painful.
+
 
 #### Misc weapon changes
 
@@ -918,14 +922,14 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Wielding and unwielding **curved swords** takes 0 turns.
 * **Morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
-* **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dNetHack)
+* **Crossbows** no longer grant multishot, instead their damage output is multiplied by your skill (dNetHack). Crossbow bolts have been buffed to deal 1d7+1 versus small and 1d8+1 vs large monsters with a +2 to-hit bonus.
 * **Boomerangs** will can pass through enemies on hit.
 * **Polearms** can be used to trigger traps (Fourk).
 * **Polearms and lances** can be pounded when blind (as long as you can sense the target)
 * **Daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 * **Bows and crossbows** are two-handed.
 * Ported the modified version of L's Bullwhip Patch (xNetHack).
-* **All *launchers* can contribute to missile projectile damage **(adapted from SpliceHack); the damage is calculated as d(x/3), where x is the current enchantment of the launcher.
+* **All *launchers* can contribute to missile projectile damage** (adapted from SpliceHack); the damage is calculated as d(x/3), where x is the current enchantment of the launcher.
 * **war hammers** have been changed from a one-handed weapon into a competitive two-handed weapon (xNetHack). They now deal 2d6 vs small monsters and 2d8 vs large
 
 #### Slings
@@ -1870,7 +1874,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * all footrice have more potent hissing attacks - the stoning process is twice as likely
 * foocubi gain a level when draining one from the player (xNetHack)
 * gas spores and volatile mushrooms start with exactly 1 HP
-* genetic engineers grudge all other monsters
+* genetic engineers grudge all other monsters, and their difficulty has been increased.
 * all ghost class monsters get acid resistance
 * giant mimics get an engulf-digest attack
 * giant spiders can ensnare monsters in webs (EvilHack)
@@ -1981,6 +1985,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * wargs have a thick hide
 * werefoo revert back to their base form when killed (SLASH'EM)
 * werefoo can occasionally summon rabid brethren
+* werefoo can disguise themselves in both animal and humanoid forms (Crecelle)
 * werewolves and weretigers have a higher level and difficulty, stronger attacks
 * wraiths also no longer "stalk" the player and follow them across levels (Dynahack)
 * the wumpus is now unique to the ranger quest and much scarier; it also now appears in a random room in the Ranger's locate level
@@ -2679,7 +2684,7 @@ Curing rabid:
 | shield             | n/a        | ->  | basic    |
 
 ### Valkyrie
-* Valkyries can also start with a + 1 war hammer and cloak instead of spear and shield (SpliceHack)
+* Valkyries can also start with a +1 war hammer and cloak instead of spear and shield (SpliceHack)
 * Valkyries can pacify and tame winter wolves/cubs with food as if they were a domestic animal.
 * Note: because of a change with war hammers, Mjollnir is now a stronger two-handed weapon
 * More fire traps on quest
@@ -2750,7 +2755,7 @@ The **new quest nemesis** is *The First Evil*, who guards *The Argent Cross* and
   * Starting the silver short sword unlocks expert skill in short sword and skilled for long sword
   * Starting the whip unlocks expert skill in whip and master skill in martial arts
   * Starting the silver spear unlocks expert skill in spear
-* If you start with the crossbow, you start with more bolts.
+* If you start with the crossbow, you start with more bolts than in SLASH'EM and the crossbow is now +3.
 
 
 **Skill adjustments for undead slayers (from SLASH'EM):**
@@ -3039,7 +3044,6 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 * Orcs start with sickness potion (Sporkhack)
 * Orcs get an alignment boost for cannibalism (dNetHack)
 * Orcs can always reach Skilled in saber (xNetHack)
-* orcs get a +1 bonus for each racially aligned piece of armor they wear (EvilHack)
 * Orcs start with -20 alignment
 * Orcs don't get penalties for attacking and murdering peacefuls, even quest guardians or leaders.
 * Orcs get alignment bonuses for attacking peaceful, helpless, or fleeing monsters.
@@ -3073,25 +3077,25 @@ Whilst wielding a crystal ball, a cartomancer will enjoy:
 
 ### Racial item preferences
 
-* Dwarves, elves, orcs, and gnomes get a -1AC bonus for each piece of racially aligned equipment they wear (Evil/THEM).
+* Dwarves, elves, orcs, and gnomes get a -1AC bonus for each piece of racially aligned armor they wear (Evil/THEM).
 * While wielding a racially aligned weapon, you get a +1 to-hit bonus (ie: a dwarf wielding a dwarvish spear).
-* Wielding a racially aligned off-hand weapon also adds a to-hit bonus that stacks.
+* Wielding a racially aligned off-hand weapon also adds a +1 to-hit bonus.
 
 * Monsters of certain races will usually prefer their own equipment and find other racial equipment awkward or uncomfortable to use.
   * Elves hate dwarvish, gnomish, and orcish objects
   * Orcs hate dwarvish, gnomish, and elven objects
   * Dwarves hate orcish, gnomish, and elven objects
   * Gnomes hate dwarvish, orcish, and elven objects
-  * Humans/vampires hate gnomish objects (too small) - but otherwise they can use all other racial equipment
+  * Humans and dhampirs hate gnomish objects - but otherwise they are free to use all other racial equipment
 
 The effects of wearing armor or wielding weapons you hate:
 * +3AC penalty for each piece
 * -d5 to-hit penalty for each piece
 * You receive an explicit message when wearing or wielding any hated object.
 * You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
-* When throwing items your race dislikes, they have a 1 in 7 chance of slipping - same as a cursed or greased projectile.
+* When throwing items your race dislikes, they have a 1 in 7 chance of slipping - the same as a cursed or greased projectile.
 
-This mechanic also applies to monsters, but they will also simply avoid using items they don't like.
+This mechanic also applies to monsters, but they will simply avoid using items they don't like.
 
 
 ## NEW RACES
@@ -3202,12 +3206,12 @@ Grung can be played as **neutral** or **chaotic** characters. They can take on t
 - **Wizard**
 
 Beyond the green grung, there are other members of the grung clan, each with slightly different abilities and strengths. Grung come in **six colors**:
-- **Green grung** possess **passive and active poison** that **drains strength**.
-- **Blue grung** **drain constitution** with their poison and can **cast mage spells**.
-- **Purple grung** have a **stunning poison** and can **cast clerical spells**.
-- **Red grung** poison their enemies by **draining dexterity** and wield a **2d6 weapon attack**.
-- **Orange grung** cause **hallucinations** with their poison and have a **1d6 weapon attack**.
-- **Gold grung** induce **sleep** with their poison and wield a **powerful 2d6 weapon attack**.
+- **Green grung** possess passive and active poison that drains strength.
+- **Blue grung** drain constitution with their poison and can cast mage spells.
+- **Purple grung** have a stunning poison and can cast clerical spells.
+- **Red grung** poison their enemies by draining dexterity and wield a 2d6 weapon attack.
+- **Orange grung** cause hallucinations with their poison and have a 1d6 weapon attack.
+- **Gold grung** induce sleep with their poison and wield a powerful 2d6 weapon attack.
 
 
 ## SPELLCASTING CHANGES
