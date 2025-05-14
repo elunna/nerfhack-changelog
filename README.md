@@ -240,7 +240,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (EvilHack)
 * Auto-identify rings of increase damage and accuracy with enough experience killing monsters.
-* When you are XP10+ and have expert skill in a weapon type, you can wield weapons of that type to auto-id the enchantment (only for non-projectile weapons)
+* When you have expert skill in a weapon type, you can wield those weapons to auto-id the enchantment (only for non-missile weapons)
 * Auto-ID potions of acid when water explosions result from dipping (xNetHack)
 * Auto-ID potions of acid when a lichen corpse is dipped into one
 * Auto-ID potions of sickness when they coat a weapon in poison
@@ -289,6 +289,7 @@ A general design philosophy of NerfHack is to automatically identify items that 
 * Magic cancellation (MC) value is shown on the bottom line (EvilHack)
 * Skill caps and percentage towards next level is available in #enhance
 * Show available skill slots in #enhance menu (Dynahack)
+* Show if a monster ignores magical scaring or Elbereth in the pokedex info.
 * Add inventory weight/carrycap and n/52 items display
 * /> or < can be used to autotravel to stairs (autostairtravel option)
 * Display AC values for armor in the hero's inventory (SpliceHack)
@@ -573,6 +574,9 @@ base_distance is how far you are from your base luck. If your base luck is 0 and
 * We can also see if pets are stunned, confused, or blinded on farlook.
 * Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
 * Tame pets will not hide or conceal themselves.
+* Pets will hesitate to attack grung unless resistant to the passive.
+* Pets can help the player other than fighting under certain circumstances.
+* Pets are more likely to nudge you awake if you have treats in open inventory.
 
 ### Price Identification Nerf
 This change destroys price identification and conforms most potions, scrolls, wands, and rings to the same price (SLEX).
@@ -1995,6 +1999,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * yellow and black light explosions are directionless (xNetHack)
 * yellow molds puff out stunning spores when hit
 * wood nymphs are slightly slower than average, lower difficulty (xNetHack)
+* Wood nymphs leave grass instead of corpses (CrecelleHack).
 * water nymphs are slightly higher level and difficulty (xNetHack)
 * mountain nymphs are higher level, faster, and higher difficulty (xNetHack)
 * hill giants are lower level and difficulty (xNetHack)
@@ -2040,7 +2045,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * Playing as a priest reduces the chance of zombie revival by 50% (Dynahack)
 * All zombies get an additional poisonous bite attack that can drain constitution.
 * Sometimes zombies will try to bite the players legs, inflicting wounded legs for a short time.
-* Zombies are immune to being scared by any source (xNetHack)
+* Zombies are immune to being scared by Elbereth
 
 ### Dragon changes
 * Dragons have been overhauled to more closely resemble the versions in SLASH'EM and FIQHack.
@@ -2734,11 +2739,13 @@ This version of the Undead Slayer blends old and new mechanics, making it a more
 | 1   | Drain resistance       |
 | 1   | Sickness resistance    |
 | 1   | Warning against undead |
-
+| 1   | Stealth                |
+| 10  | Speed                  |
+| 15  | Poison resistance      |
 
 Undead Slayers also start with a **revenant pup**, a new undead canine with numerous resistances and the ability to phase through walls. These creatures do not eat, so they are tamed via `#chat` rather than food. Chatting with your pet also increases apport. If you take are of your pup it will grow into the powerful revenant hound, a beast comparable in strength to the hell hound. In terms of weapon skills, Undead Slayers can now reach **skilled in riding.**
 
-However, there are several things they *do not* get. They **lack stealth, poison resistance, and speed.** They do not receive a guaranteed sacrifice gift or any special techniques. Unlike Priests and Knights, they **cannot turn undead.** Additionally, they do not start with a silver pistol or silver bullets, but a new fourth starting kit has been substituted which features a silver short sword and leather cloak. While they can reach **expert** in Daggers, they are still **ineffective at multi-throwing.**
+However, there are a couple differences from SLASH'EM. They get fast speed and poison resistance at much later levels. They do not receive a guaranteed sacrifice gift or any special techniques. Unlike Priests and Knights, they **cannot turn undead.** Additionally, they do not start with a silver pistol or silver bullets, but a new fourth starting kit has been substituted which features a silver short sword and leather cloak. While they can reach **expert** in Daggers, they are still **ineffective at multi-throwing.**
 
 Undead Slayers also face additional challenges, as **undead and demons always spawn hostile.** To support this, wooden stakes and holy wafers have been ported from SLASH'EM. The wooden stake has been enhanced with **staking mechanics from xNetHack**, allowing for **instakills on vampires**. Holy wafers now have the ability to **stop withering.** The quest levels have also been redesigned, drawing inspiration from dNetHack's Binder quest.
 
@@ -3640,7 +3647,8 @@ New themed rooms introduced in NerfHack:
 * Monsters can hide under grass (xNetHack).
 * You cannot dust engrave on grassy tiles.
 * Burned engravings also burn up grass.
-* Added grass to big rooms.
+* Walking on grass makes you more stealthy.
+* Herbivore pets will eat grass (EvilHack)
 
 ### Puddles
 * Ported from EvilHack and SlashTHEM.
@@ -3829,7 +3837,6 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.
 * Getting troubles fixed by prayer abuses constitution.
 * Permanent alignment conversion prevents more divine protection from being granted
-* Only one skill per game will be unrestricted by your god via artifact gifts.
 
 Note regarding recent #offer gift changes in NetHack 3.7.0. These recent changes make the value the corpse offered matter in what artifacts are granted. In NerfHack, the framework of these changes was retained, however, the values of all artifacts have been lowered to 1 (the minimum), so as to preserve the original behavior of #offer gifts. Because there have already been strong changes to altars (cracking and XP dependent chances of gifts), the additional effect of monster value might be too much. The value of a monster still affects the chances of receiving altar luck though.
 
