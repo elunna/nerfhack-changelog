@@ -2321,11 +2321,11 @@ The price of summon cards scales according to the difficulty of the monster they
 
 **Monsters can also read summon cards**, so it’s important for cartomancers to collect them before they are used against them. **Cursed summon cards will always create hostile monsters**.
 
-Activating summon cards **costs 5 energy per card**. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive. Additionally, cartomancers can receive summon cards by offering corpses. Although these cards do not count as artifact gifts they will still increase the prayer timeout.
+Activating summon cards **costs 5 energy per card**. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive.
 
 **Explosive summon cards**
 
-Summon "sphere" cards are special because they i**nstantly explode when thrown at a monster**. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
+Summon "sphere" cards are special because they **instantly explode when thrown at a monster**. However, if cursed, they will not explode and instead summon a hostile sphere, which includes gas spores and volatile mushrooms. Exploding sphere monster cards are more likely to drop for cartomancers, providing them with useful ranged explosive options.
 
 **Razor cards**
 
@@ -2474,8 +2474,6 @@ The corpse draining mechanic from SLASH'EM was never ported due to bugs in the n
 | 12  | Hunger                      |
 | 12  | Regeneration                |
 | 25  | Flying                      |
-| 26  | Poison resistance           |
-| 27  | Cold resistance             |
 
 Although dhampir have drain level resistance, they remain **vulnerable to blood-draining bite attacks** from other vampirics and blood-suckers. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source will.
 
@@ -2495,11 +2493,9 @@ Grung possess several natural abilities. They have **resistance to poison** and 
 | XL  | Intrinsic         |
 | --- | ----------------- |
 | 1   | Poison resistance |
-| 1   | Searching         |
 | 1   | Swimming          |
 | 5   | Jumping           |
-| 7   | Fast speed        |
-
+| 13   | Searching        |
 
 One of the grung's **biggest concerns is hydration**.
 
@@ -2945,7 +2941,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Crowning only provides a 50% increase in resistances.
 * Intrinsic see invisible is no longer granted via crowning
 * Intrinsic telepathy is no longer granted via crowning
-* Crowning gifts are only granted when crowned, not for offering gifts.
+* Crowning gifts are only granted when crowned.
 * Your god will not crown you until you have completed the quest.
 * Crowning makes it impossible to change alignment ever again.
 
