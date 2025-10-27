@@ -68,14 +68,17 @@
       - [Booby-trapped tins](#booby-trapped-tins)
       - [Mirrors confer reflection while carried](#mirrors-confer-reflection-while-carried)
     - [Gems/Stones/Rocks](#gemsstonesrocks)
+    - [Object materials](#object-materials)
     - [Object Properties](#object-properties)
       - [Generation odds](#generation-odds)
       - [Table of object properties ====](#table-of-object-properties-)
-    - [Object qualities](#object-qualities)
+    - [Object build qualities](#object-build-qualities)
+    - [Object alignments](#object-alignments)
   - [NEW ITEMS](#new-items)
     - [potions of blood and vampire blood](#potions-of-blood-and-vampire-blood)
     - [potion of milk](#potion-of-milk)
     - [playing card deck](#playing-card-deck)
+    - [scroll of proofing](#scroll-of-proofing)
     - [scroll of cloning](#scroll-of-cloning)
     - [healthstone](#healthstone)
     - [whetstone](#whetstone)
@@ -302,12 +305,13 @@ A general design philosophy of NerfHack is to automatically identify items when 
 ### Wizmode features
 * The #wizcrown command has been added for testing crowning (EvilHack)
 * The #wizclear (^z) command, clears all monsters on the screen (SpliceHack)
-* Wizard mode can override an artifact ignoring you (xNetHack)
+* Allow overriding artifact invoke timeout in wizmode (xNetHack)
 * Allow teleportation into unteleportable spots in wizard mode
 * Allow wishing (^W) for monsters (UnNetHack)
 * Allow wishing for specific spell beings
 * Changed #debugfuzzer command to just #fuzz
 * Show timeouts for sick, rabid, withering, and other afflictions in the wizmode enlightenment menu
+* wiz_prop command to add properties to items in wizmode.
 
 
 ## INTRINSICS AND EXTRINSICS
@@ -402,7 +406,6 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 
 ### Flying Changes
 * You cannot be Fast or Very Fast while levitating.
-* You cannot be Very Fast while flying.
 * Stomping boots and Jumping boots block flying.
 * Extrinsic fumbling blocks flying (from boots or gloves)
 * You cannot jump while flying.
@@ -431,11 +434,13 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * Many item actions are now forbidden if you have both hands welded.
 * If you (or a monster) are stuck in a pit, the range of wand zaps and thrown items is limited to the  squares adjacent to the pit.
 * Hallucination affects all item descriptions and appearances in and outside of your inventory (SLASH'EM)
+* While hallucinating it's impossible to identify objects.
 * Auto-pickup is automatically disabled whilst hallucinating.
 * You will always hit monsters who are holding you.
 * Whilst fumbling, your character will be incapable of multishotting projectiles.
 * Allow performing the invocation whilst hallucinating.
 * Fumbling only causes 50% of kicks to be ineffective.
+* Invert the checks for throwing cursed/greased/hated projectiles.
 
 #### Encumbrance affects AC
 * Being encumbered has a severe negative effect on your AC and inflicts a +4AC penalty for each level of encumbrance.
@@ -753,7 +758,6 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Levels of erosion on an item decrease its value (EvilHack)
 * Orcish equipment usually generates rusty and/or corroded
 * Dwarvish items sometimes spawn as fixed
-* Towels cannot be worn over the eyes - blindfolds now must be relied upon for blinding
 * Wet towels provide 100% protection from poison gas when worn
 * Scrolls, rings, and wands have a variety of new appearances (UnNetHack/Slice)
 * The weights of non-mergable weapons and armors can vary slightly (from CrecelleHack)
@@ -855,6 +859,7 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
   * Launching gem class projectiles from slings has the potential to instakill H
 
 ### Armor changes
+* robes now use the body armor slot instead being a cloak (SLASH'EM)
 * reduced weight of most armors by 50 aum (K-Mod)
 * reduced weight of elvish gear by about 1/3'rd (EvilHack)
 * reduced weight of dwarvish shields to 75
@@ -887,7 +892,7 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 
 Adapted from EvilHack.
 
-Bracers are a type of shield worn on the forearms, making them unique in that they allow the use of both two-weapon combat and two-handed weapons. Unlike standard shields, bracers do not penalize a Monk’s to-hit when attacking unarmed, nor do they suppress the extra attacks granted to Monks at Grand Master martial arts skill. They also do not interfere with staggering blows from skilled bare-handed combatants or shattering blows delivered by a Samurai wielding a katana. While bracers provide smaller AC bonuses from the shield skill and cannot be used for shield bashing, successfully blocking attacks with them still trains the skill. For spellcasting purposes, bracers are considered non-bulky, similar to a small shield. Bracers provide a base AC bonus of -1AC.
+Bracers are a type of shield worn on the forearms, making them unique in that they allow the use of both two-weapon combat and two-handed weapons. Unlike standard shields, bracers do not penalize a Monk’s to-hit when attacking unarmed, nor do they suppress the extra attacks granted to Monks at Grand Master martial arts skill. They also do not interfere with staggering blows from skilled bare-handed combatants or shattering blows delivered by a Samurai wielding a katana. While bracers provide smaller AC bonuses from the shield skill and cannot be used for shield bashing, successfully blocking attacks with them still trains the skill. For spellcasting purposes, bracers are considered non-bulky, similar to a small shield. Bracers provide a base AC bonus of 1AC.
 
 Bracers weigh 15 (half as much as a small shield).
 
@@ -989,7 +994,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * **potions of acid:**
   * are immune to freezing (xNetHack)
   * dipping acid into toilet causes an explosion and destroys the toilet.
-  * dipping a unicorn horn into a potion of acid will dissolve the horn, resulting in a potion of healing.
+  * dipping a unicorn horn into a potion of acid will dissolve the horn, resulting in a potion of full healing.
 * **potions of restore ability:**
   * can be alchemized
   * can be quaffed to cure wounded legs
@@ -1011,6 +1016,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * **Cursed scrolls of remove curse** will curse items
 * **Scrolls of genocide** have been nerfed and renamed to scrolls of exile
 * **scrolls of enchant armor** let you choose which worn piece of armor to enchant or repair when you know the identify of these scrolls, otherwise the armor chosen is still random (EvilHack)
+* * **Scrolls of enchant weapon and enchant armor are much more rare and cost a lot more ink to write**
 * **Blessed scroll of destroy armor** asks which armor to destroy (xNetHack)
 * **Confused cursed scrolls of destroy armor** prompt for which piece of armor to fix
 * **Confused scrolls of identify** give enlightenment (xNetHack)
@@ -1068,6 +1074,8 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Reduced weight of beartraps to 50 aum (xNetHack)
 * Reduced weight of pick-axe to 75 aum (SLASH'EM)
 * Reduced weight of potions to 10 aum
+* Reduced weight of crystal balls to 100 aum
+* Increased weight of towels to 22 aum
 * Increased the prices of many magical tools
 * magic lamps have been removed and replaced by magic candles.
 
@@ -1130,6 +1138,9 @@ Carrying a mirror in your open inventory grants you the benefit of reflection. K
 * Significantly lowered the odds of luckstones generating randomly; increased the odds of other gray stones
 * Unicorn gems are used up when they yield Luck.
 
+### Object materials
+* Ported from xNetHack/EvilHack
+* Items can appear in all types of materials now.
 
 ### Object Properties
 The object properties patch exists in a handful of variants - the code used for NerfHack was taken from Hack'EM, which was taken from EvilHack, which in turn was taken from GruntHack and then modified significantly.
@@ -1183,13 +1194,19 @@ The table below lists all available magical properties, what items they can be a
 | Fumbling        | fumbling                         | fumbling              |
 | Hunger          | hunger                           | hunger                |
 
+| Burden          |                            |                 |
+| Danger          |                            |                 |
+| Rage          |                            |                 |
+| Stench          |                            |                 |
+| Stasis          |                            |                 |
+
 Notes:
 * All sources of resistances or statuses are considered extrinsic
 * If a property affects a stat (like charisma), the adjustment is based on BUC status (blessed = +2/uncursed = +1/cursed = -2)
 (*) Venom inflicts the normal 1d6 extra poison damage with a 10% chance of instakill by poison, plus an additional 1d2 poison damage.
 
 
-### Object qualities
+### Object build qualities
 Ported from EvilHack
 
 Weapons, armor, and barding can possess varying levels of quality: inferior, superior, or exceptional. Superior weapons deal an additional point of damage, while exceptional weapons deal two extra points of damage and receive a +1 bonus to-hit. Similarly, superior and exceptional armor pieces provide +1 and +2 bonuses to Armor Class (AC), respectively. On the other hand, inferior weapons suffer a -2 penalty to both damage and to-hit, and inferior armor receives a -2 AC penalty.
@@ -1197,6 +1214,32 @@ Weapons, armor, and barding can possess varying levels of quality: inferior, sup
 Only objects that could have been produced in a forge and are randomly generated can exhibit these quality traits. Exceptional weapons are immune to shattering blows, while superior weapons are still vulnerable, though they shatter only half as often. Inferior weapons are much more prone to breaking, particularly if they are eroded. Additionally, attacking with an inferior weapon carries a small chance of it falling apart upon impact, and inferior armor has a chance to disintegrate when it blocks an attack.
 
 In terms of value, inferior items are priced at half the cost of standard ones, superior items cost twice as much, and exceptional items are valued at three times the normal price.
+
+The extra tier of Legendary quality has also been added which makes weapons and armor work like +6 items.
+
+Increased bonus of exceptional quality.
+Loosened requirements for forging superior and exceptional items.
+Allow ammo, missiles, magic, and non-metallic items to be eligible for build quality.
+
+### Object alignments
+Sometimes items can generate specifically aligned as lawful, neutral, or chaotic.
+
+* Cross-aligned items can blast you (not as harsh as artifact though)
+* Item alignment is handled when forging.
+* Weapons of opposing alignments cannot be two-weaponed.
+* Aligned item bonuses only apply if your alignment is good. If it's negative, they count as cross-aligned. 
+*  Aligned items are valued at twice their base cost.
+*  
+    Aligned items effects for hero and monsters.
+    
+    - Aligned weapons grant +1 to-hit when wielded for the hero (this still needs to get figured out on the monsters' side).
+    - Aligned weapons do 1 extra damage vs cross-aligned monsters (and you)
+    - Aligned armor grants -1AC for each piece worn, both for the hero and for monsters.
+
+
+
+Allow some monsters to spawn with more aligned items and don't let monsters start with cross-aligned things.
+
 
 ## NEW ITEMS
 
@@ -1235,6 +1278,7 @@ In terms of value, inferior items are priced at half the cost of standard ones, 
 | ring of withering             | ring      | 200  | 3   | NerfHack           | causes withering                           |
 | ring of sleeping              | ring      | 200  | 3   | SLASH'EM           | causes restful sleep                       |
 | ring of carrying              | ring      | 200  | 3   | xNetHack           | grants expanded carrying capacity          |
+| ring of gain intelligence     | ring      | 200  | 3   | SLASH'EM           | adjusts INT                                |
 | playing card deck             | tool      | 80   | 10  | SpliceHack         | can reveal your current luck               |
 | potion of milk                | potion    | 100  | 10  | NerfHack           | cancels good and bad statuses              |
 | potion of reflection          | potion    | 200  | 10  | SpliceHack         | conveys temporary reflection               |
@@ -1295,6 +1339,14 @@ Other effects:**
 * If cursed, the meanings are reversed.
 * Can be #tipped and emptied for a stack of **razor cards**
 
+### scroll of proofing
+* When identified, this scroll allows you to pick an item. Otherwise it picks a random piece of worn armor.
+* Non-cursed scrolls erodeproof a specified item.
+* Cursed scrolls will remove erodeproofing from an item, curse it, and inflict the item with -1 enchantment. If you are confused while reading the scroll, it will also remove the erodeproofing from an item.
+* Blessed scrolls will bless the item and bestow it with +1 enchantment (effective up to +5, after +5 the scroll has no effect on the enchantment)
+* This scroll takes up a large portion of the probabilities for scrolls of enchant weapon and enchant armor - making them much more rare.
+
+
 ### scroll of cloning
 * Ported from SpliceHack
 * clones an item in your inventory or yourself if read whilst confused.
@@ -1342,7 +1394,8 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 * Intrinsics are granted for both weapons accordingly.
 * Lawful and chaotic weapons cannot be two-weaponed (EvilHack)
 * Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
-* Artifacts blasts inflict much more damage (SLASH'EM)
+* Artifact blasts inflict much more damage (SLASH'EM)
+* Increase rate of artifact drops slightly; allow lenses and amulets to generate as artifacts. 
 
 ### Specific artifact changes
 * Cleaver is prevented from cleaving peaceful bystanders (unless cursed) (xNetHack)
@@ -1425,7 +1478,7 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 | Snakeskin             | Neutral    | robe                  | SlashTHEM   | n/a                                    | confers acid res and hallucination res when worn.                                                              |
 | The End               | neutral    | scythe                | SpliceHack  | +d3 to-hit, +d10 dmg                   | confers drain res when wielded                                                                                 |
 | The Lenses of Truth   | unaligned  | lenses                | NerfHack    | n/a                                    | confers see invisible and stun res when worn                                                                   |
-| Thunderfists          | neutral    | gauntlets of force    | NerfHack    | +3 to-hit, +1d8 shock damage           | first sacrifice gift for monks; confers shock res and protection when worn                                     |
+| Thunderfists          | neutral    | gauntlets of force    | NerfHack    | +3 to-hit, +1d8 shock damage           | crowning gift for monks; confers shock res and protection when worn                                            |
 | Whisperfeet           | neutral    | speed boots           | SLASH'EM    | n/a                                    | confers stealth and luck when worn                                                                             |
 | Oathfire              | lawful(!)  | leather bracers       | NerfHack    | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
 | The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack    | n/a                                    | light source, half spell damage, disintegration/withering res, passive turn undead                             |
@@ -1469,17 +1522,17 @@ Misc changes:
 * Deals shock damage when used bare-handed
 * When monks don these, they occasionally release a chain lightning blast
 * Grants MC1
+* Crowning gift for monks
 
 ### Glyph Shard
 * This powerful gem allows the player to open a portal to a specific level.
 * To bind a level to the shard, simply (a)pply it on the desired level. This can only be performed once per game, so choose carefully-only one level can ever be linked.
-* Rumors say a Glyph Shard is guarded by an icy dragon in Sokobon...
+* Rumors say a Glyph Shard is guarded by an icy dragon in Sokoban...
 
 
 ## NEW MONSTERS
 
-Many new monsters have been added to NerfHack. See the separate file with all the additions and info on changes from related variants:
-
+Many new monsters have been added to NerfHack. See the separate file with all the additions and info on changes from related variants.
 
 
 ## MONSTER CHANGES
@@ -1503,6 +1556,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * many major demons have been given flight (xNetHack)
 * dingos have been replaced with warg pups - very similar to dingos but slight adjustments so they can grow into wargs
 * disenchanters can appear in the main dungeon
+* disenchanter attacks can also remove erodeproofing from items.
 * dragons, nagas, and golems don't balk at approaching as much
 * dwarves sometimes start with potions of booze (xNetHack)
 * all elementals resist sickness
@@ -1572,6 +1626,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * nurses can also cure rabid status
 * nurses cannot flank or assist flanking
 * nurses grant max-HP at a much higher rate, for quicker "nurse dancing"
+* nurses will follow you across levels
 * nymphs spawn with mirrors half as often (25% chance instead of 50%)
 * olog hai get poison resistance, are huge, have thick skin, higher level and speed, with raised difficulty
 * all orcs can stalk the player
@@ -1949,6 +2004,9 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 **teleport**
 * High level spellcasters are able to warp to the hero when further than 7 square away.
 
+**illusion**
+* High level spellcasters are able to create mirror images of themselves - which one is the real caster?
+
 
 ### Clerical Spells
 
@@ -2136,6 +2194,7 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Wizards can always sense how many charges are left in wands.
 * The Dark One gets a cloak of magic resistances and staff (xNetHack)
 * Most of the wizard's combat based skills have been restricted and removed (EvilHack)
+* Wizards start with less magical accessories and an additional spellbook.
 
 ## NEW ROLES
 
@@ -2353,6 +2412,7 @@ Whilst wielding a crystal ball, a cartomancer will enjoy **maximum charisma, tel
   * Dwarves hate orcish, gnomish, and elven objects
   * Gnomes hate dwarvish, orcish, and elven objects
   * Humans and dhampirs hate gnomish objects - but otherwise they are free to use all other racial equipment
+  * Vampires like bone armor and get a small +1AC bonus per worn piece.
 
 The effects of wearing armor or wielding weapons you hate:
 * +3AC penalty for each piece
@@ -2377,13 +2437,18 @@ For instance, their **immunity to withering** made mummies and priests trivial t
 
 To address these issues, a **lesser type of vampire-the dhampir (or demi-vampire)**-was introduced. This new race retains some of the vampire's strengths but is far more balanced, fitting alongside other vanilla races. The Dhampir preserves the appeal of playing as a vampire while maintaining the integrity of NerfHack's mechanics and difficulty.
 
-Dhampirs start with **resistance to draining and death magic**, and being **breathless**, they are immune to gas, spores, choking, and drowning. They also resist **lycanthropy** and possess **infravision**. However, **all partial intrinsics are capped at 50%**, even when granted through crowning, ensuring they rely more on extrinsic protections.
+Dhampirs start with **resistance to draining and death magic**, and being **breathless**, they are immune to gas, spores, choking, and drowning. They also resist **lycanthropy** and possess **infravision**. However, **all partial intrinsics are capped at 50%**, even when granted through crowning, ensuring they rely more on extrinsic protections. Dhampir have a further **restriction on fire resistance** and are incapable of gaining any protection in that area.
 
-Dhampirs **excel at climbing** and can easily escape pits. Their standout ability is a **1d6 draining bite**, which **heals HP** when feeding on blood - replacing the vampire's intrinsic regeneration. As an added bonus, they can **absorb partial intrinsics from drained monsters**, such as **fire, cold, and sleep resistance**.
+Dhampirs **excel at climbing** and can easily escape pits. Their standout ability is a **1d6 draining bite**, which **heals HP** when feeding on blood - replacing the vampire's intrinsic regeneration. As an added bonus, they can **absorb partial intrinsics from drained monsters**, such as **cold and sleep resistance**.
 
 To prevent frustrating deaths, **bite attacks are automatically prevented** when facing dangerous foes such as **cockatrices, Medusa, or green slimes** - even if the player is only polymorphed into a vampire. However, **stunned, confused, or hallucinating dhampirs and vampires will bite indiscriminately**, making careful gameplay crucial when impaired.
 
-Dhampirs also come with a major weakness - **innate hunger**. This forces players to stay aggressive, attack often, and keep draining blood for nutrition. The corpse draining mechanic from SLASH'EM was never ported due to bugs in the nutrition code and tedious corpse draining mechanics. Instead, SpliceHack's approach was adopted, where **life blood feeding in combat now provides more nutrition**. The tradeoff is that **Dhampirs can no longer eat nor gain benefits from eating corpses**.
+The corpse draining mechanic from SLASH'EM was never ported due to bugs in the nutrition code and tedious corpse draining mechanics. Instead, SpliceHack's approach was adopted, where **life blood feeding in combat now provides more nutrition**. The tradeoff is that **Dhampirs can no longer eat nor gain benefits from eating corpses**.
+
+ Dhampir no longer die from hunger (from EvilHack) - they have the following effects as their hunger status advances (these conditions are temporary while the hunger status is active and are restored when the hunger status is cured/alleviated):
+    * From hungry to weak: you lose 1 point from ALL attributes.
+    * From weak to frail: you lose 5 points from ALL attributes and become deaf.
+    * From frail to starving: all attributes are set to 3 and you also become blind.
 
 #### NerfHack introduces smarter feeding to regulate vampire bite mechanics:
 - Low-level dhampir can only use either a bite attack or weapon attack, but not both in the same round.
@@ -2406,7 +2471,11 @@ Dhampirs also come with a major weakness - **innate hunger**. This forces player
 | 1   | Drain resistance            |
 | 1   | Immune to death magic       |
 | 1   | Immune to lycanthropy       |
-| 10  | Hunger                      |
+| 12  | Hunger                      |
+| 12  | Regeneration                |
+| 25  | Flying                      |
+| 26  | Poison resistance           |
+| 27  | Cold resistance             |
 
 Although dhampir have drain level resistance, they remain **vulnerable to blood-draining bite attacks** from other vampirics and blood-suckers. Intrinsic drain resistance does not protect against these attacks, but an extrinsic source will.
 
@@ -2460,7 +2529,7 @@ One of the grung's **biggest concerns is hydration**.
   - **Praying** may grant **1000 hydration**, if your **god blesses you**
 
 
-Grung have several strengths in combat. Their **DEX-based armor class (AC) bonus** is **slightly increased and doubled** compared to other races. They also gain a **to-hit bonus against kamadan** and can **always reach skilled proficiency in darts**. However, they also have notable weaknesses. They **cannot wear boots** and strongly **dislike heavy or bulky armor**, though they are comfortable wearing racial armor as long as it isn’t cumbersome - mithril is a good choice. Additionally, their **passive poison ability does not function** while wearing **bulky armor**. Grung are particularly vulnerable to **dust vortices**, which accelerate their dehydration process.
+Grung have several strengths in combat. Their **DEX-based armor class (AC) bonus** is **slightly increased** compared to other races. They also gain a **to-hit bonus against kamadan** and can **always reach skilled proficiency in darts**. However, they also have notable weaknesses. They **cannot wear boots** and strongly **dislike heavy or bulky armor**, though they are comfortable wearing racial armor as long as it isn’t cumbersome - mithril is a good choice. Additionally, their **passive poison ability does not function** while wearing **bulky armor**. Grung are particularly vulnerable to **dust vortices**, which accelerate their dehydration process.
 
 Beyond the green grung, there are other members of the grung clan, each with slightly different abilities and strengths. Grung come in **six colors**:
 - **Green grung** possess passive and active poison that drains strength.
@@ -2501,6 +2570,7 @@ difficult time with spellcasting.
 * Hide spells that are at 0% retention in the casting menu (this can be toggled with the hide_old_spells option)
 * Anti-magic fields block spellcasting for the player and monsters
 * Anti-magic fields also block wand zapping
+* Failing to read spellbooks causes confusion instead of paralysis (from xNetHack).
 
 ### New skill-dependent spell ranges
 * Your skill in a spell directly affects how far its ray or beam will travel:
@@ -2819,7 +2889,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Ported from SpliceHack
 * These rooms have a one-time event that occurs upon entering a room
 * Most of the time it's a fun piece of art depicting something with the denizens of the dungeon. But sometimes it's a special effect.
-* Art rooms exercise INT and WIS, depending on the room
+* Art rooms exercise INT and WIS, depending on the room; in rare cases, your intelligence is directly increased.
 * To get any effects, you must not be blind when you enter the room
 
 **Dragon lairs:**
@@ -2858,7 +2928,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 
 ## ALTARS, PRAYER, AND PRIESTS
 
-* Artifacts are no longer bestowed via #offer at altars.
+* **Artifacts are no longer bestowed via #offer at altars. Period.**
 * When donating to priests - the gold vanishes upon receipt
 * There is a greater chance of hostile minions appearing when converting an altar. Especially if the altar is in an occupied temple (EvilHack)
 * Intrinsics speed, stealth, and telepathy are no longer granted by the gods when #offering.

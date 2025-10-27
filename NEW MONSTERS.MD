@@ -152,6 +152,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | gnoll warrior          | 9   | SLASH'EM             |
 | gnoll chieftain        | 9   | SLASH'EM             |
 | gnoll shaman           | 9   | SLASH'EM             |
+| boulderer              | 0   | CrecelleHack         |
+| illusion               | X   | CrecelleHack         |
 
 
 ### New monster notes
