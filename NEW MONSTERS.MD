@@ -52,6 +52,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | god piercer            | p   | SpliceHack           |
 | landshark              | q   | SpliceHack           |
 | pack rat               | r   | SLASH'EM             |
+| plague rat               | r   | NerfHack             |
 | hedgehog               | r   | SpliceHack           |
 | nickelpede             | s   | SLASH'EM             |
 | recluse spider         | s   | SLASH'EM             |
@@ -216,10 +217,11 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * like likes can eat organic shields and cloaks when engulfing you (note: dragonhide scales are not edible for them)
 * merfolk were recolored to bright green
 * merfolk no longer steal items, they get more attacks and spawn with rustproof tridents or spears.
+* Migos get their own symbol '7' now.
 * migos explode into poison gas clouds on death and don't leave any corpses
 * migos are immune to poison gas.
 * migo drones and warriors are slightly lower level than in SLASH'EM.
-* monstrous spiders get a stunning gaze
+* Monstrous spiders scream instead of having a stun gaze.
 * nightgaunts were recolored to purple
 * pack rats can generate randomly in the dungeon
 * phase spiders may appear in small groups
@@ -245,6 +247,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * vampire mages can see invisible
 * vampire kings get two drain life bites, a stronger weapon attack, 75MR, and cold resistance
 * vampire kings can displace monsters to get to you and cannot be tamed.
+* Vampire kings are large.
+* Weredemons can only generate in hell.
 * werespiders can summon giant spiders, phase spiders, and monstrous spiders
 * weresnakes can summon snakes, pit vipers, and asphynxes
 * weresnakes are now red
@@ -274,3 +278,48 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * This pesky spellcaster will relentlessly summon spheres of all types
 * Although they can cast clerical spells, they only can cast 'summon orbs', healing spells, and protection.
 * Currently, uses the transmuter's tile from SpliceHack.
+
+
+#### Grung
+Red grung can flank.
+
+
+
+
+plague rat
+    bright green
+
+Change size of acid worm and bloodworm to tiny.
+
+carrion larva and carrion crawler.
+Carrion crawlers grudge ghouls.
+
+1b7a3043c - Bandikots cannot be tamed. (11 days ago) <Erik Lunna>
+
+25dac458f - New monster: bandikot. (11 days ago) <Erik Lunna>
+721a22d83 - New monster: Crystallid. (11 days ago) <Erik Lunna>
+0fa51737b - New monster: blight sprite. (11 days ago) <Erik Lunna>
+6d2b772fa - New monster: basilisket. A tiny baby version of the basilisk. (11 days ago) <Erik Lunna>
+>
+
+Familiars can summon vampires and get better starting equipment.
+1b8eecddd - Carrion larvas are blue. (22 hours ago) <Erik Lunna>
+
+
+591f673b4 - Spice up dretch, allow them to summon other dretches. (35 hours ago) <Erik Lunna>
+0a439223e - Spice up rutterkin. (2 days ago) <Erik Lunna>
+234c46f36 - Nupperibo updates. (2 days ago) <Erik Lunna>
+f0ba95e71 - Blood imps appear in small groups, slightly faster. (2 days ago) <Erik Lunna>
+d2
+
+3160c9be2 - Cerastes resist blunt damage and do more hug damage. (2 days ago) <Erik Lunna>
+
+f3f7ed93e - Make giant spider and giant scorpion saddleable (xnh) (21 hours ago) <Erik Lunna>
+2bb61bafc - Port giant scorpion from xnethack. (21 hours ago) <Erik Lunna>
+
+9da7113b0 - Buffs for krakens and thing from below. (7 hours ago) <Erik Lunna>
+
+98027e025 - Slightly buff electro-bugs. (4 days ago) <Erik Lunna>
+
+
+b83b3779b - Implement monsters that inflict vulnerability: soul shadow and degenerator. (3 days ago) <Erik Lunna>
