@@ -451,6 +451,7 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
   * The Degenerator monster attack
   * The Soul Shadow monster attack
 * While vulnerable, the hero's resistance is decreased by 50%. If your resistance was below 50% it can go below 0% and act as a damage booster.
+* While vulnerable, players can not gain any additional resistances from eating corpses. If a player is crowned, all vulnerabilities are cleared before granting any resistances.
 
 ### Impaired States and actions
 * Allow successfully using the #terrain command whilst impaired (xNetHack)
@@ -586,6 +587,9 @@ Exceptions:
 * The chances of getting a golem from polypiling have been accelerated (K-Mod/Sporkhack)
 * The enchantment level or charges on items is randomly reduced when polymorphed (Sporkhack)
 * Golems created from polypiling immediately halt the polypiling process. This effectively nerfs the "one-giant-pile" strategy of polypiling.
+* Item quality and alignment will always transfer to the result of polypiling.
+* Item material will usually transfer to the result of polypiling if it is valid for the new item.
+* Item properties will transfer when polypiling depending on a Luck roll. The higher your luck, the more likely the results will retain the original item's property.
 
 ### Poly-Self
 * Players can use gaze attacks in melee combat when polymorphed into monsters with a gaze attack. This doesn't require using the #monster command, so you can just engage in combat to trigger the forms gazes.
@@ -795,7 +799,6 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Almost all items are erodible or destroyable (EvilHack)
   * amulets, rings, wands, and tools are now eligible for erosion and destruction.
   * Silver items can also corrode (xNetHack)
-  * Mineral items can corrode
   * Bone items can burn
   * The iron ball and chain cannot be destroyed from rusting (EvilHack)
 * Poison gas clouds can rot organic armor
@@ -926,6 +929,8 @@ Adapted from EvilHack.
 Bracers are a type of shield worn on the forearms, making them unique in that they allow the use of both two-weapon combat and two-handed weapons. Unlike standard shields, bracers do not penalize a Monk’s to-hit when attacking unarmed, nor do they suppress the extra attacks granted to Monks at Grand Master martial arts skill. They also do not interfere with staggering blows from skilled bare-handed combatants or shattering blows delivered by a Samurai wielding a katana. While bracers provide smaller AC bonuses from the shield skill and cannot be used for shield bashing, successfully blocking attacks with them still trains the skill. For spellcasting purposes, bracers are considered non-bulky, similar to a small shield. Bracers provide a base AC bonus of 1AC.
 
 Bracers weigh 15 (half as much as a small shield).
+
+If a player undergoes polymorph into a large monster, any non-artifact bracers being worn will unfortunately be destroyed. Artifact bracers will be pushed off.
 
 NerfHack introduces a few new magical bracers:
 * **bracers of integrity**: conveys disintegration and wither resistance, erodeproof
@@ -1405,7 +1410,7 @@ skullclaw mace
 
 ### potion of milk
 * Non-cursed potions of milk reliably cancel out a lot of good and bad effects:
-hallucination, confusion, stunning, blindness, protection (from spells), reflection (from potions), phasing (from potions or phase spider corpses), invisibility, see invisible, and telepathy
+hallucination, confusion, stunning, blindness, protection (from spells), reflection (from potions), phasing (from potions or phase spider corpses), invisibility, see invisible, telepathy, and all vulnerabilities with timeouts
 * milk also will un-poly a player or monster back to their original form.
 **
 Other effects:**
@@ -1466,11 +1471,11 @@ Other effects:**
 
 
 ### foulstone
-A **foulstone** is a new gray stone with several unusual effects for anyone carrying it. Simply possessing a foulstone causes monsters to become aggravated, though it does not increase the difficulty of those that spawn as a ring of aggravate monster would. While carrying a foulstone, monsters cannot digest you, and likewise, you cannot digest monsters that are also carrying a foulstone. Shopkeepers will refuse to let you enter their stores if you have one, and they will not purchase the stone under any circumstances (it is very stinky).
+A **foulstone** is a new gray stone with several unusual effects for anyone carrying it. Simply possessing a foulstone causes monsters to become aggravated, though it does not increase the difficulty of those that spawn as a ring of aggravate monster would. While carrying a foulstone, monsters cannot digest you. Likewise, you cannot digest monsters that are also carrying a foulstone. Shopkeepers will refuse to let you enter their stores if you have one, and they will not purchase the stone under any circumstances (it is very stinky).
 
-Foulstones have unique magical properties depending on their blessing status. If blessed, there is a 1 in 100 chance per turn that the stone emits a stench that temporarily scares nearby monsters, similar to the effect of garlic breath. If cursed, there is a 1 in 100 chance per turn of releasing a poisonous cloud centered on the carrier. These effects can stack, so carrying multiple foulstones increases the likelihood of either event occurring each turn.
+Foulstones have unique magical properties depending on their blessing status. If blessed, there is a 1 in 100 chance per turn that the stone emits a stench that temporarily scares nearby monsters, similar to the effect of garlic breath. If not blessed, there is a 1 in 100 chance per turn of releasing a poisonous cloud centered on the carrier. These effects can stack, so carrying multiple foulstones increases the likelihood of either event occurring each turn.
 
-Additional traits include its total inedibility - monsters will never eat it. Pets treat it as a cursed object and will avoid stepping on it. Rubbing a foulstone on another rock will cause it to emit a poisonous cloud. Foulstones always generate cursed. If cursed, they behave like loadstones and cannot be dropped voluntarily - making this another dangerous gray stone in the dungeon to be wary of.
+Additional traits include its total inedibility - monsters will never eat it. Pets treat it as a cursed object and will avoid stepping on it. Rubbing a foulstone on another rock will cause it to emit a poisonous cloud. Foulstones always generate cursed. If cursed, they behave like loadstones and cannot be dropped voluntarily - making this another dangerous gray stone to be wary of.
 
 
 ## ARTIFACT CHANGES
@@ -1637,6 +1642,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * all bats can see invisible
 * captains are considered princes (xNetHack)
 * captains and watch captains generate with keys (EvilHack)
+* captains have poison resistance
 * centaurs will keep their distance from the player (xNetHack)
 * couatls get sleep and shock resistance (Fourk)
 * couatls get a stunning gaze and can generate invisible
@@ -1689,6 +1695,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * long worm segments have a lower chance to be cut
 * lords and princes never get negative weapons or armor (xNetHack)
 * lieutenants are considered lords (xNetHack)
+* lietenants have poison resistance
 * master liches and arch-liches can see invisible (FIQHack)
 * mastodons are now huge, have -8 AC, stronger butt attacks, increased difficulty
 * mastodons get a hug attack and can berserk (EvilHack)
@@ -1726,6 +1733,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * purple worms have thick skin
 * pyrolisks have negative alignment
 * quasits are faster, have stronger attacks, see invisible, and can appear in small groups (xNetHack)
+* quasits can flank
 * queen bees can displace monsters
 * quest leaders resist death magic (EvilHack)
 * quest nemeses can break boulders after getting frustrated enough
@@ -1781,7 +1789,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * yellow and black light explosions are directionless (xNetHack)
 * yellow molds puff out stunning spores when hit
 * wood nymphs are slightly slower than average, lower difficulty (xNetHack)
-* wood nymphs leave grass instead of corpses (CrecelleHack)
+* wood nymphs leave grass instead of corpses (CrecelleHack), and also 1 in 3 times they will leave a tree instead (NerfHack)
 * water nymphs are slightly higher level and difficulty (xNetHack)
 * mountain nymphs are higher level, faster, and higher difficulty (xNetHack)
 * hill giants are lower level and difficulty (xNetHack)
