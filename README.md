@@ -21,9 +21,9 @@
       - [Encumbrance affects AC](#encumbrance-affects-ac)
       - [**The "wounded legs" status**](#the-wounded-legs-status)
   - [MECHANICS CHANGES](#mechanics-changes)
+    - [No wishes are allowed in NerfHack.](#no-wishes-are-allowed-in-nerfhack)
     - [Endgame Changes](#endgame-changes)
     - [Instakills](#instakills)
-    - [Wishing is gone](#wishing-is-gone)
     - [Genocide has been nerfed and renamed to Exile](#genocide-has-been-nerfed-and-renamed-to-exile)
     - [Slow Luck timeouts](#slow-luck-timeouts)
     - [Pet behavior](#pet-behavior)
@@ -101,24 +101,24 @@
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
     - [Dragon changes](#dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
-      - [Warping behavior for demon princes and lords and quest nemeses](#warping-behavior-for-demon-princes-and-lords-and-quest-nemeses)
+      - [Warping behavior for Cthulhu](#warping-behavior-for-cthulhu)
   - [MONSTER BEHAVIOR](#monster-behavior)
     - [Monster item use](#monster-item-use)
     - [Monster accessory use](#monster-accessory-use)
     - [Misc monster behavior changes](#misc-monster-behavior-changes)
     - [Flanking behavior](#flanking-behavior)
     - [Berserking behavior](#berserking-behavior)
+    - [Traitorous monsters](#traitorous-monsters)
     - [Monster elemental vulnerabilities](#monster-elemental-vulnerabilities)
     - [Resistance and vulnerability to weapon damage types](#resistance-and-vulnerability-to-weapon-damage-types)
     - [Rabid monsters](#rabid-monsters)
     - [Diseased monsters](#diseased-monsters)
+      - [Diseased zombies](#diseased-zombies)
     - [Accurate behavior](#accurate-behavior)
     - [Jumping behavior](#jumping-behavior)
     - [Tree walking](#tree-walking)
     - [Withering attacks](#withering-attacks)
   - [MONSTER SPELLCASTING](#monster-spellcasting)
-    - [Mage Spells](#mage-spells)
-    - [Clerical Spells](#clerical-spells)
   - [ROLE CHANGES](#role-changes)
     - [Archeologist](#archeologist)
     - [Barbarian](#barbarian)
@@ -206,6 +206,7 @@ This changelog exists to track the changes in NerfHack: https://github.com/elunn
 * Give a vibrate warning for all weapons and armor when the enchantment reaches an unsafe level (Dynahack)
 * You don't waste turns for aborted engrave attempts.
 * The Amulet of Yendor needs only be carried to hint of nearby portals (Sporkhack).
+* Make inventory more explicit about the container we put in/take out of.
 
 #### Safer bags of holding:
 The following safeguards were added to protect players from accidentally exploding their bags:
@@ -214,6 +215,8 @@ The following safeguards were added to protect players from accidentally explodi
 * Empty wands of cancellation may still be placed inside bags of holding with no risk of blowing up
 * DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
 * Another subtle but helpful change: bags are not susceptible to burning up when lava walking. In Vanilla this was never the case, but in some variants bags are destroyed unless foo-proofed.
+* Moloch's Temple has a 50% chance of generating a bag of holding.
+* Sokoban only has a 25% of having a bag of holding as the prize.
 
 ### Streamlined Identification Features
 A general design philosophy of NerfHack is to automatically identify items when it becomes obvious what they are from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
@@ -436,6 +439,7 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * Eating domestic animals causes aggravation for 5000-7500 turns instead of permanently.
 * **Aggravate monster spells** cast at hero cause intrinsic aggravation for 50-300 turns.
 * **Foulstones** carried in open inventory also confer aggravate monster (however this does not add to the difficulty of spawned monsters)
+* Aggravate monster causes peaceful monsters to become hostile.
 
 ### Vulnerability properties
 * Ported from EvilHack
@@ -456,6 +460,8 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 ### Impaired States and actions
 * Allow successfully using the #terrain command whilst impaired (xNetHack)
 * Falling downstairs does more damage: 10-19 damage instead of 1d3 damage (K-Mod)
+* Falling onto sinks does more damage
+* Levitating into the ceiling does more damage
 * Falling down a hole or pit whilst fumbling - or with you have low dexterity - can make you fall on a wielded weapon.
 * Going downstairs whilst stunned always results in falling, confusion sometimes does.
 * Jumping is not possible whilst **stunned**, and jumping whilst **confused** has a 20% chance to fail (EvilHack)
@@ -484,6 +490,18 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 
 
 ## MECHANICS CHANGES
+### No wishes are allowed in NerfHack.
+* That's right: 0, None, Zero, Zilch. Wishes have been totally removed from normal play (however they are still available in wizmode or explore mode)
+* A key design philosophy of NerfHack is to "use what the dungeon gives you".
+* Magic lamps have been removed and replaced by magic candles.
+* Water demons that come from fountains will never offer wishes
+* Djinni will never offer wishes
+* Thrones cannot grant wishes when sitting
+* The wand of wishing in the Castle has been replaced by chests of loot
+* Vlad's throne doesn't grant a wish (it acts like a normal throne)
+* The Amulet of Yendor does not grant a wish
+
+
 ### Endgame Changes
 * Occasional earthquakes can occur during the ascension run (UnNetHack/EvilHack). These will cease after entering the planes.
 * After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (UnNetHack/EvilHack)
@@ -496,13 +514,6 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * Bardiches are a new, but rare, source of instadeath. They have a 1 in 100 chance of beheading a monster or you on hit.
 * Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
 
-### Wishing is gone
-* Wishes have been totally removed from normal play (however they are still available in wizmode or explore mode)
-* Magic lamps have been removed and replaced by magic candles.
-* Water demons that come from fountains will never offer wishes
-* Djinni will never offer wishes
-* Thrones cannot grant wishes when sitting
-* The wand of wishing in the Castle has been replaced by chests of loot.
 
 ### Genocide has been nerfed and renamed to Exile
 * A renaming was in order because genocide was heavily nerfed and functions differently from vanilla NetHack.
@@ -695,8 +706,8 @@ This chart shows the number of successful uses of a skill required to reach each
 * Riding skill is exercised more quickly, closer to vanilla (UnNetHack)
 * Skill gain for spells is faster than skill gain for weapons (UnNetHack)
 * Shield skill gains are also increased to keep pace with the increased skill requirements.
-* Projectile skills are only trained for the first thrown projectile.
 * Reaching Master in a weapon skill grants 1 more damage for attacks
+* No role can reach higher than Basic skill in club.
 * Training skill in pick-axe affects how fast you can dig (EvilHack)
     * Skilled gives you the same bonus as a dwarf (x2)
     * Expert gives you double the bonus of a dwarf (x4)
@@ -793,6 +804,7 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Wet towels provide 100% protection from poison gas when worn
 * Scrolls, rings, and wands have a variety of new appearances (UnNetHack/Slice)
 * The weights of non-mergable weapons and armors can vary slightly (from CrecelleHack)
+* Cut down on items for monsters that won't use those items, specifically dragons that won't use their potions or scrolls.
 
 ### Item Erosion and Destruction
 * Objects can be completely destroyed from erosion (EvilHack)
@@ -810,7 +822,7 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Items can be erodeproofed via confused enchant weapon scrolls or by dipping into non-diluted potions of reflection.
 * Item erosion and negative enchantment can be repaired by dipping into a non-diluted potion of restore ability; read counters on spellbooks can also be refreshed (xNetHack)
 * The damage from item destruction has been increased to double or triple it's Vanilla values.
-* 
+
 **Acid and corrosion:**
 * Acid has been turned into a potent source of item-destruction. Wherever acid damage is inflicted, there is now a chance for item corrosion to also occur.
 * Getting hit by potions of acid can corrode armor.
@@ -848,7 +860,6 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 | Chance of failure   | 0%       | 8%       | 15%      | 23%      | 31%      | 38%      | 46%      | 54%      |
 
 
-
 ### Weapon changes
 * Weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
 * Lords, princes, and uniques will appear with enchanted weapons.
@@ -861,14 +872,14 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * Any slashing or piercing weapons can now be poisoned (SLASH'EM)
 * Special weapon effects (like rogue backstab, flail stunning, and samurai katana weapon smashing) have been enabled when two-weaponing.
 * Wielding and unwielding **curved swords** takes 0 turns.
+* Lawful and chaotic weapons cannot be two-weaponed
 
 #### Specific weapon changes
 * **boomerangs** have a higher probability of generating and will can pass through enemies on hit.
-* **war hammers** have been changed from a one-handed weapon into a competitive two-handed weapon (xNetHack). They now deal 2d6 vs small monsters and 2d8 vs large, and weigh 120.
 * **long swords** have a slightly lower chance of randomly generating (K-Mod)
 * **spears** at expert skill can skewer through enemies, allowing you to hit the enemy directly behind the target. Peacefuls are prevented from being hit unless the spear is cursed. We also won't auto-skewer the spot unless it is visible or spottable via ESP. Skewering doesn't trigger most passive attacks unless it's a passive electrifying attack and you attack with a metal spear. Most of the time you won't get a skewer unless the monster is below 20% of its health, otherwise if it's a kebabable monster or a solid or blobby monster, you'll always skewer.
 * **tridents** at basic can also skewer monsters.
-* **morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better. Morning stars now weigh 50.
+* **morning stars and flails** can stun monsters (or the player) on critical hits. Player must be skilled or better.
 * **daggers and knives** have a small chance to mulch. If non-cursed, the probability is 1 in 100. If cursed, they go through the same checks as other mulchable projectiles.
 * **shuriken** now weigh 2 aum each.
 
@@ -971,19 +982,20 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Shopkeepers price dragon-scaled armor at a high value (xNetHack).
 * By themselves, dragon scales do not provide secondary intrinsics, they must be enchanted onto armor for the secondary effect(s) to kick in.
 
-| Dragon     | Scales confer      | Scaled armor confers       |
-| ---------- | ------------------ | -------------------------- |
-| gray       | magic resistance   |                            |
-| gold       | light source       | hallucination resistance   |
-| silver     | reflection         | blinding resistance        |
-| shimmering | displacement       | stun resistance            |
-| red        | fire resistance    | increase damage            |
-| white      | cold resistance    | slow digest/water walk     |
-| orange     | sleep resistance   | free action                |
-| black      | disintegration res | drain/withering res        |
-| blue       | shock resistance   | speed                      |
-| green      | poison resistance  | regeneration, sickness res |
-| yellow     | acid resistance    | petrification res          |
+| Dragon     | Scales confer      | Scaled armor confers     |
+| ---------- | ------------------ | ------------------------ |
+| gray       | magic resistance   | cancellation resistance  |
+| gold       | light source       | hallucination resistance |
+| silver     | reflection         | blinding resistance      |
+| shimmering | displacement       | stun resistance          |
+| red        | fire resistance    | increase damage          |
+| white      | cold resistance    | slow digest              |
+| orange     | sleep resistance   | free action              |
+| black      | disintegration res | withering res            |
+| blue       | shock resistance   | speed                    |
+| green      | poison resistance  | sickness res             |
+| yellow     | acid resistance    | petrification res        |
+| shadow     | drain resistance   | death res                |
 
 * Red dragon scaled armor confers increase damage; enchantment works in the same fashion as a ring of increase damage.
 
@@ -1074,7 +1086,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * Wand of cancellation extensions
   * Monsters can zap the player with wands of cancellation
   * Being cancelled removes most temporary effects (invisibility, protection, reflection)
-* Like rings, wands can sometimes be re-charged from shock damage.
 * You must have at least one free hand (that is not welded to a cursed item or shield) to zap a wand.
 * Plastic wands can neither be broken (via apply) nor exploded by shock damage. This includes all wands made of plastic material including: "plastic", "pliable", and "green" appearances.
 * Wands can sometimes generate pre-charged. This occurs frequently for monster inventories.
@@ -1187,6 +1198,7 @@ Carrying a mirror in your open inventory grants you the benefit of reflection. K
 * Items can appear in all types of materials now.
 * New materials:
   * Coldsteel: does extra damage to fae type monsters.
+  * Chiton: commonly used for grung items.
 * Rings and their appearances have been overhauled. All rings have new appearances that allow for different materials to generate on them.
 
 ### Object Properties
@@ -1197,7 +1209,7 @@ An object property is a magical attribute associated with an item - in other var
 In NerfHack, object properties are not hidden from the player and are made obvious with {} around the properties to distinguish them from other ordinary items.
 
 **Restricted items:** non-weapons (ie: cockatrice corpses), artifacts, dragon scales, and unique items.
-- A players' starting inventory will never spawn with an object property (with the exception of the Undead Slayer-Vampire who starts with a jacket of fire resistance)
+- A players' starting inventory will never spawn with an object property
 - Changing a regular item with object properties into an artifact (e.g., dipping for Excalibur) will strip that item of its object properties.
 - Extrinsic properties that are applied to weapons or armor are active only when those objects are wielded/worn. With weapons, extrinsic properties also work in the offhand whilst twoweaponing.
 
@@ -1205,7 +1217,7 @@ In NerfHack, object properties are not hidden from the player and are made obvio
 **Random item generation:**
 - Odds of an eligible item having a magical property: 1 in 150
 - Odds improve deeper into the dungeon
-- The chances of an item having 2 properties on creation is 1 in 100000.
+- The chances of an item having 2 properties on creation is 0 - items can only have a single property.
 - Rings have a 1 in 20 chance of generating with a property.
 
 **Forging and property transfers:**
@@ -1223,34 +1235,35 @@ SUCCESS: 0.5%  20.0%  39.5%  59.0%  78.5%  98.0%
 #### Table of object properties ====
 The table below lists all available magical properties, what items they can be applied to, and what their function is.
 
-| Object property | Armor attributes                        | Weapon attributes     |
-| --------------- | --------------------------------------- | --------------------- |
-| Fire            | fire resistance                         | +(1d5+3) fire damage  |
-| Frost           | cold resistance                         | +(1d5+3) cold damage  |
-| Sleep           | "alertness"<br/>sleep resistance        | +d2 dmg, sleep attack |
-| Shock           | shock resistance                        | +(1d5+3) shock damage |
-| Venom           | poison resistance                       | +d2 poison            |
-| Acid            | acid resistance                         | +(1d5+3) acid damage  |
-| Draining        | drain resistance                        | drain life attack     |
-| Filth           | "health"<br/>sickness resistance        | disease attack        |
-| ESP             | telepathy                               | telepathy             |
-| Searching       | searching                               | searching             |
-| Stealth         | stealth                                 | stealth               |
-| Vigilance       | warning                                 | warning               |
-| Insight         | see invisible                           | see invisible         |
-| Charisma        | charisma adjustment<                    | charisma adjustment   |
-| Fumbling        | fumbling                                | fumbling              |
-| Hunger          | hunger                                  | hunger                |
-| Burden          | steadfast, heavier                      | steadfast, heavier    |
-| Danger          |                                         |                       |
-| Rage            |                                         |                       |
-| Stench          |                                         |                       |
-| Stasis          | Grants sustain ability, protects item enchantment                                        |                       |
-| antimagic       | magic resistance, prevents spellcasting |                       |
-| nulling         |                                         |                       |
-| integrity       |                                         |                       |
-| hexed           |                                         |                       |
-| carrying        |                                         |                       |
+| Object property | Armor attributes                      | Weapon attributes                                    |
+| --------------- | ------------------------------------- | ---------------------------------------------------- |
+| Fire            | fire resistance                       | +(1d5+3) fire damage                                 |
+| Frost           | cold resistance                       | +(1d5+3) cold damage                                 |
+| Sleep           | sleep resistance                      | +d2 dmg, sleep attack                                |
+| Shock           | shock resistance                      | +(1d5+3) shock damage                                |
+| Venom           | poison resistance                     | +d2 poison                                           |
+| Acid            | acid resistance                       | +(1d5+3) acid damage                                 |
+| Draining        | drain resistance                      | drain life attack                                    |
+| Health          | sickness resistance                   | n/a                                                  |
+| Filth           | n/a                                   | disease attack                                       |
+| Peace           | blocks aggravate monster              | blocks aggravate monster                             |
+| Searching       | searching                             | searching                                            |
+| Stealth         | stealth                               | stealth                                              |
+| Warning         | warning                               | warning                                              |
+| Insight         | see invisible                         | see invisible                                        |
+| Charisma        | charisma adjustment                   | charisma adjustment                                  |
+| Fumbling        | fumbling                              | fumbling                                             |
+| Hunger          | hunger                                | hunger                                               |
+| Burden          | steadfast, heavier item               | steadfast, heavier item                              |
+| Danger          | infravision, higher difficulty        | infravision, higher difficulty                       |
+| Rage            | n/a                                   | double damage, bloodthirsty                          |
+| Stench          | aggravate monster, prevents digestion | aggravate monster, prevents digestion                |
+| preservation    | protects item enchantment             | n/a                                                  |
+| carrying        | increases carry capacity              | increases carry capacity                             |
+| antimagic       | magic resistance                      | n/a                                                  |
+| hexed           | n/a                                   | +3d6 dmg, with 2d6 to self on attacks. Absorbs curses |
+| nulling         | n/a                                   | cancel attack                                        |
+| integrity       | Disintegration and withering res      | n/a                                                  |
 
 
 
@@ -1265,7 +1278,7 @@ Notes:
 ### Object build qualities
 Ported from EvilHack
 
-Weapons, armor, and barding can possess varying levels of quality: inferior, superior, or exceptional. Superior weapons deal an additional point of damage, while exceptional weapons deal two extra points of damage and receive a +1 bonus to-hit. Similarly, superior and exceptional armor pieces provide +1 and +2 bonuses to Armor Class (AC), respectively. On the other hand, inferior weapons suffer a -2 penalty to both damage and to-hit, and inferior armor receives a -2 AC penalty.
+Weapons, armor, and barding can possess varying levels of quality: inferior, superior, or exceptional. Superior weapons deal an additional point of damage, while exceptional weapons deal two extra points of damage and receive a +1 bonus to-hit. Similarly, superior and exceptional armor pieces provide +1 and +2 bonuses to Armor Class (AC), respectively. On the other hand, inferior weapons suffer a -2 penalty to both damage and to-hit. Inferior armor doesn't have a penalty, but it will fall apart easily.
 
 Only objects that could have been produced in a forge and are randomly generated can exhibit these quality traits. Exceptional weapons are immune to shattering blows, while superior weapons are still vulnerable, though they shatter only half as often. Inferior weapons are much more prone to breaking, particularly if they are eroded. Additionally, attacking with an inferior weapon carries a small chance of it falling apart upon impact, and inferior armor has a chance to disintegrate when it blocks an attack.
 
@@ -1393,7 +1406,7 @@ skullclaw mace
 | wand of draining              | wand      | 200  | 7   | SLASH'EM           | shoots drain life rays                     |
 | healthstone                   | gem       | 60   | 10  | SLASH'EM           | affects regeneration                       |
 | whetstone                     | gem       | 45   | 10  | SLASH'EM           | sharpens edged weapons                     |
-| foulstone                     | gem       | 0    | 10  | NerfHack           | aggravate monster & misc effects           |
+| foulstone                     | gem       | 0    | 10  | NerfHack           | aggravate monster & stinking clouds           |
 | pineapple                     | food      | 9    | 15  | SpliceHack         | can be thrown for extra damage             |
 | mistletoe                     | food      | 10   | 1   | EvilHack           | can cure hallucination                     |
 | pinch of catnip               | food      | 7    | 1   | SpliceHack         | can tame felines                           |
@@ -1473,7 +1486,7 @@ Other effects:**
 ### foulstone
 A **foulstone** is a new gray stone with several unusual effects for anyone carrying it. Simply possessing a foulstone causes monsters to become aggravated, though it does not increase the difficulty of those that spawn as a ring of aggravate monster would. While carrying a foulstone, monsters cannot digest you. Likewise, you cannot digest monsters that are also carrying a foulstone. Shopkeepers will refuse to let you enter their stores if you have one, and they will not purchase the stone under any circumstances (it is very stinky).
 
-Foulstones have unique magical properties depending on their blessing status. If blessed, there is a 1 in 100 chance per turn that the stone emits a stench that temporarily scares nearby monsters, similar to the effect of garlic breath. If not blessed, there is a 1 in 100 chance per turn of releasing a poisonous cloud centered on the carrier. These effects can stack, so carrying multiple foulstones increases the likelihood of either event occurring each turn.
+Foulstones have unique magical properties depending on their blessing status. If blessed, there is a 1 in 100 chance per turn that the stone emits a stench that temporarily scares nearby monsters, similar to the effect of garlic breath. If not blessed, there is a 1 in 100 chance per turn of releasing a poisonous cloud centered on the carrier. These effects can stack, so carrying multiple foulstones increases the likelihood of either event occurring each turn. The stacking effects only count up to a maximum of 10 foulstones for either the blessed or cursed effects.
 
 Additional traits include its total inedibility - monsters will never eat it. Pets treat it as a cursed object and will avoid stepping on it. Rubbing a foulstone on another rock will cause it to emit a poisonous cloud. Foulstones always generate cursed. If cursed, they behave like loadstones and cannot be dropped voluntarily - making this another dangerous gray stone to be wary of.
 
@@ -1481,9 +1494,6 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 ## ARTIFACT CHANGES
 
 ### General artifact changes
-* Artifact weapons can now be dual-wielded (SLASH'EM)
-* Intrinsics are granted for both weapons accordingly.
-* Lawful and chaotic weapons cannot be two-weaponed (EvilHack)
 * Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
 * Artifact blasts inflict much more damage (SLASH'EM)
 * Increase rate of artifact drops slightly; allow lenses and amulets to generate as artifacts. 
@@ -1498,9 +1508,7 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 * Eyes of the Overworld's xray-vision range was increased to 8 (from FIQHack).
 * Fire Brand instakills highly flammable monsters and green slimes (xNetHack)
 * Fire Brand cures sliming whenever you attack with it
-* Fire Brand is now a short sword (EvilHack)
 * Frost Brand instakills water elementals
-* Frost Brand is now a short sword (EvilHack)
 * Giantslayer is now a spear (EvilHack)
 * Giantslayer conveys 18/\* strength whilst wielded (Dynahack)
 * Grayswandir only deals bonus damage versus cross-aligned monsters.
@@ -1634,7 +1642,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * all A class monsters are immune to death magic (xNetHack)
 * all A class monsters resist sickness
 * increased difficulty of all A-class spellcasters.
-* Some monsters on the Astral Plane spawn with rings of slow digestion or teleport control to thwart "purple rain" and teleportation strategies.
+* Some monsters on the Astral Plane spawn with foulstones or teleport control to thwart "purple rain" and teleportation strategies.
 * air elementals get shock resistance
 * Aleax difficulty raised to 16 (SLASH'EM)
 * Aleax weapon attacks raised to 2d6 (Sporkhack)
@@ -1742,6 +1750,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * shriekers can shriek from any distance whenever they see you
 * all spheres explode on death (unless cancelled)
 * all spheres have speed 15 and 0 AC
+* all spheres are tiny (so they can pass through iron bars)
 * skeleton and shade slow attacks are ineffective vs undead
 * soldiers get half as many C-and-K-rations (K-Mod)
 * soldiers and their higher ranks get level, speed, AC, and MR boosts (K-Mod)
@@ -1765,6 +1774,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * titans can see invisible (FIQHack)
 * titans resist death magic (SLASH'EM)
 * titans are level 17 (K-Mod)
+* titans get shock and poison resistance.
 * tigers are orange (EvilHack)
 * tigers can also jump
 * titanotheres are now huge, have -2 AC, stronger claw attacks, increased difficulty
@@ -1772,6 +1782,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * troll meat provides temporary intrinsic regeneration (xNetHack)
 * violet fungi puff out hallucination-inducing spores when hit
 * all vortices (v) resist shock damage
+* vampshifting has been totally removed for both monsters and polyforms.
 * vampires (any V) are not afraid of Molochian altars
 * vampires attack with their bite attacks first
 * vampires can use weapons (EvilHack)
@@ -1802,6 +1813,7 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * Instead, wherever a monster or player would have been instakilled, a stoning timer is started for 5 turns.
 * This applies for every instapetrification effect: touching a footrice corpse, being knocked into a footrice, and so on.
 * Footrice only inflict slow stoning for the player and for monsters
+* Related change: the nutrition for lizard corpses has been dramatically reduced. The intention is to limiting their use to 1-2 un-stonings per corpse.
 
 ### Dangerous piercers
 * All piercers are mindless and can grow up into stronger piercers.
@@ -1837,40 +1849,69 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * Zombies are immune to being scared by Elbereth
 
 ### Dragon changes
-* Dragons have been overhauled to more closely resemble the versions in SLASH'EM and FIQHack.
-* An attempt has been made to make each dragon have a special quality or quirk.
-* Part of the challenge in SLASH'EM was that adult dragons (and therefore dragon scales) were more difficult to come by. Baby dragons are plentiful and can potentially be tamed and grown up into adults, but with the large gap in levels the process is long and difficult. It's possible they might not be guaranteed in Ludios or the Castle anymore either, but the increased frequency means they should show up in Gehennom much more often.
-* Dragons are always generated awake and pissed for Knights (from EvilHack).
+* Dragons have been overhauled to present a more potent threat to the player, with influences from FIQHack, SLASH'EM, and EvilHack.
+* Part of the challenge in SLASH'EM was that adult dragons (and therefore dragon scales) were more difficult to come by. In NerfHack, adult dragons are guaranteed in certain places like the Castle, Ludios, and the Healer quest. Dragons of all types can appear in the Wyrm Caves and in the dragon lair themed rooms.
+* Dragons are always generated awake and angry for Knights (from EvilHack).
+* Dragons get extremely angry when the hero wears matching scales.
+* All dragons generate at a higher frequency; baby dragons will generate randomly in the dungeon but not in Gehennom
 
 **Baby dragon changes**
-* Most baby dragons are level 4 and difficulty 6 (SLASH'EM)
-* Their size has been reduced from HUGE to LARGE (eliminating possible knockback on the player) with their weight going from 1500 to 1000.
-* They can generate randomly in the dungeon with a frequency of 1, but not in Gehennom
-* Baby dragons get a special 1d6 bite attack instead of a 2d6 physical bite (K-Mod). For most dragons, their bite matches their adult breath attack (red = fire bite, blue = shock bite, etc).
-* All baby dragons get an additional 1d6 claw attack
+* Most baby dragons have these base level stats:
+  *  level 8, difficulty 8, speed 14, AC 2, MR 10
+* Increased their bite attack to 3d6.
+* All baby dragons get two additional 2d4 claw attacks
+* For most dragons, their bite matches their adult breath attack (red = fire bite, blue = shock bite, etc). (K-Mod)
+  * baby gray dragons disenchanting bite
+  * baby black dragons get a withering bite
+  * baby silver and shimmering dragons get a stunning bite
 * baby dragon alignments match their adult counterparts (EvilHack)
 * baby red dragons can berserk
-* baby blue dragons are slightly faster at speed 12
-* baby green dragons regenerate, and are slightly higher level and difficulty
-* baby yellow dragons get a passive acid attack
-* baby gray dragons flank and have a disenchanting bite
-* baby white dragons are weaker
-* baby black dragons get a drain life attack, and are slightly higher level
+* baby blue dragons are slightly faster at speed 18
+
+| Dragon     | Level | Difficulty | Speed | AC  | MR  | Align | resists            |
+| ---------- | ----- | ---------- | ----- | --- | --- | ----- | ------------------ |
+| gray       | 8     | 8          | 14    | 2   | 30  | 4     | magic              |
+| gold       | 8     | 8          | 14    | 2   | 10  | 4     | fire               |
+| silver     | 8     | 8          | 14    | 2   | 40  | 4     | -                  |
+| shimmering | 8     | 8          | 14    | 2   | 10  | 4     | stun               |
+| red        | 8     | 8          | 14    | 2   | 10  | -4    | fire               |
+| white      | 8     | 8          | 14    | 2   | 10  | -4    | cold               |
+| orange     | 8     | 8          | 14    | 2   | 10  | -5    | sleep              |
+| black      | 8     | 8          | 14    | 2   | 10  | -6    | disintegration     |
+| blue       | 8     | 8          | 18    | 2   | 10  | -7    | shock              |
+| green      | 8     | 8          | 14    | 2   | 10  | -6    | poison/sick        |
+| shadow     | 8     | 16         | 12    | 2   | 10  | -7    | sleep/poison/drain |
+| yellow     | 8     | 8          | 14    | 2   | 10  | -7    | acid/stone         |
 
 **Adult dragon changes**
-* Get a 3d8 bite and 2d4 claw attacks, and are frequency 2.
+* Stronger attacks:
+  * Increased both claw attacks from 1d4 to 2d4 each.
+  * Increase damage of dragon breaths to 6d8.
+  * All adult dragons get a passive attack that matches their type
+  * All adult dragons get an engulf attack
+* All adult dragons can flank
 * Speed has been increased from 12 to 20, with a small buff to their claw attacks (FIQHack)
 * all dragons stalk/follow the player (FIQHack)
 * red dragons can berserk
 * blue dragons are faster (speed 24)
-* green dragons regenerate and are slightly higher level
-* orange dragons get an engulf digestion attack
-* black dragons get a terrifying roar
-* yellow dragons get a passive acid splash attack
-* white dragons are weaker than other dragons
-* gray dragons can flank
 * shimmering dragons have displacement and resist stunning
 * Red, green, white, orange, and yellow dragons can no longer see invisible.
+
+| Dragon     | Level | Difficulty | Speed | AC  | MR  | Align | resists                  |
+| ---------- | ----- | ---------- | ----- | --- | --- | ----- | ------------------------ |
+| gray       | 15    | 20         | 20    | -1  | 60  | 4     | magic                    |
+| gold       | 15    | 20         | 20    | -1  | 20  | 4     | fire                     |
+| silver     | 15    | 20         | 20    | -1  | 95  | 4     | -                        |
+| shimmering | 15    | 20         | 20    | -1  | 20  | 4     | stun                     |
+| red        | 15    | 20         | 20    | -1  | 20  | -4    | fire                     |
+| white      | 15    | 20         | 20    | -1  | 20  | -5    | cold                     |
+| orange     | 15    | 20         | 20    | -1  | 20  | -5    | sleep                    |
+| black      | 15    | 20         | 20    | -1  | 20  | -6    | disintegration           |
+| blue       | 15    | 20         | 24    | -1  | 20  | -7    | shock                    |
+| green      | 15    | 20         | 20    | -1  | 20  | -6    | poison/sick              |
+| shadow     | 15    | 28         | 14    | -4  | 20  | -8    | sleep/poison/drain/death |
+| yellow     | 15    | 20         | 20    | -1  | 20  | -7    | acid/stone               |
+
 
 ### Unique monster changes
 * Unique monsters cannot be tamed
@@ -1881,15 +1922,17 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * The Master Assassin is stronger, faster, sees invisible, resists sleep and poison, and gets one additional attack.
 * Yeenoghu's magic missile attack has been buffed to 6d6 (EvilHack)
 * Vlad gets stoning resistance.
+* Vlad can cast spells
+* Asmodeus can cast spells
 * King Arthur now resists poison, fire, cold, shock, and sleep.
 * Baalzebub is faster, gets an extra sting attack with a stronger main attack, can spawns flies (xNetHack).
 * Master Kaen also gets sleep, fire, cold, and shock resistance
 * The Grand Master also gets stoning and cold resistance.
 * Dispater can walk through walls
 
-#### Warping behavior for demon princes and lords and quest nemeses
-* These covetous monsters **will now only perform one initial warp to get to the player.** After their introduction, they will revert to standard AI and movement.
-* This makes most lords and nemeses a little less dangerous to handle and allows the player to create different strategies to deal with them.
+#### Warping behavior for Cthulhu
+* Cthulhu **will now only perform one initial warp to get to the player.**
+* After this, he will revert to standard AI and movement.
 * Cthulhu is a unique threat - because he resurrects he will be able to regain the warp each time he revives.
 
 **Medusa**
@@ -1933,6 +1976,8 @@ NerfHack’s version of Cthulhu is a fusion of elements from his appearances in 
 * Some monsters will not throw weapons that are usable for melee.
 * Monsters won't try to use wands of digging on hardfloor levels.
 * Monster will attempt to wrest wands
+* Monsters will pick up all kinds of potions (Crecelle)
+* Monsters that collect items will grudge lizards for their corpses (from SporkHack). 
 
 ### Monster accessory use
 * Monsters can wear most rings and amulets.
@@ -1980,6 +2025,46 @@ The act of going berserk is loud - nearby creatures are awakened by the monster�
 
 Attempting to tame a berserking creature will only bring it out of berserk mode, leaving it still hostile - it will not pacify or domesticate the monster. Monsters capable of berserking include all dwarves, orcs, mumakil, giants, ogres, and several others.
 
+### Traitorous monsters
+* Ported from SLASH'EM
+* Similar to SLASH'EM, many monster in NerfHack are traitorous and are capable of spontaneously turning against the player when tame.
+  * Only intelligent monsters are capable of betrayal, mindless monsters will never betray.
+  * Spell beings exist for a singular purpose, they will never betray you
+
+* However, betrayals are much more likely to occur in NerfHack than in SLASH'EM:
+  * In SLASHEM: betrayal checks occur with a 1 in 850 chance during each of that pet's moves
+  * In NerfHack betrayal checks occur with a 1 in 250 chance during each of that pet's moves, in Gehennom it drops to 1 in 50 chance.
+  * In SLASHEM: there is a further 1 in 3 roll that must be passed inside the betrayal check, in NerfHack this is bypassed (otherwise the chance of a betrayal is reduced to 1 in 850*3, or 2550 each turn).
+  * In SLASHEM, the betrayal check fails if the pet is further than 3 squares away, in NerfHack the potential traitors proximity doesn't matter.
+  * In NerfHack, a lot more variables go into the the betrayal check. The monster observes the hero's ailments and HP and pounces if they seem weak.
+  * Tame pets that are capable of berserking also have the chance to betray if they might berserk. If they fail the betray check though, they are prevented from berserking.
+  * When you kill peaceful monsters in view of traitors, tame ones have a chance to betray.
+  * There is a new monster spell "betrayal" that will encourage a pet to betray, even if it isn't normally traitorous.
+
+Kinds of monsters that betray: All monsters that were traitorous in SLASH'EM can betray in NerfHack
+* migos
+* gargoyles, gremlins
+* mind flayers, deep ones
+* most imps
+* all kobolds
+* all orcs
+* all gnolls
+* forest centaur, mountain centaurs
+* all chaotic dragons
+* invisible stalkers
+* minotaurs
+* all lich class (L) monsters
+* all ogres
+* * assassin bugs, shadow wolves displacer beasts, blight sprites, byakhee, nightgaunts, shoggoths
+* degenerators, disenchanters
+* all trolls
+* gorgon hulks
+* all vampires
+* Nazgul
+* ghoul mages, gugs, ghoul queens
+* most demons
+
+
 ### Monster elemental vulnerabilities
 Ported from EvilHack: Monsters can be vulnerable to fire, cold, acid, and shock damage.
 
@@ -2025,6 +2110,10 @@ Rabid monsters also lose the ability to quaff potions and cannot be tamed or pac
 * Monsters can cure themselves if they have the means, and the player can use cure sickness or eucalyptus leaves to heal sick pets.
 * Currently, the only weapon that causes disease is Grimtooth.
 
+#### Diseased zombies
+* This is a twist on the EvilHack zombies that have brain eating, illness causing bites.
+* In NerfHack, 10% of zombies generated will be diseased and possess a dangerous illness causing bite.
+
 ### Accurate behavior
 * Ported from EvilHack, with modifications
 * This property makes monsters more accurate in melee and with projectiles
@@ -2049,105 +2138,279 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 
 
 * Monsters can target and cast spells at other monsters (EvilHack).
+* Spellcasters are able to misfire some spells and hit close squares or targets if you possess something like displacement or invisibility.
 * Peaceful monsters won't cast make invisible on themselves.
-* Monster spellcasters will prioritize healing when wounded.
+* Monster spellcasters will prioritize healing when wounded (SporkHack)
+* Self heal spells scale with monster level (Crecelle).
 * Monster spellcasters can cast stone-to-flesh in response to getting stoned (EvilHack).
 * Displacement, invisibility, and darkness offer limited protection from spellcasters.
 * Telepathic spellcasters can usually bypass invisibility and displacement protections.
+* Monster types or individual monsters can now have their own special list of spells to draw from (Crecelle)
 
-### Mage Spells
-
-**psi bolt**
-* Now a ranged spell.
-* Does an extra 1d6 if you have telepathy.
+**psi bolt (level 0)**
+* Can be cast from a short range (up to 4 squares away)
+* Psi bolts also inflict bonus damage versus telepathic minds.
 * Damage scales down the further away the caster is.
 
-**reflection (EvilHack)**
-* A spell that creates a shimmering globe around the caster, granting them reflection for several turns.
-* Can be dissipated with a blast of cancellation.
-
-**acid blast (EvilHack)**
-* Explodes an acid blast on its target and the surrounding squares. The damage output is dependent on the level of the monster casting it.
-* The acid from this spell also has a chance of eroding any unprotected weapons or armor in open inventory.
-* Ranged, can be cast at the hero up to 13 squares away.
-
-**ice bolt (EvilHack)**
-* This spell explodes a small ice blast upon its target (and surrounding squares)
-* Any non-protected objects in open inventory are subject to being frozen.
-* This is a low-level spell, so access to this spell is given to every monster spellcaster that has access to mage-based spells.
-* Ranged, can be cast at the hero up to 13 squares away.
-
-**fire bolt (EvilHack)**
+**fire blast (level 0)**
 * This spell explodes a small fireball upon its target  (and surrounding squares)
 * Any flammable objects in open inventory are subject to being burned.
-* This is a low-level spell, so access to this spell is given to every monster spellcaster that has access to mage-based spells.
 * Ranged, can be cast at the hero up to 13 squares away.
+* Ported from EvilHack
 
-**destroy armor**
-* Altered from Vanilla NetHack, ported from EvilHack
-* Having magic resistance is no longer full protection against this spell. Any piece of armor being worn can have its fixed status removed, and then can be deteriorated to the point that it's completely destroyed. Even armor that is normally erodeproof (dragonhide and dragon scales, etc) is affected. Having MR keeps the erosion level at one per cast, otherwise the erosion level is of one to three levels per cast. Blessed pieces of armor have a small chance of resisting. Armor-based quest artifacts are immune to this spell, as is crystal plate mail.
+**ice blast (level 0)**
+* This spell explodes a small ice blast upon its target (and surrounding squares)
+* Any non-protected objects in open inventory are subject to being frozen.
+* Ranged, can be cast at the hero up to 13 squares away.
+* Ported from EvilHack
 
-**entomb (xNetHack)**
-* Used by a monster when they are low on health or fleeing. It is primarily for escape and when cast surrounds the player with boulders.
-* Any mage-spellcaster can use it when desperate.
-
-**call undead**
-* Ported from SLASH'EM
-* Call Undead can only be cast by undead and demon spellcasters
-* Monsters summoned by this spell only count as spell beings.
-* Ranged, can be cast at the hero from up to 7 squares away.
-* All wraith class monsters (W) are eligible, depending on difficulty
-* Excessive chain-summon spawns are prevented; a caster can only summon a spellcaster of lower difficulty, so for example a demilich could summon a lich, but not another demilich. Ghoul mages and liches are both difficulty 14 so neither can summon the other.
-* Weredemons (and other werefoo) are prevented from being summoned.
-
-**evil eye (dNetHack)**
-* When successfully cast on the hero it lowers your Luck by one point.
-* Evil eye can only be cast by undead and demon spellcasters.
-* Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced. There is no maximum range to this spell.
-
-**cure self**
-* Spellcasters can now cast this to cure illness, blindness, withering, and rabid statuses.
-
-**teleport**
-* High level spellcasters are able to warp to the hero when further than 7 square away.
-
-**illusion**
-* High level spellcasters are able to create mirror images of themselves - which one is the real caster?
-
-**vulnerability**
-* Mid-level spellcasters are able to cast this on the player (only the player not other monsters). The player will then suffer a few hundred turns of vulnerability to a specific elemental like fire or cold.
-
-
-### Clerical Spells
-
-**open wounds:**
-* Now a ranged spell.
+**open wounds (level 0)**
+* Now can be cast from a short range (up to 4 squares away)
 * Damage scales down the further away the caster is.
+* causes bloody tiles at higher damages.
 
-**lightning:**
-* Now a ranged spell.
+**summon spheres (level 0)**
+* The signature spell of the Orb Weaver (Q class).
+* It allows the caster to summon a random group of exploding spheres like flaming spheres or shocking spheres. Because this is only available to orb weavers, it's designated as level 0 to guarantee castability. It can be cast at range but the caster must be able to see the hero. Unlike other summoning spells, this will center the summoned monsters around the caster and not the hero. It can also be cast from any range as long as the weaver can see the hero.
+* All the summoned spheres count as spell beings.
 
-**protection (EvilHack)**
+**cure self (level 1)**
+* Spellcasters can now cast this to cure illness, blindness, and rabid statuses.
+* The amount healed scales with the caster's level (Crecelle)
+
+**darkness (level 1)**
+* This spell casts an aura of darkness around the hero.
+* Currently it only functions against the hero and other monsters cannot be targeted.
+* It is available to cast from range as long as the hero is in sight.
+* Ported from CrecelleHack.
+
+**grease blast (level 1)**
+* Blasts the target with a gush of grease (very similar to the effect of the grease trap)
+* Limited to melee range
+
+**blood rain (level 1)**
+* Causes a shower of blood around the target, causing all affected tiles to become bloody.
+* This spell is only utilized by vampiric casters and blood imps.
+* Can be cast at range as long as the hero is in sight.
+
+**haste self (level 2)**
+* No major changes from Vanilla.
+
+**confusion (level 2)**
+* Magic resistance no longer nullifies this spell, it cuts the duration in half.
+
+
+**protection (level 2)**
 * This is the monster version of the protection spell already available to the player.
 * Provides a temporary magical shield that increases the monster's AC protection.
 * Can be dissipated with a blast of cancellation.
+* Ported from EvilHack
 
-**geyser spell**
-* The core spell is unchanged from Vanilla NetHack, however now the geyser also rusts armor and instakills iron golems (EvilHack)
+**stunning force (level 3)**
+* Magic resistance and Free Action no longer nullify this spell, possessing either cuts the duration by 25%.
+* Stun resistance will prevent being stunned.
 
-**hobble**
-* This clerical spell smashes the hero's legs with a magical force and inflicts you with wounded legs for a brief period
-* Ranged, can be cast at the hero from up to 13 squares away.
-* Damage scales down the further away the caster is.
+**sleepel (level 3)**
+* Caster can put a target to sleep.
+* If the player is targeted, having magic resistance or free action reduces the duration by 50%.
+* Spell damage reduction reduces the duration by 25%.
+* Ported from Crecelle
 
-**blight (xNetHack)**
+**disappear (level 4)**
+* No major changes from Vanilla.
+
+**hold/paralyze (level 4)**
+* Magic resistance no longer nullifies this spell, it cuts the duration in half.
+
+**vulnerability (level 4)**
+* Caster can cause the player to become vulnerable to an element for a period of time, usually 250-500 turns.
+* Vulnerability reduces the specific resistance to the element by 50% - with the potential for negative resistance converting into damage increase.
+* This spell also drains 5-10% from the intrinsic resistance that is targeted.
+* Magic resistance helps reduce the duration of the vulnerability by 50%, spell damage reduction reduces duration by 25%.
+* All partial resistances are open to vulnerabilities now including sleep and disintegration.
+* Ported from EvilHack
+
+**levitate (level 4)**
+* Makes the target levitate.
+* If targeting the hero, it first causes the cursed potion of levitation effect (bumping your head on the ceiling),followed by a short period of levitation. Half spell damage reduces the levitation time. If targeting a monster, they just get permanent levitation. This spell is only cast by 'trickster' mages and only in melee range.
+* Ported from Crecelle
+
+**disguise (level 4)**
+* Allows the caster to take on an alternative appearance - similar to a mimic. There is no timeout and the caster will retain the appearance until the hero uncovers it through hitting, searching, or other means.
+* Protection from Shape Changers will also uncover the disguise and prevent it from being cast.
+*
+* Because this is fairly powerful (and annoying), it's limited to 'trickster'
+* casters like Gnomish Wizards and Kobold Shamans, but also Dispater...* Ported from Crecelle
+
+**betray (level 5)**
+* Causes a pet to betray you.
+* This works very similarly to how traitorous monsters betray except that this spell also adds one point of abuse to the pet before checking for betrayal.
+* New spell debuting in NerfHack
+
+
+**blight (level 5)**
+* Causes the target to start withering and can reduce their maximum hp; also causes a bit of hunger.
+* Not effective on non-living monsters or targets that possess disintegration resistance.
+* Duration scales with monster level.
 * In xNetHack, this spell was reserved for 'dark speech' - a nasty group of curses that Asmodeus and Demogorgon can use. But it was extracted out and used as a new clerical spell which inflicts withering on the player.
-* The duration of the withering lasts 20-60 turns. It can also be cast up to 8 squares away.
-* The Blight spell also causes a bit of hunger.
+* Can be cast from a short range (up to 4 squares away)
+* Ported from xNetHack
 
-**flesh to stone**
-* This is the highest level clerical spell
-* When cast it can start the stoning process on the hero.
+**blind (level 6)**
+* Caster can cause blindness in a target not through goop or intrinsic, but * through physical scales covering the target's eyes, so certain methods that resist blinding don't work.
+* Strangely, magic resistance doesn't have any effect on this spell (it didn't in Vanilla and doesn't in NerfHack). 
+* This remains a melee range spell.
+
+**weaken/strength of newt (level 6)**
+* Magic resistance no longer nullifies this spell, it cuts the duration by 50%. 
+
+**evil eye (level 7)**
+* Caster can inflict a luck-draining gaze attack upon the target.
+* If the target is not the hero, instead just confuses them.
+* Can be cast at range with no maximum distance (ie: could be cast across the level if possible).
+* Evil eye can only be cast by undead spellcasters.
+* Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced.
+* Ported from dNetHack
+
+
+**destroy armor (level 8)**
+* Altered from Vanilla NetHack, modifications ported from EvilHack
+* Having magic resistance is no longer full protection against this spell. Any piece of armor being worn can have its fixed status removed, and then can be deteriorated to the point that it's completely destroyed. Even armor that is normally erodeproof (dragonhide and dragon scales, etc) is affected. Having MR keeps the erosion level at one per cast, otherwise the erosion level is of one to three levels per cast. Blessed pieces of armor have a small chance of resisting. Armor-based quest artifacts are immune to this spell, as is crystal plate mail.
+
+**mirror image (level 8)**
+* Caster can summon a group of lookalike illusions to confuse you.
+* Can be cast from range (max 13 squares away) as long as hero is in sight. Can only target the hero. Illusions are weak, ghostlike monsters once they are uncovered.
+* Protection from shapechangers will also uncover their disguises and prevent casters from choosing this spell.
+* Ported from Crecelle
+
+**blood spear (level 8)**
+* Caster can cause the blood on a tile to turn into a spear that attacks the target, dealing 10d10 if Vlad casts it, otherwise d(ml/2 + 4, 4) where ml is the monster's level.
+* Used by vampiric casters. Can be cast at range.
+* Ported from Crecelle
+
+**summon insects (level 8)**
+* 
+
+**hobble (level 9)**
+* This clerical spell smashes the hero's legs with magical force and inflicts you with wounded legs for a brief period
+* Hobble damage can be reduced by Antimagic or Half Spell Damage
+* Can be cast from a short range (up to 4 squares away)
+* New spell debuting in NerfHack
+
+**curse items (level 10)**
+* Caster curses a random assortment of the target's inventory.
+* Certain items absorb curses: Magicbane, Load Brand both protect against this spell 95% of the time.
+* Hexed items also protect (as long as they are uncursed).
+* Allow high level spellcasters to also curse containers with curse items.
+
+
+**reflection (level 10)**
+* A spell that creates a shimmering globe around the caster, granting them reflection for several turns. Lasts longer for stronger monsters.
+* Can be dissipated with a blast of cancellation.
+* Ported from EvilHack
+
+
+**call undead (level 10)**
+* Caster summons a small horde of undead.
+* Only lich-class (L) monsters can cast this spell.
+* Monsters summoned by this spell only count as spell beings.
+* Ranged, can be cast at the hero from up to 7 squares away.
+* Centers the summons around the caster, not the hero.
+* Excessive chain-summon spawns are prevented; a caster can only summon a spellcaster of lower difficulty, so for example a demilich could summon a lich, but not another demilich. Ghoul mages and liches are both difficulty 14 so neither can summon the other.
+* Weredemons (and other werefoo) are prevented from being summoned.
+* Ported from SLASH'EM
+
+**disenchant (level 10)**
+* Allows caster to disenchant an item from hero's inventory. Must be cast in melee range.
+* Available to clerical and trickster casters.
+* 40% chance of zapping enchantment from current wielded weapon
+* 45% chance from random piece of worn gear
+* 15% chance of taking it from a random charged ring, charged tool, wand, or unequipped weapon or armor
+* Ported from xNetHack
+
+**lightning (level 11)**
+* Now can be cast from a short range (up to 4 squares away)
+
+
+**fire pillar (level 12)**
+* Now can be cast from a short range (up to 4 squares away)
+* Arch-viles can cast this spell from any distance.
+
+**summon minion (level 12)**
+* Allows the monster spellcaster to summon a type of minion based on its alignment.
+* The minion is placed next to the player.
+* Can be cast at a distance.
+* Ported from EvilHack
+
+
+**entomb (level 12)**
+* Defensive spell that allows casters to drop a pile of boulders on and around the hero, blocking them from immediate movement. This potentially buys the caster some time to flee and heal.
+* Used by high-level monsters when they are low on health or fleeing. It is primarily intended for escape.
+* Limited to undead casters
+* Ported from xNetHack
+
+
+**geyser (level 13)**
+* Now the geyser also rusts armor and instakills iron golems (EvilHack)
+* Now can be cast from a short range (up to 4 squares away)
+* Remove 1 in 5 useless check for Geyser so it should be selected more often.
+
+**make pool (level 13)**
+* melee-range spell that creates a moat at the hero's location, which the hero may immediately fall into, and the creation of the moat also removes any engravings on that square and subjects items on that square to water damage.
+* The caster has a 19⁄20 chance of selecting another valid spell if the hero does not have the Amulet of Yendor, and will not cast the spell if they are not in a diggable space.
+* The spell is affected by displacement and invisibility.
+* Ported from SLASH'EM, with updates from slashem-up.
+
+
+**aggravation (level 13)**
+* The caster aggravates monsters on the level and causes the hero to gain intrinsic aggravate monster for a brief period. The duration is calculated in function.
+
+**acid blast (level 14)**
+* Explodes an acid blast on its target and the surrounding squares. The damage output is dependent on the level of the monster casting it. Has a chance of eroding any unprotected weapons or armor in open inventory.
+* Ranged, can be cast at the hero up to 13 squares away.
+* Ported from EvilHack
+
+**blood bind (level 14)**
+* This spell allows the caster to create explosions on any squares that have blood on them.
+* Ported from CrecelleHack with some modifications: in NerfHack the range of effect is centered in a 8x8 circle around the caster and the caster won't create explosions that blast themselves.
+
+**teleport (level 15)**
+* High level spellcasters are able to warp to the hero to melee attack, or warp away when weak.
+* Ported from Crecelle and xNetHack
+
+**summon nasties (level 15)**
+* No major changes
+
+**flesh to stone (level 16)**
+* When cast it can start the stoning process on the target.
+* Can be cast from a short range (up to 4 squares away)
+* New spell debuting in NerfHack
+
+**clone wizard (level 18)**
+* No major changes
+
+**death touch (level 20)h**
+* Wielding an uncursed weapon with the Hexed property will protect you once.
+* Maintained the recent 3.7 change where the death touch doesn't immediately kill the player and instead inflicts significant damage. However, the damage is double the Vanilla rates.
+* Ported some effects from EvilHack:
+  * removed the caster's level check, "if (rn2(caster->m_lev) > 12)" so that it always goes through.
+  * Even with MR, if you are not immune to death magic, you will take 8d12 damage and lose a portion of maximum HP. The 8d12 is subject to Half_spell_damage reduction.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## ROLE CHANGES
@@ -2183,6 +2446,8 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
   * Each rage attack uses up 1d5 energy, so at least 3 energy is required to trigger a rage attack.
 
 ### Cavemen
+* Cavemen have 2 guaranteed sacrifice gifts: Skullcrusher and David's Sling. After these two artifacts have been gifted, no further artifacts can be yielded from #offer.
+* Instead of the standard crowning gift, cavemen always receive Giantslayer (EvilHack)
 * Cavemen start with a random set of dragon scales.
 * Unlike other roles, cavemen do not start out knowing scrolls of identify.
 * When reading scrolls of identify, cavemen will never be able to identify all items, instead being limited to a single identify per scroll.
@@ -2191,10 +2456,10 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
   * Cavemen can lash flint to arrows, making them do slightly more damage (Sporkhack/THEM). When arrows are flinted, their enchantment is also revealed.
 * Cavemen can get an alignment boost via cannibalism (Sporkhack)
 * Cavemen's gods sometimes don't respond to prayer. If you have abused your alignment, there is a 10% chance of being ignored (Sporkhack/SlashTHEM/EvilHack)
-* Cavemen start with really low intelligence. As a result, they are incapable of reading scrolls, spellbooks, or other legible items until reaching 6 INT. They also cannot write Elbereth until they increase their INT.
-* Instead of the standard crowning gift, cavemen always receive Giantslayer (EvilHack)
+* Cavemen start with really low intelligence. As a result, they are incapable of reading  legible items or engraving Elbereth until reaching 6 INT.
 * Cavemen are now restricted in pointy weapon skills like dagger and polearms. They also lose attack and matter skills, but can gain basic in riding and shields.
-* Cavemen can reach Master skill in clubs
+* Cavemen start with a nightvision radius of 2 (SLASH'EM)
+
 
 **Caveman quest updates:**
 * The caveman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (SlashTHEM)
@@ -2473,14 +2738,6 @@ Cartomancers do not learn spells in the traditional way, meaning they cannot acq
 
 Cartomancers begin the game knowing the identities of all rulebooks, as the title and purpose of a rulebook are typically clear from the cover. They always cast spells at expert level, ensuring high proficiency. Whilst rulebooks can still be written using magic markers without penalties (unlike when forging cards), they cannot be recharged with scrolls of charging. Additionally, cartomancers are fortunate enough to know braille, allowing them to invoke their rulebooks even while blind.
 
-**Card combos:**
-* The 'Z' spellcasting command is instead is used for card combos that the cartomancer gets access to as they level up.
-* Card combos do not become available until level 5. You gain the ability to cast more cards as you level up:
-  * level 5: 3 cards
-  * level 10: 4 cards
-  * level 15+: 5 cards
-* Starting the combo costs 5 energy. Further cards cost 5 energy per card to play as normal.
-
 **Cartomancers get special bonuses for wielding crystal balls:**
 * Whilst wielding a crystal ball, a cartomancer will enjoy **maximum charisma, telepathy, see invisible, and astral vision.**
 
@@ -2495,13 +2752,13 @@ Cartomancers begin the game knowing the identities of all rulebooks, as the titl
 * Elves start the game with the ability to pass through trees
 * Elves get see invisible at level 8
 * Elves can always reach Basic in enchantment spells (xNetHack)
+* Elves throw up when eating meat (Crecelle)
 
 ### Dwarves
 * Dwarves can always reach Skilled in pick-axe (xNetHack)
 
 ### Gnomes
 * Gnomes are good at slipping free from grabbing attacks
-* Gnomes start with a nightvision radius of 2 (dNetHack)
 * Gnomes start with an interesting tool
 * Gnomes get stealth at level 5 (SLASH'EM)
 * Gnomes get a damage bonus for shooting crossbows
@@ -2585,8 +2842,6 @@ The corpse draining mechanic from SLASH'EM was never ported due to bugs in the n
 - After **Level 9**, dhampir can perform **both biting and weapon attacks in the same round**.
 - If a player **wants to avoid biting**, they can forcefight using `"F"` to **only use their weapon attack**.
 - Dhampir also feed more efficiently when their victims are confused, incapacitated, or trapped.
-
-**The Dazzle Technique:** Dhampir also inherit the vampire's dazzle tech from SLASH'EM. This is available from level 1 and allows the dhampir to attempt a paralyzing gaze on an adjacent monster. At low levels this will be quite weak, but as you gain levels and attempt it on weaker monsters it will become more effective. For the player's convenience, a rough estimate of success is accessible in the monster pokedex for each monster. Since monsters can spawn with a range of levels or gain levels in gameplay, the lookup only uses a monster's base level.
 
 #### Dhampir's resistances and abilities
 
@@ -2804,6 +3059,8 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * Removed the "temple of the gods" theme room. This room contains 3 altars, one of each alignment.
 * Many new themed rooms ported from xNetHack.
 * The portal to Fort Ludios is placed in the first eligible vault generated (xNetHack/UnNetHack).
+* Temples are always lit.
+* 
 
 ### New levels
 
@@ -2821,9 +3078,9 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * alternate moloch's sanctum
 * alternate valley level
 * new levels for gehennom
-* Lost Tomb branch: 2 lost tomb levels
-* Moloch's Temple branch: 2 moloch's temple levels
-* Wyrm Caves branch (has a random wand of polymorph)
+* Lost Tomb branch (2 versions)
+* Moloch's Temple branch (2 versions)
+* Wyrm Caves branch
 
 ### Castle changes
 
@@ -2856,8 +3113,7 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * Sokoban levels are cold and icy - legend has it a white dragon named Wintercloak took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icy cyan, you will see random patches of ice form in the level. Because they are cold, if potions land on the floor, they have a chance of freezing and shattering.
 * Note: A recent change from NetHack 3.7 also makes ice occasionally slide the player in a random direction.
 * Sokoban now has two additional levels - an entry level with river obstacles (adapted from the town filler level from UnNetHack) and another puzzle level to solve.
-* Monsters are never generated peaceful in Sokoban (FIQHack)
-* Zombies don't revive in Sokoban and they won't dig out of the ground.
+* Zombies won't dig out of the ground in Sokoban.
 * Monsters won't break boulders in Sokoban with pick-axes or mattocks, or spellcasting.
 * All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
 * The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a white dragon
@@ -3031,7 +3287,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 
 **Fungus farm**
 * Ported from SLASH'EM
-* Features a collection of slimy and oozy monsters.
+* Features a collection of slimy and oozy monsters
 
 **Migo hive**
 * Ported from SLASH'EM
@@ -3047,6 +3303,7 @@ Note: Getting hit by grease will not knock off worn cursed items.
 
 **Collectible Card Game Company**
 * This shop only spawns for cartomancers and features a large variety of summon cards, with the occasional deck box or backpack. Takes the place of most food and weapon shops.
+
 
 ## ALTARS, PRAYER, AND PRIESTS
 
