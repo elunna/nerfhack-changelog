@@ -1,42 +1,45 @@
 # NerfHack
 - [NerfHack](#nerfhack)
-  - [QUALITY OF LIFE FEATURES](#quality-of-life-features)
-      - [Safer bags of holding:](#safer-bags-of-holding)
-    - [Streamlined Identification Features](#streamlined-identification-features)
-    - [Interface Changes](#interface-changes)
-      - [Farlook enhancements](#farlook-enhancements)
-    - [New config options](#new-config-options)
-    - [Wizmode features](#wizmode-features)
-  - [INTRINSICS AND EXTRINSICS](#intrinsics-and-extrinsics)
-    - [Partial Intrinsics](#partial-intrinsics)
+  - [MAJOR CHANGES](#major-changes)
+    - [No wishes are allowed in NerfHack.](#no-wishes-are-allowed-in-nerfhack)
+    - [Genocide has been nerfed and renamed to Exile](#genocide-has-been-nerfed-and-renamed-to-exile)
+    - [Pet Theft Prevention](#pet-theft-prevention)
+    - [Price Identification Nerf](#price-identification-nerf)
+    - [Polypiling Nerfs](#polypiling-nerfs)
+    - [Farming Nerfs](#farming-nerfs)
+    - [Partial Resistances](#partial-resistances)
+    - [Nerfed intrinsics and extrinsics](#nerfed-intrinsics-and-extrinsics)
     - [Partial Reflection](#partial-reflection)
+    - [Items can be completely destroyed from erosion](#items-can-be-completely-destroyed-from-erosion)
+      - [Fragile items are more vulnerable](#fragile-items-are-more-vulnerable)
+    - [New dragon armor system: DSM replaced by scaled armor](#new-dragon-armor-system-dsm-replaced-by-scaled-armor)
+    - [Increased item variety](#increased-item-variety)
+    - [Enhanced monster traits](#enhanced-monster-traits)
+    - [Racial item preferences](#racial-item-preferences)
+    - [Cracked altars:](#cracked-altars)
+  - [MECHANICS CHANGES](#mechanics-changes)
+    - [Instakills](#instakills)
+    - [Slow Luck timeouts](#slow-luck-timeouts)
+    - [Pet behavior](#pet-behavior)
+      - [Quantity of pets you can manage](#quantity-of-pets-you-can-manage)
+    - [Polymorphing Objects and Polypiling](#polymorphing-objects-and-polypiling)
+    - [Poly-Self](#poly-self)
+    - [Elbereth and Scare Monster](#elbereth-and-scare-monster)
+    - [New Grease Effects](#new-grease-effects)
+    - [Underwater mechanics](#underwater-mechanics)
+    - [Endgame Changes](#endgame-changes)
+  - [INTRINSICS AND EXTRINSICS](#intrinsics-and-extrinsics)
     - [Magic cancellation (MC) protects items vs cancellation](#magic-cancellation-mc-protects-items-vs-cancellation)
     - [Gaze attack protection](#gaze-attack-protection)
     - [Slow digestion nerf](#slow-digestion-nerf)
     - [Stealth changes](#stealth-changes)
     - [Flying Changes](#flying-changes)
+    - [Intelligence and literacy](#intelligence-and-literacy)
     - [Aggravate Monster changes](#aggravate-monster-changes)
     - [Vulnerability properties](#vulnerability-properties)
     - [Impaired States and actions](#impaired-states-and-actions)
       - [Encumbrance affects AC](#encumbrance-affects-ac)
       - [**The "wounded legs" status**](#the-wounded-legs-status)
-  - [MECHANICS CHANGES](#mechanics-changes)
-    - [No wishes are allowed in NerfHack.](#no-wishes-are-allowed-in-nerfhack)
-    - [Endgame Changes](#endgame-changes)
-    - [Instakills](#instakills)
-    - [Genocide has been nerfed and renamed to Exile](#genocide-has-been-nerfed-and-renamed-to-exile)
-    - [Slow Luck timeouts](#slow-luck-timeouts)
-    - [Pet behavior](#pet-behavior)
-      - [Pet Theft](#pet-theft)
-      - [Pets are limited by charisma](#pets-are-limited-by-charisma)
-    - [Price Identification Nerf](#price-identification-nerf)
-    - [Polymorphing Objects and Polypiling](#polymorphing-objects-and-polypiling)
-    - [Poly-Self](#poly-self)
-    - [Elbereth and Scare Monster](#elbereth-and-scare-monster)
-    - [New Grease Effects](#new-grease-effects)
-    - [DEMON AND DEMON LAIR CHANGES](#demon-and-demon-lair-changes)
-    - [Farming Nerfs](#farming-nerfs)
-    - [Underwater mechanics](#underwater-mechanics)
   - [AC nerfs \& buffs](#ac-nerfs--buffs)
     - [Dexterity affects AC](#dexterity-affects-ac)
   - [SKILLS AND EXPERIENCE](#skills-and-experience)
@@ -47,15 +50,12 @@
     - [Leveling up bonuses](#leveling-up-bonuses)
     - [To-hit bonuses and penalties](#to-hit-bonuses-and-penalties)
   - [ITEM CHANGES](#item-changes)
-    - [Item Erosion and Destruction](#item-erosion-and-destruction)
-      - [Fragile items are more vulnerable](#fragile-items-are-more-vulnerable)
       - [Bones files trimming](#bones-files-trimming)
     - [Anti-magical items resist being enchanted (from SpliceHack)](#anti-magical-items-resist-being-enchanted-from-splicehack)
     - [Weapon changes](#weapon-changes)
       - [Specific weapon changes](#specific-weapon-changes)
     - [Armor changes](#armor-changes)
       - [New armor type: bracers](#new-armor-type-bracers)
-      - [New dragon armor system: DSM replaced by scaled armor](#new-dragon-armor-system-dsm-replaced-by-scaled-armor)
     - [Comestibles](#comestibles)
     - [Potions and alchemy](#potions-and-alchemy)
       - [Gem Alchemy](#gem-alchemy)
@@ -73,7 +73,8 @@
     - [Object Properties](#object-properties)
       - [Generation odds](#generation-odds)
       - [Table of object properties ====](#table-of-object-properties-)
-    - [Object build qualities](#object-build-qualities)
+    - [Item build qualities](#item-build-qualities)
+      - [Forging different levels of quality:](#forging-different-levels-of-quality)
     - [Object alignments](#object-alignments)
   - [NEW ITEMS](#new-items)
     - [potions of blood and vampire blood](#potions-of-blood-and-vampire-blood)
@@ -101,7 +102,7 @@
     - [Reviving and Poisonous Zombies](#reviving-and-poisonous-zombies)
     - [Dragon changes](#dragon-changes)
     - [Unique monster changes](#unique-monster-changes)
-      - [Warping behavior for Cthulhu](#warping-behavior-for-cthulhu)
+      - [Cthulhu:](#cthulhu)
   - [MONSTER BEHAVIOR](#monster-behavior)
     - [Monster item use](#monster-item-use)
     - [Monster accessory use](#monster-accessory-use)
@@ -141,7 +142,6 @@
     - [Dwarves](#dwarves)
     - [Gnomes](#gnomes)
     - [Orcs](#orcs)
-    - [Racial item preferences](#racial-item-preferences)
   - [NEW RACES](#new-races)
     - [Dhampir](#dhampir)
       - [NerfHack introduces smarter feeding to regulate vampire bite mechanics:](#nerfhack-introduces-smarter-feeding-to-regulate-vampire-bite-mechanics)
@@ -161,6 +161,7 @@
     - [Enhanced Gehennom](#enhanced-gehennom)
     - [The Wizard's Tower Overhaul](#the-wizards-tower-overhaul)
     - [Vlad's Tower revamp](#vlads-tower-revamp)
+    - [DEMON AND DEMON LAIR CHANGES](#demon-and-demon-lair-changes)
     - [Sokoban](#sokoban)
   - [DUNGEON FEATURES](#dungeon-features)
     - [Grass](#grass)
@@ -171,6 +172,7 @@
       - [Toilet kicking:](#toilet-kicking)
     - [Bloody tiles](#bloody-tiles)
     - [New container traps](#new-container-traps)
+    - [Misc trap changes](#misc-trap-changes)
     - [Falling rock traps](#falling-rock-traps)
     - [Spear traps](#spear-traps)
     - [Magic beam traps](#magic-beam-traps)
@@ -182,188 +184,75 @@
     - [Altars](#altars)
     - [Revised divine protection scheme](#revised-divine-protection-scheme)
     - [Crowning](#crowning)
-    - [Cracked altars:](#cracked-altars)
   - [THE QUEST](#the-quest)
+  - [QUALITY OF LIFE FEATURES](#quality-of-life-features)
+      - [Safer bags of holding:](#safer-bags-of-holding)
+    - [Streamlined Identification Features](#streamlined-identification-features)
+    - [Interface Changes](#interface-changes)
+      - [Farlook enhancements](#farlook-enhancements)
+    - [New config options](#new-config-options)
+    - [Wizmode features](#wizmode-features)
   - [CREDITS](#credits)
     - [Special thanks to:](#special-thanks-to)
 
 This changelog exists to track the changes in NerfHack: https://github.com/elunna/NerfHack.
 
 
-## QUALITY OF LIFE FEATURES
+## MAJOR CHANGES
+### No wishes are allowed in NerfHack.
+* That's right: 0, None, Zero, Zilch. Wishes have been totally removed from normal play (however they are still available in wizmode or explore mode)
+* A key design philosophy of NerfHack is to "use what the dungeon gives you".
+* Magic lamps have been removed and replaced by magic candles.
+* Water demons that come from fountains will never offer wishes
+* Djinni will never offer wishes
+* Thrones cannot grant wishes when sitting
+* The wand of wishing in the Castle has been replaced by chests of loot
+* Vlad's throne doesn't grant a wish (it acts like a normal throne)
+* The Amulet of Yendor does not grant a wish
 
-* Chaotics do not get alignment penalties for angering, attacking, or killing peacefuls (xNetHack)
-* Running into a boulder while traveling no longer pushes it (xNetHack)
-* Whilst traveling, engravings on graves will not be considered interesting enough to cease movement
-* Whilst traveling, the player will avoid ice and puddles.
-* Stop occupations when the hero is caught in a poison gas cloud
-* Allow lighting only one candle in a stack (GnollHack).
-* Inform the player when casting healing spells at a monster with full health.
-* Swapping weapons take zero turns (dNetHack)
-* A welded cursed quarterstaff doesn't block spellcasting (xNetHack)
-* Crysknives are never auto-quivered
-* Launchers don't count as weapons for the 'hit with a wielded weapon' conduct
-* Give a vibrate warning for all weapons and armor when the enchantment reaches an unsafe level (Dynahack)
-* You don't waste turns for aborted engrave attempts.
-* The Amulet of Yendor needs only be carried to hint of nearby portals (Sporkhack).
-* Make inventory more explicit about the container we put in/take out of.
+### Genocide has been nerfed and renamed to Exile
+* A renaming was in order because genocide was heavily nerfed and functions differently from vanilla NetHack.
+* Permanent dungeon-wide monster genocides are no longer allowed.
+* An uncursed scroll of exile works to wipe out a single species of monster that is in close proximity to the player.
+* A blessed scroll of exile wipes out a single species on the level.
+* All other effects are identical to the scroll of genocide in vanilla.
+* Genocides from thrones have been replaced with a generous gift of gold.
 
-#### Safer bags of holding:
-The following safeguards were added to protect players from accidentally exploding their bags:
-* Players cannot put **known** wands of cancellation or **known** magical bags into **identified** bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dNetHack)
-* Players are prevented from #tipping **known** explosive items into **identified** bags of holding
-* Empty wands of cancellation may still be placed inside bags of holding with no risk of blowing up
-* DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
-* Another subtle but helpful change: bags are not susceptible to burning up when lava walking. In Vanilla this was never the case, but in some variants bags are destroyed unless foo-proofed.
-* Moloch's Temple has a 50% chance of generating a bag of holding.
-* Sokoban only has a 25% of having a bag of holding as the prize.
+### Pet Theft Prevention
+* Pet theft from shops has been totally disabled.
+* Pets will never pick up objects in shops nor eat unpaid food (Gnoll)
+* Pets will also never take items from outside shops and drop them inside (like a pick-axe that you always have to leave right outside the door)
+* You also cannot #loot items to or from your pet that are unpaid.
+* Shopkeepers start with much more gold, more than double the standard amounts (Gnoll)
 
-### Streamlined Identification Features
-A general design philosophy of NerfHack is to automatically identify items when it becomes obvious what they are from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
+### Price Identification Nerf
+* This change destroys price identification and conforms most potions, scrolls, wands, and rings to the same price (SLEX).
+* All rings, potions, wands, and scrolls cost $200
 
-* All roles start out knowing potions of water, blank scrolls, and scrolls of identify (the exception is cavemen, who are not known for their brains and therefore don't know about scrolls of identify)
-* When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
-* Your primary wielded weapon is auto-identified after killing enough monsters with it (EvilHack)
-* Rings of increase damage and accuracy are identified along with their enchantment after killing enough monsters.
-* When you have expert skill in a weapon type, you will auto-id the enchantment on those types of items (only for non-missile weapons)
-* Auto-ID potions of acid when water explosions result from dipping (xNetHack)
-* Auto-ID potions of acid when a lichen corpse is dipped
-* Auto-ID potions of phasing when any item is dipped
-* Auto-ID potions of sickness when they coat a weapon in poison
-* Auto-ID potions of sickness and fruit juice when dipping a unihorn in sickness
-* Auto-ID potions of see invisible or fruit juice by process of elimination when quaffed.
-* Auto-ID potions of restore ability and booze when quaffed
-* Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
-* Auto-ID some potions when inhaling their vapors (xNetHack)
-* Auto-ID scrolls of scare monster when they crumble from being picked up (UnNetHack)
-* Auto-ID scrolls that have obvious effects when read: scare monster, confuse monster, food detection, remove curse, flood, enchant armor
-* Auto-ID rings dropped into a sink (UnNetHack)
-* Auto-ID rings of regeneration upon wearing
-* Auto-ID rings of cold resistance upon wearing
-* Auto-ID rings of fire resistance upon wearing
-* Auto-ID rings of shock resistance upon wearing
-* Rings of conflict and aggravate monster give the same message when worn.
-* Auto-ID +0 rings of protection (if MC is increased)
-* Auto-ID wands of cancellation after they destroy a bag of holding (UnNetHack)
-* Auto-ID most wands when engraving (xNetHack)
-* Automatically use a process of elimination for auto-identifying wands when available (UnNetHack)
-* Auto-id flint stones yielded from applying rocks to each-other
-* Auto-ID most musical instruments upon use (UnNetHack)
-* Auto-ID dunce caps when one is first put on (UnNetHack)
-* Auto-ID jumping boots when they are worn (UnNetHack/Ace)
-* Auto-ID water walking boots when they waterwalk (xNetHack)
-* Auto-ID kicking boots when you #kick when them
-* Auto-ID BUC of products from BUC identified tinning kit or horn of plenty (UnNetHack++)
-* Auto-ID BUC of wands when they backfire
-* Auto-id bags of holding when items are added or removed
-* Blessed stethoscopes can identify eggs (EvilHack/Sporkhack)
-* Make rustproof/erodeproof/fixed known by default (Dynahack)
-* Make object properties on items obvious and known by default
-* Make the build quality of items obvious and known by default
+Exceptions:
+* cursed or blessed potions of water still cost $100
+* potions of blood, milk, and healing cost $100
+* scrolls of identify and knowledge cost $100
+* cards of zapping cost $50
 
-* **Items that are 'lost'** from the players inventory are longer un-identified.
+### Polypiling Nerfs
+* Non-magical potions, scrolls, spellbooks, and wands are much less likely to transform into magical items. These types of items only have a 1% chance of transforming into something magical. This is now comparable to how other non-magical items polymorph. (dNetHack)
+* The chances of getting a golem from polypiling have been accelerated (K-Mod/Sporkhack)
+* The enchantment level or charges on items is randomly reduced when polymorphed (Sporkhack)
+* Golems created from polypiling immediately halt the polypiling process. This effectively nerfs the "one-giant-pile" strategy of polypiling.
 
-### Interface Changes
-* Created a new splash screen for the Windows build.
-* A detailed object and monster Pokedex is available in the in-game lookup (xNetHack/UnNetHack)
-  * Farlook any monster (press '//'), then press ':' to access the pokedex entry
-  * You can also search for a monster or item: press '/' then '?', then type the name of the thing you want information on.
-  * For item details, open your inventory and press the letter of the item for info.
-* The object lookup also works for artifacts
-* Peaceful monsters are underlined [TTY and curses] (xNetHack)
-* Magic cancellation (MC) value is shown on the player's status line (EvilHack)
-* Skill caps and percentage towards next level is available in #enhance
-* Show available skill slots in the #enhance menu (Dynahack)
-* Show if a monster ignores magical scaring or Elbereth in the pokedex info.
-* Inventory weight and carry capacity data are shown in the inventory (can be toggled with the invweight option)
-* \> or < can be used to autotravel to stairs (can be toggled with the autostairtravel option)
-* AC values for armor are displayed next to armor in the hero's inventory - these take into account all available bonuses (racial bonuses, item appearances, enchantment, etc) (SpliceHack)
-* Prayer statistics (last prayed, reconciled, received a gift, divine protection) can be viewed in the attributes screen (via Ctrl-X)
-* All position prompts may be aborted
-* Show the '0' warning level for very weak monsters in addition to all other standard warning symbols (Dynahack)
-* More descriptive combat messages have been added to enhance hits and misses during combat (xNetHack)
-* Show explicit messages when objects are randomly cursed from the Curse Items spell (Dynahack)
-* Show an explicit message when summon nasties occurs as part of wizard harassment
-* Special room and special level walls can have their own unique coloring (SpliceHack/xNetHack)
-* Enabled autocomplete for #twoweapon
-* Enable **full options** by default
-* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
-* Disabled **farlook help**
-* Disabled the 3.7 **tutorial**
-* Changed the symbol for **sinks** back to #
-* The hero's color reflects their race (SLASH'EM)
-* Suggest a donation amount (relative to XP level) when #chatting to priests
-* Use NERFHACKOPTIONS instead of NETHACKOPTIONS so it does't clash with other NetHack installations
-* Added a "Rabid" status that indicates when the player is rabid
-* Added a "Wither" status that indicates when the player is withering
-* Added a "Phasing" status that indicates when the player is phasing
-* Don't livelog events in explore mode
+### Farming Nerfs
+A big philosophy of NerfHack is to discourage repetitive and potentially infinite strategies and exploits. These specific nerfs also are aimed at encouraging using "found items" and prodding the player deeper into the dungeon.
 
-#### Farlook enhancements
-* We are able to see more monster conditions on farlook (EvilHack/SpliceHack/xNetHack)
-  * You can ascertain when monsters are reflecting, withering, diseased, berserking, and rabid on farlook
-  * You can also see when pets are confused, stunned, or blinded on farlook.
-  * **Spell-beings** will appear as "sparkling" on farlook.
-* Farlook also shows amulets and rings monsters are wearing
-* We are able to see what weapon a monster is wielding from farlook (EvilHack)
-* We are able to see roughly how much armor a monster is wearing on farlook (EvilHack)
-
-### New config options
-
-* **showdamage:** Displays damage dealt by both the player and monsters. Also shows flanking bonuses and penalties if active.
-* **do_not_flip_soko:** Enables the player to choose whether they want Sokoban levels to be flipped. If enabled, a Luck penalty is incurred for each Sokoban level that is generated whilst the option is on.
-* **invweight:** Shows the weights of objects in inventory along with carry capacity and inventory slots available.
-* **autostairtravel:** Allow fast travel to stairs with < and >
-* **hide_old_spells:** This option allows the player to control whether spells with 0% retention (spells that have been forgotten) show up in the spellcasting menu.
-
-### Wizmode features
-* The #wizcrown command has been added for testing crowning (EvilHack)
-* The #wizclear (^z) command, clears all monsters on the screen (SpliceHack)
-* Allow overriding artifact invoke timeout in wizmode (xNetHack)
-* Allow teleportation into unteleportable spots in wizard mode
-* Allow wishing (^W) for monsters (UnNetHack)
-* Allow wishing for specific spell beings
-* Changed #debugfuzzer command to just #fuzz
-* Show timeouts for sick, rabid, withering, and other afflictions in the wizmode enlightenment menu
-* wiz_prop command to add properties to items in wizmode.
+* **Vault guard farming:** Vault guards do not get special offensive or defensive items on spawn and do not leave death drops.
+* **Temple ghost farming:** Each abandoned temple spawns a single ghost before permanently losing its status as a temple, preventing further ghost from generating.
+* **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
+* **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
+* **Horn of plenty farming:** Historically, Horns of Plenty could be endlessly recharged using the Tourist’s quest artifact, the Platinum Yendorian Express Card. This exploit has since been nerfed: tool recharging now follows the same rules as wands-tools can be recharged up to 7 times, with each additional recharge increasing the risk of the item crumbling.
+* **Trees on special levels are pre-looted.** While this doesn’t qualify as classic 'infinite' farming, the abundance of trees added to many levels means a player could theoretically spend an excessive amount of time harvesting them for bees and fruit.
 
 
-## INTRINSICS AND EXTRINSICS
-
-
-* The new **Saving Grace** feature introduced in 3.7.0 has been disabled.
-* The **beginner flag** is only set true for tourists.
-* **Many intrinsics cannot be permanently gained**:
-  * invisibility
-  * see invisible
-  * telepathy
-  * teleportitis
-  * teleport control
-* Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
-* Magic traps can inflict vulnerability to two different elementals on the hero.
-* **Intrinsic disintegration resistance** doesn't protect items from disintegration.
-* **Regeneration** only causes additional hunger when it's actively healing your HP, but when active it burns twice as much hunger.
-* **Free action:**
-  * protects from stoning paralysis.
-  * reduces crystal ball paralysis (Dynahack)
-  * offers protection from grabbing attacks, depending on Luck (SLASH'EM).
-* The chance of gaining levels from wraiths has been reduced using SLASH'EM's wraith corpse adjustments.
-  * TODO: Add wraith corpse stats.
-* **Giant corpses** have less of a chance of conferring strength gain (SLASH'EM)
-* Passive fire damage burns away slime.
-* **Unchanging** pauses rather than cancels sliming (xNetHack)
-* **Phasing** allows escape from being engulfed (EvilHack)
-* Max carry capacity has been raised to 1250, with strength playing a larger factor in its calculation.
-* Warn the player that invisibility is about to time out (xNetHack)
-* There is an increased CON penalty for getting lifesaved (xNetHack).
-* **Extrinsic acid resistance** only provides 50% damage reduction.
-* **Magic resistance and spell damage reduction** only halve magic missile damage instead of preventing it (EvilHack)
-* **Half physical damage** only provides one-quarter (25%) physical damage reduction.
-* **Half spell damage** only provides one-quarter (25%) spell damage reduction.
-* Having really low intelligence (under 6 INT) prevents you from reading most things (EvilHack).
-* Low intelligence players cannot successfully write Elbereth.
-
-### Partial Intrinsics
+### Partial Resistances
 * Instead of binary resistances, the player gradually builds up their resistance from 0% to 100%.
 * When eating a corpse, player gains a percentage of certain intrinsics.
 * Percentage gained is based on the weight of the corpse; minimum being 2% and maximum at 25% (capped at 100%).
@@ -372,18 +261,316 @@ A general design philosophy of NerfHack is to automatically identify items when 
 * You receive all intrinsics that the corpse can convey if there are multiple intrinsics it can give (ie: eating a black pudding glob grants a small percentage each of poison, cold, and shock resistance.)
 * Damage and effects dealt are adjusted based on the percentage intrinsic currently possessed. Damage reduction is rounded down, requiring slightly more resistance to be effective.
 * Gremlins steal (25 + d25)% of your intrinsics
-* Cold traps and ice demons can also steal (25 + d25)% of your cold resistance.
 * Enlightenment shows the partial percentage acquired for intrinsics so you can monitor your progress. If you have an extrinsic resistance it will be displayed separately from the partial percentage.
+
+### Nerfed intrinsics and extrinsics
+* **Many intrinsics cannot be permanently gained**:
+  * invisibility
+  * see invisible
+  * telepathy
+  * teleportitis
+  * teleport control
+* **Intrinsic disintegration resistance** doesn't protect items from disintegration.
+* The chance of gaining levels from wraiths has been reduced using SLASH'EM's wraith corpse adjustments.
+* **Giant corpses** have less of a chance of conferring strength gain (SLASH'EM)
+* Passive fire damage burns away slime.
+* **Unchanging** pauses rather than cancels sliming (xNetHack)
+* There is an increased CON penalty for getting lifesaved (xNetHack).
+* **Extrinsic acid resistance** only provides 50% damage reduction.
+* **Magic resistance and spell damage reduction** only halve magic missile damage instead of preventing it (EvilHack)
+* **Half physical damage** only provides one-quarter (25%) physical damage reduction.
+* **Half spell damage** only provides one-quarter (25%) spell damage reduction.
 
 ### Partial Reflection
 * Reflection will deflect most, but not all, of the effects of ray attacks. Instead of full damage you will usually take about half the damage - depending on the damage type. Item destruction from elemental effects (like fire or cold) is also prevented when rays are reflected.
 * If you don't have sleep resistance, but you reflect a sleep ray, you will fall asleep for 1d6 turns (which could be further lessened by your sleep resistance).
 * If you reflect disintegration ray, you still take 12d6 damage (subject to your current level of disintegration resistance).
-* If you reflect a death ray, you still take damage and lose max HP. This can be mitigated by magic resistance and spell damage reduction, but is impossible to fully prevent.
+* If you reflect a death ray, you still take 6d8 damage and lose max HP. This can be mitigated by magic resistance and spell damage reduction, but is impossible to fully prevent.
 * Reflection only provides partial protection from **floating eye gazes** - the player will still be subject to 1-2 turns of paralysis without free action. This is weighted on Luck, so the higher your Luck the better the chance to avoid the gaze.
 * **Medusa's gaze** has no effect on her if reflected back from more than 3 squares away.
   * If she might be affected by her own gaze, Medusa will protect herself 98% of the time.
 * Partial reflection also applies to monsters, making them more vulnerable to various ray attacks if they happen to possess reflection of some form.
+
+### Items can be completely destroyed from erosion
+* Almost all items are erodible or destroyable (EvilHack)
+  * amulets, rings, wands, and tools are now eligible for erosion and destruction.
+  * Silver items can also corrode (xNetHack)
+  * Bone items can burn
+  * The iron ball and chain cannot be destroyed from rusting (EvilHack)
+* Poison gas clouds can rot organic armor
+* Extrinsic poison resistance (or the venom property) protects items from rotting in poison gas
+* Monster spellcasters can wear down and destroy any armor with the Destroy Armor spell (excepting crystal plate mail which is immune) (EvilHack)
+* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.)
+* Water damage may disintegrate scrolls, which may occur when dipping (Dynahack)
+* Disintegration rays can vaporize boulders
+* Items can be erodeproofed via confused enchant weapon scrolls or by dipping into non-diluted potions of reflection.
+* Item erosion and negative enchantment can be repaired by dipping into a non-diluted potion of restore ability; read counters on spellbooks can also be refreshed (xNetHack)
+* The damage from item destruction has been increased to double or triple it's Vanilla values.
+
+**Acid and corrosion:**
+* Acid has been turned into a potent source of item-destruction. Wherever acid damage is inflicted, there is now a chance for item corrosion to also occur.
+* Getting hit by potions of acid can corrode armor.
+* Monster acid attacks and spit also corrode armor.
+* Passive acid attacks corrodes armor more often.
+* Thrown potions of acid can corrode items or armor when they hit a monster or the player.
+
+#### Fragile items are more vulnerable
+* Beams of force bolt and striking can break fragile items in inventory.
+* Knockback attacks can also shatter fragile items in your inventory
+* Fragile items can be fixed to avoid destruction (note that although mirrors can be tempered, they are still subject to shattering when reflecting rays)
+* Wands of striking and rings of shock resistance are immune from impact damage.
+* Extrinsic shock resistance protects fragile items in your inventory from physical damage (ie: from the ring of shock resistance or blue dragon scaled armor).
+
+
+### New dragon armor system: DSM replaced by scaled armor
+Ported from xNetHack:
+
+This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors-such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail whilst retaining their original properties.
+
+The primary reason for replacing dragon scale mail with this system is to enhance armor strategy. Dragon scale mail was overwhelmingly optimal, rendering other armor choices irrelevant. It was simultaneously:
+- **Lightweight**,
+- **Higher in base AC** than any other armor,
+- **Naturally erodeproof**,
+- **Unrestrictive for spellcasting**,
+- **Easily obtainable** before the Castle or Quest, often as an early wish, and
+- **A source of powerful extrinsics** (e.g., reflection, magic resistance).
+
+Once dragon scale mail became available, there was little incentive to consider other armors. With this new system, players must weigh the pros and cons of different base armors, making armor strategy relevant beyond defeating the first few dragons.
+
+**Benefits**
+This approach aligns with the philosophy of prioritizing found items over wished ones. Previously, even excellent armors like dwarvish mithril would only serve as placeholders until dragon scale mail became available. Now, players can find dragon scales, integrate them into their chosen armor, and continue using it throughout the game and even change the scaling to adapt their kit.
+
+**Key Details**
+- Dragon scales provide -3AC when used as a cloak and add -3AC to any scaled armor.
+- Scaled armor is **not automatically erodeproof**, maintaining the risk of erosion into the mid-game. Players can still erodeproof their armor or attach scales to naturally erodeproof materials.
+- Following the system used in Nethack Fourk, if a player polymorphs and merges with their scaled armor, it will return after unpolymorphing. This is an intentional buff, ensuring that players do not lose enchantments or scales.
+- **Potions of phasing** can also be used to graft dragon scales onto armor in place of reading a confused scroll of enchant armor.
+
+**Other dragon scale notes:**
+* Shopkeepers price dragon-scaled armor at a high value (xNetHack).
+* By themselves, dragon scales do not provide secondary intrinsics, they must be enchanted onto armor for the secondary effect(s) to kick in.
+
+| Dragon     | Scales confer      | Scaled armor confers     |
+| ---------- | ------------------ | ------------------------ |
+| gray       | magic resistance   | cancellation resistance  |
+| gold       | light source       | hallucination resistance |
+| silver     | reflection         | blinding resistance      |
+| shimmering | displacement       | stun resistance          |
+| red        | fire resistance    | increase damage          |
+| white      | cold resistance    | slow digest              |
+| orange     | sleep resistance   | free action              |
+| black      | disintegration res | withering res            |
+| blue       | shock resistance   | speed                    |
+| green      | poison resistance  | sickness res             |
+| yellow     | acid resistance    | petrification res        |
+| shadow     | drain resistance   | death res                |
+
+* Red dragon scaled armor confers increase damage; enchantment works in the same fashion as a ring of increase damage.
+
+### Increased item variety
+Items in NerfHack have been enhanced with many new features:
+* Object materials
+  * Rings have appearances distinct from material
+* Build quality
+* Object properties
+* Item alignments
+
+### Enhanced monster traits
+Monsters have many new tricks and abilities:
+* Berserking
+* Traitors
+* Flanking
+* Jumping
+* Some monsters are vulnerable to certain elements
+* Some monsters have resistances or vulnerabilities to weapon types (slashing, piercing, blunt)
+* Diseased
+* Rabid
+* Accurate
+* Treewalking
+* Withering
+* Greatly expanded repertoire of offensive and defensive spells for monster spellcasters.
+
+### Racial item preferences
+* Dwarves, elves, orcs, and gnomes get a -1AC bonus for each piece of racially aligned armor they wear (Evil/THEM).
+* While wielding a racially aligned weapon, you get a +1 to-hit bonus (ie: a dwarf wielding a dwarvish spear).
+* Wielding a racially aligned off-hand weapon also adds a +1 to-hit bonus.
+
+* Monsters of certain races will usually prefer their own equipment and find other racial equipment awkward or uncomfortable to use.
+  * Elves hate dwarvish, gnomish, and orcish objects
+  * Orcs hate dwarvish, gnomish, and elven objects
+  * Dwarves hate orcish, gnomish, and elven objects
+  * Gnomes hate dwarvish, orcish, and elven objects
+  * Grund pre
+  * Humans and dhampirs both hate gnomish and grung objects - but otherwise they are free to use all other racial equipment
+  * Vampires like bone armor and get a +1AC bonus per worn piece.
+
+The effects of wearing armor or wielding weapons you hate:
+* +3AC penalty for each piece
+* -d5 to-hit penalty for each piece
+* You receive an explicit message when wearing or wielding any hated object.
+* You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
+* Whilst throwing items your race dislikes, they have a 1 in 7 chance of slipping - the same as a cursed or greased projectile.
+
+This mechanic also applies to monsters, but they will simply avoid using items they don't like.
+
+### Cracked altars:
+* Only one artifact gift can be granted at each altar, after which it will be cracked by your god.
+* Altars that are cracked do not yield any more artifacts.
+* After level 15, altars can sometimes appear cracked.
+* If a level generates with more than one altar, the extra altars are likely to be cracked.
+* Crowning on an altar will crack it.
+* There is a 1 in 127 chance of fracturing an altar after converting it.
+
+
+## MECHANICS CHANGES
+
+### Instakills
+* It is no longer possible to be insta-petrified by touching a footrice or the corpse of any monster that would petrify you.
+* Bardiches are a new, but rare, source of instadeath. They have a 1 in 100 chance of beheading a monster or you on hit.
+* Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
+
+### Slow Luck timeouts
+In NerfHack, **Luck items slow down your Luck timeout rather than stopping it completely** - this is similar to how it works in UnNetHack. However, the timeouts have been modified and extended to cover negative base luck situations. The timeouts have also been reduced heavily from the UnNetHack calculations.
+
+The modified Luck timeout depends on how far your Luck is from your base Luck: the higher or lower your Luck, the less the timeout is slowed. The timeout is calculated every turn, meaning gaining or losing a point of Luck could result in that point timing out immediately.
+
+The modified Luck timeout is calculated by the following formula:
+
+    Timeout = 25 * (20 - base_distance) * (20 - base_distance)
+
+base_distance is how far you are from your base luck. If your base luck is 0 and you have 3 Luck, the base_distance is 3. If you have -10 base luck and 10 Luck, the base_distance is 20. The following chart shows how many turns it takes to timeout from one luck level to the next and the total turns to reach the base distance of 0.
+
+| base distance | Timeout | Time to base Luck |
+| ------------- | ------- | ----------------- |
+| 0             | ∞       | 0                 |
+| 1             | 9 025   | 9 025             |
+| 2             | 8 100   | 17 125            |
+| 3             | 7 225   | 24 350            |
+| 4             | 6 400   | 30 750            |
+| 5             | 5 625   | 36 375            |
+| 6             | 4 900   | 41 275            |
+| 7             | 4 225   | 45 500            |
+| 8             | 3 600   | 49 100            |
+| 9             | 3 025   | 52 125            |
+| 10            | 2 500   | 54 625            |
+
+### Pet behavior
+
+#### Quantity of pets you can manage
+* Ported from EvilHack
+* The number of pets you can have on a level is now capped using your level of Charisma. The simple calculation is charisma divided by 3.
+* For example, if your charisma is only 7, you can keep 2 pets, at 9 charisma you could keep up to 3 pets.
+* However, if you exceed this limit, your weakest pets (based on level) will be the first to become untamed, with ties resolved randomly.
+* Untamed pets that were previously mistreated, such as resurrected ones, may even turn hostile.
+* Your steed, whilst counting toward your pet limit, will never become untamed.
+* Summoned spell beings do not count toward the total pet limit.
+* Since the minimum CHA possible is 3, you should always be capable of retaining a pet.
+
+**Misc pet changes:**
+* Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (EvilHack)
+* Chaotics do not get alignment penalties for casting healing at pets (xNetHack)
+* Pets won't attack a gas spore whilst you are adjacent (xNetHack)
+* Pets never displace the player from stairs when entering a level (Dynahack).
+* Pet items can be managed with the **#loot command**, which allows you to give items to pets as well as take items from their inventory.
+* We can see if pets are stunned, confused, or blinded on farlook.
+* Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
+* Tame pets will not hide or conceal themselves.
+* Tame spiders will not spin web traps
+* Pets will hesitate to attack grung unless resistant to its passive.
+* Pets can help the player other than fighting under certain circumstances.
+* Spellcasting pets will assist you with helpful spells likes healing and protection. High-level pets can even cast reflection on you.
+* Strong pets will pull you out of pits.
+* If you are put to sleep, pets will try to rouse you. Pets are more likely to nudge you awake if you have treats in open inventory.
+
+### Polymorphing Objects and Polypiling
+
+TODO: Disperse these pieces of info to other places
+
+* The number of items you have polymorphed can be viewed in #conduct
+
+* **Item quality and alignment** will always transfer to the result of polypiling.
+* **Item material** will usually transfer to the result of polypiling if it is valid for the new item.
+* **Item properties** will transfer when polypiling depending on a Luck roll. The higher your luck, the more likely the results will retain the original item's property.
+
+### Poly-Self
+* Players can use gaze attacks in melee combat when polymorphed into monsters with a gaze attack. This doesn't require using the #monster command, so you can just engage in combat to trigger the forms gazes.
+* Humanoids are more careful about attacking you when you are a dangerous polyform (like a cockatrice)
+* Mind flayers won't purposely to eat the brains of petrifying monsters (ie: when you are polymorphed into a cockatrice)
+* When you polymorph into a monster without limbs, you are able to easily slip out of a ball and chain (EvilHack)
+* Escape from the controlled polymorph prompt no longer causes a random polymorph (xNetHack).
+* Polymorphing into a horned monster destroys any flimsy or cloth helms you may be wearing.
+* Being polymorphed into a **wandering form** will sometimes make you wander.
+  * Includes powerful monsters like gorgon hulks, revenants, gugs, ghoul queens, phoenixes, byakhees, nightgaunts.
+* Being polymorphed into a vampire bat doesn't cause stunning (the vampire bat does not wander like other B class monsters do)
+
+
+### Elbereth and Scare Monster
+* **Conflict** negates the protection of Elbereth and scrolls of scare monster (EvilHack)
+* Engraving Elbereth no longer exercises wisdom (Fourk).
+* You can't dust engrave whilst being held by a monster - you are limited to using wands that burn or hard engrave (like wands of fire or digging) that still have charges.
+* You can't dust engrave on bloody or grassy tiles.
+
+**Reverted 82f0b1e8e from NetHack 3.7.0**
+* This 3.7.0 commit implemented this behavior: "Scared hostile monster which cannot move away will attack."
+* This has been reverted so players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
+* The reason for this is that it violates the classic, expected behavior of Elbereth. There are other nerfs to Elbereth and scare monster that take the place of this.
+
+### New Grease Effects
+Many of these changes were introduced to work in conjunction with the new grease trap.
+
+**Greased boots and gloves should be avoided:**
+* Greased feet or boots cause **fumbling**
+* Greased gloves cause the Glib status
+* If you try to take off greased boots (or put on any boots while you have greasy feet), you become Glib for a short time.
+* Grease can be washed off your feet or boots by dipping '-' in water (same action as dipping the player's hands)
+* Greased gloves can also be cleaned by dipping in a water source.
+* NOTE: do not grease your boots or especially gloves since the glove grease will not timeout.
+
+**Other grease effects:**
+* Greased items can't be disarmed with a bullwhip
+* Greased items are harder to steal
+* Glib hands makes applying any item except towels drop them
+* Towels can be used to remove grease from specific objects (with the risk that the towel may absorb the grime and become greased itself)
+* Grease can be washed off towels by wetting them in fountains or other water sources.
+* Greased towels now operate in the same fashion as cursed towels
+* Kicking monsters can sometimes get the grease to wear off your boots/feet.
+* Greased rings will slip off your fingers.
+=
+
+### Underwater mechanics
+* Prevent kicking monsters out of water while underwater or vice versa.
+* The hero and other monsters resist splash, spore, and fire effects while underwater.
+* Being underwater provides immunity from explosions and fire damage.
+
+
+
+### Endgame Changes
+* Occasional earthquakes can occur during the ascension run (UnNetHack/EvilHack). These will cease after entering the planes.
+* After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (UnNetHack/EvilHack)
+* The correct temple on the Astral Plane will not be revealed due to fleeing monsters (UnNetHack)
+* **Level-teleporting (or branchporting) in hell causes teleport sickness**. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower. **Teleport pain goes away once you've killed the Wizard of Yendor.**
+* Causing conflict on the astral plane may result in twice the usual number of hostile angels appearing.
+
+
+
+## INTRINSICS AND EXTRINSICS
+
+
+* The new **Saving Grace** feature introduced in 3.7.0 has been disabled.
+* The **beginner flag** is only set true for tourists.
+
+* **Regeneration** only causes additional hunger when it's actively healing your HP, however when active it burns twice as much hunger.
+* **Free action:**
+  * protects from paralysis that occurs during the last steps of stoning
+  * reduces crystal ball paralysis (Dynahack)
+  * offers protection from grabbing attacks, depending on Luck (SLASH'EM).
+
+* **Phasing** allows escape from being engulfed (EvilHack)
+* Max carry capacity has been raised to 1250, with strength playing a larger factor in its calculation.
+* When invisibility is about to time out, the player gets a warning (xNetHack)
+
+
+
 
 ### Magic cancellation (MC) protects items vs cancellation
 * Any level of MC limits the damage from cancellation effects if the enchantment on an item is positive.
@@ -392,12 +579,15 @@ A general design philosophy of NerfHack is to automatically identify items when 
 * With MC0, there is no protection when facing a cancel zap and the standard NetHack 3.7.0 rules apply.
 
 Each level of MC offers a higher minimum that you should expect to maintain. This minimum is not absolute however, there is an additional roll (of 1 in MC x 2) to determine if some damage will pass through.
-* MC1: Item enchantments will not usually go below +2
-* MC1: Items have a 1 in 2 chance to avoid blanking
-* MC2: Item enchantments will not usually go below +4
-* MC2: Items have a 2 in 3 chance to avoid blanking
-* MC3: Item enchantments will not usually go below +6
-* MC3: Items have a 5 in 6 chance to avoid blanking
+* MC1:
+  * Item enchantments will not usually go below +2
+  * Items have a 1 in 2 chance to avoid blanking
+* MC2:
+  * Item enchantments will not usually go below +4
+  * Items have a 2 in 3 chance to avoid blanking
+* MC3:
+  * Item enchantments will not usually go below +6
+  * Items have a 5 in 6 chance to avoid blanking
 
 ### Gaze attack protection
 In vanilla NetHack, there are some attacks that have almost no barriers when monsters target the player: these include gaze attacks and monster spells. In NerfHack, I've tried to implement some minor diversions the player can employ to increase their chances of evading these attacks.
@@ -423,11 +613,12 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * You cannot be Fast or Very Fast while levitating.
 * Stomping boots and Jumping boots block flying.
 * Extrinsic fumbling (from boots or gloves) blocks flying
-* You cannot jump while flying.
-* Items that grant **steadfastness** will do so even if the hero is flying or levitating.
-* Arrow traps and dart traps cannot be avoided by flight.
-* You cannot fly over falling rock traps.
-* Flying and levitation usually protect from being harmed by spear traps, however, there is still a 25% chance of being hit (by a abnormally long spear)
+* Jumping is not physically possible while flying.
+* Items that grant **steadfastness** will do so even if the hero is flying or levitating. In Vanilla NetHack, this is not the case - especially on the plane of water where the hero is always presumed to be floating in bubbles.
+
+### Intelligence and literacy
+* Low intelligence players (<6 INT) cannot successfully write Elbereth or read.
+* Having really low intelligence (under 6 INT) prevents you from reading most things (EvilHack).
 
 ### Aggravate Monster changes
 * **Aggravate monster** causes monsters to not be scared of musical instruments.
@@ -438,8 +629,11 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * **Cannibalism** causes aggravation for 10000-15000 turns instead of permanently.
 * Eating domestic animals causes aggravation for 5000-7500 turns instead of permanently.
 * **Aggravate monster spells** cast at hero cause intrinsic aggravation for 50-300 turns.
-* **Foulstones** carried in open inventory also confer aggravate monster (however this does not add to the difficulty of spawned monsters)
 * Aggravate monster causes peaceful monsters to become hostile.
+* **Foulstones** carried in open inventory also confer aggravate monster (however this does not add to the difficulty of spawned monsters)
+* Items with the Stench property confer aggravate monster
+* The artifact weapon  Serenity blocks aggravate monster effects
+* Items with the Peace property also block aggravate monster.
 
 ### Vulnerability properties
 * Ported from EvilHack
@@ -449,16 +643,20 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
   * Acid
   * Shock
   * Poison
+  * Sleep
+  * Disintegration
 * Sources of vulnerability include the following:
   * Monster spellcasters' Vulnerability spell
   * magic trap spell effect
   * The Degenerator monster attack
   * The Soul Shadow monster attack
 * While vulnerable, the hero's resistance is decreased by 50%. If your resistance was below 50% it can go below 0% and act as a damage booster.
-* While vulnerable, players can not gain any additional resistances from eating corpses. If a player is crowned, all vulnerabilities are cleared before granting any resistances.
+* While vulnerable, players can not gain any additional resistances from eating corpses.
+* If a player is crowned, all vulnerabilities are cleared before granting any resistances.
+* Vulnerabilities can also be cleared by drinking milk.
 
 ### Impaired States and actions
-* Allow successfully using the #terrain command whilst impaired (xNetHack)
+* Allow successful use of the #terrain command whilst impaired (xNetHack)
 * Falling downstairs does more damage: 10-19 damage instead of 1d3 damage (K-Mod)
 * Falling onto sinks does more damage
 * Levitating into the ceiling does more damage
@@ -487,188 +685,6 @@ In vanilla NetHack, there are some attacks that have almost no barriers when mon
 * Inflicts a severe AC penalty for bearing weight.
 * You get +1AC for every 100aum you are carrying whilst you are wounded.
 * Many traps (and some monsters) can inflict wounded legs, but now the jungle boots can be useful to prevent it.
-
-
-## MECHANICS CHANGES
-### No wishes are allowed in NerfHack.
-* That's right: 0, None, Zero, Zilch. Wishes have been totally removed from normal play (however they are still available in wizmode or explore mode)
-* A key design philosophy of NerfHack is to "use what the dungeon gives you".
-* Magic lamps have been removed and replaced by magic candles.
-* Water demons that come from fountains will never offer wishes
-* Djinni will never offer wishes
-* Thrones cannot grant wishes when sitting
-* The wand of wishing in the Castle has been replaced by chests of loot
-* Vlad's throne doesn't grant a wish (it acts like a normal throne)
-* The Amulet of Yendor does not grant a wish
-
-
-### Endgame Changes
-* Occasional earthquakes can occur during the ascension run (UnNetHack/EvilHack). These will cease after entering the planes.
-* After the invocation (and whilst traversing through Gehennom), monsters will flood from the upstairs (UnNetHack/EvilHack)
-* The correct temple on the Astral Plane will not be revealed due to fleeing monsters (UnNetHack)
-* **Level-teleporting (or branchporting) in hell causes teleport sickness**. The levelport will still succeed as normal, but costs a large fraction of the hero's HP and energy. It also drains the max of both (up to 1d3 each). To be fair, the player is warned before this happens and can abort the teleport. This also includes the Wizard's Tower and Vlad's Tower. **Teleport pain goes away once you've killed the Wizard of Yendor.**
-* Causing conflict on the astral plane may result in twice the usual number of hostile angels appearing.
-
-### Instakills
-* It is no longer possible to be insta-petrified by touching a footrice or the corpse of any monster that would petrify you.
-* Bardiches are a new, but rare, source of instadeath. They have a 1 in 100 chance of beheading a monster or you on hit.
-* Magic resistance and half-spell damage offers some protection from self-zapped wands of death (or the finger of death spell).
-
-
-### Genocide has been nerfed and renamed to Exile
-* A renaming was in order because genocide was heavily nerfed and functions differently from vanilla NetHack.
-* Permanent dungeon-wide monster genocides are no longer allowed.
-* An uncursed scroll of exile works to wipe out a single species of monster that is in close proximity to the player.
-* A blessed scroll of exile wipes out a single species on the level.
-* All other effects are identical to the scroll of genocide in vanilla.
-* Genocides from thrones have been replaced with a generous gift of gold.
-
-### Slow Luck timeouts
-In NerfHack, **Luck items slow down your Luck timeout rather than stopping it completely** - this is similar to how it works in UnNetHack. However, the timeouts have been modified and extended to cover negative base luck situations. The timeouts have also been reduced heavily from the UnNetHack calculations.
-
-The modified Luck timeout depends on how far your Luck is from your base Luck: the higher or lower your Luck, the less the timeout is slowed. The timeout is calculated every turn, meaning gaining or losing a point of Luck could result in that point timing out immediately.
-
-The modified Luck timeout is calculated by the following formula:
-
-    Timeout = 25 * (20 - base_distance) * (20 - base_distance)
-
-base_distance is how far you are from your base luck. If your base luck is 0 and you have 3 Luck, the base_distance is 3. If you have -10 base luck and 10 Luck, the base_distance is 20. The following chart shows how many turns it takes to timeout from one luck level to the next and the total turns to reach the base distance of 0.
-
-| base distance | Timeout | Time to base Luck |
-| ------------- | ------- | ----------------- |
-| 0             | ∞       | 0                 |
-| 1             | 9 025   | 9 025             |
-| 2             | 8 100   | 17 125            |
-| 3             | 7 225   | 24 350            |
-| 4             | 6 400   | 30 750            |
-| 5             | 5 625   | 36 375            |
-| 6             | 4 900   | 41 275            |
-| 7             | 4 225   | 45 500            |
-| 8             | 3 600   | 49 100            |
-| 9             | 3 025   | 52 125            |
-| 10            | 2 500   | 54 625            |
-
-
-### Pet behavior
-#### Pet Theft
-* Pet theft from shops has been totally disabled.
-* Pets will never pick up objects in shops nor eat unpaid food (Gnoll)
-* Pets will also never take items from outside shops and drop them inside (like a pick-axe that you always have to leave right outside the door)
-* You also cannot #loot items to or from your pet that are unpaid.
-* Shopkeepers start with much more gold, more than double the standard amounts (Gnoll)
-
-#### Pets are limited by charisma
-* Ported from EvilHack
-* The number of pets you can have on a level is now capped using your level of Charisma. The simple calculation is charisma divided by 3.
-* For example, if your charisma is only 7, you can keep 2 pets, at 9 charisma you could keep up to 3 pets.
-* However, if you exceed this limit, your weakest pets (based on level) will be the first to become untamed, with ties resolved randomly.
-* Untamed pets that were previously mistreated, such as resurrected ones, may even turn hostile.
-* Your steed, whilst counting toward your pet limit, will never become untamed.
-* Summoned spell beings do not count toward the total pet limit.
-* Since the minimum CHA possible is 3, you should always be capable of retaining a pet.
-
-**Misc pet changes:**
-* Steeds are more aggressive - if your steed has a tameness level of 15 or more, it will actively attack monsters instead of merely reacting to being attacked (EvilHack)
-* Chaotics do not get alignment penalties for casting healing at pets (xNetHack)
-* Pets won't attack a gas spore whilst you are adjacent (xNetHack)
-* Pets never displace the player from stairs when entering a level (Dynahack).
-* Pet items can be managed with the **#loot command**, which allows you to give items to pets as well as take items from their inventory.
-* We can see if pets are stunned, confused, or blinded on farlook.
-* Pets will use items more intelligently (EvilHack). Many extensions to the pet AI were implemented that help them value armor, weapons, and items so they use the best equipment possible.
-* Tame pets will not hide or conceal themselves.
-* Pets will hesitate to attack grung unless resistant to its passive.
-* Pets can help the player other than fighting under certain circumstances.
-* Spellcasting pets will assist you with helpful spells likes healing and protection. High-level pets can even cast reflection on you.
-* Strong pets will pull you out of pits.
-* If you are put to sleep, pets will try to rouse you. Pets are more likely to nudge you awake if you have treats in open inventory.
-
-### Price Identification Nerf
-* This change destroys price identification and conforms most potions, scrolls, wands, and rings to the same price (SLEX).
-* All rings, potions, wands, and scrolls cost $200
-
-Exceptions:
-* cursed or blessed potions of water still cost $100
-* potions of blood, milk, and healing cost $100
-* scrolls of identify and knowledge cost $100
-* cards of zapping cost $50
-
-### Polymorphing Objects and Polypiling
-* The number of items you have polymorphed can be viewed in #conduct
-* Non-magical potions, scrolls, spellbooks, and wands are much less likely to transform into magical items. These types of items only have a 1% chance of transforming into something magical. This is now comparable to how other non-magical items polymorph. (dNetHack)
-* The chances of getting a golem from polypiling have been accelerated (K-Mod/Sporkhack)
-* The enchantment level or charges on items is randomly reduced when polymorphed (Sporkhack)
-* Golems created from polypiling immediately halt the polypiling process. This effectively nerfs the "one-giant-pile" strategy of polypiling.
-* Item quality and alignment will always transfer to the result of polypiling.
-* Item material will usually transfer to the result of polypiling if it is valid for the new item.
-* Item properties will transfer when polypiling depending on a Luck roll. The higher your luck, the more likely the results will retain the original item's property.
-
-### Poly-Self
-* Players can use gaze attacks in melee combat when polymorphed into monsters with a gaze attack. This doesn't require using the #monster command, so you can just engage in combat to trigger the forms gazes.
-* Humanoids are more careful about attacking you when you are a dangerous polyform (like a cockatrice)
-* Mind flayers won't purposely to eat the brains of petrifying monsters (ie: when you are polymorphed into a cockatrice)
-* When you polymorph into a monster without limbs, you are able to easily slip out of a ball and chain (EvilHack)
-* Escape from the controlled polymorph prompt no longer causes a random polymorph (xNetHack).
-* Polymorphing into a horned monster destroys any flimsy or cloth helms you may be wearing.
-* Being polymorphed into a wandering form will sometimes make you wander.
-* Being polymorphed into a vampire bat doesn't cause stunning (the vampire bat does not wander like other B class monsters do)
-* Polymorph traps have a 1 in 127 chance of being used up when monsters are polymorphed in them.
-
-### Elbereth and Scare Monster
-* Conflict negates the protection of Elbereth and scrolls of scare monster (EvilHack)
-* Engraving Elbereth no longer exercises wisdom (Fourk).
-* You can't dust engrave whilst being held by a monster - you are limited to using wands that burn or hard engrave (like wands of fire or digging) that still have charges.
-* You can't dust engrave on bloody or grassy tiles.
-
-**Reverted 82f0b1e8e from NetHack 3.7.0**
-* This 3.7.0 commit implemented this behavior: "Scared hostile monster which cannot move away will attack."
-* This has been reverted so players will be able to stand on scrolls of scare monster or Elbereth without risk of random melee attacks from scared or fleeing monsters.
-* The reason for this is that it violates the classic, expected behavior of Elbereth. There are other nerfs to Elbereth and scare monster that take the place of this.
-
-### New Grease Effects
-Many of these changes were introduced to work in conjunction with the new grease trap.
-
-**Greased boots and gloves should be avoided:**
-* Greased feet or boots cause fumbling
-* Greased gloves cause the Glib status
-* If you try to take off greased boots (or put on any boots while you have greasy feet), you become Glib for a short time.
-* Grease can be washed off your feet or boots by dipping '-' in water (same action as dipping the player's hands)
-* Greased gloves can also be cleaned by dipping in a water source.
-* NOTE: do not grease your boots or especially gloves since the glove grease will not timeout.
-
-**Other grease effects:**
-* Greased items can't be disarmed with a bullwhip
-* Greased items are harder to steal
-* Glib hands makes applying any item except towels drop them
-* Towels can be used to remove grease from specific objects (with the risk that the towel may absorb the grime and become greased itself)
-* Grease can be washed off towels by wetting them in fountains or other water sources.
-* Greased towels now operate in the same fashion as cursed towels
-* Kicking monsters can sometimes get the grease to wear off your boots/feet.
-* Greased rings will slip off your fingers.
-
-### DEMON AND DEMON LAIR CHANGES
-* Demonic bribes are much more expensive.
-* Juiblex buffs.
-* Geryon buffs (EvilHack).
-* Increase speed of Baalzebub.
-
-
-
-
-### Farming Nerfs
-
-A big philosophy of NerfHack is to discourage repetitive and potentially infinite strategies and exploits. These specific nerfs also are aimed at encouraging using "found items" and prodding the player deeper into the dungeon.
-
-* **Vault guard farming:** Vault guards do not get special offensive or defensive items on spawn and do not leave death drops.
-* **Temple ghost farming:** Each abandoned temple spawns a single ghost before permanently losing its status as a temple, preventing further ghost from generating.
-* **Quest monster/giant farming:** This is mostly in regard to what is known as "giant farming" in the valkyrie quest. Players could possibly farm giants for strength and gems by subsisting on their corpses. Monster generation in quests is now dramatically less frequent.
-* **Werefoo farming:** Werefoo summon temporary spell-beings that don't leave death drops or corpses.
-* **Horn of plenty farming:** Historically, Horns of Plenty could be endlessly recharged using the Tourist’s quest artifact, the Platinum Yendorian Express Card. This exploit has since been nerfed: tool recharging now follows the same rules as wands-tools can be recharged up to 7 times, with each additional recharge increasing the risk of the item crumbling.
-* **Trees on special levels are pre-looted.** While this doesn’t qualify as classic 'infinite' farming, the abundance of trees added to many levels means a player could theoretically spend an excessive amount of time harvesting them for bees and fruit.
-
-### Underwater mechanics
-* Prevent kicking monsters out of water while underwater or vice versa.
-* The hero and other monsters resist splash, spore, and fire effects while underwater.
-* Being underwater provides immunity from explosions and fire damage.
 
 
 ## AC nerfs & buffs
@@ -806,37 +822,6 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 * The weights of non-mergable weapons and armors can vary slightly (from CrecelleHack)
 * Cut down on items for monsters that won't use those items, specifically dragons that won't use their potions or scrolls.
 
-### Item Erosion and Destruction
-* Objects can be completely destroyed from erosion (EvilHack)
-* Almost all items are erodible or destroyable (EvilHack)
-  * amulets, rings, wands, and tools are now eligible for erosion and destruction.
-  * Silver items can also corrode (xNetHack)
-  * Bone items can burn
-  * The iron ball and chain cannot be destroyed from rusting (EvilHack)
-* Poison gas clouds can rot organic armor
-* Extrinsic poison resistance (or the venom property) protects items from rotting in poison gas
-* Monster spellcasters can wear down and destroy any armor with the Destroy Armor spell (excepting crystal plate mail which is immune) (EvilHack)
-* Scrolls can burn up when hitting hot ground in Gehennom. (3.7 introduced potions being shattered when dropping on hot ground - this just takes it a step further.)
-* Water damage may disintegrate scrolls, which may occur when dipping (Dynahack)
-* Disintegration rays can vaporize boulders
-* Items can be erodeproofed via confused enchant weapon scrolls or by dipping into non-diluted potions of reflection.
-* Item erosion and negative enchantment can be repaired by dipping into a non-diluted potion of restore ability; read counters on spellbooks can also be refreshed (xNetHack)
-* The damage from item destruction has been increased to double or triple it's Vanilla values.
-
-**Acid and corrosion:**
-* Acid has been turned into a potent source of item-destruction. Wherever acid damage is inflicted, there is now a chance for item corrosion to also occur.
-* Getting hit by potions of acid can corrode armor.
-* Monster acid attacks and spit also corrode armor.
-* Passive acid attacks corrodes armor more often.
-* Thrown potions of acid can corrode items or armor when they hit a monster or the player.
-
-#### Fragile items are more vulnerable
-* Beams of force bolt and striking can break fragile items in inventory.
-* Knockback attacks can also shatter fragile items in your inventory
-* Fragile items can be fixed to avoid destruction (note that although mirrors can be tempered, they are still subject to shattering when reflecting rays)
-* Wands of striking and rings of shock resistance are immune from impact damage.
-* Extrinsic shock resistance protects fragile items in your inventory from physical damage (ie: from the ring of shock resistance or blue dragon scaled armor).
-
 #### Bones files trimming
 * When bones files are left, a random selection of items are subject to shuddering.
 * Magic markers are converted to athames.
@@ -861,10 +846,9 @@ A lot of changes have been introduced to reign back the bonuses for to-hit becau
 
 
 ### Weapon changes
-* Weapon enchantment gives variable to-hit bonus instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
+* Weapon enchantment gives variable **to-hit bonus** instead of flat bonus. This means that instead of a +7 weapon granting +7 to-hit, it grants a random to-hit bonus from +1 to +7, inclusive.
 * Lords, princes, and uniques will appear with enchanted weapons.
-* Over-enchanted weapons that vaporize now explode.
-* Your wisdom is abused whenever you over-enchant and destroy weapons.
+* Over-enchanted weapons that vaporize now explode, abusing your wisdom
 * Kicking edged weapons with bare feet or non-metal boots is painful.
 * **All *launchers* can contribute to missile projectile damage** (adapted from SpliceHack); the damage is calculated as d(x/3), where x is the current enchantment of the launcher.
 * Cursed launchers always have a chance of misfiring.
@@ -941,7 +925,7 @@ Bracers are a type of shield worn on the forearms, making them unique in that th
 
 Bracers weigh 15 (half as much as a small shield).
 
-If a player undergoes polymorph into a large monster, any non-artifact bracers being worn will unfortunately be destroyed. Artifact bracers will be pushed off.
+If a player undergoes polymorph into a large monster, any non-artifact bracers being worn will be destroyed. Artifact bracers will be pushed off.
 
 NerfHack introduces a few new magical bracers:
 * **bracers of integrity**: conveys disintegration and wither resistance, erodeproof
@@ -951,53 +935,6 @@ NerfHack introduces a few new magical bracers:
 * **bracers of unchanging**: confers unchanging
 * **bracers vs stone**: confers petrification resistance
 
-#### New dragon armor system: DSM replaced by scaled armor
-
-Ported from xNetHack:
-
-This proposal, referred to as the "dtsund-DSM" system, developed by dtsund and jonadab, introduces a significant change to how dragon scales are used in the game. Instead of dragon scale mail being its own type of armor, players can now incorporate dragon scales into existing armors-such as leather armor, chain mail, and others. These "scaled" armors provide the same extrinsic benefits as traditional dragon scale mail whilst retaining their original properties.
-
-**Motivation for the Change:**
-
-The primary reason for replacing dragon scale mail with this system is to enhance armor strategy. Dragon scale mail was overwhelmingly optimal, rendering other armor choices irrelevant. It was simultaneously:
-- **Lightweight**,
-- **Higher in base AC** than any other armor,
-- **Naturally erodeproof**,
-- **Unrestrictive for spellcasting**,
-- **Easily obtainable** before the Castle or Quest, often as an early wish, and
-- **A source of powerful extrinsics** (e.g., reflection, magic resistance).
-
-Once dragon scale mail became available, there was little incentive to consider other armors. With this new system, players must weigh the pros and cons of different base armors, making armor strategy relevant beyond defeating the first few dragons.
-
-**Benefits of the New System**
-This approach aligns with the philosophy of prioritizing found items over wished ones. Previously, even excellent armors like dwarvish mithril would only serve as placeholders until dragon scale mail became available. Now, players can find dragon scales, integrate them into their chosen armor, and continue using it throughout the game and even change the scaling to adapt their kit.
-
-**Key Details**
-- Dragon scales provide -3AC when used as a cloak and add -3AC to any scaled armor.
-- Scaled armor is **not automatically erodeproof**, maintaining the risk of erosion into the mid-game. Players can still erodeproof their armor or attach scales to naturally erodeproof materials.
-- Following the system used in NethackFourk, if a player polymorphs and merges with their scaled armor, it will return after unpolymorphing. This is an intentional buff, ensuring that players do not lose enchantments or scales.
-- **Potions of phasing** can also be used to graft dragon scales onto armor in place of reading a confused scroll of enchant armor.
-
-**Other dragon scale notes:**
-* Shopkeepers price dragon-scaled armor at a high value (xNetHack).
-* By themselves, dragon scales do not provide secondary intrinsics, they must be enchanted onto armor for the secondary effect(s) to kick in.
-
-| Dragon     | Scales confer      | Scaled armor confers     |
-| ---------- | ------------------ | ------------------------ |
-| gray       | magic resistance   | cancellation resistance  |
-| gold       | light source       | hallucination resistance |
-| silver     | reflection         | blinding resistance      |
-| shimmering | displacement       | stun resistance          |
-| red        | fire resistance    | increase damage          |
-| white      | cold resistance    | slow digest              |
-| orange     | sleep resistance   | free action              |
-| black      | disintegration res | withering res            |
-| blue       | shock resistance   | speed                    |
-| green      | poison resistance  | sickness res             |
-| yellow     | acid resistance    | petrification res        |
-| shadow     | drain resistance   | death res                |
-
-* Red dragon scaled armor confers increase damage; enchantment works in the same fashion as a ring of increase damage.
 
 ### Comestibles
 * Port the Oily Corpses Patch (xNetHack) which gives certain corpses a chance of causing slippery fingers. Eating the corpse of an amorphous or slithy monster that is not a snake, naga or mimic has a 1 in 5 chance of giving you slippery fingers.
@@ -1017,7 +954,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 
 * Dipping water into any potion will simply dilute the other potion (SLASH'EM)
 * Dipping into a cursed potion always causes an explosion (SLASH'EM).
-* Dipping scrolls of amnesia blanks non-water non-polymorph potions.
 * Dipping a scroll of amnesia into a non-water, non-polymorph potion cancels it into water.
 * Mixing oil with water always results in diluted oil.
 * Potion vapors have more effects covering more potions when inhaled (xNetHack)
@@ -1060,19 +996,21 @@ This approach aligns with the philosophy of prioritizing found items over wished
 ### Scrolls
 * Decreased the probability of scrolls of identify, and increased the probability of scrolls of knowledge
 * Blank scrolls cost 50
-* **Scrolls of light** illuminate a greater radius when uncursed and light up the entire level when blessed (xNetHack)
-* **Cursed scrolls of remove curse** will curse items
-* **Scrolls of genocide** have been nerfed and renamed to scrolls of exile
+* **scrolls of light** illuminate a greater radius when uncursed and light up the entire level when blessed (xNetHack)
+* **cursed scrolls of remove curse** will curse items
+* **scrolls of genocide** have been nerfed and renamed to scrolls of exile
 * **scrolls of enchant armor** let you choose which worn piece of armor to enchant or repair when you know the identify of these scrolls, otherwise the armor chosen is still random (EvilHack)
-* * **Scrolls of enchant weapon and enchant armor are much more rare and cost a lot more ink to write**
-* **Blessed scroll of destroy armor** asks which armor to destroy (xNetHack)
-* **Confused cursed scrolls of destroy armor** prompt for which piece of armor to fix
-* **Confused scrolls of identify** give enlightenment (xNetHack)
-* **Confused cursed scrolls of punishment** decrease your gods anger by one point (if angry).
-* **Confused scrolls of gold detection** no longer detect magic portals.
+* * **scrolls of enchant weapon and enchant armor are much more rare and cost more ink to write**
+* **blessed scroll of destroy armor** asks which armor to destroy (xNetHack)
+* **confused cursed scrolls of destroy armor** prompt for which piece of armor to fix
+* **confused scrolls of identify** give enlightenment (xNetHack)
+* **confused cursed scrolls of punishment** decrease your gods anger by one point (if angry).
+* **confused scrolls of gold detection** no longer detect magic portals.
 
 ### Wands
 * **Wands discharge their effects when they explode (SLASH'EM).**
+  * This makes open-carrying many wands much more dangerous
+  * For illustration, a wand of cancellation that explodes in your inventory will cancel your entire inventory (subject to MC reduction - see "Magic cancellation (MC) protects items vs cancellation")
 * **Cursed wand backfire patch (EvilHack)**
   * If a directional wand is cursed and the player zaps it, there's a 1 in 8 chance it will backfire, hitting the player instead.
   * Wands will never explode when engraved with (SLASH'EM)
@@ -1101,6 +1039,7 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * **cursed rings** burn extra nutrition when worn.
 * **cursed rings** can slip off your fingers when Glib.
 * **rings of sustain ability** also protect legs from wounding.
+* **rings of sustain ability** prevent skill and spell loss from amnesia
 * **rings of conflict** usually generate cursed.
 * **rings of protection from shapechangers** wake up normalized shifters when worn.
 * **amulets of magical breathing** are immune to water damage
@@ -1155,7 +1094,6 @@ This approach aligns with the philosophy of prioritizing found items over wished
 * A magic marker can also be found in the Boulder Bonanza Mine's End level.
 
 #### Unicorn horns
-* Unicorn horns are now one-handed, dealing d6 vs small and d7 vs large monsters
 * Cancelled unicorn horns become degraded, barely usable for curing. However, a degraded horn still has a 1 in 20 chance of success.
 * Unicorn horn drops decrease as the number of unicorns killed increases.
 * Since unihorns are more scarce, be careful when dipping into random potions as acid will dissolve your unihorn!
@@ -1179,7 +1117,13 @@ Historical Note: The success rate change from SLASH'EM was experimented with, bu
 * Tins that you create from tinning kits will always be safe.
 
 #### Mirrors confer reflection while carried
-Carrying a mirror in your open inventory grants you the benefit of reflection. Keep in mind this effect applies to both players and monsters. However, each time a mirror reflects a ray, there is roughly a 25% chance it will shatter. If you are the originator of the reflected ray, you will suffer a -2 Luck penalty when the mirror breaks; no Luck penalty occurs if a monster causes the breakage. Artifact mirrors, such as the Magic Mirror of Merlin, are shatterproof and will not break when reflecting rays. Cracked mirrors always shatter upon reflection and Medusa’s stoning gaze will always shatter mirrors that reflect it. Be cautious around nymphs, as they commonly carry mirrors. Cursed mirrors always shatter when reflecting rays.
+* Carrying a mirror in your open inventory grants you the benefit of reflection. Keep in mind this effect applies to both players and monsters.
+* However, each time a mirror reflects a ray, there is roughly a 25% chance it will shatter.
+* If you are the originator of the reflected ray, you will suffer a -2 Luck penalty when the mirror breaks; no Luck penalty occurs if a monster causes the breakage.
+* Artifact mirrors, such as the Magic Mirror of Merlin, are shatterproof and will not break when reflecting rays.
+* Cracked mirrors always shatter upon reflection and Medusa’s stoning gaze will always shatter mirrors that reflect it.
+* Be cautious around nymphs, as they commonly carry mirrors.
+* Cursed mirrors always shatter when reflecting rays.
 
 ### Gems/Stones/Rocks
 * Reduced weight of flint stones to 2 aum (xNetHack/Sporkhack)
@@ -1198,20 +1142,23 @@ Carrying a mirror in your open inventory grants you the benefit of reflection. K
 * Items can appear in all types of materials now.
 * New materials:
   * Coldsteel: does extra damage to fae type monsters.
-  * Chiton: commonly used for grung items.
+  * Chiton: commonly used for grung items
 * Rings and their appearances have been overhauled. All rings have new appearances that allow for different materials to generate on them.
+* The new scroll of transmogrify can be used to change the material of an item at random.
 
 ### Object Properties
 The object properties patch exists in a handful of variants - the code used for NerfHack was taken from Hack'EM, which was taken from EvilHack, which in turn was taken from GruntHack and then modified significantly.
 
-An object property is a magical attribute associated with an item - in other variants that have object properties, the number of magical properties and the number and types of items they can be applied to is rather broad, and finding such properties on these items is not uncommon. In NerfHack, there are many object properties, and they can be applied to weapons and armor, but the chances of finding such items at random is quite rare.
+An object property is a magical attribute associated with an item - in other variants that have object properties, the number of magical properties and the number and types of items they can be applied to is rather broad, and finding such properties on these items is not uncommon. In NerfHack, there are many object properties, and they can found on weapons, armor, and rings, but the chances of finding such items at random is quite rare.
 
 In NerfHack, object properties are not hidden from the player and are made obvious with {} around the properties to distinguish them from other ordinary items.
 
-**Restricted items:** non-weapons (ie: cockatrice corpses), artifacts, dragon scales, and unique items.
+**Restricted items:**
+- non-weapons (ie: cockatrice corpses), artifacts, dragon scales, and unique items.
 - A players' starting inventory will never spawn with an object property
 - Changing a regular item with object properties into an artifact (e.g., dipping for Excalibur) will strip that item of its object properties.
-- Extrinsic properties that are applied to weapons or armor are active only when those objects are wielded/worn. With weapons, extrinsic properties also work in the offhand whilst twoweaponing.
+- Extrinsic properties that are applied to weapons or armor are active only when those objects are wielded/worn.
+- With weapons, extrinsic properties also work in the offhand whilst twoweaponing.
 
 #### Generation odds
 **Random item generation:**
@@ -1223,11 +1170,11 @@ In NerfHack, object properties are not hidden from the player and are made obvio
 **Forging and property transfers:**
 
 - Properties will never spontaneously appear from forging results, the property has to come from the first or second ingredient.
-- Forging will take the secondary object property over the primary. If you have formally identified the object property of one of the recipe objects, you'll know the object property of the newly forged object.
+- Forging will take the secondary object property over the primary.
 
 **Polypiling and Property transfers:**
 - Polymorphing items that are cursed always wipes the properties from an obj.
-- An uncursed object has a luck dependent chance of retaining its properties.
+- An non-cursed object has a luck dependent chance of retaining its properties.
 
 LUCK:     <0      0     +2     +5     +8    +11
 SUCCESS: 0.5%  20.0%  39.5%  59.0%  78.5%  98.0%
@@ -1235,39 +1182,35 @@ SUCCESS: 0.5%  20.0%  39.5%  59.0%  78.5%  98.0%
 #### Table of object properties ====
 The table below lists all available magical properties, what items they can be applied to, and what their function is.
 
-| Object property | Armor attributes                      | Weapon attributes                                    |
-| --------------- | ------------------------------------- | ---------------------------------------------------- |
-| Fire            | fire resistance                       | +(1d5+3) fire damage                                 |
-| Frost           | cold resistance                       | +(1d5+3) cold damage                                 |
-| Sleep           | sleep resistance                      | +d2 dmg, sleep attack                                |
-| Shock           | shock resistance                      | +(1d5+3) shock damage                                |
-| Venom           | poison resistance                     | +d2 poison                                           |
-| Acid            | acid resistance                       | +(1d5+3) acid damage                                 |
-| Draining        | drain resistance                      | drain life attack                                    |
-| Health          | sickness resistance                   | n/a                                                  |
-| Filth           | n/a                                   | disease attack                                       |
-| Peace           | blocks aggravate monster              | blocks aggravate monster                             |
-| Searching       | searching                             | searching                                            |
-| Stealth         | stealth                               | stealth                                              |
-| Warning         | warning                               | warning                                              |
-| Insight         | see invisible                         | see invisible                                        |
-| Charisma        | charisma adjustment                   | charisma adjustment                                  |
-| Fumbling        | fumbling                              | fumbling                                             |
-| Hunger          | hunger                                | hunger                                               |
-| Burden          | steadfast, heavier item               | steadfast, heavier item                              |
-| Danger          | infravision, higher difficulty        | infravision, higher difficulty                       |
-| Rage            | n/a                                   | double damage, bloodthirsty                          |
-| Stench          | aggravate monster, prevents digestion | aggravate monster, prevents digestion                |
-| preservation    | protects item enchantment             | n/a                                                  |
-| carrying        | increases carry capacity              | increases carry capacity                             |
-| antimagic       | magic resistance                      | n/a                                                  |
-| hexed           | n/a                                   | +3d6 dmg, with 2d6 to self on attacks. Absorbs curses |
-| nulling         | n/a                                   | cancel attack                                        |
-| integrity       | Disintegration and withering res      | n/a                                                  |
-
-
-
-
+| Object property | Armor attributes                        | Weapon attributes                                     |
+| --------------- | --------------------------------------- | ----------------------------------------------------- |
+| Fire            | fire resistance                         | +(1d5+3) fire damage                                  |
+| Frost           | cold resistance                         | +(1d5+3) cold damage                                  |
+| Sleep           | sleep resistance                        | +d2 dmg, sleep attack                                 |
+| Shock           | shock resistance                        | +(1d5+3) shock damage                                 |
+| Venom           | poison resistance                       | +d2 poison                                            |
+| Acid            | acid resistance                         | +(1d5+3) acid damage                                  |
+| Draining        | drain resistance                        | drain life attack                                     |
+| Health          | sickness resistance                     | n/a                                                   |
+| Filth           | n/a                                     | disease attack                                        |
+| Peace           | blocks aggravate monster                | blocks aggravate monster                              |
+| vigilance       | autosearching+large radius              | autosearching+large radius                            |
+| Stealth         | stealth                                 | stealth                                               |
+| Warning         | warning                                 | warning                                               |
+| Insight         | see invisible                           | see invisible                                         |
+| Charisma        | charisma adjustment                     | charisma adjustment                                   |
+| Fumbling        | fumbling                                | fumbling                                              |
+| Hunger          | hunger                                  | hunger                                                |
+| Burden          | steadfast, heavier item                 | steadfast, heavier item                               |
+| Danger          | infravision, higher difficulty          | infravision, higher difficulty                        |
+| Rage            | n/a                                     | double damage, bloodthirsty                           |
+| Stench          | aggravate monster, prevents digestion   | aggravate monster, prevents digestion                 |
+| preservation    | protects item enchantment               | n/a                                                   |
+| carrying        | increases carry capacity                | increases carry capacity                              |
+| antimagic       | magic resistance, prevents spellcasting | n/a                                                   |
+| hexed           | n/a                                     | +3d6 dmg, with 2d6 to self on attacks. Absorbs curses |
+| nulling         | n/a                                     | cancel attack                                         |
+| integrity       | Disintegration and withering res        | n/a                                                   |
 
 Notes:
 * All sources of resistances or statuses are considered extrinsic
@@ -1275,30 +1218,28 @@ Notes:
 (*) Venom inflicts the normal 1d6 extra poison damage with a 10% chance of instakill by poison, plus an additional 1d2 poison damage.
 
 
-### Object build qualities
+### Item build qualities
 Ported from EvilHack
 
-Weapons, armor, and barding can possess varying levels of quality: inferior, superior, or exceptional. Superior weapons deal an additional point of damage, while exceptional weapons deal two extra points of damage and receive a +1 bonus to-hit. Similarly, superior and exceptional armor pieces provide +1 and +2 bonuses to Armor Class (AC), respectively. On the other hand, inferior weapons suffer a -2 penalty to both damage and to-hit. Inferior armor doesn't have a penalty, but it will fall apart easily.
+Weapons, armor, and barding can possess varying levels of quality: inferior, superior, exceptional, and legendary.
+* superior weapons deal an extra 1 damage, with +1 to-hit.
+* exceptional weapons deal an extra 3 damage, with +2 to-hit
+* legendary weapons deal an extra 6 damage, with +3 to-hit
+* inferior weapons suffer a -2 penalty to both damage and to-hit
+* superior armors provide an extra +1 AC
+* exceptional armors provide an extra +3 AC
+* legendary armors provide an extra +6 AC
+* Inferior armor doesn't have a penalty, but it will fall apart easily.
 
-Only objects that could have been produced in a forge and are randomly generated can exhibit these quality traits. Exceptional weapons are immune to shattering blows, while superior weapons are still vulnerable, though they shatter only half as often. Inferior weapons are much more prone to breaking, particularly if they are eroded. Additionally, attacking with an inferior weapon carries a small chance of it falling apart upon impact, and inferior armor has a chance to disintegrate when it blocks an attack.
+**Quality effects:**
+* Exceptional weapons (and better) are immune to shattering blows, while superior weapons are still vulnerable, though they shatter only half as often.
+* Inferior weapons are much more prone to breaking, particularly if they are eroded. Additionally, attacking with an inferior weapon carries a small chance of it falling apart upon impact, and inferior armor has a chance to disintegrate when it blocks an attack.
+* In terms of value, inferior items are priced at half the cost of standard ones, superior items cost 2x, and exceptional items 4x, and legendary items 10x.
 
-In terms of value, inferior items are priced at half the cost of standard ones, superior items cost twice as much, and exceptional items are valued at three times the normal price.
-
-The extra tier of Legendary quality has also been added which makes weapons and armor work like +6 items.
-
-Increased bonus of exceptional quality.
-Loosened requirements for forging superior and exceptional items.
-Allow ammo, missiles, magic, and non-metallic items to be eligible for build quality.
-Higher build quality reduces chances of weapons/armor breaking.
-Allow lords and princes a chance of getting legendary items. 
-
-
- Allow forging different levels of quality to be more flexible.
-    
-    Previously, two forging ingredients needed to be exactly the same to produce the same result (with a small chance of something better). For example, a superior dagger must be combined with a superior dagger to make a superior dagger. If you combined an exceptional dagger with a superior dagger, you probably ended up with a regular dagger. This commit improves the combination formula so not everything is lost when combining items with different qualities. We take the average of both ingredient qualities and 50% of the time add a level. This encourages forging more and experimenting more.
-
-Improve odds of good result from forging mixed qualities.
-
+#### Forging different levels of quality:
+* Previously, two forging ingredients needed to be exactly the same to produce the same result (with a small chance of something better).
+* For example, a superior dagger must be combined with a superior dagger to make a superior dagger. If you combined an exceptional dagger with a superior dagger, you probably ended up with a regular dagger.
+* In NerfHack we have a combination formula for mixing items of different qualities so not everything is lost when forging items. We take the average of both ingredient qualities and 50% of the time add a level. This encourages forging more and experimenting more.
 
 ### Object alignments
 Sometimes items can generate specifically aligned as lawful, neutral, or chaotic.
@@ -1315,102 +1256,106 @@ Sometimes items can generate specifically aligned as lawful, neutral, or chaotic
     - Aligned armor grants -1AC for each piece worn, both for the hero and for monsters.
 * Gods can change the alignment of items to your alignment as a result of #offering
 
-
-
 ## NEW ITEMS
 
+| Item                          | Class     | cost | aum | Origin             | Notes                                               |
+| ----------------------------- | --------- | ---- | --- | ------------------ | --------------------------------------------------- |
+| razor card                    | weapon    | 5    | 1   | SpliceHack         | 1d6/1d6, weaker shuriken for cartomancers           |
+| stake                         | weapon    | 50   | 20  | SLASH'EM           | 1d6/1d6,kills vampires                              |
+| clawbone hatchet              | weapon    | 8    | 15  | NerfHack           | 1d6/1d4,grung axe                                   |
+| orcish scimitar               | weapon    | 15   | 40  | EvilHack           | 1d6/1d8, orc saber                                  |
+| spineback cutter              | weapon    | 15   | 20  | NerfHack           | 1d8/1d6, grung saber                                |
+| rapier                        | weapon    | 40   | 15  | SLASH'EM           | light metal saber, erodeproof steel                 |
+| elven long sword              | weapon    | 40   | 15  | EvilHack           | 1d10/1d12, elf item                                 |
+| orcish long sword             | weapon    | 12   | 40  | EvilHack           | 1d8/1d10, orc item                                  |
+| heavy sword                   | weapon    | 50   | 500 | NerfHack           | base item for Load Brand                            |
+| scythe                        | weapon    | 10   | 120 | SpliceHack         | 1d8+1d4/1d10+1d4, -2 to-hit, polearm that can melee |
+| skullclaw mace                | weapon    | 5    | 21  | NerfHack           | 1d6+1/1d6, grung item                               |
+| gnomish helm                  | armor     | 8    | 3   | SlashTHEM          | 1AC, grung item                                     |
+| turtle-shell helm             | armor     | 10   | 18  | NerfHack           | 1AC, grung item                                     |
+| sporecap hood                 | armor     | 1    | 3   | NerfHack           | 0AC, grung item                                     |
+| shimmering dragon scales      | armor     | 700  | 80  | Deferred           | displacement                                        |
+| shadow dragon scales          | armor     | 700  | 80  | EvilHack           | drain resistance                                    |
+| gnomish suit                  | armor     | 40   | 50  | SlashTHEM          | 2AC                                                 |
+| giant beetle carapace         | armor     | 45   | 75  | NerfHack           | 3AC, MC1, grung item                                |
+| spider-rib shell              | armor     | 15   | 55  | NerfHack           | 2AC, MC1, grung item                                |
+| swampwing vest                | armor     | 5    | 30  | NerfHack           | 1AC, MC1, grung item                                |
+| snakehide jerkin              | armor     | 10   | 14  | NerfHack           | 0AC, MC0, grung item                                |
+| gnomish robe                  | armor     | 50   | 40  | NerfHack           | 1AC, MC0                                            |
+| elven robe                    | armor     | 50   | 40  | NerfHack           | 1AC, MC1                                            |
+| orcish robe                   | armor     | 50   | 40  | NerfHack           | 1AC, MC0                                            |
+| robe of power                 | armor     | 50   | 40  | NerfHack           | 1AC, MC1                                            |
+| robe of protection            | armor     | 50   | 40  | NerfHack           | 5AC, MC1                                            |
+| snakeskin wrap                | armor     | 2    | 5   | NerfHack           | 0AC, MC1, grung item                                |
+| dragonfly cloak               | armor     | 0    | 6   | NerfHack           | 1AC, MC1, grung item                                |
+| crabback shield               | armor     | 3    | 8   | NerfHack           | 1AC, MC0, grung item                                |
+| tortle-shell shield           | armor     | 7    | 15  | NerfHack           | 2AC, MC0, grung item                                |
+| tower shield                  | armor     | 20   | 150 | SpliceHack         | Heavy, provides 4AC                                 |
+| shield of countering          | armor     | 75   | 25  | NerfHack           | 1AC/2MC, counters spells                            |
+| bracers                       | armor     | 10   | 15  | NerfHack           | 1AC                                                 |
+| elven bracers                 | armor     | 10   | 15  | EvilHack           | 1AC                                                 |
+| spider-leg wraps              | armor     | 10   | 15  | NerfHack           | 1AC, grung item                                     |
+| bracers of integrity          | armor     | 50   | 15  | NerfHack           | conveys dis/wither res, erodeproof                  |
+| bracers of sleep resistance   | armor     | 50   | 15  | NerfHack           | confers sleep res                                   |
+| bracers of cold resistance    | armor     | 50   | 15  | NerfHack           | confers cold res                                    |
+| bracers vs shapechangers      | armor     | 50   | 15  | NerfHack           | confers protection vs shapechangers                 |
+| bracers of unchanging         | armor     | 50   | 15  | NerfHack           | confers unchanging                                  |
+| bracers vs stone              | armor     | 50   | 15  | NerfHack           | confers petrification res                           |
+| rogue's gloves                | armor     | 50   | 10  | SpliceHack         | Confers searching, fingerless (!)                   |
+| pincer gauntlets              | armor     | 8    | 5   | NerfHack           | 1AC, grung item                                     |
+| gauntlets                     | armor     | 30   | 20  | NerfHack           | 2AC                                                 |
+| gauntlets of swimming         | armor     | 50   | 10  | SLASH'EM           | 1AC, grants swimming, protects items from water     |
+| gauntlets of force            | armor     | 50   | 10  | NerfHack           | 1AC, stuns monsters, steadfastness                  |
+| orcish boots                  | armor     | 16   | 30  | EvilHack           | 1AC (+ 1AC for orcs)                                |
+| dwarvish boots                | armor     | 16   | 50  | EvilHack           | 2AC - replaces iron boots                           |
+| gnomish boots                 | armor     | 16   | 10  | SlashTHEM          | 0AC                                                 |
+| freedom boots                 | armor     | 50   | 20  | NerfHack           | conveys free action                                 |
+| stomping boots                | armor     | 50   | 50  | SpliceHack         | Instakills tiny/small monsters, noisy               |
+| ring of gain intelligence     | ring      | 200  | 3   | SLASH'EM           | adjusts INT                                         |
+| ring of nothing               | ring      | 200  | 3   | dNetHack           |                                                     |
+| ring of withering             | ring      | 200  | 3   | NerfHack           | causes withering                                    |
+| ring of sleeping              | ring      | 200  | 3   | SLASH'EM           | causes restful sleep                                |
+| ring of carrying              | ring      | 200  | 3   | xNetHack           | grants expanded carrying capacity                   |
+| fang necklace                 | armor     | 0    | 20  | NerfHack           | +1AC for grung                                      |
+| magic candle                  | tool      | 500  | 2   | SLASH'EM           | permanent light source                              |
+| playing card deck             | tool      | 80   | 10  | SpliceHack         | can reveal your current luck                        |
+| glob of like-like             | food      | 6    | 20  |                    |                                                     |
+| mistletoe                     | food      | 10   | 1   | EvilHack           | can cure hallucination                              |
+| pineapple                     | food      | 9    | 15  | SpliceHack         | can be thrown for extra damage                      |
+| pinch of catnip               | food      | 7    | 1   | SpliceHack         | can tame felines                                    |
+| holy wafer                    | food      | 12   | 1   | SLASH'EM           | cures lycanthropy, withering                        |
+| potion of reflection          | potion    | 200  | 10  | SpliceHack         | conveys temporary reflection                        |
+| potion of phasing             | potion    | 200  | 10  | NerfHack           | conveys temporary phasing                           |
+| potion of milk                | potion    | 100  | 10  | NerfHack           | cancels good and bad statuses                       |
+| potion of blood               | potion    | 100  | 10  | SLASH'EM           | nutrition for vampires                              |
+| potion of vampire blood       | potion    | 200  | 10  | SLASH'EM           | nutrition/healing for vampires                      |
+| scroll of proofing            | scroll    | 200  | 5   | NerfHack           | special for cartomancers                            |
+| scroll of exile               | scroll    | 200  | 5   | NerfHack           | genocide specific monster(s) on the level           |
+| scroll of knowledge           | scroll    | 100  | 5   | SpliceHack         | learn about a random magic item                     |
+| scroll of flood               | scroll    | 200  | 5   | UnNetHack/xNetHack | generates water pools                               |
+| scroll of transmogrify        | scroll    | 200  | 5   | SpliceHack         | clones items or monsters                            |
+| scroll of cloning             | scroll    | 200  | 5   | SpliceHack         | clones items or monsters                            |
+| scroll of zapping             | scroll    | 50   | 5   | NerfHack           | special for cartomancers                            |
+| spellbook of lightning        | spellbook | 500  | 55  | SLASH'EM           | Level 5: shoots a ray of lightning                  |
+| spellbook of poison blast     | spellbook | 500  | 55  | SLASH'EM           | Level 5: shoots a ray of poison gas                 |
+| spellbook of fire bolt        | spellbook | 100  | 35  | NerfHack           | Level 1: shoots a beam of fire                      |
+| spellbook of sacred vision    | spellbook | 200  | 40  | NerfHack           | Level 2: confers see invisible while active         |
+| spellbook of waterproofing    | spellbook | 200  | 40  | NerfHack           | Level 2: protects items from water and rust         |
+| spellbook of divine reckoning | spellbook | 800  | 70  | NerfHack           | Level 8: Massive damage vs undead and demons        |
+| spellbook of flesh-to-stone   | spellbook | 700  | 65  | NerfHack           | Level 7: stones monsters                            |
+| spellbook of repair           | spellbook | 300  | 45  | EvilHack           | Level 3: repairs any item erosion                   |
+| spellbook of flame sphere     | spellbook | 200  | 40  | SLASH'EM           | Level 2: summons flame sphere spell beings          |
+| spellbook of freeze sphere    | spellbook | 200  | 40  | SLASH'EM           | Level 2: summons freeze sphere spell beings         |
+| wand of wonder                | wand      | 200  | 7   | SpliceHack         | random wand effect                                  |
+| wand of identify              | wand      | 200  | 7   | SlashTHEM          | identifies items, spawns with 4-8 charges           |
+| wand of poison gas            | wand      | 200  | 7   | SpliceHack         | shoots poison gas                                   |
+| wand of corrosion             | wand      | 200  | 7   | SpliceHack         | shoots acid rays                                    |
+| wand of draining              | wand      | 200  | 7   | SLASH'EM           | shoots drain life rays                              |
+| healthstone                   | gem       | 60   | 10  | SLASH'EM           | affects regeneration                                |
+| whetstone                     | gem       | 45   | 10  | SLASH'EM           | sharpens edged weapons                              |
+| foulstone                     | gem       | 0    | 10  | NerfHack           | aggravate monster & stinking clouds                 |
+| sling bullet                  | weapon    | 1    | 2   | EvilHack           | 1d6 + 1 damage                                      |
 
-| Item               | Class  | cost | aum | Origin     | Notes                               |
-| ------------------ | ------ | ---- | --- | ---------- | ----------------------------------- |
-| razor card         | weapon | 5    | 1   | SpliceHack | weaker shuriken for cartomancers    |
-| silver short sword | weapon | 50   | 36  | SLASH'EM   |                                     |
-| rapier             | weapon | 40   | 15  | SLASH'EM   | light metal saber, erodeproof steel |
-| heavy sword        | weapon | 50   | 500 | NerfHack   | base item for Load Brand            |
-| scythe             | weapon | 10   | 120 | SpliceHack | polearm that can be used in melee   |
-| sling bullet       | weapon | 1    | 2   | EvilHack   | 1d6 + 1 damage                      |
-elven long sword
-orcish long sword
-orcish scimitar
-
-| gnomish helm                  | armor     | 8    | 3   | SlashTHEM          | 1AC                                        |
-| fire helmet                   | armor     | 50   | 50  | SlashTHEM          | fire res                                   |
-| oilskin helm                  | armor     | 50   | 20  | EvilHack           | protection from tentacle/wrap attacks      |
-| shimmering dragon scales      | armor     | 700  | 80  | Deferred           | displacement, stun res                     |
-| gnomish suit                  | armor     | 40   | 50  | SlashTHEM          | 2AC                                        |
-| tower shield                  | armor     | 20   | 150 | SpliceHack         | Heavy, provides 4AC                        |
-| anti-magic shield             | armor     | 75   | 25  | NerfHack           | 1AC/2MC, provides MR, counters spells      |
-| rogue's gloves                | armor     | 50   | 10  | SpliceHack         | Confers searching, fingerless (!)          |
-| bronze gauntlets              | armor     | 30   | 20  | NerfHack           | copper, 2AC                                |
-| gauntlets of swimming         | armor     | 50   | 10  | SLASH'EM           | grants swimming, protects items from water |
-| gauntlets of force            | armor     | 50   | 10  | NerfHack           | stuns monsters, steadfastness              |
-| gnomish boots                 | armor     | 16   | 10  | SlashTHEM          | 1AC                                        |
-| orcish boots                  | armor     | 16   | 30  | EvilHack           | 1AC (+ 1AC for orcs)                       |
-| dwarvish boots                | armor     | 16   | 50  | EvilHack           | 2AC - replaces iron boots                  |
-| stomping boots                | armor     | 50   | 50  | SpliceHack         | Instakills tiny/small monsters, noisy      |
-| freedom boots                 | armor     | 50   | 20  | NerfHack           | conveys free action                        |
-| leather bracers               | armor     | 10   | 15  | NerfHack           | 0AC                                        |
-| bracers of integrity          | armor     | 50   | 15  | NerfHack           | conveys dis/wither res, erodeproof         |
-| bracers of sleep resistance   | armor     | 50   | 15  | NerfHack           | confers sleep res                          |
-| bracers of cold resistance    | armor     | 50   | 15  | NerfHack           | confers cold res                           |
-| bracers vs shapechangers      | armor     | 50   | 15  | NerfHack           | confers protection vs shapechangers        |
-| bracers of unchanging         | armor     | 50   | 15  | NerfHack           | confers unchanging                         |
-| bracers vs stone              | armor     | 50   | 15  | NerfHack           | confers petrification res                  |
-spider-leg wraps
-elven bracers
-snakeskin wrap
-dragonfly cloak
-fang necklace
-giant beetle carapace
-spider-rib shell
-swampwing vest
-snakehide jerkin
-turtle-shell helm
-sporecap hood
-pincer gauntlets
-crabback shield
-tortle-shell shield
-clawbone hatchet
-spineback cutter
-skullclaw mace
-
-
-| ring of withering             | ring      | 200  | 3   | NerfHack           | causes withering                           |
-| ring of sleeping              | ring      | 200  | 3   | SLASH'EM           | causes restful sleep                       |
-| ring of carrying              | ring      | 200  | 3   | xNetHack           | grants expanded carrying capacity          |
-| ring of gain intelligence     | ring      | 200  | 3   | SLASH'EM           | adjusts INT                                |
-| ring of nothing     | ring      | 200  | 3   | dNetHack          |                                 |
-| playing card deck             | tool      | 80   | 10  | SpliceHack         | can reveal your current luck               |
-| potion of milk                | potion    | 100  | 10  | NerfHack           | cancels good and bad statuses              |
-| potion of reflection          | potion    | 200  | 10  | SpliceHack         | conveys temporary reflection               |
-| potion of phasing             | potion    | 200  | 10  | NerfHack           | conveys temporary phasing                  |
-| potion of blood               | potion    | 100  | 10  | SLASH'EM           | nutrition for vampires                     |
-| potion of vampire blood       | potion    | 200  | 10  | SLASH'EM           | nutrition/healing for vampires             |
-| scroll of cloning             | scroll    | 200  | 5   | SpliceHack         | clones items or monsters                   |
-| scroll of knowledge           | scroll    | 100  | 5   | SpliceHack         | learn about a random magic item            |
-| scroll of flood               | scroll    | 200  | 5   | UnNetHack/xNetHack | generates water pools                      |
-| scroll of zapping             | scroll    | 50   | 5   | NerfHack           | special for cartomancers                   |
-| spellbook of repair           | spellbook | 300  | 45  | EvilHack           | repairs any item erosion                   |
-| spellbook of fire bolt        | spellbook | 100  | 35  | NerfHack           | shoots a beam of fire                      |
-| spellbook of flesh-to-stone   | spellbook | 700  | 65  | NerfHack           | stones monsters                            |
-| spellbook of waterproofing    | spellbook | 200  | 40  | NerfHack           | protects items from water and rust         |
-| spellbook of sacred vision    | spellbook | 200  | 40  | NerfHack           | confers see invisible while active         |
-| spellbook of lightning        | spellbook | 500  | 50  | SLASH'EM           |                                            |
-| spellbook of poison blast     | spellbook | 500  | 55  | SLASH'EM           |                                            |
-| spellbook of divine reckoning | spellbook | 800  | 70  | NerfHack           | Massive damage vs undead and demons        |
-| spellbook of flame sphere     | spellbook | 200  | 40  | SLASH'EM           |                                            |
-| spellbook of freeze sphere    | spellbook | 200  | 40  | SLASH'EM           |                                            |
-| wand of wonder                | wand      | 200  | 7   | SpliceHack         | random wand effect                         |
-| wand of identify              | wand      | 200  | 7   | SlashTHEM          | identifies items, spawns with 4-8 charges  |
-| wand of poison gas            | wand      | 200  | 7   | SpliceHack         | shoots poison gas                          |
-| wand of corrosion             | wand      | 200  | 7   | SpliceHack         | shoots acid rays                           |
-| wand of draining              | wand      | 200  | 7   | SLASH'EM           | shoots drain life rays                     |
-| healthstone                   | gem       | 60   | 10  | SLASH'EM           | affects regeneration                       |
-| whetstone                     | gem       | 45   | 10  | SLASH'EM           | sharpens edged weapons                     |
-| foulstone                     | gem       | 0    | 10  | NerfHack           | aggravate monster & stinking clouds           |
-| pineapple                     | food      | 9    | 15  | SpliceHack         | can be thrown for extra damage             |
-| mistletoe                     | food      | 10   | 1   | EvilHack           | can cure hallucination                     |
-| pinch of catnip               | food      | 7    | 1   | SpliceHack         | can tame felines                           |
-| magic candle                  | tool      | 500  | 2   | SLASH'EM           | permanent light source                     |
 
 * (!) fingerless gloves do not protect against petrification
 
@@ -1496,7 +1441,7 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 ### General artifact changes
 * Artifacts always blast you if they have the chance (instead of passing a 1 in 4 roll)
 * Artifact blasts inflict much more damage (SLASH'EM)
-* Increase rate of artifact drops slightly; allow lenses and amulets to generate as artifacts. 
+* Increase rate of artifact drops slightly; allow lenses and amulets to generate as artifacts.
 * Increase timeout of artifact invokes to match prayer timeout.
 
 ### Specific artifact changes
@@ -1551,41 +1496,41 @@ Additional traits include its total inedibility - monsters will never eat it. Pe
 ## NEW ARTIFACTS
 
 
-| Name                  | Align      | Type                  | From        | to-hit/dmg                             | Notes                                                                                                          |
-| --------------------- | ---------- | --------------------- | ----------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Acidfall              | chaotic    | long sword            | SpliceHack  | +d5 to-hit, 2x acid dmg                | confers acid res when wielded                                                                                  |
-| Amulet of Storms      | chaotic    | amulet of flying      | xNetHack    | n/a                                    | confers shock res when worn, prevents thunderstorm paralysis, pacify stormy monsters via #chat                 |
-| Angelslayer           | chaotic    | trident               | EvilHack    | +d5 to-hit, +d10 dmg                   | bane vs angels; confers searching and 1/2 spell damage when wielded                                            |
-| Blackshroud           | chaotic    | cloak of invisibility | SlashTHEM   | n/a                                    | confers warning and drain res when worn                                                                        |
-| Carnwennan            | lawful     | knife                 | SpliceHack  | +d3 to-hit, +d8 dmg                    | confers searching and stealth when wielded                                                                     |
-| David's Sling         | neutral    | sling                 | SlashTHEM   | +d5 to-hit, +d6 dmg                    | bane vs giants; confers 1/2 physical damage when wielded                                                       |
-| Deluder               | neutral    | cloak of displacement | SLASH'EM    | n/a                                    | confers stealth and protection when worn                                                                       |
-| Disrupter             | neutral    | mace                  | SLASH'EM    | +d5 to-hit, +d30 dmg vs undead         | bane vs undead                                                                                                 |
-| Doomblade             | chaotic    | short sword           | SLASH'EM    | +d10 dmg, 25% chance of dmg bonus      |                                                                                                                |
-| Drowsing Rod          | unaligned  | quarterstaff          | HackEM      | +d5 to-hit, +d5 sleep dmg              | first sacrifice gift for healers; confers sleep res when wielded                                               |
-| Glamdring             | chaotic    | long sword            | EvilHack    | +d8 to-hit, +d10 dmg                   | bane vs orcs; confers shock res and protection when worn                                                       |
-| Hellfire              | chaotic    | crossbow              | SLASH'EM    | +d5 to-hit, +d7 dmg + explosion        | confers fire res when wielded                                                                                  |
-| Holographic Void Lily | chaotic(!) | credit card           | SpliceHack  | n/a                                    | energy regen, 1/2 spell dmg, and reflection when carried. #invoke for card drop boost                          |
-| Load Brand            | unaligned  | heavy sword           | NerfHack    | -9 to-hit, double damage               | when wielded, confers half physical damage, steadfastness, and protection; absorbs curses.                     |
-| Mayhem                | chaotic    | stomping boots        | NerfHack    | n/a                                    | confers conflict and warning against undead when worn.                                                         |
-| Mirrorbright          | neutral    | shield of reflection  | SLASH'EM    | n/a                                    | confers hallucination res when worn; light source; does not impede spellcasting.                               |
-| Mortality Dial        | lawful     | morning star          | SpliceHack  | +d5 to-hit, +d12 dmg                   | confers warning and regeneration when wielded; prevents monster regeneration.                                  |
-| Mouser's Scalpel      | neutral    | rapier                | SLASH'EM-up | +d5 to-hit, +1 dmg; multihit bonus     | if not confused or stunned, chance of delivering extra strikes                                                 |
-| Origin                | unaligned  | quarterstaff          | SpliceHack  | +d3 to-hit, +d8 dmg                    | confers telepathy and teleport control when wielded; boosts spellcasting                                       |
-| Plague                | chaotic    | bow                   | SLASH'EM    | +d5 to-hit, +d7 poison dmg             | confers sickness res when wielded, poison res when carried.                                                    |
-| Poseidon's trident    | chaotic    | trident               | SpliceHack  | +d3 to-hit, +d14                       | confers magical breathing when wielded; #invoke for water walking                                              |
-| Pridwen               | lawful     | large shield          | SpliceHack  | n/a                                    | confers half physical damage and steadfastness when worn                                                       |
-| Quick Blade           | lawful     | silver short sword    | SLASH'EM    | +d9 to-hit, +d2                        | confers speed when wielded                                                                                     |
-| Serenity              | lawful     | silver spear          | NerfHack    | +d3 to-hit, +d10                       | counters 80% of monster spells and blocks spellcasting; suppresses aggravate monster, berserking, and conflict |
-| Serpent's Tongue      | chaotic    | dagger                | SLASH'EM    | +d2 to-hit, 2x damage + poison bonuses | always poisoned, #invoke to fling poison                                                                       |
-| Skullcrusher          | lawful     | club                  | SLASH'EM    | +d3 to-hit, +d10 dmg                   | first sacrifice gift for cavemen                                                                               |
-| Snakeskin             | Neutral    | robe                  | SlashTHEM   | n/a                                    | confers acid res and hallucination res when worn.                                                              |
-| The End               | neutral    | scythe                | SpliceHack  | +d3 to-hit, +d10 dmg                   | confers drain res when wielded                                                                                 |
-| The Lenses of Truth   | unaligned  | lenses                | NerfHack    | n/a                                    | confers see invisible and stun res when worn                                                                   |
-| Thunderfists          | neutral    | gauntlets of force    | NerfHack    | +3 to-hit, +1d8 shock damage           | crowning gift for monks; confers shock res and protection when worn                                            |
-| Whisperfeet           | neutral    | speed boots           | SLASH'EM    | n/a                                    | confers stealth and luck when worn                                                                             |
-| Oathfire              | lawful     | leather bracers       | NerfHack    | n/a                                    | confers fire resistance and protection, protects fragile items, passive fire damage and explosions             |
-| The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack    | n/a                                    | light source, half spell damage, disintegration/withering res, passive turn undead                             |
+| Name                  | Align      | Type                  | From        | to-hit/dmg                         | Notes                                                    |
+| --------------------- | ---------- | --------------------- | ----------- | ---------------------------------- | -------------------------------------------------------- |
+| Acidfall              | chaotic    | long sword            | SpliceHack  | +d5 to-hit, 2x acid dmg            | acid res                                                 |
+| Amulet of Storms      | chaotic    | amulet of flying      | xNetHack    | n/a                                | shock res, storm paralysis res                           |
+| Angelslayer           | chaotic    | trident               | EvilHack    | +d5 to-hit, +d10 dmg               | bane vs angels; searching, 1/4 spell dmg                 |
+| Blackshroud           | chaotic    | cloak of invisibility | SlashTHEM   | n/a                                | warning, drain res                                       |
+| Carnwennan            | lawful     | knife                 | SpliceHack  | +d3 to-hit, +d8 dmg                | searching, stealth                                       |
+| David's Sling         | neutral    | sling                 | SlashTHEM   | +d5 to-hit, +d6 dmg                | bane vs giants; confers 1/4 phys dmg                     |
+| Deluder               | neutral    | cloak of displacement | SLASH'EM    | n/a                                | stealth, protection                                      |
+| Disrupter             | neutral    | mace                  | SLASH'EM    | +d5 to-hit, +d30 dmg               | bane vs undead                                           |
+| Doomblade             | chaotic    | short sword           | SLASH'EM    | bonus damage bonus                 |                                                          |
+| Drowsing Rod          | unaligned  | quarterstaff          | HackEM      | +d5 to-hit, +d5 sleep dmg          | sac gift for healers; sleep res                          |
+| Glamdring             | chaotic    | long sword            | EvilHack    | +d8 to-hit, +d10 dmg               | bane vs orcs; shock res, protection                      |
+| Hellfire              | chaotic    | crossbow              | SLASH'EM    | +d5 to-hit, +d7 dmg + explosion    | fire res                                                 |
+| Holographic Void Lily | chaotic(!) | credit card           | SpliceHack  | n/a                                | energy regen, 1/4 spell dmg, reflection                  |
+| Load Brand            | unaligned  | heavy sword           | NerfHack    | -9 to-hit, double damage           | 1/4 phys dmg, steadfastness, protection; absorbs curses. |
+| Mayhem                | chaotic    | stomping boots        | NerfHack    | n/a                                | conflict, warn vs undead.                                |
+| Mirrorbright          | neutral    | shield of reflection  | SLASH'EM    | n/a                                | light, hallu res, doesn't impede spells.                 |
+| Mortality Dial        | lawful     | morning star          | SpliceHack  | +d5 to-hit, +d12 dmg               | warning, regen; prevents monster regen                   |
+| Mouser's Scalpel      | neutral    | rapier                | SLASH'EM-up | +d5 to-hit, +1 dmg; multihit bonus |                                                          |
+| Origin                | unaligned  | quarterstaff          | SpliceHack  | +d3 to-hit, +d8 dmg                | telepathy, teleport control; boosts spellcasting         |
+| Plague                | chaotic    | bow                   | SLASH'EM    | +d5 to-hit, +d7 poison dmg         | sickness res on wield, poison res when carried.          |
+| Poseidon's trident    | chaotic    | trident               | SpliceHack  | +d3 to-hit, +d14                   | magical breathing; #invoke for water walking             |
+| Pridwen               | lawful     | large shield          | SpliceHack  | n/a                                | 1/4 phys damage, steadfastness                           |
+| Quick Blade           | lawful     | silver short sword    | SLASH'EM    | +d9 to-hit, +d2                    | confers speed when wielded                               |
+| Serenity              | lawful     | silver spear          | NerfHack    | +d3 to-hit, +d10                   | counterspells; blocks aggravation/berserk/conflict       |
+| Serpent's Tongue      | chaotic    | dagger                | SLASH'EM    | +d2 to-hit, 2x damage + poison     | permapoison, #invoke to fling poison                     |
+| Skullcrusher          | lawful     | club                  | SLASH'EM    | +d3 to-hit, +d10 dmg               | sac gift for cavemen                                     |
+| Snakeskin             | Neutral    | robe                  | SlashTHEM   | n/a                                | acid/hallu res                                           |
+| The End               | neutral    | scythe                | SpliceHack  | +d3 to-hit, +d10 dmg               | drain res                                                |
+| The Lenses of Truth   | unaligned  | lenses                | NerfHack    | n/a                                | see inv,stun res                                         |
+| Thunderfists          | neutral    | gauntlets of force    | NerfHack    | +3 to-hit, +1d8 shock damage       | shock res, protection                                    |
+| Whisperfeet           | neutral    | speed boots           | SLASH'EM    | n/a                                | stealth, luck                                            |
+| Oathfire              | lawful     | leather bracers       | NerfHack    | n/a                                | fire res, protection, passive fire                       |
+| The Argent Cross      | lawful(!)  | amulet of reflection  | NerfHack    | n/a                                | light, spell damage, dis/wither res, passive turn undead |
 |                       |
 
 (!) - Means the artifact is intelligent
@@ -1624,7 +1569,7 @@ Misc changes:
 * gauntlets of force
 * Grants shock resistance when worn
 * Deals shock damage when used bare-handed
-* When monks don these, they occasionally release a chain lightning blast
+* When monks don these, they occasionally release a chain lightning blast on attacking
 * Grants MC1
 * Crowning gift for monks
 
@@ -1632,6 +1577,173 @@ Misc changes:
 ## NEW MONSTERS
 
 Many new monsters have been added to NerfHack. See the separate file with all the additions and info on changes from related variants.
+
+The following summarizes the new monsters, advanced info can be found in the monster pokedex in NerfHack or on the NetHack Wiki.
+
+| Monster                | Sym | Origin               |
+| ---------------------- | --- | -------------------- |
+| giant fly              | a   | SpliceHack           |
+| giant cockroach        | a   | EvilHack             |
+| giant praying mantis   | a   | SpliceHack           |
+| bullet ant             | a   | SpliceHack           |
+| locust                 | a   | EvilHack             |
+| queen ant              | a   | EvilHack             |
+| assassin bug           | a   | SLASH'EM             |
+| migo drone             | 7   | SLASH'EM             |
+| migo warrior           | 7   | SLASH'EM             |
+| migo queen             | 7   | SLASH'EM             |
+| jiggling blob          | b   | SLASH'EM             |
+| lava blob              | b   | SLASH'EM             |
+| static blob            | b   | SLASH'EM             |
+| burbling blob          | b   | SLASH'EM             |
+| basilisket             | c   | NerfHack             |
+| basilisk               | c   | EvilHack             |
+| warg pup               | d   | NerfHack             |
+| revenant pup           | d   | NerfHack             |
+| barghest               | d   | SpliceHack           |
+| shadow wolf            | d   | SLASH'EM             |
+| revenant hound         | d   | NerfHack             |
+| vulpenferno            | d   | SpliceHack           |
+| weredemon              | d/@ | EvilHack             |
+| glowing eye            | e   | SLASH'EM             |
+| stinking sphere        | e   | Fourk                |
+| acid sphere            | e   | SpliceHack/EvilHack  |
+| third eye              | e   | SLASH'EM/YANI        |
+| blinking eye           | e   | SLASH'EM             |
+| kamadan                | f   | SLASH'EM             |
+| weretiger              | f/@ | SLASH'EM             |
+| deep one               | h   | SLASH'EM             |
+| deeper one             | h   | SLASH'EM             |
+| deepest one            | h   | SLASH'EM             |
+| alhoon                 | h   | EvilHack             |
+| dretch                 | i   | SLASH'EM             |
+| rutterkin              | i   | SLASH'EM             |
+| blood imp              | i   | SLASH'EM             |
+| nupperibo              | i   | SLASH'EM             |
+| redcap                 | i   | SpliceHack           |
+| clear jelly            | j   | SLASH'EM             |
+| yellow jelly           | j   | SLASH'EM             |
+| orange jelly           | j   | SLASH'EM             |
+| rancid jelly           | j   | SLASH'EM             |
+| leper                  | l   | NerfHack             |
+| killer mimic           | m   | SpliceHack           |
+| boulderer              | m   | CrecelleHack         |
+| pixie                  | n   | SLASH'EM             |
+| blight sprite          | n   | NerfHack             |
+| spiked orc             | o   | NerfHack             |
+| diamond piercer        | p   | SpliceHack           |
+| god piercer            | p   | SpliceHack           |
+| landshark              | q   | SpliceHack           |
+| pack rat               | r   | SLASH'EM             |
+| hedgehog               | r   | SpliceHack           |
+| plague rat             | r   | NerfHack             |
+| recluse spider         | s   | SLASH'EM             |
+| nickelpede             | s   | SLASH'EM             |
+| phase spider           | s   | SLASH'EM             |
+| werespider             | s/@ | SLASH'EM             |
+| carrion crawler        | s   | SLASH'EM             |
+| monstrous spider       | s   | SpliceHack           |
+| giant scorpion         | s   | SLASH'EM             |
+| giant centipede        | s   | EvilHack             |
+| acid worm              | w   | SLASH'EM             |
+| bloodworm              | w   | SLASH'EM             |
+| tunnel worm            | w   | SLASH'EM             |
+| carrion larva          | w   | NerfHack             |
+| rot worm               | w   | SLASH'EM             |
+| maggot                 | w   | SLASH'EM/SpliceHack  |
+| spark bug              | x   | SLASH'EM             |
+| arc bug                | x   | SLASH'EM             |
+| crystallid             | x   | NerfHack             |
+| lightning bug          | x   | SLASH'EM             |
+| soul shadow            | y   | NerfHack             |
+| will-o'-the-wisp       | y   | SpliceHack           |
+| bandikot               | z   | SLASH'EM/NerfHack    |
+| compsognathus          | z   | NerfHack             |
+| velociraptor           | z   | SpliceHack           |
+| t-rex                  | z   | SpliceHack           |
+| dark Angel             | A   | UnNetHack            |
+| movanic deva           | A   | SLASH'EM             |
+| monadic deva           | A   | SLASH'EM             |
+| astral deva            | A   | SLASH'EM             |
+| zoo bat                | B   | SpliceHack           |
+| athol                  | B   | SLASH'EM             |
+| phoenix                | B   | SpliceHack           |
+| byahkee                | B   | SLASH'EM             |
+| nightgaunt             | B   | SLASH'EM             |
+| fell beast             | D   | EvilHack             |
+| baby shimmering dragon | D   | Deferred             |
+| baby shadow dragon     | D   | EvilHack             |
+| shimmering dragon      | D   | Deferred             |
+| shadow dragon          | D   | EvilHack             |
+| volatile mushroom      | F   | SpliceHack           |
+| gray fungus            | F   | EvilHack/SlashTHEM   |
+| gnoll                  | 9   | SLASH'EM             |
+| gnoll warrior          | 9   | SLASH'EM             |
+| gnoll chieftain        | 9   | SLASH'EM             |
+| gnoll shaman           | 9   | SLASH'EM             |
+| elder minotaur         | H   | EvilHack             |
+| worm that walks        | L   | SpliceHack           |
+| eye of fear and flame  | L   | SpliceHack           |
+| arch-vile              | L   | NerfHack             |
+| adherer                | M   | SpliceHack           |
+| troll mummy            | M   | SLASH'EM             |
+| ha-naga                | N   | SpliceHack           |
+| ogre mage              | O   | SLASH'EM             |
+| shadow ogre            | O   | SLASH'EM             |
+| like-like              | P   | NerfHack             |
+| shoggoth               | P   | SLASH'EM             |
+| orb weaver             | Q   | NerfHack             |
+| alchemist              | Q   | SpliceHack           |
+| degenerator            | R   | NerfHack             |
+| cerastes               | S   | SpliceHack           |
+| asphynx                | S   | SLASH'EM             |
+| weresnake              | S/@ | SLASH'EM             |
+| giant anaconda         | S   | EvilHack             |
+| grave troll            | T   | SpliceHack           |
+| umbral hulk            | U   | SlashTHEM/SpliceHack |
+| water hulk             | U   | SLASH'EM             |
+| hunger hulk            | U   | SpliceHack           |
+| slumber hulk           | U   | SpliceHack           |
+| gorgon hulk            | U   | NerfHack             |
+| fire vampire           | U   | SLASH'EM             |
+| star vampire           | U   | SLASH'EM/dnh         |
+| dhampir                | V   | NerfHack             |
+| vampire mage           | V   | SLASH'EM             |
+| vampire king           | V   | EvilHack             |
+| bodak                  | W   | SpliceHack           |
+| slaughter wight        | W   | HackEM               |
+| illusion               | X   | CrecelleHack         |
+| shadow                 | X   | SLASH'EM             |
+| ghoul mage             | Z   | SLASH'EM             |
+| revenant               | Z   | EvilHack             |
+| gug                    | Z   | SLASH'EM             |
+| ghoul queen            | Z   | SLASH'EM             |
+| wax golem              | '   | SLASH'EM             |
+| plastic golem          | '   | SLASH'EM             |
+| elven cleric           | @   | EvilHack             |
+| familiar               | @   | NerfHack             |
+| lava demon             | &   | Convict Patch        |
+| spined devil           | &   | SLASH'EM             |
+| merfolk                | ;   | SpliceHack/SlashTHEM |
+| thing from below       | ;   | SpliceHack           |
+| grung                  | 6   | NerfHack             |
+| green grung            | 6   | NerfHack             |
+| blue grung             | 6   | NerfHack             |
+| purple grung           | 6   | NerfHack             |
+| red grung              | 6   | NerfHack             |
+| orange grung           | 6   | NerfHack             |
+| gold grung             | 6   | NerfHack             |
+| cartomancer            | @   | SpliceHack           |
+| duelist                | @   | SpliceHack           |
+| King of Games          | @   | SpliceHack           |
+| Del Zethire            | @   | SpliceHack           |
+| undead slayer          | @   | SLASH'EM             |
+| exterminator           | @   | SLASH'EM             |
+| Van Helsing            | @   | SLASH'EM             |
+| The First Evil         | X   | NerfHack             |
+| Wintercloak            | D   | NerfHack             |
+| The Executioner        | @   | UnNetHack            |
+| Cthulhu                | &   | SLASH'EM/UnNetHack   |
 
 
 ## MONSTER CHANGES
@@ -1930,11 +2042,6 @@ Many new monsters have been added to NerfHack. See the separate file with all th
 * The Grand Master also gets stoning and cold resistance.
 * Dispater can walk through walls
 
-#### Warping behavior for Cthulhu
-* Cthulhu **will now only perform one initial warp to get to the player.**
-* After this, he will revert to standard AI and movement.
-* Cthulhu is a unique threat - because he resurrects he will be able to regain the warp each time he revives.
-
 **Medusa**
 Inspired by EvilHack, Medusa receives a significant overall difficulty boost. Her level increases from 20 to 24, and her armor class improves dramatically, going from 2 AC to -8 AC. Her weapon attack is also enhanced, changing from 2d4 damage to 4d4. In addition to her traditional poisonous bite, she now has two poisonous snake bite attacks, increasing her offensive threat. She also gains a stoning bite, similar to the one featured in EvilHack. Finally, Medusa is now equipped with infravision.
 
@@ -1950,8 +2057,43 @@ Inspired by EvilHack, Medusa receives a significant overall difficulty boost. He
 * Each rider gets an additional 100 HP (EvilHack)
 * The identity of the Riders is hidden via farlook (UnNetHack)
 
-**Cthulhu:**
-NerfHack’s version of Cthulhu is a fusion of elements from his appearances in SLASH'EM and UnNetHack, enhanced with new features to make him a formidable endgame threat. His speed has been set to 18, matching SLASH'EM, while his armor class has been adjusted from -15 to -8 in line with UnNetHack. Like in UnNetHack, probing Cthulhu will no longer reveal his inventory. He now possesses the ability to fly and is telepathic, adding to his versatility and menace. Cthulhu can displace other monsters, pass through iron bars, break boulders, and smash down doors in pursuit of the player, and he will relentlessly track and chase them. His drain intelligence attack has been replaced with a drain energy effect, altering the nature of his threat. Cthulhu is placed at the center of Moloch's Sanctum as a powerful guardian, although he does not carry the Amulet of Yendor. However, if the player acquires the Amulet, Cthulhu is allowed to return via wizard harassment. Notably, Cthulhu is covetous and will perform a single warp to the player upon first appearing. After that, he reverts to standard non-covetous movement - but if he is killed and resurrects (which he will do quite quickly), he will regain the ability to warp once again.
+#### Cthulhu:
+NerfHack’s version of Cthulhu is a fusion of elements from his appearances in SLASH'EM and UnNetHack, enhanced with new features to make him a formidable endgame threat.
+
+Stats:
+* Difficulty 61, speed 18, base level 106, base AC -8, 95 MR, weight 3000.
+* Size: gigantic
+* Alignment: neutral
+* Unique.
+* Can not be exiled.
+* Resists sleep, disintegration, poison, acid, petrification.
+* Edibility: poisonous.
+* Leaves no corpse.
+* Is inexilable, breathless, regenerating, reviving, telepathic, displaces monsters, strong, follows you,
+carnivorous, herbivorous.
+* Can fly.
+* Has a thick hide.
+* Has infravision.
+* Can see invisible.
+* Is not a valid polymorph form.
+* Does not respect Elbereth.
+* Immune to magical scaring.
+* Attacks:
+  * 6d8 claw physical
+  * 4d10 bite physical
+  * 6d6 bearhug physical
+  * 2d1 tentacle blood drain
+  * gaze confuse
+  * 4d6 spellcast clerical
+
+Other attributes of Cthulhu:
+* probing Cthulhu will not reveal his inventory.
+* Cthulhu can displace other monsters, pass through iron bars, break boulders, and smash down doors in pursuit of the player, and he will relentlessly track and chase them.
+* His drain intelligence attack has been replaced with a drain energy effect.
+* Cthulhu is placed at the center of Moloch's Sanctum as a powerful guardian, although he does not carry the Amulet of Yendor.
+* However, if the player acquires the Amulet, Cthulhu is allowed to return via wizard harassment.
+* Cthulhu is covetous and will perform a **single warp** to the player upon first appearing. After that, he reverts to standard non-covetous movement.
+* If he is killed and resurrects (which he will do quite quickly), he will regain the ability to warp again.
 
 
 ## MONSTER BEHAVIOR
@@ -1977,7 +2119,7 @@ NerfHack’s version of Cthulhu is a fusion of elements from his appearances in 
 * Monsters won't try to use wands of digging on hardfloor levels.
 * Monster will attempt to wrest wands
 * Monsters will pick up all kinds of potions (Crecelle)
-* Monsters that collect items will grudge lizards for their corpses (from SporkHack). 
+* Monsters that collect items will grudge lizards for their corpses (from SporkHack).
 
 ### Monster accessory use
 * Monsters can wear most rings and amulets.
@@ -2258,11 +2400,11 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 
 **blind (level 6)**
 * Caster can cause blindness in a target not through goop or intrinsic, but * through physical scales covering the target's eyes, so certain methods that resist blinding don't work.
-* Strangely, magic resistance doesn't have any effect on this spell (it didn't in Vanilla and doesn't in NerfHack). 
+* Strangely, magic resistance doesn't have any effect on this spell (it didn't in Vanilla and doesn't in NerfHack).
 * This remains a melee range spell.
 
 **weaken/strength of newt (level 6)**
-* Magic resistance no longer nullifies this spell, it cuts the duration by 50%. 
+* Magic resistance no longer nullifies this spell, it cuts the duration by 50%.
 
 **evil eye (level 7)**
 * Caster can inflict a luck-draining gaze attack upon the target.
@@ -2289,7 +2431,7 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Ported from Crecelle
 
 **summon insects (level 8)**
-* 
+*
 
 **hobble (level 9)**
 * This clerical spell smashes the hero's legs with magical force and inflicts you with wounded legs for a brief period
@@ -2456,10 +2598,9 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
   * Cavemen can lash flint to arrows, making them do slightly more damage (Sporkhack/THEM). When arrows are flinted, their enchantment is also revealed.
 * Cavemen can get an alignment boost via cannibalism (Sporkhack)
 * Cavemen's gods sometimes don't respond to prayer. If you have abused your alignment, there is a 10% chance of being ignored (Sporkhack/SlashTHEM/EvilHack)
-* Cavemen start with really low intelligence. As a result, they are incapable of reading  legible items or engraving Elbereth until reaching 6 INT.
+* Cavemen start with really low intelligence. As a result, they are incapable of reading legible items or engraving Elbereth until reaching 6 INT.
 * Cavemen are now restricted in pointy weapon skills like dagger and polearms. They also lose attack and matter skills, but can gain basic in riding and shields.
 * Cavemen start with a nightvision radius of 2 (SLASH'EM)
-
 
 **Caveman quest updates:**
 * The caveman quest has been updated and filled with more jungle type monsters: tigers, pythons, and the like. There is also a lot of water added and ; monsters to occupy it (SlashTHEM)
@@ -2568,8 +2709,8 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 
 ### Valkyrie
 * Valkyries can pacify and tame winter wolves/cubs with food as if they were a domestic animal.
-* More fire traps appear on quest
-* Valks can reach master in shield skill.
+* More fire traps appear on their quest
+* Valks can reach master in shield skill
 * Valks can reach Master skill in hammer
 
 ### Wizard
@@ -2674,8 +2815,8 @@ Scrolls are also labeled according to their rarity. In the original SpliceHack i
 Cartomancers do not receive a starting pet and are unable to tame monsters in the usual way. When food is thrown at domestic animals, it only pacifies them rather than taming them. Any figurines that generate are automatically converted into summon cards, and the rulebook of create familiar also produces summon cards instead of familiars. All standard methods of creating permanent pets have been nullified for Cartomancers. On the Astral Plane, they receive an archon card in place of a guardian angel. When reading a confused scroll of cloning, they will simply receive a summon card instead of a possible tame pet.
 
 **Melee combat nerfs**
-* Cartomancers are awful melee fighters - they prefer ranged weapons or fighting behind their summoned help. They have some severe penalties for melee combat.
-* There is a flat -5 to-hit penalty for all melee combat.
+* Cartomancers are awful melee fighters - they prefer ranged weapons or fighting behind their summoned help. They receive severe penalties for melee combat.
+* Flat -5 to-hit penalty for all melee combat.
 * If wearing armor, they receive an additional -20 to-hit penalty
 * If wearing a shield, they receive an additional -10 to-hit penalty
 * If attacking with a wielded weapon, they receive an additional -10 to-hit penalty.
@@ -2687,12 +2828,11 @@ When playing as a cartomancer, there is a chance that a monster will leave a car
 
 * Some monsters are restricted from dropping cards:
   * spell beings
-  * revived monsters (zombies and trolls that have been killed once and come back)
   * cancelled monsters
   * phoenixes (they always leave an egg)
   * cloned monsters (gremlins, blue jellies, etc.)
-  * Keystone Kops (they can be farmed)
-* Cartomancers don't get card drops whilst polymorphed.
+  * Keystone Kops
+* Cartomancers don't get card drops whilst in polymorphed form.
 
 **Spell beings**
 
@@ -2712,7 +2852,7 @@ The price of summon cards scales according to the difficulty of the monster they
 
 Activating summon cards **costs 5 energy per card**. If the cartomancer lacks enough energy, the card will have no effect and will not be consumed. Unique monsters can drop summon cards, with a few exceptions, such as the Wizard of Yendor and the Riders, due to their ability to revive.
 
-While sacrificing corpses at an altar, cartomancers can sometimes receive cards as gifts.
+While sacrificing corpses at an altar, cartomancers can sometimes receive cards as gifts after an artifact has been bestowed.
 
 **Explosive summon cards**
 
@@ -2739,7 +2879,7 @@ Cartomancers do not learn spells in the traditional way, meaning they cannot acq
 Cartomancers begin the game knowing the identities of all rulebooks, as the title and purpose of a rulebook are typically clear from the cover. They always cast spells at expert level, ensuring high proficiency. Whilst rulebooks can still be written using magic markers without penalties (unlike when forging cards), they cannot be recharged with scrolls of charging. Additionally, cartomancers are fortunate enough to know braille, allowing them to invoke their rulebooks even while blind.
 
 **Cartomancers get special bonuses for wielding crystal balls:**
-* Whilst wielding a crystal ball, a cartomancer will enjoy **maximum charisma, telepathy, see invisible, and astral vision.**
+* Whilst wielding a crystal ball, a cartomancer will enjoy **maximum charisma, telepathy, see invisible, and clairvoyance.**
 
 
 ## PLAYER RACE CHANGES
@@ -2766,7 +2906,7 @@ Cartomancers begin the game knowing the identities of all rulebooks, as the titl
 
 ### Orcs
 * Orcs cannot successfully engrave Elbereth.
-* Orcs start with sickness potion (Sporkhack)
+* Orcs start with a sickness potion (Sporkhack)
 * Orcs get an alignment boost for cannibalism (dNetHack)
 * Orcs can always reach Skilled in saber (xNetHack)
 * Orcs start with -20 alignment
@@ -2782,30 +2922,7 @@ Cartomancers begin the game knowing the identities of all rulebooks, as the titl
 * Orcs can saddle and ride wargs
 * Orcs always start with a warg pup
 * Orcs never get help on Astral and always receive an angry pack of Angels.
-* Orcs also hate items made of mithril (this isn't the same mechanic as other variants where mithril does extra damage or prevents damage, they just find it uncomfortable to wear or wield)
-
-### Racial item preferences
-
-* Dwarves, elves, orcs, and gnomes get a -1AC bonus for each piece of racially aligned armor they wear (Evil/THEM).
-* While wielding a racially aligned weapon, you get a +1 to-hit bonus (ie: a dwarf wielding a dwarvish spear).
-* Wielding a racially aligned off-hand weapon also adds a +1 to-hit bonus.
-
-* Monsters of certain races will usually prefer their own equipment and find other racial equipment awkward or uncomfortable to use.
-  * Elves hate dwarvish, gnomish, and orcish objects
-  * Orcs hate dwarvish, gnomish, and elven objects
-  * Dwarves hate orcish, gnomish, and elven objects
-  * Gnomes hate dwarvish, orcish, and elven objects
-  * Humans and dhampirs hate gnomish objects - but otherwise they are free to use all other racial equipment
-  * Vampires like bone armor and get a small +1AC bonus per worn piece.
-
-The effects of wearing armor or wielding weapons you hate:
-* +3AC penalty for each piece
-* -d5 to-hit penalty for each piece
-* You receive an explicit message when wearing or wielding any hated object.
-* You'll also receive periodic messages when fighting to remind you your to-hit is suffering.
-* Whilst throwing items your race dislikes, they have a 1 in 7 chance of slipping - the same as a cursed or greased projectile.
-
-This mechanic also applies to monsters, but they will simply avoid using items they don't like.
+* Orcs also hate items made of mithril
 
 
 ## NEW RACES
@@ -3060,7 +3177,7 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * Many new themed rooms ported from xNetHack.
 * The portal to Fort Ludios is placed in the first eligible vault generated (xNetHack/UnNetHack).
 * Temples are always lit.
-* 
+*
 
 ### New levels
 
@@ -3108,6 +3225,14 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * Some flair was added to the levels to further torture players.
 * All levels of Vlad's Tower are fully lit.
 
+
+### DEMON AND DEMON LAIR CHANGES
+* Demonic bribes are much more expensive.
+* Juiblex buffs.
+* Geryon buffs (EvilHack).
+* Increase speed of Baalzebub.
+
+
 ### Sokoban
 
 * Sokoban levels are cold and icy - legend has it a white dragon named Wintercloak took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icy cyan, you will see random patches of ice form in the level. Because they are cold, if potions land on the floor, they have a chance of freezing and shattering.
@@ -3148,8 +3273,6 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * A new dungeon feature ported from EvilHack and SlashTHEM.
 * Many pools are replaced with puddles instead.
 * Fountains gush out puddles instead of pools
-* Disarming a rust trap results in a puddle instead of a fountain
-* Scrolls of flood mostly create puddles instead of pools (unless cursed)
 * Whetstones can be used in puddles and can dry up puddles.
 * Tiny monsters can drown in puddles (relevant if polymorphed into one)
 
@@ -3158,7 +3281,6 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * In addition to facilitating forging, forges allow the player to perform many interesting tricks like repairing armor and disposing of zombies.
 * Items can pass over forges.
 * There is a one-time 1 in 30 chance of erodeproofing an item when dipping in a forge. After this occurs, the forge will instead emit a puff of steam.
-* Forging two of the same item creates more of the same item.
 * Forges always light up the square they occupy.
 * Cold rays have a chance cool forges.
 * Forges burn the grease and poison off dipped items.
@@ -3166,10 +3288,135 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * A forge is always guaranteed in the Castle level.
 
 #### Forging and Forging Recipes
-* Weapons can be forged by applying a hammer whilst standing on a forge (no #forge or #craft command)
-* Forging always has a 1 in 20 chance of creating an inferior product.
+* Items can be forged by **(a)pplying a hammer** whilst standing on a forge (no #forge or #craft command)
+* Forging always has a 1 in 20 chance of creating an **inferior product**.
 * Anytime a product of forging has a property, there is a 1 in 13 chance the forge will cool and cease functioning.
-* TODO: Forging recipes
+
+In addition to the below recipes, every item has an addition identity recipe: mixing two of the same item creates more of the same item. This allows combining things like an object property with a desirable material or enchantment on another item.
+
+| Result               | Ingredient #1        | Ingredient #2         |
+| -------------------- | -------------------- | --------------------- |
+| aklys                | flail                | club                  |
+| axe                  | dagger               | spear                 |
+| battle axe           | axe                  | broadsword            |
+| broadsword           | scimitar             | short sword           |
+| dagger               | arrow (2)            | knife                 |
+| dwarvish boots       | gauntlets            | dwarvish short sword  |
+| dwarvish helm        | helmet               | dwarvish short sword  |
+| dwarvish mattock     | pick axe             | dwarvish short sword  |
+| dwarvish ring mail   | chain mail           | dwarvish round shield |
+| dwarvish roundshield | large shield         | dwarvish helm         |
+| dwarvish short sword | dwarvish spear       | short sword           |
+| dwarvish spear       | arrow (2)            | spear                 |
+| elven broadsword     | scimitar             | elven short sword     |
+| elven dagger         | elven arrow (2)      | knife                 |
+| elven long sword     | elven short sword    | broadsword            |
+| elven ring mail      | chain mail           | elven shield          |
+| elven shield         | elven dagger         | small shield          |
+| elven short sword    | crossbow bolt (2)    | elven dagger          |
+| elven spear          | elven arrow (2)      | elven dagger          |
+| flail                | morning star         | mace                  |
+| javelin              | crossbow bolt (2)    | spear                 |
+| katana               | long sword           | broadsword            |
+| knife                | arrow (2)            | dart (2)              |
+| long sword           | short sword          | broadsword            |
+| mace                 | club                 | dagger                |
+| morning star         | mace                 | dagger                |
+| orcish boots         | gauntlets            | orcish short sword    |
+| orcish chain mail    | ring mail            | orcish shield         |
+| orcish dagger        | orcish arrow (2)     | knife                 |
+| orcish helm          | dented pot           | orcish dagger         |
+| orcish ring mail     | orcish shield        | orcish helm           |
+| orcish shield        | orcish helm          | orcish boots          |
+| orcish long sword    | orcish short sword   | broadsword            |
+| orcish short sword   | crossbow bolt (2)    | orcish dagger         |
+| orcish scimitar      | knife                | orcish short sword    |
+| orcish spear         | orcish arrow (2)     | orcish dagger         |
+| saber                | scimitar             | long sword            |
+| scalpel              | knife                | stiletto              |
+| scimitar             | knife                | short sword           |
+| short sword          | crossbow bolt (2)    | dagger                |
+| spear                | arrow (2)            | dagger                |
+| stiletto             | crossbow bolt (2)    | knife                 |
+| trident              | scimitar             | spear                 |
+| tsurugi              | two handed sword     | katana                |
+| two handed sword     | battle axe           | broadsword            |
+| war hammer           | mace                 | flail                 |
+| bardiche             | battle axe           | javelin               |
+| bec de corbin        | war hammer           | spear                 |
+| bill guisarme        | guisarme             | javelin               |
+| fauchard             | saber                | javelin               |
+| glaive               | short sword          | javelin               |
+| guisarme             | grappling hook       | javelin               |
+| halberd              | ranseur              | axe                   |
+| lance                | glaive               | javelin               |
+| lucern hammer        | war hammer           | javelin               |
+| partisan             | broadsword           | javelin               |
+| ranseur              | stiletto             | javelin               |
+| spetum               | knife                | javelin               |
+| voulge               | axe                  | javelin               |
+| aklys                | aklys                | aklys                 |
+| athame               | athame               | athame                |
+| axe                  | axe                  | axe                   |
+| bardiche             | bardiche             | bardiche              |
+| battle axe           | battle axe           | battle axe            |
+| bec de corbin        | bec de corbin        | bec de corbin         |
+| bill guisarme        | bill guisarme        | bill guisarme         |
+| broadsword           | broadsword           | broadsword            |
+| dagger               | dagger               | dagger                |
+| dwarvish boots       | dwarvish boots       | dwarvish boots        |
+| dwarvish helm        | dwarvish helm        | dwarvish helm         |
+| dwarvish mattock     | dwarvish mattock     | dwarvish mattock      |
+| dwarvish ring mail   | dwarvish ring mail   | dwarvish ring mail    |
+| dwarvish roundshield | dwarvish roundshield | dwarvish roundshield  |
+| dwarvish short sword | dwarvish short sword | dwarvish short sword  |
+| dwarvish spear       | dwarvish spear       | dwarvish spear        |
+| elven broadsword     | elven broadsword     | elven broadsword      |
+| elven dagger         | elven dagger         | elven dagger          |
+| elven long sword     | elven long sword     | elven long sword      |
+| elven ring mail      | elven ring mail      | elven ring mail       |
+| elven shield         | elven shield         | elven shield          |
+| elven short sword    | elven short sword    | elven short sword     |
+| elven spear          | elven spear          | elven spear           |
+| fauchard             | fauchard             | fauchard              |
+| flail                | flail                | flail                 |
+| glaive               | glaive               | glaive                |
+| guisarme             | guisarme             | guisarme              |
+| halberd              | halberd              | halberd               |
+| javelin              | javelin              | javelin               |
+| katana               | katana               | katana                |
+| knife                | knife                | knife                 |
+| lance                | lance                | lance                 |
+| long sword           | long sword           | long sword            |
+| lucern hammer        | lucern hammer        | lucern hammer         |
+| mace                 | mace                 | mace                  |
+| morning star         | morning star         | morning star          |
+| orcish boots         | orcish boots         | orcish boots          |
+| orcish chain mail    | orcish chain mail    | orcish chain mail     |
+| orcish dagger        | orcish dagger        | orcish dagger         |
+| orcish helm          | orcish helm          | orcish helm           |
+| orcish long sword    | orcish long sword    | orcish long sword     |
+| orcish ring mail     | orcish ring mail     | orcish ring mail      |
+| orcish scimitar      | orcish scimitar      | orcish scimitar       |
+| orcish shield        | orcish shield        | orcish shield         |
+| orcish short sword   | orcish short sword   | orcish short sword    |
+| orcish spear         | orcish spear         | orcish spear          |
+| partisan             | partisan             | partisan              |
+| pick axe             | pick axe             | pick axe              |
+| ranseur              | ranseur              | ranseur               |
+| runesword            | runesword            | runesword             |
+| saber                | saber                | saber                 |
+| scalpel              | scalpel              | scalpel               |
+| scimitar             | scimitar             | scimitar              |
+| short sword          | short sword          | short sword           |
+| spear                | spear                | spear                 |
+| spetum               | spetum               | spetum                |
+| stiletto             | stiletto             | stiletto              |
+| trident              | trident              | trident               |
+| tsurugi              | tsurugi              | tsurugi               |
+| two handed sword     | two handed sword     | two handed sword      |
+| voulge               | voulge               | voulge                |
+| war hammer           | war hammer           | war hammer            |
 
 
 ### Toilets
@@ -3204,6 +3451,16 @@ Dipping an edged weapon into a toilet can poison it, but also probably rust any 
 * A cream pie may spring out of the box and hit the player in the face.
 * A small critter maybe jump out of the container, briefly scaring you.
 * A loud alarm may sound, waking up nearby monsters.
+
+### Misc trap changes
+* Invisibility from magic traps lasts a long time (2500-5000 turns), instead of permanently.
+* Magic traps can inflict resistance vulnerability on the hero.
+* Cold traps and ice demons can also steal (25 + d25)% of your cold resistance.
+* Arrow traps and dart traps cannot be avoided by flight.
+* You cannot fly over falling rock traps.
+* Flying and levitation usually protect from being harmed by spear traps, however, there is still a 25% chance of being hit (by a abnormally long spear)
+* Polymorph traps have a 1 in 127 chance of being used up when monsters are polymorphed in them.
+* Disarming a rust trap results in a puddle instead of a fountain
 
 ### Falling rock traps
 * At higher levels, boulders can drop from falling rock traps.
@@ -3330,13 +3587,6 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Your god will not crown you until you have completed the quest.
 * Crowning makes it impossible to change alignment ever again.
 
-### Cracked altars:
-* Only one artifact gift can be granted at each altar, after which it will be cracked by your god.
-* Altars that are cracked do not yield any more artifacts.
-* After level 15, altars can sometimes appear cracked.
-* If a level generates with more than one altar, the extra altars are likely to be cracked.
-* Crowning on an altar will crack it.
-* There is a 1 in 127 chance of fracturing an altar after converting it.
 
 
 ## THE QUEST
@@ -3347,6 +3597,144 @@ Note: Getting hit by grease will not knock off worn cursed items.
 * Prevent the player from skipping most of the quest (xNetHack).
 * Mark all quest levels as hardfloor.
 * Players cannot do horizontal or downward teleporting whilst the quest nemesis is alive.
+
+
+
+## QUALITY OF LIFE FEATURES
+
+* Chaotics do not get alignment penalties for angering, attacking, or killing peacefuls (xNetHack)
+* Running into a boulder while traveling no longer pushes it (xNetHack)
+* Whilst traveling, engravings on graves will not be considered interesting enough to cease movement
+* Whilst traveling, the player will avoid ice and puddles.
+* Stop occupations when the hero is caught in a poison gas cloud
+* Allow lighting only one candle in a stack (GnollHack).
+* Inform the player when casting healing spells at a monster with full health.
+* Swapping weapons take zero turns (dNetHack)
+* A welded cursed quarterstaff doesn't block spellcasting (xNetHack)
+* Crysknives are never auto-quivered
+* Launchers don't count as weapons for the 'hit with a wielded weapon' conduct
+* Give a vibrate warning for all weapons and armor when the enchantment reaches an unsafe level (Dynahack)
+* You don't waste turns for aborted engrave attempts.
+* The Amulet of Yendor needs only be carried to hint of nearby portals (Sporkhack).
+* Make inventory more explicit about the container we put in/take out of.
+
+#### Safer bags of holding:
+The following safeguards were added to protect players from accidentally exploding their bags:
+* Players cannot put **known** wands of cancellation or **known** magical bags into **identified** bags of holding. Keep in mind, unknown wands and bags are still dangerous and should be handled with care until formally identified (dNetHack)
+* Players are prevented from #tipping **known** explosive items into **identified** bags of holding
+* Empty wands of cancellation may still be placed inside bags of holding with no risk of blowing up
+* DISCLAIMER: Bag of holding explosions are not prevented when confused or hallucinating!
+* Another subtle but helpful change: bags are not susceptible to burning up when lava walking. In Vanilla this was never the case, but in some variants bags are destroyed unless foo-proofed.
+* Moloch's Temple has a 50% chance of generating a bag of holding.
+* Sokoban only has a 25% of having a bag of holding as the prize.
+
+### Streamlined Identification Features
+A general design philosophy of NerfHack is to automatically identify items when it becomes obvious what they are from various effects. If a quick wiki lookup is all that is needed (ie: sink ring identification) let's save the player from opening up a browser.
+
+* All roles start out knowing potions of water, blank scrolls, and scrolls of identify (the exception is cavemen, who don't know about scrolls of identify)
+* When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
+* Your primary wielded weapon is auto-identified after killing enough monsters with it (EvilHack)
+* Rings of increase damage and accuracy are identified along with their enchantment after killing enough monsters.
+* When you have expert skill in a weapon type, you will auto-id the enchantment on those types of items (only for non-missile weapons)
+* Auto-ID potions of acid when water explosions result from dipping (xNetHack)
+* Auto-ID potions of acid when a lichen corpse is dipped
+* Auto-ID potions of phasing when any item is dipped
+* Auto-ID potions of sickness when they coat a weapon in poison
+* Auto-ID potions of sickness and fruit juice when dipping a unihorn in sickness
+* Auto-ID potions of see invisible or fruit juice by process of elimination when quaffed.
+* Auto-ID potions of restore ability and booze when quaffed
+* Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
+* Auto-ID some potions when inhaling their vapors (xNetHack)
+* Auto-ID scrolls of scare monster when they crumble from being picked up (UnNetHack)
+* Auto-ID scrolls that have obvious effects when read: scare monster, confuse monster, food detection, remove curse, flood, enchant armor
+* Auto-ID rings dropped into a sink (UnNetHack)
+* Auto-ID rings of regeneration upon wearing
+* Auto-ID rings of cold resistance upon wearing
+* Auto-ID rings of fire resistance upon wearing
+* Auto-ID rings of shock resistance upon wearing
+* Rings of conflict and aggravate monster give the same message when worn.
+* Auto-ID +0 rings of protection (if MC is increased)
+* Auto-ID wands of cancellation after they destroy a bag of holding (UnNetHack)
+* Auto-ID most wands when engraving (xNetHack)
+* Automatically use a process of elimination for auto-identifying wands when available (UnNetHack)
+* Auto-id flint stones yielded from applying rocks to each-other
+* Auto-ID most musical instruments upon use (UnNetHack)
+* Auto-ID dunce caps when one is first put on (UnNetHack)
+* Auto-ID jumping boots when they are worn (UnNetHack/Ace)
+* Auto-ID water walking boots when they waterwalk (xNetHack)
+* Auto-ID kicking boots when you #kick when them
+* Auto-ID BUC of products from BUC identified tinning kit or horn of plenty (UnNetHack++)
+* Auto-ID BUC of wands when they backfire
+* Auto-id bags of holding when items are added or removed
+* Blessed stethoscopes can identify eggs (EvilHack/Sporkhack)
+* Make rustproof/erodeproof/fixed known by default (Dynahack)
+* Make object properties on items obvious and known by default
+* Make the build quality of items obvious and known by default
+
+* **Items that are 'lost'** from the players inventory are longer un-identified.
+
+### Interface Changes
+* Created a new splash screen for the Windows build.
+* A detailed object and monster Pokedex is available in the in-game lookup (xNetHack/UnNetHack)
+  * Farlook any monster (press '//'), then press ':' to access the pokedex entry
+  * You can also search for a monster or item: press '/' then '?', then type the name of the thing you want information on.
+  * For item details, open your inventory and press the letter of the item for info.
+* The object lookup also works for artifacts
+* Peaceful monsters are underlined [TTY and curses] (xNetHack)
+* Magic cancellation (MC) value is shown on the player's status line (EvilHack)
+* Skill caps and percentage towards next level is available in #enhance
+* Show available skill slots in the #enhance menu (Dynahack)
+* Show if a monster ignores magical scaring or Elbereth in the pokedex info.
+* Inventory weight and carry capacity data are shown in the inventory (can be toggled with the invweight option)
+* \> or < can be used to autotravel to stairs (can be toggled with the autostairtravel option)
+* AC values for armor are displayed next to armor in the hero's inventory - these take into account all available bonuses (racial bonuses, item appearances, enchantment, etc) (SpliceHack)
+* Prayer statistics (last prayed, reconciled, received a gift, divine protection) can be viewed in the attributes screen (via Ctrl-X)
+* All position prompts may be aborted
+* Show the '0' warning level for very weak monsters in addition to all other standard warning symbols (Dynahack)
+* More descriptive combat messages have been added to enhance hits and misses during combat (xNetHack)
+* Show explicit messages when objects are randomly cursed from the Curse Items spell (Dynahack)
+* Show an explicit message when summon nasties occurs as part of wizard harassment
+* Special room and special level walls can have their own unique coloring (SpliceHack/xNetHack)
+* Enabled autocomplete for #twoweapon
+* Enable **full options** by default
+* Disabled **#chronicle** from auto-completing (so #chat will autocomplete as normal)
+* Disabled **farlook help**
+* Disabled the 3.7 **tutorial**
+* Changed the symbol for **sinks** back to #
+* The hero's color reflects their race (SLASH'EM)
+* Suggest a donation amount (relative to XP level) when #chatting to priests
+* Use NERFHACKOPTIONS instead of NETHACKOPTIONS so it does't clash with other NetHack installations
+* Added a "Rabid" status that indicates when the player is rabid
+* Added a "Wither" status that indicates when the player is withering
+* Added a "Phasing" status that indicates when the player is phasing
+* Don't livelog events in explore mode
+
+#### Farlook enhancements
+* We are able to see more monster conditions on farlook (EvilHack/SpliceHack/xNetHack)
+  * You can ascertain when monsters are reflecting, withering, diseased, berserking, rabid, confused, stunned, or blinded
+  * **Spell-beings** will appear as "sparkling" on farlook.
+* Farlook also shows amulets and rings monsters are wearing
+* We are able to see what weapon a monster is wielding from farlook (EvilHack)
+* We are able to see roughly how much armor a monster is wearing on farlook (EvilHack)
+
+### New config options
+
+* **showdamage:** Displays damage dealt by both the player and monsters. Also shows flanking bonuses and penalties if active.
+* **do_not_flip_soko:** Enables the player to choose whether they want Sokoban levels to be flipped. If enabled, a Luck penalty is incurred for each Sokoban level that is generated whilst the option is on.
+* **invweight:** Shows the weights of objects in inventory along with carry capacity and inventory slots available.
+* **autostairtravel:** Allow fast travel to stairs with < and >
+* **hide_old_spells:** This option allows the player to control whether spells with 0% retention (spells that have been forgotten) show up in the spellcasting menu.
+
+### Wizmode features
+* The #wizcrown command has been added for testing crowning (EvilHack)
+* The #wizclear (^z) command, clears all monsters on the screen (SpliceHack)
+* Allow overriding artifact invoke timeout in wizmode (xNetHack)
+* Allow teleportation into unteleportable spots in wizard mode
+* Allow wishing (^W) for monsters (UnNetHack)
+* Allow wishing for specific spell beings
+* Changed #debugfuzzer command to just #fuzz
+* Show timeouts for sick, rabid, withering, and other afflictions in the wizmode enlightenment menu
+* wiz_prop command to add properties to items in wizmode.
 
 
 ## CREDITS

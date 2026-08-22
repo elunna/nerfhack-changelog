@@ -1,161 +1,10 @@
 
+# New Monsters In NerfHack
 
-The following summarizes the new monsters, advanced info can be found in the monster pokedex in NerfHack or on the NetHack Wiki.
+## Monster Summary
 
-| Monster                | Sym | Origin               |
-| ---------------------- | --- | -------------------- |
-| giant fly              | a   | SpliceHack           |
-| giant cockroach        | a   | EvilHack             |
-| giant praying mantis   | a   | SpliceHack           |
-| bullet ant             | a   | SpliceHack           |
-| locust                 | a   | EvilHack             |
-| queen ant              | a   | EvilHack             |
-| assassin bug           | a   | SLASH'EM             |
-| migo drone             | a   | SLASH'EM             |
-| migo warrior           | a   | SLASH'EM             |
-| migo queen             | a   | SLASH'EM             |
-| jiggling blob          | b   | SLASH'EM             |
-| lava blob              | b   | SLASH'EM             |
-| static blob            | b   | SLASH'EM             |
-| burbling blob          | b   | SLASH'EM             |
-| basilisk               | c   | EvilHack             |
-| barghest               | d   | SpliceHack           |
-| Cerberus               | d   | EvilHack/xNetHack    |
-| revenant hound         | d   | NerfHack             |
-| warg pup               | d   | NerfHack             |
-| vulpenferno            | d   | SpliceHack           |
-| glowing eye            | e   | SLASH'EM             |
-| stinking sphere        | e   | Fourk                |
-| acid sphere            | e   | SpliceHack/EvilHack  |
-| third eye              | e   | SLASH'EM/YANI        |
-| blinking eye           | e   | SLASH'EM             |
-| kamadan                | f   | SLASH'EM             |
-| weretiger              | f/@ | SLASH'EM             |
-| deep one               | h   | SLASH'EM             |
-| deeper one             | h   | SLASH'EM             |
-| deepest one            | h   | SLASH'EM             |
-| alhoon                 | h   | EvilHack             |
-| dretch                 | i   | SLASH'EM             |
-| rutterkin              | i   | SLASH'EM             |
-| blood imp              | i   | SLASH'EM             |
-| nupperibo              | i   | SLASH'EM             |
-| redcap                 | i   | SpliceHack           |
-| clear jelly            | j   | SLASH'EM             |
-| yellow jelly           | j   | SLASH'EM             |
-| orange jelly           | j   | SLASH'EM             |
-| rancid jelly           | j   | SLASH'EM             |
-| leper                  | l   | NerfHack             |
-| killer mimic           | m   | SpliceHack           |
-| pixie                  | n   | SLASH'EM             |
-| spiked orc             | o   | NerfHack             |
-| diamond piercer        | p   | SpliceHack           |
-| god piercer            | p   | SpliceHack           |
-| landshark              | q   | SpliceHack           |
-| pack rat               | r   | SLASH'EM             |
-| plague rat               | r   | NerfHack             |
-| hedgehog               | r   | SpliceHack           |
-| nickelpede             | s   | SLASH'EM             |
-| recluse spider         | s   | SLASH'EM             |
-| phase spider           | s   | SLASH'EM             |
-| werespider             | s   | SLASH'EM             |
-| monstrous spider       | s   | SpliceHack           |
-| giant centipede        | s   | EvilHack             |
-| maggot                 | w   | SLASH'EM/SpliceHack  |
-| acid worm              | w   | SLASH'EM             |
-| bloodworm              | w   | SLASH'EM             |
-| tunnel worm            | w   | SLASH'EM             |
-| rot worm               | w   | SLASH'EM             |
-| spark bug              | x   | SLASH'EM             |
-| arc bug                | x   | SLASH'EM             |
-| lightning bug          | x   | SLASH'EM             |
-| will-o'-the-wisp       | y   | SpliceHack           |
-| koala                  | z   | SLASH'EM             |
-| compsognathus          | z   | NerfHack             |
-| velociraptor           | z   | SpliceHack           |
-| t-rex                  | z   | SpliceHack           |
-| dark Angel             | A   | UnNetHack            |
-| movanic deva           | A   | SLASH'EM             |
-| monadic deva           | A   | SLASH'EM             |
-| astral deva            | A   | SLASH'EM             |
-| zoo bat                | B   | SpliceHack           |
-| athol                  | B   | SLASH'EM             |
-| phoenix                | B   | SpliceHack           |
-| byahkee                | B   | SLASH'EM             |
-| nightgaunt             | B   | SLASH'EM             |
-| fell beast             | D   | EvilHack             |
-| baby shimmering dragon | D   | Deferred             |
-| shimmering dragon      | D   | Deferred             |
-| Wintercloak            | D   | NerfHack             |
-| volatile mushroom      | F   | SpliceHack           |
-| gray fungus            | F   | EvilHack/SlashTHEM   |
-| elder minotaur         | H   | EvilHack             |
-| arch-vile              | L   | NerfHack             |
-| eye of fear and flame  | L   | SpliceHack           |
-| worm that walks        | L   | SpliceHack           |
-| adherer                | M   | SpliceHack           |
-| troll mummy            | M   | SLASH'EM             |
-| ha-naga                | N   | SpliceHack           |
-| ogre mage              | O   | SLASH'EM             |
-| shadow ogre            | O   | SLASH'EM             |
-| like-like              | P   | NerfHack             |
-| shoggoth               | P   | SLASH'EM             |
-| orb weaver             | Q   | NerfHack             |
-| alchemist              | Q   | SpliceHack           |
-| cerastes               | S   | SpliceHack           |
-| asphynx                | S   | SLASH'EM             |
-| weresnake              | S   | SLASH'EM             |
-| giant anaconda         | S   | EvilHack             |
-| grave troll            | T   | SpliceHack           |
-| hunger hulk            | U   | SpliceHack           |
-| slumber hulk           | U   | SpliceHack           |
-| umbral hulk            | U   | SlashTHEM/SpliceHack |
-| water hulk             | U   | SLASH'EM             |
-| gorgon hulk            | U   | NerfHack             |
-| fire vampire           | U   | SLASH'EM             |
-| star vampire           | U   | SLASH'EM/dnh         |
-| dhampir                | V   | NerfHack             |
-| vampire mage           | V   | SLASH'EM             |
-| vampire king           | V   | EvilHack             |
-| bodak                  | W   | SpliceHack           |
-| slaughter wight        | W   | HackEM               |
-| shadow                 | X   | SLASH'EM             |
-| The First Evil         | X   | NerfHack             |
-| ghoul mage             | Z   | SLASH'EM             |
-| revenant               | Z   | EvilHack             |
-| gug                    | Z   | SLASH'EM             |
-| ghoul queen            | Z   | SLASH'EM             |
-| elven cleric           | @   | EvilHack             |
-| familiar               | @   | NerfHack             |
-| lava demon             | &   | Convict Patch        |
-| spined devil           | &   | SLASH'EM             |
-| Cthulhu                | &   | SLASH'EM/UnNetHack   |
-| weredemon              | &/d | EvilHack             |
-| merfolk                | ;   | SpliceHack/SlashTHEM |
-| thing from below       | ;   | SpliceHack           |
-| cartomancer            | @   | SpliceHack           |
-| King of Games          | @   | SpliceHack           |
-| Del Zethire            | @   | SpliceHack           |
-| duelist                | @   | SpliceHack           |
-| undead slayer          | @   | SLASH'EM             |
-| exterminator           | @   | SLASH'EM             |
-| Van Helsing            | @   | SLASH'EM             |
-| The Executioner        | @   | UnNetHack            |
-| wax golem              | '   | SLASH'EM             |
-| plastic golem          | '   | SLASH'EM             |
-| grung                  | 6   | NerfHack             |
-| green grung            | 6   | NerfHack             |
-| blue grung             | 6   | NerfHack             |
-| purple grung           | 6   | NerfHack             |
-| red grung              | 6   | NerfHack             |
-| orange grung           | 6   | NerfHack             |
-| gold grung             | 6   | NerfHack             |
-| gnoll                  | 9   | SLASH'EM             |
-| gnoll warrior          | 9   | SLASH'EM             |
-| gnoll chieftain        | 9   | SLASH'EM             |
-| gnoll shaman           | 9   | SLASH'EM             |
-| boulderer              | 0   | CrecelleHack         |
-| illusion               | X   | CrecelleHack         |
 
+## Monster Class notes
 
 ### New monster notes
 * all devas resist poison, fire, and shock damage
@@ -180,7 +29,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * rats are the same as Vanilla's rabid rats. They always spawn rabid.
 * some deepest ones are guaranteed on the plane of water
 * deep ones and deeper ones have thick skin, matching deepest ones
-* deep ones, deeper ones, and deepest ones have all received major buffs.
 * deep/er/est ones all get regeneration, faster speed in water, are non-tameable, and not infravisible anymore.
 * deeper ones resist sleep and shock.
 * deepest ones resist sleep, shock, acid, and magic. They also have 100 MR.
@@ -188,7 +36,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * deeper ones and deepest ones take extra damage from blessed weapons.
 * elven clerics were known as elven wizards in EvilHack
 * fell beasts can shriek, inflicting stun damage (xNetHack/EvilHack)
-* ghoul mages are now clairvoyance
+* ghoul mages are now clairvoyant
 * ghoul queens can generate randomly in the dungeon
 * ghoul queens are now bright magenta
 * ghoul queens have -5 AC, level 16, and difficulty 21
@@ -208,8 +56,8 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * gugs are now orange
 * jiggling blobs can jump
 * kamadan are recolored to light green, can now jump, have infravision, and get some poisonous snake bites
-* koalas cannot calm berserking monsters.
-* rabid koalas are not capable of calming anything
+* bandikots cannot calm berserking monsters.
+* rabid bandikots are not capable of calming anything
 * landsharks were recolored to bright blue
 * lava demons are huge
 * lepers are generate sleeping and are fairly slow, but have a nasty disease touch.
@@ -291,20 +139,13 @@ plague rat
 
 Change size of acid worm and bloodworm to tiny.
 
-carrion larva and carrion crawler.
+
 Carrion crawlers grudge ghouls.
 
 1b7a3043c - Bandikots cannot be tamed. (11 days ago) <Erik Lunna>
 
-25dac458f - New monster: bandikot. (11 days ago) <Erik Lunna>
-721a22d83 - New monster: Crystallid. (11 days ago) <Erik Lunna>
-0fa51737b - New monster: blight sprite. (11 days ago) <Erik Lunna>
-6d2b772fa - New monster: basilisket. A tiny baby version of the basilisk. (11 days ago) <Erik Lunna>
->
 
 Familiars can summon vampires and get better starting equipment.
-1b8eecddd - Carrion larvas are blue. (22 hours ago) <Erik Lunna>
-
 
 591f673b4 - Spice up dretch, allow them to summon other dretches. (35 hours ago) <Erik Lunna>
 0a439223e - Spice up rutterkin. (2 days ago) <Erik Lunna>
@@ -315,11 +156,457 @@ d2
 3160c9be2 - Cerastes resist blunt damage and do more hug damage. (2 days ago) <Erik Lunna>
 
 f3f7ed93e - Make giant spider and giant scorpion saddleable (xnh) (21 hours ago) <Erik Lunna>
-2bb61bafc - Port giant scorpion from xnethack. (21 hours ago) <Erik Lunna>
 
 9da7113b0 - Buffs for krakens and thing from below. (7 hours ago) <Erik Lunna>
 
 98027e025 - Slightly buff electro-bugs. (4 days ago) <Erik Lunna>
 
 
-b83b3779b - Implement monsters that inflict vulnerability: soul shadow and degenerator. (3 days ago) <Erik Lunna>
+
+2098ac72b - Make maggots faster. (24 hours ago) <Erik Lunna>
+
+9162ffa47 - Gnolls are no-gen. For now, I'll restrict these to special demon levels, like Yeenoghu's level. (2 days ago) <Erik Lunna>
+
+
+1e4ffa083 - Blood imps also get a spellcasting attack (from CrecelleHack). (3 days ago) <Erik Lunna>
+
+
+6d58d9275 - Make shadows and shadow ogres much more difficult to detect. (4 days ago) <Erik Lunna>
+
+
+
+09bb06619 - Buff white dragons and Wintercloak. (16 hours ago) <Erik Lunna>
+6791fcf98 - Shadow monsters dim the lights as they move. (16 hours ago) <Erik Lunna>
+
+
+61204a886 - Diseased zombies. (35 hours ago) <Erik Lunna>
+cd15f7443 - Implement traitorous monsters (from SLASHEM/HACKEM). (2 days ago) <Erik Lunna>
+e11428a05 - All adult dragons get passive attacks. (2 days ago) <Erik Lunna>
+b9bc173b4 - All adult dragons can swallow and engulf (EvilHack). (2 days ago) <Erik Lunna>
+b5640e8f3 - Overhaul of baby dragons. (2 days ago) <Erik Lunna>
+be34bbc3f - New monsters: shadow dragon and baby. (2 days ago) <Erik Lunna>
+
+
+
+
+899e39832 - New monster: shadow wolf. (3 days ago) <Erik Lunna>
+318c57867 - Implement dretch's passive rot attack. (3 days ago) <Erik Lunna>
+
+
+
+5478562a8 - Reduce wand of magic missile to half of other ray wands. (3 days ago) <Erik Lunna>
+
+acfe0f74e - Athols and phoenixes don't generate in hell. (3 days ago) <Erik Lunna>
+
+
+
+
+
+monsters:
+8c055deef - Buff and cleanup the SLASH'EM blobs, increase their size to huge. (7 days ago) <Erik Lunna>
+
+
+9a7b77c87 - New monster: bone naga. (4 days ago) <Erik Lunna>
+
+
+
+
+
+6791fcf98 - Shadow monsters dim the lights as they move. (9 days ago) <Erik Lunna>
+
+727e7b1ae - Orb weavers get a custom spell list. (4 days ago) <Erik Lunna>
+71754ce3f - Blight sprites get their own spell list. (4 days ago) <Erik Lunna>
+
+da6e37d8c - Arch-viles get their own custom spell list. (4 days ago) <Erik Lunna>
+
+
+
+
+
+
+## Individual Monster Notes
+
+
+### giant fly (a)
+### giant cockroach (a)
+
+| Lvl | Freq | Speed | AC  | MC  | Difficulty |
+| --- | ---- | ----- | --- | --- | ---------- |
+| 4   | n/a  | 16    | 3   | 0   | 6          |
+
+Attacks: bite 2d4 (poison-con)
+
+confers poison res
+animal
+handless
+conceals
+oviparous
+carnivore
+clings
+jumps
+no race	
+generated only specially
+
+### giant praying mantis (a)
+a	11	2	12	2	0	9	claw 3d6
+claw 3d6	confers poison res
+resists poison
+animal
+handless
+carnivore
+hostile
+outflanks
+treewalks
+vulnerable to acid
+no race	
+
+### bullet ant (a)
+a	7	2	18	3	0	10	sting 5d4 (poison-con)
+bite 2d4 (cold)	confers poison res
+resists poison
+animal
+handless
+oviparous
+poisonous
+carnivore
+hostile
+outflanks
+vulnerable to acid
+no race	appears in small groups
+### locust (a)
+a	9	1	12	0	0	11	bite 1d8
+sting 1d4 (disease)	confers poison res
+resists poison
+animal
+flies
+handless
+oviparous
+poisonous
+hostile
+vulnerable to acid
+no race	appears in small groups
+### queen ant (a)
+a	14	n/a	24	-8	0	16	bite 3d8
+sting 3d4 (poison-str)	confers poison res
+resists poison
+animal
+handless
+oviparous
+thick hide
+carnivore
+poisonous
+hostile
+nasty
+female
+prince
+vulnerable to acid
+no race	generated only specially
+### assassin bug (a)
+
+### migo drone (7)
+
+### migo warrior (7)
+
+### migo queen (7)
+
+### jiggling blob (b)
+
+### lava blob (b)
+
+### static blob (b)
+
+### burbling blob (b)
+
+### basilisket (c)
+
+### basilisk (c)
+
+### warg pup (d)
+
+### revenant pup (d)
+
+### barghest (d)
+
+### shadow wolf (d)
+
+### revenant hound (d)
+
+### vulpenferno (d)
+### weredemon (d/@)
+
+### glowing eye (e)
+
+### stinking sphere (e)
+
+### acid sphere (e)
+
+### third eye (e)
+
+### blinking eye (e)
+
+### kamadan (f)
+
+### weretiger (f/@)
+
+### deep one (h)
+### deeper one (h)
+
+### deepest one (h)
+
+### alhoon (h)
+
+### dretch (i)
+
+### rutterkin (i)
+
+### blood imp (i)
+
+### nupperibo (i)
+### redcap (i)
+
+
+### clear jelly (j)
+### yellow jelly (j) (j)
+
+
+### orange jelly (j)
+
+### rancid jelly (j)
+
+### leper (l)
+
+### killer mimic (m)
+
+### boulderer (m)
+
+### pixie (n)
+
+### blight sprite (n)
+
+### spiked orc (o)
+
+### diamond piercer (p)
+
+### god piercer (p)
+
+### landshark (q)
+
+### pack rat (r)
+
+### hedgehog (r)
+
+### plague rat (r)
+
+### recluse spider (s)
+
+### nickelpede (s)
+
+### phase spider (s)
+
+### werespider (s)
+
+### carrion crawler (s)
+
+### monstrous spider (s)
+
+### giant scorpion (s)
+
+### giant centipede (s)
+
+### acid worm (w)
+
+### bloodworm (w)
+
+### tunnel worm (w)
+
+### carrion larva (w)
+
+### rot worm (w)
+
+### maggot (w)
+
+### spark bug (x)
+
+### arc bug (w)
+
+### crystallid (w)
+
+### lightning bug (w)
+
+### soul shadow (y)
+
+### will-o'-the-wisp (y)
+
+### bandikot (z)
+
+### compsognathus (z)
+
+### velociraptor (z)
+
+### t-rex (z)
+
+### dark Angel (A)
+
+### movanic deva (A)
+
+### monadic deva (A)
+
+### astral deva (A)
+
+### zoo bat (B)
+
+### athol (B)
+
+### phoenix (B)
+
+### byahkee (B)
+
+### nightgaunt (B)
+
+### fell beast (D)
+
+### baby shimmering dragon (D)
+
+### baby shadow dragon (D)
+
+### shimmering dragon (D)
+
+### shadow dragon (D)
+
+### volatile mushroom (F)
+
+### gray fungus (F)
+
+### gnoll (9)
+
+### gnoll warrior (9)
+
+### gnoll chieftain (9)
+
+### gnoll shaman (9)
+
+### elder minotaur (H)
+
+### worm that walks (L)
+
+### eye of fear and flame (L)
+
+### arch-vile (L)
+
+### adherer (M)
+
+### troll mummy (M)
+
+### ha-naga (N)
+
+### ogre mage (O)
+
+### shadow ogre (O)
+
+### like-like (P)
+
+### shoggoth (P)
+
+### orb weaver (Q)
+
+### alchemist (Q)
+
+### degenerator (R)
+
+### cerastes (S)
+
+### asphynx (S)
+
+### weresnake (S)
+
+### giant anaconda (S)
+
+### grave troll (T)
+
+### umbral hulk (U)
+
+### water hulk (U)
+
+### hunger hulk (U)
+
+### slumber hulk (U)
+
+### gorgon hulk (U)
+
+### fire vampire (U)
+
+### star vampire (U)
+
+### dhampir (V)
+
+### vampire mage (V)
+
+### vampire king (V)
+
+### bodak (W)
+
+### slaughter wight (W)
+
+### illusion (X)
+
+### shadow (X)
+
+### ghoul mage (Z)
+
+### revenant (Z)
+
+### gug (Z)
+
+### ghoul queen (Z)
+
+### wax golem (')
+
+### plastic golem (')
+
+### elven cleric (@)
+
+### familiar (@)
+
+### lava demon (&)
+
+### spined devil (&)
+
+### merfolk (;)
+
+### thing from below (;)
+
+### grung (6)
+
+### green grung (6)
+
+### blue grung (6)
+
+### purple grung (6)
+
+### red grung (6)
+
+### orange grung (6)
+
+### gold grung (6)
+
+### cartomancer (@)
+
+### duelist (@)
+
+### King of Games (@)
+
+### Del Zethire (@)
+
+### undead slayer (@)
+
+### exterminator (@)
+
+### Van Helsing (@)
+
+### The First Evil (X)
+
+### Wintercloak
+
+### The Executioner (@)
+
+### Cthulhu
