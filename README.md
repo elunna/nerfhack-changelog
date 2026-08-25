@@ -114,12 +114,12 @@
     - [Resistance and vulnerability to weapon damage types](#resistance-and-vulnerability-to-weapon-damage-types)
     - [Rabid monsters](#rabid-monsters)
     - [Diseased monsters](#diseased-monsters)
-      - [Diseased zombies](#diseased-zombies)
     - [Accurate behavior](#accurate-behavior)
     - [Jumping behavior](#jumping-behavior)
     - [Tree walking](#tree-walking)
     - [Withering attacks](#withering-attacks)
   - [MONSTER SPELLCASTING](#monster-spellcasting)
+    - [Countering monster spells](#countering-monster-spells)
   - [ROLE CHANGES](#role-changes)
     - [Archeologist](#archeologist)
     - [Barbarian](#barbarian)
@@ -947,38 +947,37 @@ NerfHack introduces a few new magical bracers:
 * Bump up fried tin nutrition and add stale tins (xNetHack)
 
 ### Potions and alchemy
-* Potions can sometimes generate diluted in the dungeon or in monster inventory.
+* Potions can sometimes generate diluted in the dungeon or in monster inventory
 * Most potions have a less potent effect when diluted (EvilHack)
-* Shopkeepers only offer half price for diluted potions.
+* Shopkeepers only offer half price for diluted potions
 * Potions can shatter when dropped on cold floors
 
 * Dipping water into any potion will simply dilute the other potion (SLASH'EM)
-* Dipping into a cursed potion always causes an explosion (SLASH'EM).
-* Dipping a scroll of amnesia into a non-water, non-polymorph potion cancels it into water.
-* Mixing oil with water always results in diluted oil.
+* Dipping into a cursed potion always causes an explosion (SLASH'EM)
+* Mixing oil with water always results in diluted oil
 * Potion vapors have more effects covering more potions when inhaled (xNetHack)
 * Non-magical alchemy is less likely to result in an alchemical explosion (1 in 20 chance instead of 1 in 10)
 * HP gained from healing potions is subject to nurse dancing limits, but the limit is always calculated as if the player were at the maximum level of 30.
-* **fizzy potions and booze** can cause loud belches.
-* **diluted smoky potions** will never yield a djinni from a bottle.
-* **diluted milky potions** never yield ghosts.
-* **diluted healing potions** heal less and grant less max-HP (EvilHack).
+* **fizzy potions and booze** can cause loud belches
+* **diluted smoky potions** will never yield a djinni from a bottle
+* **diluted milky potions** never yield ghosts
+* **diluted healing potions** heal less and grant less max-HP (EvilHack)
 * **potions of gain energy** grant a lot more energy and get an alchemy recipe (xNetHack).
-* **potions of holy water** can cure withering status when quaffed.
+* **potions of holy water** can cure withering status when quaffed
 * **potions of reflection** are immune to cold and fire damage
 * **non-diluted potions of reflection** can erodeproof items
 * **cursed potions of reflection** aggravate monster
 * **cursed potions of phasing** remove any intrinsic phasing and reset your stats (like self polymorph)
 * **cursed potions of gain ability** now subtract 1 point from a random status, adding it to a different status (xNetHack)
-* **diluted potions of gain ability** can only achieve uncursed results.
+* **diluted potions of gain ability** can only achieve uncursed results
 * **cursed potions of gain level** can be used in Sokoban to bypass a floor (xNetHack)
 * **cursed diluted potions of gain level** don't transport you, they levitate you momentarily.
 * **diluted vampire blood** doesn't provide HP gains
 * **potions of phasing** can be used to convert dragon scales to dragon scaled armor
 * **potions of acid:**
   * are immune to freezing (xNetHack)
-  * dipping acid into toilet causes an explosion and destroys the toilet.
-  * dipping a unicorn horn into a potion of acid will dissolve the horn, resulting in a potion of full healing.
+  * dipping acid into toilet causes an explosion and destroys the toilet
+  * dipping a unicorn horn into a potion of acid will dissolve the horn, resulting in a potion of full healing
 * **potions of restore ability:**
   * can be alchemized
   * can be quaffed to cure wounded legs
@@ -986,12 +985,12 @@ NerfHack introduces a few new magical bracers:
   * dipping an eroded item in non-diluted restore ability repairs the erosion (xNetHack)
 
 #### Gem Alchemy
-* Ported from UnNetHack, originally from SLASH'EM.
-* Allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance.
-* Gem alchemy recipes can be viewed in the object lookup entry for "potion of acid", or even just "acid".
-* Other potions and gems should display their respective recipes.
-* Gems auto-id after successful gem alchemy.
-* Gem alchemy results are usually diluted; achieving pure results improves slightly with high Luck.
+* Ported from UnNetHack, originally from SLASH'EM
+* Allows you to dip a gem into a potion of acid, to alchemize a potion with a specific appearance
+* Gem alchemy recipes can be viewed in the object lookup entry for "potion of acid", or even just "acid"
+* Other potions and gems should display their respective recipes
+* Gems auto-id after successful gem alchemy
+* Gem alchemy results are usually diluted; achieving pure results improves slightly with high Luck
 
 ### Scrolls
 * Decreased the probability of scrolls of identify, and increased the probability of scrolls of knowledge
@@ -1000,7 +999,7 @@ NerfHack introduces a few new magical bracers:
 * **cursed scrolls of remove curse** will curse items
 * **scrolls of genocide** have been nerfed and renamed to scrolls of exile
 * **scrolls of enchant armor** let you choose which worn piece of armor to enchant or repair when you know the identify of these scrolls, otherwise the armor chosen is still random (EvilHack)
-* * **scrolls of enchant weapon and enchant armor are much more rare and cost more ink to write**
+* **scrolls of enchant weapon and enchant armor are much more rare and cost more ink to write**
 * **blessed scroll of destroy armor** asks which armor to destroy (xNetHack)
 * **confused cursed scrolls of destroy armor** prompt for which piece of armor to fix
 * **confused scrolls of identify** give enlightenment (xNetHack)
@@ -1193,8 +1192,8 @@ The table below lists all available magical properties, what items they can be a
 | Draining        | drain resistance                        | drain life attack                                     |
 | Health          | sickness resistance                     | n/a                                                   |
 | Filth           | n/a                                     | disease attack                                        |
-| Peace           | blocks aggravate monster                | blocks aggravate monster                              |
-| vigilance       | autosearching+large radius              | autosearching+large radius                            |
+| Peace           | blocks aggro mon/berserk                | blocks aggro mon/berserk                              |
+| vigilance       | lg autosearch radius              | lg autosearch radius                            |
 | Stealth         | stealth                                 | stealth                                               |
 | Warning         | warning                                 | warning                                               |
 | Insight         | see invisible                           | see invisible                                         |
@@ -1405,7 +1404,8 @@ Other effects:**
 * Unpaid items cloned in shops now become the property of the shopkeeper. Additionally, more item properties are carried over during cloning, including erosion-proofing, container status, and other miscellaneous attributes to ensure that items are genuinely cloned.
 * Intelligent monsters can also use these scrolls to clone themselves. When monsters read the scrolls, they are always read-as-confused, meaning they can only clone themselves. Whilst this approach might seem odd, it simplifies the system by avoiding the complexities of allowing monsters to clone items.
 * **Unique monsters can use these scrolls as well**, but the Wizard of Yendor must still follow the Double Trouble routine, ensuring that no more than two Rodneys can oppose you at any time. However, other unique monsters have the potential to clone themselves more than once if the opportunity arises.
-                                                                                                                                                                       |
+
+
 ### scroll of transmogrify
 * These scrolls can change the material of an item.
 * When blessed, they will also bless the item.
@@ -1418,13 +1418,14 @@ Other effects:**
 * Monsters carrying non-cursed healthstones also gain regeneration.
 
 ### whetstone
-* Refined the functionality of whetstones and made much more user friendly. We can now apply a stack of whetstones to a stack of weapons (Before this was limited to applying one whetstone to a single object). We can use (a)pply or #rub with whetstones.
-* Previously, whetstones took too long to use (very discouraging for players), the required time has been lowered considerably. If sharpening a stack of weapons, the turns will scale with the size of the stack. Cavemen are skilled with rocks so they can sharpen much faster than other roles.
+* Refined the functionality of whetstones and made much more functional and user friendly. We can now apply a stack of whetstones to a stack of weapons (Before this was limited to applying one whetstone to a single object). We can use (a)pply or #rub with whetstones.
+* Previously, whetstones took too long to use and the required time has been lowered considerably. If sharpening a stack of weapons, the turns will scale with the size of the stack. Cavemen are skilled with rocks so they can sharpen much faster than other roles.
 * You can use whetstones in shallow water, pools, moats, rust traps, sinks, and toilets.
-* If you don't have a water source available, you can use potions of water. There is a 1d7 chance of using it up on each application.
-* In SLASH'EM, using a whetstone on one of these would also activate the quaffing effects of those features. In NerfHack these effects have been removed.
+* If you don't have a water source available, you can use potions of water. There is a 1d7 chance of using the potion up on each application.
+* In SLASH'EM, using a whetstone on a water source would also activate the quaffing effects of those features. In NerfHack these effects have been removed.
 * Cursed whetstones can rust or corrode items.
 * Blessed whetstones can uncurse a cursed weapon, but lose their blessed state in the process.
+* Blessed whetstones can also enchant a +0 weapon up to a max of +1.
 * Whetstones can now remove corrosion (in addition to rust)
 
 
@@ -1681,6 +1682,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | gnoll warrior          | 9   | SLASH'EM             |
 | gnoll chieftain        | 9   | SLASH'EM             |
 | gnoll shaman           | 9   | SLASH'EM             |
+| hill giant shaman      | H   | EvilHack             |
 | elder minotaur         | H   | EvilHack             |
 | worm that walks        | L   | SpliceHack           |
 | eye of fear and flame  | L   | SpliceHack           |
@@ -1721,6 +1723,7 @@ The following summarizes the new monsters, advanced info can be found in the mon
 | wax golem              | '   | SLASH'EM             |
 | plastic golem          | '   | SLASH'EM             |
 | elven cleric           | @   | EvilHack             |
+| elven mage             | @   | NerfHack             |
 | familiar               | @   | NerfHack             |
 | lava demon             | &   | Convict Patch        |
 | spined devil           | &   | SLASH'EM             |
@@ -1847,7 +1850,6 @@ The following summarizes the new monsters, advanced info can be found in the mon
 * all orcs can stalk the player
 * orc captains now are lords and have speed 9 (xNetHack)
 * orc shamans and kobold shamans are skittish (FIQHack)
-* paper golems leave special cards for cartomancers
 * pit fiends have speed 8 (K-Mod)
 * priests of Moloch are always generated hostile (SLASH'EM)
 * purple worms have thick skin
@@ -2152,6 +2154,7 @@ Other attributes of Cthulhu:
 * Player monsters or any covetous monsters will grudge any monster that has the Amulet of Yendor (EvilHack)
 * Thrown potions of hallucination that hit monsters confuse them (EvilHack)
 * Potion of paralysis lasts 3-24 turns on monsters and has less effect when diluted (EvilHack)
+* Monster groups sometimes spawn with a stronger leader or support caster (EvilHack/SpliceHack).
 
 ### Flanking behavior
 The flanking mechanic has been ported from *SpliceHack*, with several enhancements. In this system, any two monsters can flank a target-whether a player or another monster-by positioning themselves on opposite sides to "sandwich" their victim. However, monsters with the "outflanker" trait are more tactical than others and will actively seek out opportunities to flank the player. When flanking is successful, monsters gain a significant to-hit bonus, which now scales with the attacker's level, rather than applying a flat +4 AC penalty as in *SpliceHack*. Natural outflankers receive a much higher bonus than ordinary monsters, and flanking has been applied to a wide variety of monsters in *NerfHack*.
@@ -2252,10 +2255,6 @@ Rabid monsters also lose the ability to quaff potions and cannot be tamed or pac
 * Monsters can cure themselves if they have the means, and the player can use cure sickness or eucalyptus leaves to heal sick pets.
 * Currently, the only weapon that causes disease is Grimtooth.
 
-#### Diseased zombies
-* This is a twist on the EvilHack zombies that have brain eating, illness causing bites.
-* In NerfHack, 10% of zombies generated will be diseased and possess a dangerous illness causing bite.
-
 ### Accurate behavior
 * Ported from EvilHack, with modifications
 * This property makes monsters more accurate in melee and with projectiles
@@ -2289,6 +2288,17 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Telepathic spellcasters can usually bypass invisibility and displacement protections.
 * Monster types or individual monsters can now have their own special list of spells to draw from (Crecelle)
 
+### Countering monster spells
+* There are a few ways to passively counter monster spells
+  * The artifact silver speak Serenity
+  * The Caveman's quest artifact: the Sceptre of Might
+  * The Shield of Countering
+* If you are using one of these items and are facing off with a spellcaster, each time the mcaster tries to conjure something you have a 80% chance of countering that spell. If you are successful, the counter will cost you 5-10 energy.
+* The counterspell will fail if:
+  * your item that counters is cursed
+  * you have less than 10 energy
+  * the distance between you and the caster is greater than 10 squares.
+
 **psi bolt (level 0)**
 * Can be cast from a short range (up to 4 squares away)
 * Psi bolts also inflict bonus damage versus telepathic minds.
@@ -2319,6 +2329,7 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 **cure self (level 1)**
 * Spellcasters can now cast this to cure illness, blindness, and rabid statuses.
 * The amount healed scales with the caster's level (Crecelle)
+* support casters can use this on members of their group
 
 **darkness (level 1)**
 * This spell casts an aura of darkness around the hero.
@@ -2337,15 +2348,16 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 
 **haste self (level 2)**
 * No major changes from Vanilla.
+* support casters can use this on members of their group
 
 **confusion (level 2)**
 * Magic resistance no longer nullifies this spell, it cuts the duration in half.
-
 
 **protection (level 2)**
 * This is the monster version of the protection spell already available to the player.
 * Provides a temporary magical shield that increases the monster's AC protection.
 * Can be dissipated with a blast of cancellation.
+* support casters can use this on members of their group
 * Ported from EvilHack
 
 **stunning force (level 3)**
@@ -2389,7 +2401,6 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * This works very similarly to how traitorous monsters betray except that this spell also adds one point of abuse to the pet before checking for betrayal.
 * New spell debuting in NerfHack
 
-
 **blight (level 5)**
 * Causes the target to start withering and can reduce their maximum hp; also causes a bit of hunger.
 * Not effective on non-living monsters or targets that possess disintegration resistance.
@@ -2414,7 +2425,6 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Because this is implemented as a gaze attack, the player can increase their protection by being invisible or displaced.
 * Ported from dNetHack
 
-
 **destroy armor (level 8)**
 * Altered from Vanilla NetHack, modifications ported from EvilHack
 * Having magic resistance is no longer full protection against this spell. Any piece of armor being worn can have its fixed status removed, and then can be deteriorated to the point that it's completely destroyed. Even armor that is normally erodeproof (dragonhide and dragon scales, etc) is affected. Having MR keeps the erosion level at one per cast, otherwise the erosion level is of one to three levels per cast. Blessed pieces of armor have a small chance of resisting. Armor-based quest artifacts are immune to this spell, as is crystal plate mail.
@@ -2431,7 +2441,7 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Ported from Crecelle
 
 **summon insects (level 8)**
-*
+* Only priestly clerics can cast summon insects.
 
 **hobble (level 9)**
 * This clerical spell smashes the hero's legs with magical force and inflicts you with wounded legs for a brief period
@@ -2445,12 +2455,11 @@ Fortunately, there are several ways to cure withering: quaffing holy water, cons
 * Hexed items also protect (as long as they are uncursed).
 * Allow high level spellcasters to also curse containers with curse items.
 
-
 **reflection (level 10)**
 * A spell that creates a shimmering globe around the caster, granting them reflection for several turns. Lasts longer for stronger monsters.
 * Can be dissipated with a blast of cancellation.
 * Ported from EvilHack
-
+* support casters can use this on members of their group
 
 **call undead (level 10)**
 * Caster summons a small horde of undead.
@@ -3183,7 +3192,7 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 
 * All original Vanilla Sokoban levels have been removed and replaced.
 * 18 new demon lairs levels or variants
-* 39 new soko levels
+* 40 new soko levels
 * Many new big room variants
 * 2 new oracle levels
 * 2 new castle variants
@@ -3238,21 +3247,15 @@ Damage scales with level. Unskilled now deals half the damage expert can.
 * Sokoban levels are cold and icy - legend has it a white dragon named Wintercloak took the tower over, leaving a trail of frost in its wake. In addition to the level being colored blue with splashes of icy cyan, you will see random patches of ice form in the level. Because they are cold, if potions land on the floor, they have a chance of freezing and shattering.
 * Note: A recent change from NetHack 3.7 also makes ice occasionally slide the player in a random direction.
 * Sokoban now has two additional levels - an entry level with river obstacles (adapted from the town filler level from UnNetHack) and another puzzle level to solve.
-* Zombies won't dig out of the ground in Sokoban.
 * Monsters won't break boulders in Sokoban with pick-axes or mattocks, or spellcasting.
-* All the vanilla sokoban levels have been replaced with the SLASH'EM puzzles.
-* The Dragon of Bactria level was added from NetHack Fourk; the green dragon was replaced with a white dragon
+* All the vanilla sokoban levels have been replaced with levels from SLASH'EM or other variants.
 * All Sokoban zoos have Wintercloak, a powerful white dragon, guarding the treasure.
 * The zoos in Sokoban have been expanded slightly.
-* Flavored most Sokoban levels with more iron bars.
-* Decorated the levels with white dragon statues in honor of the new steward.
-* In addition to the amulet and bag, the Sokoban prize can also be a cloak of magic resistance or a magic marker.
-* Sokoban prizes are always erodeproofed.
-* Stop Sokoban guilt after acquiring the prize.
-* The iron bars in some of the Sokoban levels can be phased through, but it now incurs a Luck penalty.
+* In addition to the amulet and bag, the Sokoban prize can also be a cloak of magic resistance or a magic marker. Sokoban prizes are always erodeproofed.
 * You will now receive a message when incurring a Sokoban Luck penalty.
+* Stop Sokoban guilt after acquiring the prize.
 * Sokoban maps above puzzle #2 get 2 mimics.
-* soko5 has holes instead of pits (from FIQHack)
+* soko5 (the bottommost puzzle level) has holes instead of pits (from FIQHack)
 
 ## DUNGEON FEATURES
 * Thrones can grant knowledge of magical items.
@@ -3429,6 +3432,7 @@ In addition to the below recipes, every item has an addition identity recipe: mi
 * Sitting on toilets fully heals your HP.
 * Toilets can sometimes break when sat on, especially if you are a giant...
 * Dipping potions into toilets only contaminates potions into sickness.
+* Dropping amulets into toilets can identify them (SLEX)
 
 #### Toilet kicking:
 * Like sinks, toilets now have a couple different effects from kicking them, including a few YAFM.
@@ -3634,14 +3638,14 @@ A general design philosophy of NerfHack is to automatically identify items when 
 * All roles start out knowing potions of water, blank scrolls, and scrolls of identify (the exception is cavemen, who don't know about scrolls of identify)
 * When dropping a container on an altar, the BUC status of all contained items is revealed (NetHack4)
 * Your primary wielded weapon is auto-identified after killing enough monsters with it (EvilHack)
-* Rings of increase damage and accuracy are identified along with their enchantment after killing enough monsters.
+* Rings of increase damage and accuracy are identified along with their enchantment after killing enough monsters
 * When you have expert skill in a weapon type, you will auto-id the enchantment on those types of items (only for non-missile weapons)
 * Auto-ID potions of acid when water explosions result from dipping (xNetHack)
 * Auto-ID potions of acid when a lichen corpse is dipped
 * Auto-ID potions of phasing when any item is dipped
 * Auto-ID potions of sickness when they coat a weapon in poison
 * Auto-ID potions of sickness and fruit juice when dipping a unihorn in sickness
-* Auto-ID potions of see invisible or fruit juice by process of elimination when quaffed.
+* Auto-ID potions of see invisible or fruit juice by process of elimination when quaffed
 * Auto-ID potions of restore ability and booze when quaffed
 * Auto-ID amethyst, fruit juice, and booze when dipping amethyst into booze (Fourk)
 * Auto-ID some potions when inhaling their vapors (xNetHack)
@@ -3649,10 +3653,6 @@ A general design philosophy of NerfHack is to automatically identify items when 
 * Auto-ID scrolls that have obvious effects when read: scare monster, confuse monster, food detection, remove curse, flood, enchant armor
 * Auto-ID rings dropped into a sink (UnNetHack)
 * Auto-ID rings of regeneration upon wearing
-* Auto-ID rings of cold resistance upon wearing
-* Auto-ID rings of fire resistance upon wearing
-* Auto-ID rings of shock resistance upon wearing
-* Rings of conflict and aggravate monster give the same message when worn.
 * Auto-ID +0 rings of protection (if MC is increased)
 * Auto-ID wands of cancellation after they destroy a bag of holding (UnNetHack)
 * Auto-ID most wands when engraving (xNetHack)
@@ -3668,8 +3668,8 @@ A general design philosophy of NerfHack is to automatically identify items when 
 * Auto-id bags of holding when items are added or removed
 * Blessed stethoscopes can identify eggs (EvilHack/Sporkhack)
 * Make rustproof/erodeproof/fixed known by default (Dynahack)
-* Make object properties on items obvious and known by default
-* Make the build quality of items obvious and known by default
+* Make object properties obvious and known by default
+* Make the item build quality of items obvious and known by default
 
 * **Items that are 'lost'** from the players inventory are longer un-identified.
 
@@ -3720,7 +3720,6 @@ A general design philosophy of NerfHack is to automatically identify items when 
 ### New config options
 
 * **showdamage:** Displays damage dealt by both the player and monsters. Also shows flanking bonuses and penalties if active.
-* **do_not_flip_soko:** Enables the player to choose whether they want Sokoban levels to be flipped. If enabled, a Luck penalty is incurred for each Sokoban level that is generated whilst the option is on.
 * **invweight:** Shows the weights of objects in inventory along with carry capacity and inventory slots available.
 * **autostairtravel:** Allow fast travel to stairs with < and >
 * **hide_old_spells:** This option allows the player to control whether spells with 0% retention (spells that have been forgotten) show up in the spellcasting menu.
